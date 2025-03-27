@@ -4,6 +4,8 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 // Import pages
 import Index from "./pages/Index";
@@ -38,59 +40,79 @@ import LearnPage from "./pages/Learn/LearnPage";
 import MantrasPage from "./pages/Learn/MantrasPage";
 import TopicPage from "./pages/Learn/TopicPage";
 
+// Import Auth pages
+import AuthPage from "./pages/Auth/AuthPage";
+import ProfilePage from "./pages/User/ProfilePage";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          {/* Home Page */}
-          <Route path="/" element={<Index />} />
-          
-          {/* About Section */}
-          <Route path="/about" element={<AboutPage />}>
-            <Route path="/about/our-centre" element={<OurCentre />} />
-            <Route path="/about/vedanta" element={<Vedanta />} />
-            <Route path="/about/holy-trinity" element={<HolyTrinity />} />
-            <Route path="/about/presence-in-sa" element={<PresenceInSA />} />
-          </Route>
-          
-          {/* Services Section */}
-          <Route path="/services" element={<ServicesPage />}>
-            <Route path="/services/satsangs" element={<Satsangs />} />
-            <Route path="/services/hinduism-for-children" element={<HinduismForChildren />} />
-            <Route path="/services/special-functions" element={<SpecialFunctions />} />
-            <Route path="/services/community-outreach" element={<CommunityOutreach />} />
-          </Route>
-          
-          {/* Gallery Section */}
-          <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/gallery/:categoryId" element={<GalleryAlbum />} />
-          <Route path="/gallery/:categoryId/:albumId" element={<GalleryPhotoGrid />} />
-          
-          {/* New Ashram Project Section */}
-          <Route path="/new-ashram-project" element={<NewAshramProjectPage />} />
-          <Route path="/new-ashram-project/vision" element={<VisionPage />} />
-          <Route path="/new-ashram-project/timeline" element={<TimelinePage />} />
-          <Route path="/new-ashram-project/fundraising" element={<FundraisingPage />} />
-          
-          {/* Learn Section */}
-          <Route path="/learn" element={<LearnPage />} />
-          <Route path="/learn/mantras" element={<MantrasPage />} />
-          <Route path="/learn/topics/:topicId" element={<TopicPage />} />
-          <Route path="/learn/topics/:topicId/:subtopicId" element={<TopicPage />} />
-          
-          {/* Contact Page */}
-          <Route path="/contact" element={<ContactPage />} />
-          
-          {/* 404 Page */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+    <AuthProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            {/* Home Page */}
+            <Route path="/" element={<Index />} />
+            
+            {/* About Section */}
+            <Route path="/about" element={<AboutPage />}>
+              <Route path="/about/our-centre" element={<OurCentre />} />
+              <Route path="/about/vedanta" element={<Vedanta />} />
+              <Route path="/about/holy-trinity" element={<HolyTrinity />} />
+              <Route path="/about/presence-in-sa" element={<PresenceInSA />} />
+            </Route>
+            
+            {/* Services Section */}
+            <Route path="/services" element={<ServicesPage />}>
+              <Route path="/services/satsangs" element={<Satsangs />} />
+              <Route path="/services/hinduism-for-children" element={<HinduismForChildren />} />
+              <Route path="/services/special-functions" element={<SpecialFunctions />} />
+              <Route path="/services/community-outreach" element={<CommunityOutreach />} />
+            </Route>
+            
+            {/* Gallery Section */}
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/gallery/:categoryId" element={<GalleryAlbum />} />
+            <Route path="/gallery/:categoryId/:albumId" element={<GalleryPhotoGrid />} />
+            
+            {/* New Ashram Project Section */}
+            <Route path="/new-ashram-project" element={<NewAshramProjectPage />} />
+            <Route path="/new-ashram-project/vision" element={<VisionPage />} />
+            <Route path="/new-ashram-project/timeline" element={<TimelinePage />} />
+            <Route path="/new-ashram-project/fundraising" element={<FundraisingPage />} />
+            
+            {/* Learn Section */}
+            <Route path="/learn" element={<LearnPage />} />
+            <Route path="/learn/mantras" element={<MantrasPage />} />
+            <Route path="/learn/topics/:topicId" element={<TopicPage />} />
+            <Route path="/learn/topics/:topicId/:subtopicId" element={<TopicPage />} />
+            
+            {/* Authentication and User Routes */}
+            <Route path="/auth" element={<AuthPage />} />
+            <Route path="/profile" element={
+              <ProtectedRoute>
+                <ProfilePage />
+              </ProtectedRoute>
+            } />
+            <Route path="/admin" element={
+              <ProtectedRoute requireAdmin>
+                <AdminDashboard />
+              </ProtectedRoute>
+            } />
+            
+            {/* Contact Page */}
+            <Route path="/contact" element={<ContactPage />} />
+            
+            {/* 404 Page */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </AuthProvider>
   </QueryClientProvider>
 );
 

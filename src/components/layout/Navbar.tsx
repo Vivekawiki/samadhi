@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react';
 import { navigation } from './NavbarData';
 import DesktopNavigation from './DesktopNavigation';
 import MobileNavigation from './MobileNavigation';
+import UserAccountNav from '../auth/UserAccountNav';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,11 +74,17 @@ const Navbar = () => {
             setActiveDropdown={setActiveDropdown}
           />
 
+          {/* User account navigation */}
+          <div className="hidden md:flex items-center ml-4">
+            <UserAccountNav />
+          </div>
+
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center">
+            <UserAccountNav />
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-spiritual-500"
+              className="inline-flex items-center justify-center p-2 ml-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-spiritual-500"
               aria-controls="mobile-menu"
               aria-expanded="false"
               onClick={() => setIsOpen(!isOpen)}
