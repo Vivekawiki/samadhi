@@ -15,7 +15,14 @@ import HolyTrinity from "./pages/About/HolyTrinity";
 import PresenceInSA from "./pages/About/PresenceInSA";
 import ContactPage from "./pages/Contact/ContactPage";
 
-// Import new Gallery pages
+// Import Services pages
+import ServicesPage from "./pages/Services/ServicesPage";
+import Satsangs from "./pages/Services/Satsangs";
+import HinduismForChildren from "./pages/Services/HinduismForChildren";
+import SpecialFunctions from "./pages/Services/SpecialFunctions";
+import CommunityOutreach from "./pages/Services/CommunityOutreach";
+
+// Import Gallery pages
 import GalleryPage from "./pages/Gallery/GalleryPage";
 import GalleryAlbum from "./components/gallery/GalleryAlbum";
 import GalleryPhotoGrid from "./components/gallery/GalleryPhotoGrid";
@@ -51,6 +58,14 @@ const App = () => (
             <Route path="/about/presence-in-sa" element={<PresenceInSA />} />
           </Route>
           
+          {/* Services Section */}
+          <Route path="/services" element={<ServicesPage />}>
+            <Route path="/services/satsangs" element={<Satsangs />} />
+            <Route path="/services/hinduism-for-children" element={<HinduismForChildren />} />
+            <Route path="/services/special-functions" element={<SpecialFunctions />} />
+            <Route path="/services/community-outreach" element={<CommunityOutreach />} />
+          </Route>
+          
           {/* Gallery Section */}
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/gallery/:categoryId" element={<GalleryAlbum />} />
@@ -66,9 +81,7 @@ const App = () => (
           <Route path="/learn" element={<LearnPage />} />
           <Route path="/learn/mantras" element={<MantrasPage />} />
           <Route path="/learn/topics/:topicId" element={<TopicPage />} />
-          
-          {/* Services Section */}
-          {/* Will be implemented in next phase */}
+          <Route path="/learn/topics/:topicId/:subtopicId" element={<TopicPage />} />
           
           {/* Contact Page */}
           <Route path="/contact" element={<ContactPage />} />

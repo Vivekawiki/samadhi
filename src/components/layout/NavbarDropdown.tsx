@@ -20,18 +20,18 @@ const NavbarDropdown: React.FC<NavbarDropdownProps> = ({
 }) => {
   return (
     <div className="relative group">
-      <button
+      <Link
+        to={item.href}
         className={`nav-link ${isActive(item.href) ? 'active' : ''}`}
-        onClick={onMouseEnter}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
         {item.name}
-      </button>
+      </Link>
       {/* Desktop Dropdown */}
       <div
-        className={`absolute left-0 mt-2 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition-all duration-200 transform opacity-0 scale-95 pointer-events-none ${
-          isOpen ? 'opacity-100 scale-100 pointer-events-auto' : ''
+        className={`absolute left-0 mt-2 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition-all duration-200 transform ${
+          isOpen ? 'opacity-100 scale-100 z-50' : 'opacity-0 scale-95 pointer-events-none'
         }`}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}

@@ -28,26 +28,26 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
   return (
     <div className="hidden md:block">
       <div className="flex items-center space-x-4">
-        {navigation.map((item) => (
-          <React.Fragment key={item.name}>
-            {item.dropdown ? (
-              <NavbarDropdown
-                item={item}
-                isActive={isActive}
-                isOpen={activeDropdown === item.name}
-                onMouseEnter={() => setActiveDropdown(item.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              />
-            ) : (
-              <Link
-                to={item.href}
-                className={`nav-link ${isActive(item.href) ? 'active' : ''}`}
-              >
-                {item.name}
-              </Link>
-            )}
-          </React.Fragment>
-        ))}
+        {navigation.map((item) => {
+          return item.dropdown ? (
+            <NavbarDropdown
+              key={item.name}
+              item={item}
+              isActive={isActive}
+              isOpen={activeDropdown === item.name}
+              onMouseEnter={() => setActiveDropdown(item.name)}
+              onMouseLeave={() => setActiveDropdown(null)}
+            />
+          ) : (
+            <Link
+              key={item.name}
+              to={item.href}
+              className={`nav-link ${isActive(item.href) ? 'active' : ''}`}
+            >
+              {item.name}
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
