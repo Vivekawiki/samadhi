@@ -15,6 +15,22 @@ import HolyTrinity from "./pages/About/HolyTrinity";
 import PresenceInSA from "./pages/About/PresenceInSA";
 import ContactPage from "./pages/Contact/ContactPage";
 
+// Import new Gallery pages
+import GalleryPage from "./pages/Gallery/GalleryPage";
+import GalleryAlbum from "./components/gallery/GalleryAlbum";
+import GalleryPhotoGrid from "./components/gallery/GalleryPhotoGrid";
+
+// Import New Ashram Project pages
+import NewAshramProjectPage from "./pages/NewAshramProject/NewAshramProjectPage";
+import VisionPage from "./pages/NewAshramProject/VisionPage";
+import TimelinePage from "./pages/NewAshramProject/TimelinePage";
+import FundraisingPage from "./pages/NewAshramProject/FundraisingPage";
+
+// Import Learn pages
+import LearnPage from "./pages/Learn/LearnPage";
+import MantrasPage from "./pages/Learn/MantrasPage";
+import TopicPage from "./pages/Learn/TopicPage";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -35,16 +51,23 @@ const App = () => (
             <Route path="/about/presence-in-sa" element={<PresenceInSA />} />
           </Route>
           
-          {/* Services Section */}
-          {/* Will be implemented in next phase */}
-          
           {/* Gallery Section */}
-          {/* Will be implemented in next phase */}
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/gallery/:categoryId" element={<GalleryAlbum />} />
+          <Route path="/gallery/:categoryId/:albumId" element={<GalleryPhotoGrid />} />
           
           {/* New Ashram Project Section */}
-          {/* Will be implemented in next phase */}
+          <Route path="/new-ashram-project" element={<NewAshramProjectPage />} />
+          <Route path="/new-ashram-project/vision" element={<VisionPage />} />
+          <Route path="/new-ashram-project/timeline" element={<TimelinePage />} />
+          <Route path="/new-ashram-project/fundraising" element={<FundraisingPage />} />
           
           {/* Learn Section */}
+          <Route path="/learn" element={<LearnPage />} />
+          <Route path="/learn/mantras" element={<MantrasPage />} />
+          <Route path="/learn/topics/:topicId" element={<TopicPage />} />
+          
+          {/* Services Section */}
           {/* Will be implemented in next phase */}
           
           {/* Contact Page */}
