@@ -1,0 +1,72 @@
+
+import React from 'react';
+import SectionHeader from '../shared/SectionHeader';
+import Card from '../shared/Card';
+import { BookOpen, Heart, Users } from 'lucide-react';
+
+// Service items with icons
+const services = [
+  {
+    title: "Spiritual Gatherings",
+    description: "Join our regular satsangs, meditation sessions, and spiritual discourses based on the teachings of Vedanta philosophy.",
+    icon: <Users className="w-12 h-12 text-spiritual-500" />,
+    link: "/services/satsangs"
+  },
+  {
+    title: "Hinduism for Children",
+    description: "Educational programs designed specifically for children to learn about Hindu values, philosophy, and culture in an engaging way.",
+    icon: <BookOpen className="w-12 h-12 text-spiritual-500" />,
+    link: "/services/hinduism-for-children"
+  },
+  {
+    title: "Community Outreach",
+    description: "Various humanitarian services including nutrition programs, women empowerment initiatives, and educational support for the underprivileged.",
+    icon: <Heart className="w-12 h-12 text-spiritual-500" />,
+    link: "/services/community-outreach"
+  }
+];
+
+const ServicesPreview = () => {
+  return (
+    <section className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeader
+          title="Our Services"
+          subtitle="Explore the various spiritual, educational, and humanitarian services we offer"
+        />
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+          {services.map((service, index) => (
+            <div key={index} className="flex flex-col items-center text-center p-6 bg-gray-50 rounded-lg hover:shadow-md transition-all duration-300 card-hover">
+              <div className="mb-4">{service.icon}</div>
+              <h3 className="text-xl font-heading font-semibold mb-3">{service.title}</h3>
+              <p className="text-gray-600 mb-4">{service.description}</p>
+              <a 
+                href={service.link} 
+                className="mt-auto inline-flex items-center text-spiritual-600 hover:text-spiritual-700 font-medium"
+              >
+                Learn More
+                <svg 
+                  className="ml-1 w-4 h-4" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth="2" 
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ServicesPreview;
