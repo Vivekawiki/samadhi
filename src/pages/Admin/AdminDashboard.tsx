@@ -25,12 +25,15 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+// Define the app_role type to match the Supabase enum
+type AppRole = 'admin' | 'moderator' | 'user';
+
 const AdminDashboard = () => {
   const [users, setUsers] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedUser, setSelectedUser] = useState<any>(null);
-  const [selectedRole, setSelectedRole] = useState<string>('');
+  const [selectedRole, setSelectedRole] = useState<AppRole | ''>('');
   const [dialogOpen, setDialogOpen] = useState(false);
   const { toast } = useToast();
 
@@ -91,7 +94,7 @@ const AdminDashboard = () => {
           .from('user_roles')
           .delete()
           .eq('user_id', selectedUser.id)
-          .eq('role', selectedRole);
+          .eq('role', selectedRole as AppRole);
           
         if (error) throw error;
         
@@ -105,7 +108,7 @@ const AdminDashboard = () => {
           .from('user_roles')
           .insert({
             user_id: selectedUser.id,
-            role: selectedRole
+            role: selectedRole as AppRole
           });
           
         if (error) throw error;
@@ -243,7 +246,7 @@ const AdminDashboard = () => {
           <div className="space-y-4 py-4">
             <div className="space-y-2">
               <Label htmlFor="role">Select Role</Label>
-              <Select onValueChange={value => setSelectedRole(value)}>
+              <Select onValueChange={(value: AppRole) => setSelectedRole(value)}>
                 <SelectTrigger>
                   <SelectValue placeholder="Select a role" />
                 </SelectTrigger>
