@@ -30,6 +30,14 @@ export const navigation: NavItem[] = [
   },
   { name: 'Gallery', href: '/gallery' },
   { name: 'New Ashram Project', href: '/new-ashram-project' },
-  { name: 'Learn', href: '/learn' },
+  { 
+    name: 'Learn', 
+    href: '/learn',
+    dropdown: [
+      { name: 'Topics', href: '/learn/topics/core-concepts' },
+      { name: 'Mantras', href: '/learn/mantras' },
+      { name: 'Learning Community', href: '/learn/community' },
+    ]
+  },
   { name: 'Contact', href: '/contact' },
 ];

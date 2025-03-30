@@ -39,6 +39,7 @@ import FundraisingPage from "./pages/NewAshramProject/FundraisingPage";
 import LearnPage from "./pages/Learn/LearnPage";
 import MantrasPage from "./pages/Learn/MantrasPage";
 import TopicPage from "./pages/Learn/TopicPage";
+import LearningCommunity from "./pages/Learn/LearningCommunity";
 
 // Import Auth pages
 import AuthPage from "./pages/Auth/AuthPage";
@@ -90,6 +91,7 @@ const App = () => (
             <Route path="/learn/mantras" element={<MantrasPage />} />
             <Route path="/learn/topics/:topicId" element={<TopicPage />} />
             <Route path="/learn/topics/:topicId/:subtopicId" element={<TopicPage />} />
+            <Route path="/learn/community" element={<LearningCommunity />} />
             
             {/* Authentication and User Routes */}
             <Route path="/auth" element={<AuthPage />} />

@@ -31,7 +31,7 @@ const LearnPage = () => {
               <p className="text-gray-600 mb-4">
                 Structured learning materials organized by topics and suitable for different age groups.
               </p>
-              <Button href="/learn/topics" variant="outline">
+              <Button href="/learn/topics/core-concepts" variant="outline">
                 Explore Topics
               </Button>
             </div>
