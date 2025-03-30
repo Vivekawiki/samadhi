@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { TopicData } from '../../data/topicsData';
+import TopicCard from './TopicCard';
 
 interface SubtopicListProps {
   topic: TopicData;
@@ -16,16 +16,13 @@ const SubtopicList: React.FC<SubtopicListProps> = ({ topic, topicId }) => {
       {topic.subtopics && topic.subtopics.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
           {topic.subtopics.map((subtopic) => (
-            <Link 
+            <TopicCard
               key={subtopic.id}
-              to={`/learn/topics/${topicId}/${subtopic.id}`}
-              className="block group"
-            >
-              <div className="h-full p-6 border border-gray-100 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300 bg-white">
-                <h4 className="text-xl font-heading font-semibold mb-2 group-hover:text-spiritual-500 transition-colors">{subtopic.title}</h4>
-                <p className="text-gray-600">{subtopic.description}</p>
-              </div>
-            </Link>
+              id={subtopic.id}
+              title={subtopic.title}
+              description={subtopic.description}
+              link={`/learn/topics/${topicId}/${subtopic.id}`}
+            />
           ))}
         </div>
       ) : (
