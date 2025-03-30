@@ -2,7 +2,7 @@
 import React from 'react';
 import SectionHeader from '../shared/SectionHeader';
 import Card from '../shared/Card';
-import { BookOpen, Heart, Users, Child, Star } from 'lucide-react';
+import { BookOpen, Heart, Users, Baby, Star } from 'lucide-react';
 
 // Service items with icons
 const services = [
@@ -15,7 +15,7 @@ const services = [
   {
     title: "Hinduism for Children",
     description: "Fun educational programs designed specifically for children to learn about Hindu values, philosophy, and culture in an engaging way.",
-    icon: <Child className="w-12 h-12 text-spiritual-500" />,
+    icon: <Baby className="w-12 h-12 text-spiritual-500" />,
     link: "/services/hinduism-for-children",
     isChildThemed: true
   },

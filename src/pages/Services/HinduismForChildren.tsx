@@ -2,16 +2,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../components/shared/Button';
-import { BookOpen, Star, Sun, Heart, Child } from 'lucide-react';
+import { BookOpen, Star, Sun, Heart, Baby } from 'lucide-react';
 
 const HinduismForChildren = () => {
   return (
     <div className="prose prose-lg max-w-none animate-fade-in">
       <div className="mb-8 text-center">
         <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-4 flex items-center justify-center gap-3">
-          <Child className="w-8 h-8 text-spiritual-500" />
+          <Baby className="w-8 h-8 text-spiritual-500" />
           Hinduism for Children
-          <Child className="w-8 h-8 text-spiritual-500" />
+          <Baby className="w-8 h-8 text-spiritual-500" />
         </h2>
         <div className="w-24 h-2 bg-spiritual-300 mx-auto rounded-full"></div>
       </div>
@@ -47,7 +47,7 @@ const HinduismForChildren = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-blue-50 p-6 rounded-2xl border-2 border-blue-100 shadow-sm">
           <h4 className="text-xl font-bold mb-3 text-blue-700 flex items-center gap-2">
-            <Child className="w-5 h-5" />
+            <Baby className="w-5 h-5" />
             Regular Classes
           </h4>
           <p className="mb-1"><span className="font-medium">Day:</span> Every Sunday</p>
@@ -57,7 +57,7 @@ const HinduismForChildren = () => {
         
         <div className="bg-green-50 p-6 rounded-2xl border-2 border-green-100 shadow-sm">
           <h4 className="text-xl font-bold mb-3 text-green-700 flex items-center gap-2">
-            <Child className="w-5 h-5" />
+            <Baby className="w-5 h-5" />
             Teen Group
           </h4>
           <p className="mb-1"><span className="font-medium">Day:</span> First and Third Saturday</p>
