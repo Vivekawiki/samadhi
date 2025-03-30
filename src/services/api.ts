@@ -26,7 +26,13 @@ export const api = {
       return handleResponse(response);
     },
     
-    register: async (data: { email: string; password: string; password_confirmation: string; first_name?: string; last_name?: string }) => {
+    register: async (data: { 
+      email: string; 
+      password: string; 
+      password_confirmation: string; 
+      first_name?: string; 
+      last_name?: string 
+    }) => {
       const response = await fetch(`${API_URL}/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -61,6 +67,46 @@ export const api = {
       });
       return handleResponse(response);
     },
+
+    verifyEmail: async (token: string) => {
+      const response = await fetch(`${API_URL}/email/verify/${token}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      });
+      return handleResponse(response);
+    },
+    
+    resendVerification: async (email: string) => {
+      const response = await fetch(`${API_URL}/email/resend`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      return handleResponse(response);
+    },
+    
+    forgotPassword: async (email: string) => {
+      const response = await fetch(`${API_URL}/password/email`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      return handleResponse(response);
+    },
+    
+    resetPassword: async (data: {
+      email: string;
+      password: string;
+      password_confirmation: string;
+      token: string;
+    }) => {
+      const response = await fetch(`${API_URL}/password/reset`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      return handleResponse(response);
+    },
   },
   
   // User profile endpoints
@@ -76,6 +122,19 @@ export const api = {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
+      });
+      return handleResponse(response);
+    },
+    
+    get: async () => {
+      const token = getToken();
+      if (!token) throw new Error('No auth token found');
+      
+      const response = await fetch(`${API_URL}/profile`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
       });
       return handleResponse(response);
     },

@@ -1,6 +1,7 @@
 
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { api } from '@/services/api';
 
 // Define the User type to match what will come from the Laravel API
 type User = {
@@ -30,8 +31,6 @@ type AuthContextType = {
   isModerator: boolean;
 };
 
-const API_URL = 'http://localhost:8000/api'; // Update with your Laravel API URL
-
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -56,23 +55,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }
         
         // Verify the token with the API
-        const response = await fetch(`${API_URL}/user`, {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-        });
+        const userData = await api.auth.getUser();
         
-        if (response.ok) {
-          const userData = await response.json();
-          setUser(userData.user);
-          setProfile(userData.profile);
-          setIsAdmin(userData.roles?.includes('admin') || false);
-          setIsModerator(userData.roles?.includes('moderator') || false);
-        } else {
-          // If token is invalid, clear it
-          localStorage.removeItem('auth_token');
-        }
+        setUser(userData.user);
+        setProfile(userData.profile);
+        setIsAdmin(userData.roles?.includes('admin') || false);
+        setIsModerator(userData.roles?.includes('moderator') || false);
       } catch (error) {
         console.error('Auth status check failed:', error);
         localStorage.removeItem('auth_token');
@@ -86,26 +74,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const signUp = async (email: string, password: string, metadata?: { first_name?: string; last_name?: string }) => {
     try {
-      const response = await fetch(`${API_URL}/register`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          password,
-          password_confirmation: password, // Laravel typically requires this
-          first_name: metadata?.first_name,
-          last_name: metadata?.last_name,
-        }),
+      const data = await api.auth.register({
+        email,
+        password,
+        password_confirmation: password,
+        first_name: metadata?.first_name,
+        last_name: metadata?.last_name,
       });
       
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Registration failed');
-      }
-      
-      const data = await response.json();
       toast({
         title: "Registration successful",
         description: "Please check your email for verification instructions",
@@ -124,23 +100,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const signIn = async (email: string, password: string) => {
     try {
-      const response = await fetch(`${API_URL}/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
-      
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Login failed');
-      }
-      
-      const data = await response.json();
+      const data = await api.auth.login(email, password);
       
       // Store the token
       localStorage.setItem('auth_token', data.token);
@@ -164,20 +124,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const signOut = async () => {
     try {
-      const token = localStorage.getItem('auth_token');
+      await api.auth.logout();
       
-      if (token) {
-        // Call the logout endpoint
-        await fetch(`${API_URL}/logout`, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-        });
-      }
-      
-      // Clear local state and token regardless of API success
+      // Clear local state and token
       localStorage.removeItem('auth_token');
       setUser(null);
       setProfile(null);

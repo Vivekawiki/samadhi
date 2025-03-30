@@ -87,10 +87,10 @@ const AuthPage = () => {
 
   return (
     <PageLayout title="Authentication">
-      <div className="flex items-center justify-center min-h-[80vh] px-4">
-        <Card className="w-full max-w-md">
+      <div className="flex items-center justify-center min-h-[80vh] px-4 mandala-bg">
+        <Card className="w-full max-w-md border-2 border-indian-saffron/20 decorative-border">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold tracking-tight">Welcome to the Centre</CardTitle>
+            <CardTitle className="text-2xl font-bold tracking-tight text-indian-blue">Welcome to the Centre</CardTitle>
             <CardDescription>
               Sign in to your account or create a new one
             </CardDescription>
@@ -126,7 +126,7 @@ const AuthPage = () => {
                       required
                     />
                   </div>
-                  <Button type="submit" className="w-full" disabled={loading}>
+                  <Button type="submit" className="w-full bg-indian-saffron hover:bg-indian-saffron/90" disabled={loading}>
                     {loading ? "Signing in..." : "Sign In"}
                   </Button>
                 </form>
@@ -176,7 +176,7 @@ const AuthPage = () => {
                       required
                     />
                   </div>
-                  <Button type="submit" className="w-full" disabled={loading}>
+                  <Button type="submit" className="w-full bg-indian-saffron hover:bg-indian-saffron/90" disabled={loading}>
                     {loading ? "Creating account..." : "Create Account"}
                   </Button>
                 </form>

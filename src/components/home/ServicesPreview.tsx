@@ -9,27 +9,27 @@ const services = [
   {
     title: "Spiritual Gatherings",
     description: "Join our regular satsangs, meditation sessions, and spiritual discourses based on the teachings of Vedanta philosophy.",
-    icon: <Users className="w-12 h-12 text-spiritual-500" />,
+    icon: <Users className="w-12 h-12 text-indian-saffron" />,
     link: "/services/satsangs"
   },
   {
     title: "Hinduism for Children",
     description: "Fun educational programs designed specifically for children to learn about Hindu values, philosophy, and culture in an engaging way.",
-    icon: <Baby className="w-12 h-12 text-spiritual-500" />,
+    icon: <Baby className="w-12 h-12 text-indian-saffron" />,
     link: "/services/hinduism-for-children",
     isChildThemed: true
   },
   {
     title: "Community Outreach",
     description: "Various humanitarian services including nutrition programs, women empowerment initiatives, and educational support for the underprivileged.",
-    icon: <Heart className="w-12 h-12 text-spiritual-500" />,
+    icon: <Heart className="w-12 h-12 text-indian-saffron" />,
     link: "/services/community-outreach"
   }
 ];
 
 const ServicesPreview = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-indian-cream mandala-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Our Services"
@@ -42,15 +42,15 @@ const ServicesPreview = () => {
               key={index} 
               className={`flex flex-col items-center text-center p-6 ${
                 service.isChildThemed 
-                  ? "bg-gradient-to-br from-spiritual-50 to-yellow-50 rounded-2xl border-2 border-spiritual-100" 
-                  : "bg-gray-50 rounded-lg"
+                  ? "bg-gradient-to-br from-indian-cream to-yellow-50 rounded-2xl border-2 border-indian-saffron" 
+                  : "bg-white rounded-lg border border-indian-saffron/30"
               } hover:shadow-md transition-all duration-300 card-hover`}
             >
               <div className={`mb-4 ${service.isChildThemed ? "animate-bounce" : ""}`}>
                 {service.icon}
-                {service.isChildThemed && <Star className="w-6 h-6 text-spiritual-500 ml-8 -mt-3" />}
+                {service.isChildThemed && <Star className="w-6 h-6 text-indian-gold ml-8 -mt-3" />}
               </div>
-              <h3 className={`text-xl font-heading font-semibold mb-3 ${service.isChildThemed ? "text-spiritual-600" : ""}`}>
+              <h3 className={`text-xl font-heading font-semibold mb-3 ${service.isChildThemed ? "text-indian-maroon" : "text-indian-blue"}`}>
                 {service.title}
               </h3>
               <p className="text-gray-600 mb-4">{service.description}</p>
@@ -58,8 +58,8 @@ const ServicesPreview = () => {
                 href={service.link} 
                 className={`mt-auto inline-flex items-center ${
                   service.isChildThemed 
-                    ? "text-spiritual-600 hover:text-spiritual-700" 
-                    : "text-spiritual-600 hover:text-spiritual-700"
+                    ? "text-indian-maroon hover:text-indian-vermilion" 
+                    : "text-indian-saffron hover:text-indian-vermilion"
                 } font-medium`}
               >
                 Learn More

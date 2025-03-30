@@ -19,7 +19,7 @@ const UserAccountNav = () => {
   
   if (!user) {
     return (
-      <Button variant="outline" size="sm" asChild>
+      <Button variant="outline" size="sm" asChild className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10">
         <Link to="/auth">Sign In</Link>
       </Button>
     );
@@ -36,13 +36,13 @@ const UserAccountNav = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="relative h-8 w-8 rounded-full">
-          <Avatar className="h-8 w-8">
+        <Button variant="ghost" size="sm" className="relative h-8 w-8 rounded-full border border-indian-saffron/30">
+          <Avatar className="h-8 w-8 bg-gradient-to-br from-indian-saffron/80 to-indian-gold/80 text-white">
             <AvatarFallback>{initials}</AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-56">
+      <DropdownMenuContent align="end" className="w-56 border border-indian-saffron/20">
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-none">{fullName}</p>
@@ -52,7 +52,7 @@ const UserAccountNav = () => {
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
           <Link to="/profile" className="cursor-pointer flex w-full items-center">
-            <User className="mr-2 h-4 w-4" />
+            <User className="mr-2 h-4 w-4 text-indian-saffron" />
             <span>Profile</span>
           </Link>
         </DropdownMenuItem>
@@ -60,7 +60,7 @@ const UserAccountNav = () => {
         {isAdmin && (
           <DropdownMenuItem asChild>
             <Link to="/admin" className="cursor-pointer flex w-full items-center">
-              <ShieldCheck className="mr-2 h-4 w-4" />
+              <ShieldCheck className="mr-2 h-4 w-4 text-indian-saffron" />
               <span>Admin Dashboard</span>
             </Link>
           </DropdownMenuItem>
@@ -68,7 +68,7 @@ const UserAccountNav = () => {
         
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => signOut()} className="cursor-pointer">
-          <LogOut className="mr-2 h-4 w-4" />
+          <LogOut className="mr-2 h-4 w-4 text-indian-saffron" />
           <span>Sign out</span>
         </DropdownMenuItem>
       </DropdownMenuContent>

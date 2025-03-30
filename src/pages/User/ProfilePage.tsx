@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import PageLayout from '@/components/layout/PageLayout';
-import { supabase } from '@/integrations/supabase/client';
+import { api } from '@/services/api';
 
 const ProfilePage = () => {
   const { user, profile, signOut } = useAuth();
@@ -30,16 +30,10 @@ const ProfilePage = () => {
     try {
       setLoading(true);
       
-      const { error } = await supabase
-        .from('profiles')
-        .update({ 
-          first_name: firstName,
-          last_name: lastName,
-          updated_at: new Date().toISOString()
-        })
-        .eq('id', user.id);
-
-      if (error) throw error;
+      await api.profile.update({
+        first_name: firstName,
+        last_name: lastName,
+      });
 
       toast({
         title: "Profile updated",
@@ -58,10 +52,10 @@ const ProfilePage = () => {
 
   return (
     <PageLayout title="Your Profile">
-      <div className="container max-w-4xl py-12">
-        <Card>
+      <div className="container max-w-4xl py-12 mandala-bg">
+        <Card className="border-2 border-indian-saffron/20 decorative-border">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold tracking-tight">Your Profile</CardTitle>
+            <CardTitle className="text-2xl font-bold tracking-tight text-indian-blue">Your Profile</CardTitle>
             <CardDescription>
               Update your personal information
             </CardDescription>
@@ -104,10 +98,19 @@ const ProfilePage = () => {
               </div>
               
               <div className="flex justify-between">
-                <Button type="submit" disabled={loading}>
+                <Button 
+                  type="submit" 
+                  disabled={loading}
+                  className="bg-indian-saffron hover:bg-indian-saffron/90"
+                >
                   {loading ? "Saving..." : "Save Changes"}
                 </Button>
-                <Button variant="outline" type="button" onClick={signOut}>
+                <Button 
+                  variant="outline" 
+                  type="button" 
+                  onClick={signOut}
+                  className="border-indian-saffron/30 text-indian-saffron hover:bg-indian-saffron/10"
+                >
                   Sign Out
                 </Button>
               </div>

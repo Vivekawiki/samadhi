@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -64,17 +63,29 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				spiritual: {
-					50: '#fff7ed',
-					100: '#ffedd5',
-					200: '#fed7aa',
-					300: '#fdba74',
-					400: '#fb923c',
-					500: '#f97316',
-					600: '#ea580c',
-					700: '#c2410c',
-					800: '#9a3412',
-					900: '#7c2d12',
-					950: '#431407',
+					50: '#FEF8E7',
+					100: '#FDEED0',
+					200: '#FADDA0',
+					300: '#F7CB71',
+					400: '#F4BA41',
+					500: '#F1A912',
+					600: '#C1870E',
+					700: '#91650B',
+					800: '#604307',
+					900: '#302204',
+					950: '#181102',
+				},
+				indian: {
+					saffron: '#FF9933',
+					green: '#138808',
+					blue: '#000080',
+					white: '#FFFFFF',
+					chakra: '#0000FF',
+					maroon: '#800000',
+					cream: '#FFF5E1',
+					gold: '#FFD700',
+					turquoise: '#40E0D0',
+					vermilion: '#E34234',
 				}
 			},
 			borderRadius: {
@@ -144,6 +155,14 @@ export default {
 						transform: 'scale(1)',
 						opacity: '1'
 					}
+				},
+				'mandala-rotate': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
+				'mandala-pulse': {
+					'0%, 100%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(1.05)' }
 				}
 			},
 			animation: {
@@ -153,11 +172,17 @@ export default {
 				'fade-out': 'fade-out 0.7s ease-out',
 				'slide-in': 'slide-in 0.7s ease-out',
 				'slide-up': 'slide-up 0.5s ease-out',
-				'zoom-in': 'zoom-in 0.7s ease-out'
+				'zoom-in': 'zoom-in 0.7s ease-out',
+				'mandala-spin': 'mandala-rotate 30s linear infinite',
+				'mandala-pulse': 'mandala-pulse 10s ease-in-out infinite'
 			},
 			fontFamily: {
 				heading: ['Playfair Display', 'serif'],
 				sans: ['Inter', 'sans-serif']
+			},
+			backgroundImage: {
+				'paisley-pattern': "url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><path fill=\"%23FFA500\" opacity=\"0.05\" d=\"M50,0C22.4,0,0,22.4,0,50s22.4,50,50,50s50-22.4,50-50S77.6,0,50,0z M50,88.9C28.5,88.9,11.1,71.5,11.1,50 S28.5,11.1,50,11.1S88.9,28.5,88.9,50S71.5,88.9,50,88.9z\"/></svg>')",
+				'lotus-pattern': "url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><path fill=\"%23FFA500\" opacity=\"0.05\" d=\"M50,30c0,0-20-20-40,0s0,40,0,40s20,20,40,0s40-20,40-40S70,10,50,30z\"/></svg>')"
 			}
 		}
 	},

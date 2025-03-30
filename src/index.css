@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,7 +7,7 @@
 
 @layer base {
   :root {
-    --background: 30 33% 99%;
+    --background: 35 70% 97%;
     --foreground: 20 14.3% 4.1%;
 
     --card: 0 0% 100%;
@@ -16,16 +16,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 20 14.3% 4.1%;
 
-    --primary: 24 94.5% 53%;
+    --primary: 35 95% 47%;
     --primary-foreground: 60 9.1% 97.8%;
 
-    --secondary: 60 4.8% 95.9%;
+    --secondary: 35 38% 92%;
     --secondary-foreground: 24 9.8% 10%;
 
-    --muted: 60 4.8% 95.9%;
+    --muted: 35 25% 92%;
     --muted-foreground: 25 5.3% 44.7%;
 
-    --accent: 60 4.8% 95.9%;
+    --accent: 35 38% 92%;
     --accent-foreground: 24 9.8% 10%;
 
     --destructive: 0 84.2% 60.2%;
@@ -33,18 +33,18 @@
 
     --border: 20 5.9% 90%;
     --input: 20 5.9% 90%;
-    --ring: 24 94.5% 53%;
+    --ring: 35 95% 47%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-background: 35 70% 98%;
+    --sidebar-foreground: 20 5.3% 26.1%;
+    --sidebar-primary: 35 95% 47%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 35 38% 92%;
+    --sidebar-accent-foreground: 20 5.9% 10%;
+    --sidebar-border: 35 13% 91%;
+    --sidebar-ring: 35 95% 47%;
   }
 
   * {
@@ -53,7 +53,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-sans antialiased bg-paisley-pattern;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -95,10 +95,30 @@
   }
   
   .nav-link {
-    @apply relative px-3 py-2 text-foreground/80 transition-colors hover:text-foreground/100 before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-spiritual-500 before:transition-all hover:before:w-full;
+    @apply relative px-3 py-2 text-foreground/80 transition-colors hover:text-foreground/100 before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-indian-saffron before:transition-all hover:before:w-full;
   }
   
   .nav-link.active {
     @apply text-foreground before:w-full;
+  }
+  
+  .indian-border {
+    @apply border-2 border-indian-saffron rounded-lg;
+  }
+  
+  .indian-card {
+    @apply bg-gradient-to-br from-indian-cream to-white p-6 shadow-md rounded-lg border-t-4 border-indian-saffron;
+  }
+  
+  .indian-section {
+    @apply bg-gradient-to-r from-indian-cream to-white py-12;
+  }
+  
+  .decorative-border {
+    @apply relative before:absolute before:content-[''] before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-indian-saffron before:via-indian-gold before:to-indian-saffron;
+  }
+  
+  .mandala-bg {
+    @apply relative before:absolute before:inset-0 before:bg-lotus-pattern before:opacity-5 before:bg-repeat;
   }
 }
