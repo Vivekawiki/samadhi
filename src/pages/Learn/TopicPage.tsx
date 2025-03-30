@@ -259,6 +259,7 @@ const TopicPage = () => {
     );
   }
   
+  // Get topic data once, then use it throughout the component
   const topic = topicsData[topicId as keyof typeof topicsData];
   
   // If a subtopic is specified, show that content
@@ -295,7 +296,7 @@ const TopicPage = () => {
     );
   }
   
-  const topic = topicsData[topicId as keyof typeof topicsData];
+  // No need to redefine topic here since we already defined it above
   
   return (
     <PageLayout title={`Learn - ${topic.title}`}>
