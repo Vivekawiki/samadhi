@@ -52,8 +52,8 @@ const ProfilePage = () => {
 
   return (
     <PageLayout title="Your Profile">
-      <div className="container max-w-4xl py-12 mandala-bg">
-        <Card className="border-2 border-indian-saffron/20 decorative-border">
+      <div className="container max-w-4xl py-12">
+        <Card className="border-2 border-indian-saffron/20">
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl font-bold tracking-tight text-indian-blue">Your Profile</CardTitle>
             <CardDescription>

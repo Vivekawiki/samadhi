@@ -46,6 +46,11 @@ import AuthPage from "./pages/Auth/AuthPage";
 import ProfilePage from "./pages/User/ProfilePage";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 
+// Import Dashboard pages
+import StudentDashboard from "./pages/Dashboard/StudentDashboard";
+import TeacherDashboard from "./pages/Dashboard/TeacherDashboard";
+import AdminDashboardNew from "./pages/Dashboard/AdminDashboard";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -105,6 +110,11 @@ const App = () => (
                 <AdminDashboard />
               </ProtectedRoute>
             } />
+
+            {/* Dashboard Routes */}
+            <Route path="/dashboard/student" element={<StudentDashboard />} />
+            <Route path="/dashboard/teacher" element={<TeacherDashboard />} />
+            <Route path="/dashboard/admin" element={<AdminDashboardNew />} />
             
             {/* Contact Page */}
             <Route path="/contact" element={<ContactPage />} />
