@@ -1,164 +1,173 @@
-
-import React, { createContext, useState, useContext, useEffect } from 'react';
-import { useToast } from '@/hooks/use-toast';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 import { api } from '@/services/api';
+import { useToast } from '@/hooks/use-toast';
 
-// Define the User type to match what will come from the Laravel API
-type User = {
+// Define types
+interface User {
   id: string;
   email: string;
-  first_name?: string;
-  last_name?: string;
-};
+}
 
-type Profile = {
+interface Profile {
   id: string;
-  first_name?: string;
-  last_name?: string;
-  avatar_url?: string;
-  created_at: string;
-  updated_at: string;
-};
+  first_name: string | null;
+  last_name: string | null;
+  avatar_url: string | null;
+}
 
-type AuthContextType = {
+interface AuthContextType {
   user: User | null;
   profile: Profile | null;
-  isLoading: boolean;
-  signUp: (email: string, password: string, metadata?: { first_name?: string; last_name?: string }) => Promise<any>;
-  signIn: (email: string, password: string) => Promise<any>;
-  signOut: () => Promise<void>;
   isAdmin: boolean;
-  isModerator: boolean;
-};
+  loading: boolean;
+  signIn: (email: string, password: string) => Promise<{ success: boolean; error?: any }>;
+  signUp: (email: string, password: string, userData: { firstName?: string; lastName?: string }) => Promise<{ success: boolean; error?: any }>;
+  signOut: () => Promise<void>;
+}
 
+// Create context
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+// Hook for using the AuthContext
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+};
+
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [isModerator, setIsModerator] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { toast } = useToast();
 
-  // Check if user is logged in on initial load
+  // Load user on initial render
   useEffect(() => {
-    const checkAuthStatus = async () => {
-      setIsLoading(true);
+    const loadUser = async () => {
       try {
-        // Get the token from localStorage
-        const token = localStorage.getItem('auth_token');
+        setLoading(true);
+        const currentUser = await api.auth.getCurrentUser();
         
-        if (!token) {
-          setIsLoading(false);
-          return;
+        if (currentUser) {
+          setUser(currentUser);
+          
+          // Load profile
+          const userProfile = await api.profile.get(currentUser.id);
+          setProfile(userProfile);
+          
+          // Check admin role
+          const hasAdminRole = await api.roles.check('admin');
+          setIsAdmin(hasAdminRole);
         }
-        
-        // Verify the token with the API
-        const userData = await api.auth.getUser();
-        
-        setUser(userData.user);
-        setProfile(userData.profile);
-        setIsAdmin(userData.roles?.includes('admin') || false);
-        setIsModerator(userData.roles?.includes('moderator') || false);
       } catch (error) {
-        console.error('Auth status check failed:', error);
-        localStorage.removeItem('auth_token');
+        console.error("Failed to load user:", error);
       } finally {
-        setIsLoading(false);
+        setLoading(false);
       }
     };
     
-    checkAuthStatus();
+    loadUser();
   }, []);
 
-  const signUp = async (email: string, password: string, metadata?: { first_name?: string; last_name?: string }) => {
-    try {
-      const data = await api.auth.register({
-        email,
-        password,
-        password_confirmation: password,
-        first_name: metadata?.first_name,
-        last_name: metadata?.last_name,
-      });
-      
-      toast({
-        title: "Registration successful",
-        description: "Please check your email for verification instructions",
-      });
-      
-      return data;
-    } catch (error: any) {
-      toast({
-        title: "Sign up failed",
-        description: error.message,
-        variant: "destructive"
-      });
-      throw error;
-    }
-  };
-
+  // Sign in user
   const signIn = async (email: string, password: string) => {
     try {
-      const data = await api.auth.login(email, password);
+      setLoading(true);
+      const user = await api.auth.login(email, password);
+      setUser(user);
       
-      // Store the token
-      localStorage.setItem('auth_token', data.token);
+      // Load profile
+      const userProfile = await api.profile.get(user.id);
+      setProfile(userProfile);
       
-      // Set user data
-      setUser(data.user);
-      setProfile(data.profile);
-      setIsAdmin(data.roles?.includes('admin') || false);
-      setIsModerator(data.roles?.includes('moderator') || false);
+      // Check admin role
+      const hasAdminRole = await api.roles.check('admin');
+      setIsAdmin(hasAdminRole);
       
-      return data;
+      toast({
+        title: "Welcome back!",
+        description: "You've successfully signed in.",
+      });
+      
+      return { success: true };
     } catch (error: any) {
       toast({
         title: "Sign in failed",
-        description: error.message,
-        variant: "destructive"
+        description: error.message || "Could not sign you in. Please try again.",
+        variant: "destructive",
       });
-      throw error;
+      return { success: false, error };
+    } finally {
+      setLoading(false);
     }
   };
 
+  // Sign up user
+  const signUp = async (email: string, password: string, userData: { firstName?: string; lastName?: string }) => {
+    try {
+      setLoading(true);
+      const user = await api.auth.register(email, password, {
+        first_name: userData.firstName,
+        last_name: userData.lastName,
+      });
+      
+      setUser(user);
+      
+      // Load profile
+      const userProfile = await api.profile.get(user.id);
+      setProfile(userProfile);
+      
+      // By default, new users are not admins
+      setIsAdmin(false);
+      
+      toast({
+        title: "Account created",
+        description: "Your account has been successfully created.",
+      });
+      
+      return { success: true };
+    } catch (error: any) {
+      toast({
+        title: "Sign up failed",
+        description: error.message || "Could not create your account. Please try again.",
+        variant: "destructive",
+      });
+      return { success: false, error };
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Sign out
   const signOut = async () => {
     try {
       await api.auth.logout();
-      
-      // Clear local state and token
-      localStorage.removeItem('auth_token');
       setUser(null);
       setProfile(null);
       setIsAdmin(false);
-      setIsModerator(false);
-    } catch (error: any) {
+      
       toast({
-        title: "Sign out failed",
-        description: error.message,
-        variant: "destructive"
+        title: "Signed out",
+        description: "You've been successfully signed out.",
       });
+    } catch (error) {
+      console.error("Error signing out:", error);
     }
   };
 
+  // Value object
   const value = {
     user,
     profile,
-    isLoading,
-    signUp,
-    signIn,
-    signOut,
     isAdmin,
-    isModerator
+    loading,
+    signIn,
+    signUp,
+    signOut,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-};
-
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
 };

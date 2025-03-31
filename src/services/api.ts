@@ -1,173 +1,78 @@
 
-const API_URL = 'http://localhost:8000/api'; // Update with your Laravel API URL
+import { auth } from './auth';
+import { db } from '@/db/sqlite';
 
-// Helper function to get the auth token from localStorage
-const getToken = () => localStorage.getItem('auth_token');
-
-// Helper to handle common API response errors
-const handleResponse = async (response: Response) => {
-  if (!response.ok) {
-    const errorData = await response.json().catch(() => ({}));
-    throw new Error(errorData.message || `Error: ${response.status}`);
-  }
-  return response.json();
+// Get token from localStorage
+const getToken = () => {
+  return localStorage.getItem('authToken');
 };
 
-// API methods
+// API service
 export const api = {
-  // Auth endpoints
   auth: {
+    register: async (email: string, password: string, userData: { first_name?: string; last_name?: string }) => {
+      const result = await auth.signUp(email, password, userData);
+      localStorage.setItem('authToken', result.token);
+      return result.user;
+    },
     login: async (email: string, password: string) => {
-      const response = await fetch(`${API_URL}/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
-      return handleResponse(response);
+      const result = await auth.signIn(email, password);
+      localStorage.setItem('authToken', result.token);
+      return result.user;
     },
-    
-    register: async (data: { 
-      email: string; 
-      password: string; 
-      password_confirmation: string; 
-      first_name?: string; 
-      last_name?: string 
-    }) => {
-      const response = await fetch(`${API_URL}/register`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-      return handleResponse(response);
-    },
-    
     logout: async () => {
       const token = getToken();
-      if (!token) return;
-      
-      const response = await fetch(`${API_URL}/logout`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      });
-      return handleResponse(response);
+      if (token) {
+        await auth.signOut(token);
+        localStorage.removeItem('authToken');
+      }
+      return { success: true };
     },
-    
-    getUser: async () => {
+    getCurrentUser: async () => {
       const token = getToken();
-      if (!token) throw new Error('No auth token found');
+      if (!token) return null;
       
-      const response = await fetch(`${API_URL}/user`, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      });
-      return handleResponse(response);
-    },
-
-    verifyEmail: async (token: string) => {
-      const response = await fetch(`${API_URL}/email/verify/${token}`, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      });
-      return handleResponse(response);
-    },
-    
-    resendVerification: async (email: string) => {
-      const response = await fetch(`${API_URL}/email/resend`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
-      return handleResponse(response);
-    },
-    
-    forgotPassword: async (email: string) => {
-      const response = await fetch(`${API_URL}/password/email`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
-      return handleResponse(response);
-    },
-    
-    resetPassword: async (data: {
-      email: string;
-      password: string;
-      password_confirmation: string;
-      token: string;
-    }) => {
-      const response = await fetch(`${API_URL}/password/reset`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-      return handleResponse(response);
-    },
+      return await auth.getUserByToken(token);
+    }
   },
-  
-  // User profile endpoints
   profile: {
-    update: async (data: { first_name?: string; last_name?: string; avatar_url?: string }) => {
-      const token = getToken();
-      if (!token) throw new Error('No auth token found');
-      
-      const response = await fetch(`${API_URL}/profile`, {
-        method: 'PUT',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-      return handleResponse(response);
+    get: async (userId: string) => {
+      return db.prepare(`SELECT * FROM profiles WHERE id = ?`).get(userId);
     },
-    
-    get: async () => {
+    update: async (data: { first_name?: string; last_name?: string }) => {
       const token = getToken();
-      if (!token) throw new Error('No auth token found');
+      if (!token) throw new Error('Not authenticated');
       
-      const response = await fetch(`${API_URL}/profile`, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      });
-      return handleResponse(response);
-    },
+      const user = await auth.getUserByToken(token);
+      if (!user) throw new Error('User not found');
+      
+      const { first_name, last_name } = data;
+      
+      db.prepare(`
+        UPDATE profiles 
+        SET first_name = COALESCE(?, first_name), 
+            last_name = COALESCE(?, last_name),
+            updated_at = CURRENT_TIMESTAMP
+        WHERE id = ?
+      `).run(first_name, last_name, user.id);
+      
+      return { success: true };
+    }
   },
-  
-  // Admin endpoints
-  admin: {
-    getUsers: async () => {
+  roles: {
+    check: async (role: string) => {
       const token = getToken();
-      if (!token) throw new Error('No auth token found');
+      if (!token) return false;
       
-      const response = await fetch(`${API_URL}/admin/users`, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      });
-      return handleResponse(response);
-    },
-    
-    updateUserRole: async (userId: string, role: string) => {
-      const token = getToken();
-      if (!token) throw new Error('No auth token found');
+      const user = await auth.getUserByToken(token);
+      if (!user) return false;
       
-      const response = await fetch(`${API_URL}/admin/users/${userId}/role`, {
-        method: 'PUT',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ role }),
-      });
-      return handleResponse(response);
+      return await auth.hasRole(user.id, role);
     },
-  },
+    getAll: async (userId: string) => {
+      return db.prepare(`
+        SELECT role FROM user_roles WHERE user_id = ?
+      `).all(userId).map(row => row.role);
+    }
+  }
 };
