@@ -1,3 +1,4 @@
+
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { api } from '@/services/api';
 import { useToast } from '@/hooks/use-toast';
@@ -19,7 +20,8 @@ interface AuthContextType {
   user: User | null;
   profile: Profile | null;
   isAdmin: boolean;
-  loading: boolean;
+  isLoading: boolean;
+  isModerator: boolean;
   signIn: (email: string, password: string) => Promise<{ success: boolean; error?: any }>;
   signUp: (email: string, password: string, userData: { firstName?: string; lastName?: string }) => Promise<{ success: boolean; error?: any }>;
   signOut: () => Promise<void>;
@@ -41,7 +43,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
+  const [isModerator, setIsModerator] = useState(false);
   const { toast } = useToast();
 
   // Load user on initial render
@@ -61,6 +64,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           // Check admin role
           const hasAdminRole = await api.roles.check('admin');
           setIsAdmin(hasAdminRole);
+          
+          // Check moderator role
+          const hasModeratorRole = await api.roles.check('moderator');
+          setIsModerator(hasModeratorRole);
         }
       } catch (error) {
         console.error("Failed to load user:", error);
@@ -86,6 +93,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       // Check admin role
       const hasAdminRole = await api.roles.check('admin');
       setIsAdmin(hasAdminRole);
+      
+      // Check moderator role
+      const hasModeratorRole = await api.roles.check('moderator');
+      setIsModerator(hasModeratorRole);
       
       toast({
         title: "Welcome back!",
@@ -122,6 +133,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       
       // By default, new users are not admins
       setIsAdmin(false);
+      setIsModerator(false);
       
       toast({
         title: "Account created",
@@ -148,6 +160,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setUser(null);
       setProfile(null);
       setIsAdmin(false);
+      setIsModerator(false);
       
       toast({
         title: "Signed out",
@@ -163,7 +176,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     user,
     profile,
     isAdmin,
-    loading,
+    isLoading,
+    isModerator,
     signIn,
     signUp,
     signOut,

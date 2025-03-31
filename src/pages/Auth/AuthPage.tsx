@@ -69,8 +69,8 @@ const AuthPage = () => {
     try {
       setLoading(true);
       await signUp(email, password, {
-        first_name: firstName,
-        last_name: lastName
+        firstName,
+        lastName
       });
       toast({
         title: "Account created",
