@@ -53,7 +53,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased bg-indian-pattern;
+    @apply bg-background text-foreground font-sans antialiased;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -119,6 +119,6 @@
   }
   
   .mandala-bg {
-    @apply relative before:absolute before:inset-0 before:bg-lotus-pattern before:opacity-5 before:bg-repeat;
+    @apply relative;
   }
 }

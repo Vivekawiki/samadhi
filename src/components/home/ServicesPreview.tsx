@@ -29,7 +29,7 @@ const services = [
 
 const ServicesPreview = () => {
   return (
-    <section className="py-16 bg-indian-cream mandala-bg">
+    <section className="py-16 bg-indian-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Our Services"

@@ -180,11 +180,6 @@ export default {
 			fontFamily: {
 				heading: ['Playfair Display', 'serif'],
 				sans: ['Inter', 'sans-serif']
-			},
-			backgroundImage: {
-				// Replace the paisley-pattern with a traditional Indian pattern
-				'indian-pattern': "url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\" viewBox=\"0 0 40 40\"><path fill=\"%23FFA500\" fill-opacity=\"0.05\" d=\"M0,0l5,5l-5,5l5,5l-5,5l5,5l-5,5l5,5l-5,5h40v-40h-40z M40,40l-5,-5l5,-5l-5,-5l5,-5l-5,-5l5,-5l-5,-5l5,-5z\"/></svg>')",
-				'lotus-pattern': "url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><path fill=\"%23FFA500\" opacity=\"0.05\" d=\"M50,30c0,0-20-20-40,0s0,40,0,40s20,20,40,0s40-20,40-40S70,10,50,30z\"/></svg>')"
 			}
 		}
 	},
