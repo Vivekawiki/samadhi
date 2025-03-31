@@ -6,7 +6,7 @@ import initSqlJs from 'sql.js';
 const DB_KEY = 'app_sqlite_db';
 
 // Initialize the database with memory storage
-let db = null;
+let dbInstance = null;
 let isInitialized = false;
 
 // Load the DB from localStorage if available
@@ -45,10 +45,10 @@ const initDb = async () => {
 
     // Try to load existing database or create a new one
     const existingDb = loadDbFromStorage();
-    db = existingDb ? new SQL.Database(existingDb) : new SQL.Database();
+    dbInstance = existingDb ? new SQL.Database(existingDb) : new SQL.Database();
 
     // Create tables if they don't exist
-    db.run(`
+    dbInstance.run(`
       CREATE TABLE IF NOT EXISTS profiles (
         id TEXT PRIMARY KEY,
         first_name TEXT,
@@ -59,7 +59,7 @@ const initDb = async () => {
       )
     `);
 
-    db.run(`
+    dbInstance.run(`
       CREATE TABLE IF NOT EXISTS user_roles (
         id TEXT PRIMARY KEY,
         user_id TEXT NOT NULL,
@@ -67,7 +67,7 @@ const initDb = async () => {
       )
     `);
 
-    db.run(`
+    dbInstance.run(`
       CREATE TABLE IF NOT EXISTS users (
         id TEXT PRIMARY KEY,
         email TEXT UNIQUE NOT NULL,
@@ -77,7 +77,7 @@ const initDb = async () => {
     `);
 
     isInitialized = true;
-    saveDbToStorage(db);
+    saveDbToStorage(dbInstance);
   } catch (error) {
     console.error('Failed to initialize SQLite database:', error);
   }
@@ -91,9 +91,9 @@ const prepare = (sql) => {
   return {
     run: (...params) => {
       try {
-        db.run(sql, params);
-        saveDbToStorage(db);
-        return { changes: db.getRowsModified() };
+        dbInstance.run(sql, params);
+        saveDbToStorage(dbInstance);
+        return { changes: dbInstance.getRowsModified() };
       } catch (e) {
         console.error('SQL error in run:', e);
         throw e;
@@ -101,7 +101,7 @@ const prepare = (sql) => {
     },
     get: (...params) => {
       try {
-        const stmt = db.prepare(sql);
+        const stmt = dbInstance.prepare(sql);
         stmt.bind(params);
         const result = stmt.step() ? stmt.getAsObject() : null;
         stmt.free();
@@ -113,7 +113,7 @@ const prepare = (sql) => {
     },
     all: (...params) => {
       try {
-        const stmt = db.prepare(sql);
+        const stmt = dbInstance.prepare(sql);
         stmt.bind(params);
         const results = [];
         while (stmt.step()) {
@@ -134,13 +134,11 @@ export const db = {
   prepare,
   exec: (sql) => {
     try {
-      db.run(sql);
-      saveDbToStorage(db);
+      dbInstance.run(sql);
+      saveDbToStorage(dbInstance);
     } catch (e) {
       console.error('SQL error in exec:', e);
       throw e;
     }
   }
 };
-
-// Add sql.js as a dependency

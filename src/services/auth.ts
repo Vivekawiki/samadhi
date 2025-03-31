@@ -26,7 +26,7 @@ const sessions: Record<string, { userId: string; expiresAt: number }> = {};
 
 export const auth = {
   // Register a new user
-  async signUp(email: string, password: string, userData: { first_name?: string; last_name?: string }) {
+  async signUp(email: string, password: string, userData: { firstName?: string; lastName?: string }) {
     try {
       const userId = uuidv4();
       const hashedPassword = hashPassword(password);
@@ -36,7 +36,7 @@ export const auth = {
         .run(userId, email, hashedPassword);
         
       db.prepare(`INSERT INTO profiles (id, first_name, last_name) VALUES (?, ?, ?)`)
-        .run(userId, userData.first_name || null, userData.last_name || null);
+        .run(userId, userData.firstName || null, userData.lastName || null);
         
       db.prepare(`INSERT INTO user_roles (id, user_id, role) VALUES (?, ?, ?)`)
         .run(uuidv4(), userId, 'user');
