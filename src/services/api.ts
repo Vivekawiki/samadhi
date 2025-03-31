@@ -10,7 +10,7 @@ const getToken = () => {
 // API service
 export const api = {
   auth: {
-    register: async (email: string, password: string, userData: { first_name?: string; last_name?: string }) => {
+    register: async (email: string, password: string, userData: { firstName?: string; lastName?: string }) => {
       const result = await auth.signUp(email, password, userData);
       localStorage.setItem('authToken', result.token);
       return result.user;
@@ -39,14 +39,14 @@ export const api = {
     get: async (userId: string) => {
       return db.prepare(`SELECT * FROM profiles WHERE id = ?`).get(userId);
     },
-    update: async (data: { first_name?: string; last_name?: string }) => {
+    update: async (data: { firstName?: string; lastName?: string }) => {
       const token = getToken();
       if (!token) throw new Error('Not authenticated');
       
       const user = await auth.getUserByToken(token);
       if (!user) throw new Error('User not found');
       
-      const { first_name, last_name } = data;
+      const { firstName, lastName } = data;
       
       db.prepare(`
         UPDATE profiles 
@@ -54,7 +54,7 @@ export const api = {
             last_name = COALESCE(?, last_name),
             updated_at = CURRENT_TIMESTAMP
         WHERE id = ?
-      `).run(first_name, last_name, user.id);
+      `).run(firstName, lastName, user.id);
       
       return { success: true };
     }
