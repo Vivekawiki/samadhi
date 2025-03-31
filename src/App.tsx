@@ -40,6 +40,8 @@ import LearnPage from "./pages/Learn/LearnPage";
 import MantrasPage from "./pages/Learn/MantrasPage";
 import TopicPage from "./pages/Learn/TopicPage";
 import LearningCommunity from "./pages/Learn/LearningCommunity";
+import LessonsPage from "./pages/Learn/LessonsPage";
+import LessonPage from "./pages/Learn/LessonPage";
 
 // Import Auth pages
 import AuthPage from "./pages/Auth/AuthPage";
@@ -97,6 +99,8 @@ const App = () => (
             <Route path="/learn/topics/:topicId" element={<TopicPage />} />
             <Route path="/learn/topics/:topicId/:subtopicId" element={<TopicPage />} />
             <Route path="/learn/community" element={<LearningCommunity />} />
+            <Route path="/learn/lessons" element={<LessonsPage />} />
+            <Route path="/learn/lessons/:topicId/:lessonId" element={<LessonPage />} />
             
             {/* Authentication and User Routes */}
             <Route path="/auth" element={<AuthPage />} />
