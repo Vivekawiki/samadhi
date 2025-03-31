@@ -69,10 +69,9 @@ const LessonPage = () => {
           <p className="text-muted-foreground mt-2">Topic: {topic.topicName}</p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main content - Video and Quiz */}
-          <div className="lg:col-span-2 space-y-8">
-            {/* Video Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Video Section - Left Column */}
+          <div className="lg:col-span-4">
             <Card>
               <CardHeader>
                 <CardTitle className="text-xl">Lesson Video</CardTitle>
@@ -94,25 +93,30 @@ const LessonPage = () => {
                 </div>
               </CardContent>
             </Card>
-            
-            {/* Quiz Section */}
-            <Card>
+          </div>
+
+          {/* Lesson Content - Center */}
+          <div className="lg:col-span-4">
+            <Card className="h-full">
               <CardHeader>
-                <CardTitle className="text-xl">Knowledge Check</CardTitle>
+                <CardTitle className="text-xl">Lesson Content</CardTitle>
               </CardHeader>
               <CardContent>
-                {lesson.quiz ? (
-                  <LessonQuiz quiz={lesson.quiz} />
-                ) : (
-                  <p className="text-muted-foreground">No quiz available for this lesson yet.</p>
-                )}
+                <div className="prose max-w-none">
+                  {lesson.content ? (
+                    <div dangerouslySetInnerHTML={{ __html: lesson.content }} />
+                  ) : (
+                    <div className="min-h-[500px] flex items-center justify-center border border-dashed rounded-md p-8 text-center text-muted-foreground">
+                      <p>Lesson content will appear here.</p>
+                    </div>
+                  )}
+                </div>
               </CardContent>
             </Card>
           </div>
           
-          {/* Sidebar - Related/Next Lessons */}
-          <div className="space-y-6">
-            {/* Next Lesson */}
+          {/* Next Lesson - Right Column */}
+          <div className="lg:col-span-4">
             <Card>
               <CardHeader>
                 <CardTitle className="text-lg">Next Lesson</CardTitle>
@@ -136,7 +140,7 @@ const LessonPage = () => {
             </Card>
             
             {/* Related Content */}
-            <Card>
+            <Card className="mt-6">
               <CardHeader>
                 <CardTitle className="text-lg">Related Resources</CardTitle>
               </CardHeader>
@@ -173,6 +177,22 @@ const LessonPage = () => {
               </CardContent>
             </Card>
           </div>
+        </div>
+
+        {/* Quiz Section - Full Width */}
+        <div className="mt-8">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-xl">Knowledge Check</CardTitle>
+            </CardHeader>
+            <CardContent>
+              {lesson.quiz ? (
+                <LessonQuiz quiz={lesson.quiz} />
+              ) : (
+                <p className="text-muted-foreground">No quiz available for this lesson yet.</p>
+              )}
+            </CardContent>
+          </Card>
         </div>
       </div>
     </PageLayout>
