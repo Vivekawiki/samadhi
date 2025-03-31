@@ -31,8 +31,8 @@ const ProfilePage = () => {
       setLoading(true);
       
       await api.profile.update({
-        first_name: firstName,
-        last_name: lastName,
+        firstName,
+        lastName,
       });
 
       toast({
