@@ -4,34 +4,34 @@ import SectionHeader from '../shared/SectionHeader';
 import EventCard from '../shared/EventCard';
 import Button from '../shared/Button';
 
-// Sample recent activities data
+// Sample recent activities data focused on Nutrition Programme
 const activities = [
   {
-    title: 'Community Service Day',
-    date: 'May 28, 2023',
-    time: '8:00 AM - 2:00 PM',
-    location: 'Local Community Center',
-    description: 'Members gathered to serve meals and distribute essentials to those in need, embodying the Vedantic principle of selfless service (seva).',
-    image: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: '/gallery/community-service',
-  },
-  {
-    title: 'Diwali Celebrations',
-    date: 'November 12, 2023',
-    time: '6:00 PM - 10:00 PM',
-    location: 'Main Temple',
-    description: 'A grand celebration of the festival of lights with lamp lighting, cultural performances, and a community feast.',
-    image: 'https://images.unsplash.com/photo-1635161828037-1669f4e43829?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: '/gallery/festivals',
-  },
-  {
-    title: 'Yoga & Meditation Retreat',
+    title: 'April Nutrition Programme Distribution',
     date: 'April 15, 2023',
-    time: '7:00 AM - 4:00 PM',
-    location: 'Ashram Gardens',
-    description: 'A day-long retreat focused on yoga practices, guided meditation sessions, and spiritual discussions in the serene environment of our gardens.',
-    image: 'https://images.unsplash.com/photo-1545389336-cf090694435e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: '/gallery/retreats',
+    time: '9:00 AM - 1:00 PM',
+    location: 'Community Center',
+    description: 'Monthly distribution of essential food items to 150 families in need, providing nutritional support to the community.',
+    image: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: '/services/community-outreach',
+  },
+  {
+    title: 'March Nutrition Programme Distribution',
+    date: 'March 18, 2023',
+    time: '9:00 AM - 1:00 PM',
+    location: 'Community Center',
+    description: 'Distribution of food parcels and nutritional supplements to underprivileged families, supporting approximately 175 households.',
+    image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: '/services/community-outreach',
+  },
+  {
+    title: 'February Nutrition Programme Distribution',
+    date: 'February 20, 2023',
+    time: '9:00 AM - 1:00 PM',
+    location: 'Community Center',
+    description: 'Monthly food distribution service providing essential nutritional support to families in need, with educational materials on balanced diets.',
+    image: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: '/services/community-outreach',
   },
 ];
 
@@ -40,8 +40,8 @@ const RecentActivities = () => {
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          title="Recent Activities"
-          subtitle="A look back at our recent community gatherings and spiritual events"
+          title="Nutrition Programme Activities"
+          subtitle="Recent monthly distributions supporting our local community"
         />
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
@@ -61,8 +61,8 @@ const RecentActivities = () => {
         </div>
         
         <div className="text-center mt-12">
-          <Button href="/gallery" variant="outline">
-            View All Activities
+          <Button href="/services/community-outreach" variant="outline">
+            Learn More About Our Community Outreach
           </Button>
         </div>
       </div>

@@ -36,11 +36,11 @@ const HolyTrinity = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {deities.map((deity, index) => (
             <div key={index} className="flex flex-col items-center">
-              <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-indian-saffron shadow-lg mb-6">
+              <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-indian-saffron shadow-lg mb-6 flex items-center justify-center">
                 <img 
                   src={deity.image} 
                   alt={deity.name}
-                  className="w-full h-full object-cover" 
+                  className="w-full h-auto object-contain" 
                 />
               </div>
               <h3 className="text-2xl font-heading font-bold mb-1">{deity.name}</h3>

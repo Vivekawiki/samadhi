@@ -1,0 +1,177 @@
+
+import React, { useState } from 'react';
+import PageLayout from '@/components/layout/PageLayout';
+import PageHeader from '@/components/shared/PageHeader';
+import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Donate, Heart } from 'lucide-react';
+
+const DonatePage = () => {
+  const [amount, setAmount] = useState<number>(100);
+  const [isProcessing, setIsProcessing] = useState(false);
+  
+  const presetAmounts = [100, 250, 500, 1000];
+
+  const handleDonate = () => {
+    setIsProcessing(true);
+    
+    // Redirect to PayFast with required parameters
+    // Note: This is a simplified version. In production, a proper hash should be calculated server-side.
+    const merchantId = '10000100'; // Replace with your actual PayFast Merchant ID
+    const merchantKey = 'q1cd2rdny4a53'; // Replace with your actual PayFast Merchant Key
+    const returnUrl = `${window.location.origin}/donate/thank-you`;
+    const cancelUrl = `${window.location.origin}/donate`;
+    const notifyUrl = `${window.location.origin}/api/payfast-notification`; // This would need a backend handler
+    
+    const paymentData = {
+      merchant_id: merchantId,
+      merchant_key: merchantKey,
+      return_url: returnUrl,
+      cancel_url: cancelUrl,
+      notify_url: notifyUrl,
+      name_first: 'Donation',
+      name_last: 'User',
+      amount: amount.toFixed(2),
+      item_name: 'Donation to Ramakrishna Centre',
+    };
+    
+    // Create a form and submit it to PayFast
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://sandbox.payfast.co.za/eng/process'; // Use 'https://www.payfast.co.za/eng/process' for production
+    
+    Object.entries(paymentData).forEach(([key, value]) => {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = String(value);
+      form.appendChild(input);
+    });
+    
+    document.body.appendChild(form);
+    form.submit();
+  };
+
+  return (
+    <PageLayout>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <PageHeader 
+          title="Support Our Mission"
+          subtitle="Your generosity helps us serve the community and spread the teachings of Sri Ramakrishna, Sri Sarada Devi, and Swami Vivekananda."
+        />
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+          <div className="space-y-6">
+            <h2 className="text-2xl font-heading font-semibold">Why Donate?</h2>
+            <p>Your donations support our various spiritual and humanitarian services including:</p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Spiritual gatherings and educational programs</li>
+              <li>Nutrition Programme for underprivileged communities</li>
+              <li>Women Empowerment Programme</li>
+              <li>Children's value education classes</li>
+              <li>Maintenance of our temple and facilities</li>
+              <li>New Ashram Project development</li>
+            </ul>
+            
+            <div className="p-4 bg-spiritual-50 border-l-4 border-spiritual-500 rounded">
+              <p className="italic">"The best form of worship is service to mankind." - Swami Vivekananda</p>
+            </div>
+          </div>
+          
+          <Card className="p-6 shadow-lg">
+            <h2 className="text-2xl font-heading font-semibold mb-4 flex items-center">
+              <Heart className="mr-2 text-red-500" />
+              Make a Donation
+            </h2>
+            
+            <div className="space-y-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Select an amount (ZAR)
+                </label>
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  {presetAmounts.map((preset) => (
+                    <button
+                      key={preset}
+                      type="button"
+                      onClick={() => setAmount(preset)}
+                      className={`py-2 px-4 border rounded-md ${
+                        amount === preset 
+                          ? 'bg-spiritual-100 border-spiritual-500 text-spiritual-700' 
+                          : 'border-gray-300 hover:bg-gray-50'
+                      }`}
+                    >
+                      R{preset}
+                    </button>
+                  ))}
+                </div>
+                
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Or enter a custom amount
+                  </label>
+                  <div className="relative rounded-md shadow-sm">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <span className="text-gray-500">R</span>
+                    </div>
+                    <input
+                      type="number"
+                      min="10"
+                      value={amount}
+                      onChange={(e) => setAmount(Number(e.target.value))}
+                      className="focus:ring-spiritual-500 focus:border-spiritual-500 block w-full pl-8 pr-12 border-gray-300 rounded-md"
+                      placeholder="0.00"
+                    />
+                  </div>
+                </div>
+              </div>
+              
+              <Button 
+                onClick={handleDonate}
+                disabled={isProcessing || amount <= 0}
+                className="w-full bg-spiritual-600 hover:bg-spiritual-700 text-white py-3 flex items-center justify-center space-x-2"
+              >
+                <Donate className="h-5 w-5" />
+                <span>{isProcessing ? 'Processing...' : `Donate R${amount.toFixed(2)}`}</span>
+              </Button>
+              
+              <p className="text-xs text-gray-500 text-center mt-4">
+                Secure payment processing provided by PayFast.
+                <br />
+                The Ramakrishna Centre is a registered Non-Profit Organization.
+              </p>
+            </div>
+          </Card>
+        </div>
+        
+        <div className="mt-12 p-6 bg-gray-50 rounded-lg">
+          <h2 className="text-2xl font-heading font-semibold mb-4">Other Ways to Donate</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <h3 className="font-semibold">Direct Bank Transfer</h3>
+              <p>You can make a direct donation to our bank account:</p>
+              <p>Bank: Standard Bank</p>
+              <p>Account Name: Ramakrishna Centre of South Africa</p>
+              <p>Account Number: 1234567890</p>
+              <p>Branch Code: 12345</p>
+              <p>Reference: Your Name + Donation</p>
+            </div>
+            
+            <div className="space-y-2">
+              <h3 className="font-semibold">In-Person Donations</h3>
+              <p>Visit our centre to make a donation in person:</p>
+              <p>Ramakrishna Centre of South Africa</p>
+              <p>8 Flanders Road, Avoca</p>
+              <p>Durban North, 4051</p>
+              <p>Monday to Friday: 9:00 AM - 4:00 PM</p>
+              <p>Weekends: 9:00 AM - 1:00 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PageLayout>
+  );
+};
+
+export default DonatePage;

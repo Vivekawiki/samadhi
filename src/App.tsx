@@ -53,6 +53,10 @@ import StudentDashboard from "./pages/Dashboard/StudentDashboard";
 import TeacherDashboard from "./pages/Dashboard/TeacherDashboard";
 import AdminDashboardNew from "./pages/Dashboard/AdminDashboard";
 
+// Import Donation pages
+import DonatePage from "./pages/Donate/DonatePage";
+import ThankYouPage from "./pages/Donate/ThankYouPage";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -119,6 +123,10 @@ const App = () => (
             <Route path="/dashboard/student" element={<StudentDashboard />} />
             <Route path="/dashboard/teacher" element={<TeacherDashboard />} />
             <Route path="/dashboard/admin" element={<AdminDashboardNew />} />
+            
+            {/* Donation Routes */}
+            <Route path="/donate" element={<DonatePage />} />
+            <Route path="/donate/thank-you" element={<ThankYouPage />} />
             
             {/* Contact Page */}
             <Route path="/contact" element={<ContactPage />} />

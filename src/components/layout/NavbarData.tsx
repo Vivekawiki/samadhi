@@ -39,5 +39,6 @@ export const navigation: NavItem[] = [
       { name: 'Learning Community', href: '/learn/community' },
     ]
   },
+  { name: 'Donate', href: '/donate' },
   { name: 'Contact', href: '/contact' },
 ];

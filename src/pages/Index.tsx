@@ -12,8 +12,8 @@ const Index = () => {
   return (
     <PageLayout>
       <HomeBanner />
-      <QuickInfo />
       <HolyTrinity />
+      <QuickInfo />
       <ServicesPreview />
       <RecentActivities />
       <FeaturedEvents />
