@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import PageLayout from '../../components/layout/PageLayout';
@@ -70,8 +69,9 @@ const LessonPage = () => {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Video Section - Left Column */}
-          <div className="lg:col-span-4">
+          {/* Left Column - Video and Cards (stacked) */}
+          <div className="lg:col-span-4 space-y-6">
+            {/* Video Section */}
             <Card>
               <CardHeader>
                 <CardTitle className="text-xl">Lesson Video</CardTitle>
@@ -93,30 +93,8 @@ const LessonPage = () => {
                 </div>
               </CardContent>
             </Card>
-          </div>
-
-          {/* Lesson Content - Center */}
-          <div className="lg:col-span-4">
-            <Card className="h-full">
-              <CardHeader>
-                <CardTitle className="text-xl">Lesson Content</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="prose max-w-none">
-                  {lesson.content ? (
-                    <div dangerouslySetInnerHTML={{ __html: lesson.content }} />
-                  ) : (
-                    <div className="min-h-[500px] flex items-center justify-center border border-dashed rounded-md p-8 text-center text-muted-foreground">
-                      <p>Lesson content will appear here.</p>
-                    </div>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-          
-          {/* Next Lesson - Right Column */}
-          <div className="lg:col-span-4">
+            
+            {/* Next Lesson Card */}
             <Card>
               <CardHeader>
                 <CardTitle className="text-lg">Next Lesson</CardTitle>
@@ -139,8 +117,8 @@ const LessonPage = () => {
               </CardContent>
             </Card>
             
-            {/* Related Content */}
-            <Card className="mt-6">
+            {/* Related Content Card */}
+            <Card>
               <CardHeader>
                 <CardTitle className="text-lg">Related Resources</CardTitle>
               </CardHeader>
@@ -174,6 +152,26 @@ const LessonPage = () => {
                     </ul>
                   </div>
                 ) : null}
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Lesson Content - Expanded to fill rest of page */}
+          <div className="lg:col-span-8">
+            <Card className="h-full">
+              <CardHeader>
+                <CardTitle className="text-xl">Lesson Content</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="prose max-w-none">
+                  {lesson.content ? (
+                    <div dangerouslySetInnerHTML={{ __html: lesson.content }} />
+                  ) : (
+                    <div className="min-h-[500px] flex items-center justify-center border border-dashed rounded-md p-8 text-center text-muted-foreground">
+                      <p>Lesson content will appear here.</p>
+                    </div>
+                  )}
+                </div>
               </CardContent>
             </Card>
           </div>
