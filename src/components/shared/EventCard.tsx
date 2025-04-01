@@ -10,6 +10,7 @@ interface EventCardProps {
   description?: string;
   image?: string;
   link?: string;
+  className?: string;
 }
 
 const EventCard = ({
@@ -19,12 +20,13 @@ const EventCard = ({
   location,
   description,
   image,
-  link
+  link,
+  className = ''
 }: EventCardProps) => {
   return (
-    <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100 bg-white hover:shadow-md transition-all duration-300">
+    <div className={`rounded-lg overflow-hidden shadow-sm border border-gray-100 bg-white hover:shadow-md transition-all duration-300 ${className}`}>
       {image && (
-        <div className="h-48 overflow-hidden">
+        <div className="h-48 overflow-hidden border-2 border-indian-saffron">
           <img
             src={image}
             alt={title}

@@ -1,78 +1,60 @@
 
-import { auth } from './auth';
-import { db } from '@/db/sqlite';
+// This file provides a mock API interface for development
+// In production, these functions would call a Laravel backend
 
-// Get token from localStorage
-const getToken = () => {
-  return localStorage.getItem('authToken');
-};
-
-// API service
+// Mock API service
 export const api = {
   auth: {
     register: async (email: string, password: string, userData: { firstName?: string; lastName?: string }) => {
-      const result = await auth.signUp(email, password, userData);
-      localStorage.setItem('authToken', result.token);
-      return result.user;
+      console.log('Register API call', { email, userData });
+      // Mock successful registration
+      localStorage.setItem('mockAuthToken', 'mock-token-' + Date.now());
+      return { id: 'user-123', email };
     },
     login: async (email: string, password: string) => {
-      const result = await auth.signIn(email, password);
-      localStorage.setItem('authToken', result.token);
-      return result.user;
+      console.log('Login API call', { email });
+      // Mock successful login
+      localStorage.setItem('mockAuthToken', 'mock-token-' + Date.now());
+      return { id: 'user-123', email };
     },
     logout: async () => {
-      const token = getToken();
-      if (token) {
-        await auth.signOut(token);
-        localStorage.removeItem('authToken');
-      }
+      localStorage.removeItem('mockAuthToken');
       return { success: true };
     },
     getCurrentUser: async () => {
-      const token = getToken();
+      const token = localStorage.getItem('mockAuthToken');
       if (!token) return null;
       
-      return await auth.getUserByToken(token);
+      // Return mock user data
+      return { id: 'user-123', email: 'user@example.com' };
     }
   },
   profile: {
     get: async (userId: string) => {
-      return db.prepare(`SELECT * FROM profiles WHERE id = ?`).get(userId);
+      console.log('Get profile API call', { userId });
+      // Return mock profile data
+      return {
+        id: userId,
+        first_name: 'John',
+        last_name: 'Doe',
+        avatar_url: null,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      };
     },
     update: async (data: { firstName?: string; lastName?: string }) => {
-      const token = getToken();
-      if (!token) throw new Error('Not authenticated');
-      
-      const user = await auth.getUserByToken(token);
-      if (!user) throw new Error('User not found');
-      
-      const { firstName, lastName } = data;
-      
-      db.prepare(`
-        UPDATE profiles 
-        SET first_name = COALESCE(?, first_name), 
-            last_name = COALESCE(?, last_name),
-            updated_at = CURRENT_TIMESTAMP
-        WHERE id = ?
-      `).run(firstName, lastName, user.id);
-      
+      console.log('Update profile API call', data);
       return { success: true };
     }
   },
   roles: {
     check: async (role: string) => {
-      const token = getToken();
-      if (!token) return false;
-      
-      const user = await auth.getUserByToken(token);
-      if (!user) return false;
-      
-      return await auth.hasRole(user.id, role);
+      // For development, return true for regular user role
+      return role === 'user';
     },
     getAll: async (userId: string) => {
-      return db.prepare(`
-        SELECT role FROM user_roles WHERE user_id = ?
-      `).all(userId).map(row => row.role);
+      // Return mock roles
+      return ['user'];
     }
   }
 };
