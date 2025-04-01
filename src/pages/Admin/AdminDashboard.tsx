@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
-import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -15,7 +14,6 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import {
   Select,
@@ -24,15 +22,23 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { api } from '@/services/api';
 
-// Define the app_role type to match the Supabase enum
+// Define the app_role type to match what we would have had in Supabase enum
 type AppRole = 'admin' | 'moderator' | 'user';
 
+interface Profile {
+  id: string;
+  first_name?: string;
+  last_name?: string;
+  roles: string[];
+}
+
 const AdminDashboard = () => {
-  const [users, setUsers] = useState<any[]>([]);
+  const [users, setUsers] = useState<Profile[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedUser, setSelectedUser] = useState<any>(null);
+  const [selectedUser, setSelectedUser] = useState<Profile | null>(null);
   const [selectedRole, setSelectedRole] = useState<AppRole | ''>('');
   const [dialogOpen, setDialogOpen] = useState(false);
   const { toast } = useToast();
@@ -45,31 +51,30 @@ const AdminDashboard = () => {
     try {
       setLoading(true);
       
-      // First get profiles
-      const { data: profiles, error: profilesError } = await supabase
-        .from('profiles')
-        .select('*');
+      // Mock fetching users with roles
+      // This would be replaced by an actual API call in production
+      const mockUsers = [
+        {
+          id: 'user-1',
+          first_name: 'John',
+          last_name: 'Doe',
+          roles: ['admin', 'user']
+        },
+        {
+          id: 'user-2',
+          first_name: 'Jane',
+          last_name: 'Smith',
+          roles: ['user']
+        },
+        {
+          id: 'user-3',
+          first_name: 'Robert',
+          last_name: 'Johnson',
+          roles: ['moderator', 'user']
+        },
+      ];
       
-      if (profilesError) throw profilesError;
-      
-      // Fetch roles for each user
-      const usersWithRoles = await Promise.all(
-        profiles.map(async (profile) => {
-          const { data: roles, error: rolesError } = await supabase
-            .from('user_roles')
-            .select('role')
-            .eq('user_id', profile.id);
-          
-          if (rolesError) throw rolesError;
-          
-          return {
-            ...profile,
-            roles: roles.map(r => r.role)
-          };
-        })
-      );
-      
-      setUsers(usersWithRoles);
+      setUsers(mockUsers);
     } catch (error: any) {
       toast({
         title: "Error fetching users",
@@ -89,29 +94,42 @@ const AdminDashboard = () => {
       const hasRole = selectedUser.roles.includes(selectedRole);
       
       if (hasRole) {
-        // Remove role
-        const { error } = await supabase
-          .from('user_roles')
-          .delete()
-          .eq('user_id', selectedUser.id)
-          .eq('role', selectedRole as AppRole);
-          
-        if (error) throw error;
+        // Remove role (mock implementation)
+        console.log(`Removing ${selectedRole} role from user ${selectedUser.id}`);
+        
+        // In production, this would call an API endpoint
+        const updatedUsers = users.map(user => {
+          if (user.id === selectedUser.id) {
+            return {
+              ...user,
+              roles: user.roles.filter(r => r !== selectedRole)
+            };
+          }
+          return user;
+        });
+        
+        setUsers(updatedUsers);
         
         toast({
           title: "Role removed",
           description: `${selectedRole} role removed from user.`
         });
       } else {
-        // Add role
-        const { error } = await supabase
-          .from('user_roles')
-          .insert({
-            user_id: selectedUser.id,
-            role: selectedRole as AppRole
-          });
-          
-        if (error) throw error;
+        // Add role (mock implementation)
+        console.log(`Adding ${selectedRole} role to user ${selectedUser.id}`);
+        
+        // In production, this would call an API endpoint
+        const updatedUsers = users.map(user => {
+          if (user.id === selectedUser.id) {
+            return {
+              ...user,
+              roles: [...user.roles, selectedRole]
+            };
+          }
+          return user;
+        });
+        
+        setUsers(updatedUsers);
         
         toast({
           title: "Role added",
@@ -120,7 +138,6 @@ const AdminDashboard = () => {
       }
       
       setDialogOpen(false);
-      fetchUsers();
     } catch (error: any) {
       toast({
         title: "Error changing role",
@@ -130,7 +147,7 @@ const AdminDashboard = () => {
     }
   };
 
-  const openRoleDialog = (user: any) => {
+  const openRoleDialog = (user: Profile) => {
     setSelectedUser(user);
     setSelectedRole('');
     setDialogOpen(true);
