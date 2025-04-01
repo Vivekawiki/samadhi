@@ -31,7 +31,7 @@ const HolyTrinity = () => {
               <div className="md:col-span-1">
                 <div className="rounded-lg overflow-hidden shadow-md mb-4">
                   <img 
-                    src="https://via.placeholder.com/400x500" 
+                    src="/lovable-uploads/ff802407-da30-4efc-941c-05f69a329db7.png" 
                     alt="Sri Ramakrishna" 
                     className="w-full h-auto"
                   />
@@ -87,7 +87,7 @@ const HolyTrinity = () => {
               <div className="md:col-span-1">
                 <div className="rounded-lg overflow-hidden shadow-md mb-4">
                   <img 
-                    src="https://via.placeholder.com/400x500" 
+                    src="/lovable-uploads/6103c45d-7ef6-40da-a95e-d5695cd3526d.png" 
                     alt="Sri Sarada Devi" 
                     className="w-full h-auto"
                   />
@@ -143,7 +143,7 @@ const HolyTrinity = () => {
               <div className="md:col-span-1">
                 <div className="rounded-lg overflow-hidden shadow-md mb-4">
                   <img 
-                    src="https://via.placeholder.com/400x500" 
+                    src="/lovable-uploads/0ee38c83-a4f6-4d5b-8142-1c66e6c7ff04.png" 
                     alt="Swami Vivekananda" 
                     className="w-full h-auto"
                   />

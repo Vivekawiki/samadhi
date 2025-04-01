@@ -60,9 +60,11 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <span className="text-2xl font-heading font-bold">
-                Ramakrishna Centre
-              </span>
+              <img 
+                src="/lovable-uploads/2e549f27-8429-4042-95be-36194a9d309c.png" 
+                alt="Ramakrishna Centre Logo" 
+                className="h-12" 
+              />
             </Link>
           </div>
 
