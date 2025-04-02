@@ -26,7 +26,7 @@ const HolyTrinity = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50 bg-opacity-50 backdrop-blur-sm">
+    <section className="py-16 bg-gray-50 bg-opacity-50 backdrop-blur-sm bg-gradient-to-br from-indian-cream to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="The Holy Trinity"
@@ -36,11 +36,11 @@ const HolyTrinity = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {deities.map((deity, index) => (
             <div key={index} className="flex flex-col items-center">
-              <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-indian-saffron shadow-lg mb-6 flex items-center justify-center">
+              <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-indian-saffron shadow-lg mb-6 flex items-center justify-center bg-white">
                 <img 
                   src={deity.image} 
                   alt={deity.name}
-                  className="w-full h-auto object-contain" 
+                  className="w-40 h-auto object-contain" // Adjusted sizing to prevent image cutoff
                 />
               </div>
               <h3 className="text-2xl font-heading font-bold mb-1">{deity.name}</h3>

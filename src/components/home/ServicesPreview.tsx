@@ -29,10 +29,10 @@ const services = [
 
 const ServicesPreview = () => {
   return (
-    <section className="py-16 bg-indian-cream">
+    <section className="py-16 bg-gradient-to-r from-indian-cream to-white border-t border-b border-indian-saffron/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          title="Our Services"
+          title="Prayer Services"
           subtitle="Explore the various spiritual, educational, and humanitarian services we offer"
         />
         
@@ -43,7 +43,7 @@ const ServicesPreview = () => {
               className={`flex flex-col items-center text-center p-6 ${
                 service.isChildThemed 
                   ? "bg-gradient-to-br from-indian-cream to-yellow-50 rounded-2xl border-2 border-indian-saffron" 
-                  : "bg-white rounded-lg border border-indian-saffron/30"
+                  : "bg-gradient-to-br from-indian-cream to-white rounded-lg border border-indian-saffron"
               } hover:shadow-md transition-all duration-300 card-hover`}
             >
               <div className={`mb-4 ${service.isChildThemed ? "animate-bounce" : ""}`}>

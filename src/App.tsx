@@ -39,7 +39,6 @@ import FundraisingPage from "./pages/NewAshramProject/FundraisingPage";
 import LearnPage from "./pages/Learn/LearnPage";
 import MantrasPage from "./pages/Learn/MantrasPage";
 import TopicPage from "./pages/Learn/TopicPage";
-import LearningCommunity from "./pages/Learn/LearningCommunity";
 import LessonsPage from "./pages/Learn/LessonsPage";
 import LessonPage from "./pages/Learn/LessonPage";
 
@@ -102,7 +101,6 @@ const App = () => (
             <Route path="/learn/mantras" element={<MantrasPage />} />
             <Route path="/learn/topics/:topicId" element={<TopicPage />} />
             <Route path="/learn/topics/:topicId/:subtopicId" element={<TopicPage />} />
-            <Route path="/learn/community" element={<LearningCommunity />} />
             <Route path="/learn/lessons" element={<LessonsPage />} />
             <Route path="/learn/lessons/:topicId/:lessonId" element={<LessonPage />} />
             

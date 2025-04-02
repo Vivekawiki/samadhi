@@ -3,6 +3,7 @@ import React from 'react';
 import SectionHeader from '../shared/SectionHeader';
 import EventCard from '../shared/EventCard';
 import Button from '../shared/Button';
+import { Link } from 'react-router-dom';
 
 // Sample recent activities data focused on Nutrition Programme
 const activities = [
@@ -37,7 +38,7 @@ const activities = [
 
 const RecentActivities = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-gradient-to-r from-indian-cream to-white border-t border-indian-saffron/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Nutrition Programme Activities"
@@ -46,22 +47,23 @@ const RecentActivities = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
           {activities.map((activity, index) => (
-            <EventCard
-              key={index}
-              title={activity.title}
-              date={activity.date}
-              time={activity.time}
-              location={activity.location}
-              description={activity.description}
-              image={activity.image}
-              link={activity.link}
-              className="border-indian-saffron"
-            />
+            <Link key={index} to="/services/community-outreach" className="block">
+              <EventCard
+                title={activity.title}
+                date={activity.date}
+                time={activity.time}
+                location={activity.location}
+                description={activity.description}
+                image={activity.image}
+                link={activity.link}
+                className="border-indian-saffron bg-gradient-to-br from-indian-cream to-white"
+              />
+            </Link>
           ))}
         </div>
         
         <div className="text-center mt-12">
-          <Button href="/services/community-outreach" variant="outline">
+          <Button href="/services/community-outreach" variant="outline" className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10">
             Learn More About Our Community Outreach
           </Button>
         </div>
