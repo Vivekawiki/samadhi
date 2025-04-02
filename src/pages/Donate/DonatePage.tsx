@@ -4,7 +4,7 @@ import PageLayout from '@/components/layout/PageLayout';
 import PageHeader from '@/components/shared/PageHeader';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Donate, Heart } from 'lucide-react';
+import { Heart, CreditCard } from 'lucide-react';
 
 const DonatePage = () => {
   const [amount, setAmount] = useState<number>(100);
@@ -131,7 +131,7 @@ const DonatePage = () => {
                 disabled={isProcessing || amount <= 0}
                 className="w-full bg-spiritual-600 hover:bg-spiritual-700 text-white py-3 flex items-center justify-center space-x-2"
               >
-                <Donate className="h-5 w-5" />
+                <CreditCard className="h-5 w-5" />
                 <span>{isProcessing ? 'Processing...' : `Donate R${amount.toFixed(2)}`}</span>
               </Button>
               
