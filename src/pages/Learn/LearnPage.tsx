@@ -7,7 +7,6 @@ import Button from '../../components/shared/Button';
 import { Link } from 'react-router-dom';
 import { BookOpen, PenTool, MessageSquare, Lightbulb } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import LearningResources from '../../components/learn/LearningResources';
 
 const LearnPage = () => {
   return (
@@ -65,8 +64,6 @@ const LearnPage = () => {
             </div>
           </div>
           
-          <LearningResources />
-          
           <div className="mt-16">
             <div className="mb-10">
               <h2 className="text-2xl font-heading font-semibold mb-5">Lessons</h2>
@@ -81,6 +78,12 @@ const LearnPage = () => {
                   <div className="p-4 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron/30 rounded-lg hover:shadow-md transition-all duration-300">
                     <h3 className="text-lg font-medium mb-1">The Principle of Karma</h3>
                     <p className="text-gray-600">Understand the law of cause and effect in Hindu philosophy</p>
+                  </div>
+                </Link>
+                <Link to="/learn/lessons/deities/the-trimurti-concept" className="block">
+                  <div className="p-4 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron/30 rounded-lg hover:shadow-md transition-all duration-300">
+                    <h3 className="text-lg font-medium mb-1">The Trimurti Concept</h3>
+                    <p className="text-gray-600">Explore the trinity of Brahma, Vishnu, and Shiva</p>
                   </div>
                 </Link>
               </div>
