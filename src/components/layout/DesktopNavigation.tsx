@@ -27,7 +27,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
 
   return (
     <div className="hidden md:block">
-      <div className="flex items-center space-x-5">
+      <div className="flex items-center space-x-6">
         {navigation.map((item) => {
           return item.dropdown ? (
             <NavbarDropdown

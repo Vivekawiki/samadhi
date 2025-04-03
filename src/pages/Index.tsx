@@ -35,7 +35,7 @@ const Index = () => {
             <p className="mb-6 max-w-2xl mx-auto text-gray-700">
               Your generous contributions help us continue our spiritual and humanitarian services to the community.
             </p>
-            <div className="flex justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-4">
               <Link to="/donate">
                 <Button className="bg-indian-saffron hover:bg-indian-saffron/90 text-white gap-2">
                   <Heart className="h-5 w-5" />

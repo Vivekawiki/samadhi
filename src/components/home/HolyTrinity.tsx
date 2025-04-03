@@ -40,7 +40,7 @@ const HolyTrinity = () => {
                 <img 
                   src={deity.image} 
                   alt={deity.name}
-                  className="w-40 h-auto object-contain" 
+                  className="w-auto h-auto max-w-full max-h-full object-contain" 
                 />
               </div>
               <h3 className="text-2xl font-heading font-bold mb-1">{deity.name}</h3>

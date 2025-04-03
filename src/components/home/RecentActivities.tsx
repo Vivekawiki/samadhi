@@ -55,7 +55,7 @@ const RecentActivities = () => {
                 location={activity.location}
                 description={activity.description}
                 image={activity.image}
-                link={activity.link}
+                link="/services/community-outreach"
                 className="border-indian-saffron bg-gradient-to-br from-indian-cream to-white"
               />
             </Link>

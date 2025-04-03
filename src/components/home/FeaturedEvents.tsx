@@ -37,7 +37,7 @@ const events = [
 
 const FeaturedEvents = () => {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gradient-to-r from-indian-cream to-white border-t border-indian-saffron/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Upcoming Events"
@@ -55,12 +55,13 @@ const FeaturedEvents = () => {
               description={event.description}
               image={event.image}
               link={event.link}
+              className="border-indian-saffron bg-gradient-to-br from-indian-cream to-white"
             />
           ))}
         </div>
         
         <div className="text-center mt-12">
-          <Button href="/services" variant="outline">
+          <Button href="/services" variant="outline" className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10">
             View All Events
           </Button>
         </div>
