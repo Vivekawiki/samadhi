@@ -128,6 +128,58 @@ const LearnPage = () => {
               </Link>
             ))}
           </div>
+          
+          {/* Restoring the cards that were removed */}
+          <div className="mt-16">
+            <SectionHeader 
+              title="Interactive Learning" 
+              subtitle="Engage with our community learning tools"
+            />
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+              <Card className="border-spiritual-200 bg-gradient-to-br from-spiritual-50 to-white">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-center w-12 h-12 bg-spiritual-100 rounded-full mb-4">
+                    <BookOpen className="w-6 h-6 text-spiritual-500" />
+                  </div>
+                  <h3 className="text-xl font-heading font-semibold mb-3">Community Learning</h3>
+                  <p className="text-gray-600 mb-4">Join our quiz platform, submit questions, and engage with other learners.</p>
+                  
+                  <Button href="/learn/community" variant="outline" size="sm">
+                    Start Learning
+                  </Button>
+                </CardContent>
+              </Card>
+              
+              <Card className="border-spiritual-200 bg-gradient-to-br from-spiritual-50 to-white">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-center w-12 h-12 bg-spiritual-100 rounded-full mb-4">
+                    <PenTool className="w-6 h-6 text-spiritual-500" />
+                  </div>
+                  <h3 className="text-xl font-heading font-semibold mb-3">Interactive Quizzes</h3>
+                  <p className="text-gray-600 mb-4">Test your knowledge with our collection of quizzes on various topics in Hinduism.</p>
+                  
+                  <Button href="/learn/quizzes" variant="outline" size="sm">
+                    Take Quizzes
+                  </Button>
+                </CardContent>
+              </Card>
+              
+              <Card className="border-spiritual-200 bg-gradient-to-br from-spiritual-50 to-white">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-center w-12 h-12 bg-spiritual-100 rounded-full mb-4">
+                    <Lightbulb className="w-6 h-6 text-spiritual-500" />
+                  </div>
+                  <h3 className="text-xl font-heading font-semibold mb-3">Submit Questions</h3>
+                  <p className="text-gray-600 mb-4">Contribute to our question bank by creating and submitting your own questions.</p>
+                  
+                  <Button href="/learn/submit" variant="outline" size="sm">
+                    Submit Questions
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
         </div>
       </div>
     </PageLayout>
