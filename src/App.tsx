@@ -40,6 +40,9 @@ import LearnPage from "./pages/Learn/LearnPage";
 import MantrasPage from "./pages/Learn/MantrasPage";
 import TopicPage from "./pages/Learn/TopicPage";
 import LessonPage from "./pages/Learn/LessonPage";
+import CommunityLearningPage from "./pages/Learn/CommunityLearningPage";
+import QuizPage from "./pages/Learn/QuizPage";
+import SubmitQuestionPage from "./pages/Learn/SubmitQuestionPage";
 
 // Import Auth pages
 import AuthPage from "./pages/Auth/AuthPage";
@@ -101,6 +104,9 @@ const App = () => (
             <Route path="/learn/topics/:topicId" element={<TopicPage />} />
             <Route path="/learn/topics/:topicId/:subtopicId" element={<TopicPage />} />
             <Route path="/learn/lessons/:topicId/:lessonId" element={<LessonPage />} />
+            <Route path="/learn/community" element={<CommunityLearningPage />} />
+            <Route path="/learn/quizzes" element={<QuizPage />} />
+            <Route path="/learn/submit" element={<SubmitQuestionPage />} />
             
             {/* Authentication and User Routes */}
             <Route path="/auth" element={<AuthPage />} />
