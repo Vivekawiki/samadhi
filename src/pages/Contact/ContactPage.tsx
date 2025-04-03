@@ -3,7 +3,7 @@ import React from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import PageHeader from '../../components/shared/PageHeader';
 import SectionHeader from '../../components/shared/SectionHeader';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, User } from 'lucide-react';
 
 const ContactPage = () => {
   return (
@@ -27,52 +27,69 @@ const ContactPage = () => {
             <div className="space-y-6 mt-8">
               <div className="flex items-start">
                 <div className="flex-shrink-0">
+                  <Mail className="h-6 w-6 text-spiritual-500 mt-1" />
+                </div>
+                <div className="ml-4">
+                  <h3 className="text-lg font-medium text-gray-900">Email</h3>
+                  <p className="mt-1 text-gray-600">johannesburg@ramakrishna-phoenix.org.za</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start">
+                <div className="flex-shrink-0">
                   <MapPin className="h-6 w-6 text-spiritual-500 mt-1" />
                 </div>
                 <div className="ml-4">
                   <h3 className="text-lg font-medium text-gray-900">Address</h3>
                   <p className="mt-1 text-gray-600">
-                    [Centre Address]<br />
-                    Johannesburg<br />
-                    South Africa
+                    Postnet Suite 204, Private Bag X3,<br />
+                    Northriding, 2162
                   </p>
                 </div>
               </div>
               
-              <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <Phone className="h-6 w-6 text-spiritual-500 mt-1" />
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-medium text-gray-900">Phone</h3>
-                  <p className="mt-1 text-gray-600">[Phone Number]</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <Mail className="h-6 w-6 text-spiritual-500 mt-1" />
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-medium text-gray-900">Email</h3>
-                  <p className="mt-1 text-gray-600">[Email Address]</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <Clock className="h-6 w-6 text-spiritual-500 mt-1" />
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-medium text-gray-900">Hours</h3>
-                  <div className="mt-1 text-gray-600">
-                    <p><strong>Temple Hours:</strong></p>
-                    <p>Monday - Saturday: 6:00 AM - 7:00 PM</p>
-                    <p>Sunday: 5:00 AM - 8:00 PM</p>
-                    <p className="mt-2"><strong>Office Hours:</strong></p>
-                    <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
-                    <p>Saturday: 9:00 AM - 1:00 PM</p>
-                    <p>Sunday: Closed</p>
+              <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg">
+                <h3 className="text-lg font-medium text-gray-900 mb-4">Persons in Charge</h3>
+                
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0">
+                      <User className="h-5 w-5 text-spiritual-500 mt-1" />
+                    </div>
+                    <div className="ml-3">
+                      <p className="font-medium">President</p>
+                      <p className="text-gray-600">Revered Swami Saradaprabhananda</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0">
+                      <User className="h-5 w-5 text-spiritual-500 mt-1" />
+                    </div>
+                    <div className="ml-3">
+                      <p className="font-medium">Swami in Charge</p>
+                      <p className="text-gray-600">Revered Swami Viprananda</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0">
+                      <User className="h-5 w-5 text-spiritual-500 mt-1" />
+                    </div>
+                    <div className="ml-3">
+                      <p className="font-medium">Chairperson</p>
+                      <p className="text-gray-600">Mr. Naresh Ramatar (+27) 82 923 6537</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0">
+                      <User className="h-5 w-5 text-spiritual-500 mt-1" />
+                    </div>
+                    <div className="ml-3">
+                      <p className="font-medium">Secretary</p>
+                      <p className="text-gray-600">Mr. Pranil Bhodraj (+27) 72 052 1284</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -111,7 +128,7 @@ const ContactPage = () => {
               alignment="left"
             />
             
-            <form className="mt-8 space-y-6">
+            <form className="mt-8 space-y-6 bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">

@@ -27,7 +27,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
 
   return (
     <div className="hidden md:block">
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-5">
         {navigation.map((item) => {
           return item.dropdown ? (
             <NavbarDropdown
@@ -42,7 +42,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
             <Link
               key={item.name}
               to={item.href}
-              className={`nav-link ${isActive(item.href) ? 'active' : ''}`}
+              className={`nav-link text-base font-medium ${isActive(item.href) ? 'active' : ''}`}
             >
               {item.name}
             </Link>

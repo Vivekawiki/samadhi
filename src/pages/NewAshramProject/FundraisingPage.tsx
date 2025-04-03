@@ -3,6 +3,7 @@ import React from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import SectionHeader from '../../components/shared/SectionHeader';
 import Button from '../../components/shared/Button';
+import { Link } from 'react-router-dom';
 
 const FundraisingPage = () => {
   return (
@@ -21,20 +22,20 @@ const FundraisingPage = () => {
             </p>
             
             {/* Fundraising Progress */}
-            <div className="my-10 bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+            <div className="my-10 bg-gradient-to-r from-indian-cream to-white p-6 rounded-lg shadow-sm border border-indian-saffron/30">
               <h3 className="text-2xl font-heading font-semibold mb-4">Fundraising Progress</h3>
               <div className="mb-2 flex justify-between">
-                <span className="font-medium">Current: R2,500,000</span>
-                <span className="font-medium">Goal: R15,000,000</span>
+                <span className="font-medium">Current: R10,000,000</span>
+                <span className="font-medium">Goal: R60,000,000</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
                 <div 
                   className="bg-spiritual-500 h-4 rounded-full" 
-                  style={{ width: '17%' }}
+                  style={{ width: '16.7%' }}
                 ></div>
               </div>
               <p className="text-sm text-gray-600 text-center">
-                17% of our goal reached. Thank you to our 128 donors!
+                16.7% of our goal reached. Thank you to all our donors!
               </p>
             </div>
             
@@ -44,99 +45,97 @@ const FundraisingPage = () => {
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-              <div className="p-6 border border-gray-100 rounded-lg shadow-sm bg-white">
+              <div className="p-6 border border-indian-saffron/30 rounded-lg shadow-sm bg-gradient-to-r from-indian-cream to-white">
                 <h4 className="text-xl font-heading font-semibold mb-3">Online Donation</h4>
                 <p className="mb-4">
                   Make a secure online donation through our payment portal. All major credit cards accepted.
                 </p>
-                <Button>
-                  Donate Online
-                </Button>
+                <Link to="/donate">
+                  <Button>
+                    Donate Online
+                  </Button>
+                </Link>
               </div>
               
-              <div className="p-6 border border-gray-100 rounded-lg shadow-sm bg-white">
+              <div className="p-6 border border-indian-saffron/30 rounded-lg shadow-sm bg-gradient-to-r from-indian-cream to-white">
                 <h4 className="text-xl font-heading font-semibold mb-3">Bank Transfer</h4>
                 <p className="mb-4">
                   You can make a direct deposit or EFT to our building fund account:
                 </p>
-                <div className="text-sm">
-                  <p><strong>Account Name:</strong> Ramakrishna Centre Building Fund</p>
+                <div className="bg-white/80 p-4 rounded-lg text-sm border border-indian-saffron/20">
+                  <p><strong>Acc Name:</strong> The Ramakrishna Centre of South Africa, Johannesburg</p>
+                  <p><strong>Acc Type:</strong> Business Account</p>
                   <p><strong>Bank:</strong> First National Bank</p>
-                  <p><strong>Account Number:</strong> 12345678910</p>
-                  <p><strong>Branch Code:</strong> 250655</p>
-                  <p><strong>Reference:</strong> Your Name + NAP</p>
+                  <p><strong>Branch Code:</strong> 200607</p>
+                  <p><strong>Branch Name:</strong> 4 Merchant Place 390</p>
+                  <p><strong>Acc Number:</strong> 62858238035</p>
+                  <p><strong>Swift Code:</strong> FIRNZAJJ</p>
+                  <p><strong>Reference:</strong> Your name</p>
+                </div>
+                <div className="mt-4 text-sm bg-gray-50 p-3 rounded-lg border border-indian-saffron/20">
+                  <p><strong>Please Note:</strong> Kindly forward proof of deposit to the following email address for ease of issuing receipts:</p>
+                  <p className="font-medium">johannesburg@ramakrishna-phoenix.org.za</p>
                 </div>
               </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-              <div className="p-6 border border-gray-100 rounded-lg shadow-sm bg-white">
-                <h4 className="text-xl font-heading font-semibold mb-3">SnapScan</h4>
-                <p className="mb-4">
-                  Scan our SnapScan QR code to donate quickly from your mobile device.
-                </p>
-                <div className="bg-gray-100 p-4 rounded-lg w-40 h-40 mx-auto md:mx-0 flex items-center justify-center">
-                  <span className="text-gray-400 text-sm text-center">QR Code Placeholder</span>
-                </div>
-              </div>
-              
-              <div className="p-6 border border-gray-100 rounded-lg shadow-sm bg-white">
-                <h4 className="text-xl font-heading font-semibold mb-3">In Person</h4>
-                <p className="mb-2">
-                  Visit our centre to make a donation in person by cash, check, or card:
-                </p>
-                <p className="text-sm mb-4">
-                  <strong>Address:</strong> 123 Spiritual Lane, Johannesburg, 2000<br />
-                  <strong>Hours:</strong> Tuesday to Sunday, 9:00 AM to 5:00 PM
-                </p>
-                <Button href="/contact">
-                  Contact Us
-                </Button>
-              </div>
+            <div className="p-6 border border-indian-saffron/30 rounded-lg shadow-sm bg-gradient-to-r from-indian-cream to-white my-8">
+              <h4 className="text-xl font-heading font-semibold mb-3">In Person</h4>
+              <p className="mb-2">
+                Visit our centre to make a donation in person by cash, check, or card:
+              </p>
+              <p className="text-sm mb-4">
+                <strong>Address:</strong> Postnet Suite 204, Private Bag X3, Northriding, 2162<br />
+              </p>
+              <Button href="/contact">
+                Contact Us
+              </Button>
             </div>
             
             <h3 className="text-2xl font-heading font-semibold mb-4">Donation Programs</h3>
-            <p>
-              We offer several specific donation programs to suit different interests and capacities:
-            </p>
-            <ul>
-              <li><strong>Monthly Giving:</strong> Set up a recurring monthly donation to support the project over time.</li>
-              <li><strong>Named Gifts:</strong> Donate toward specific rooms or facilities in memory of loved ones.</li>
-              <li><strong>Corporate Sponsorship:</strong> Businesses can sponsor major aspects of the project.</li>
-              <li><strong>Material Donations:</strong> Contribute building materials, furniture, or other needed items.</li>
-              <li><strong>Volunteer Time:</strong> Offer your professional skills or labor to support the project.</li>
-            </ul>
-            
-            <div className="bg-gray-50 p-6 rounded-lg my-8 border-l-4 border-spiritual-500">
-              <h4 className="text-xl font-heading font-semibold mb-2">Tax Benefits</h4>
-              <p>
-                The Ramakrishna Centre of South Africa is a registered non-profit organization (NPO #123456) and Public Benefit Organization (PBO #987654). All donations qualify for tax benefits under Section 18A of the Income Tax Act.
+            <div className="bg-gradient-to-r from-indian-cream to-white p-6 rounded-lg my-8 border border-indian-saffron/30">
+              <p className="mb-4">
+                We offer several specific donation programs to suit different interests and capacities:
               </p>
-              <p className="mt-4">
-                Tax certificates will be issued for all donations. Please ensure you provide your full name and contact details when making a donation.
-              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-white/50 p-4 rounded border border-indian-saffron/20">
+                  <h5 className="font-semibold mb-2">Monthly Giving</h5>
+                  <p className="text-sm">Set up a recurring monthly donation to support the project over time.</p>
+                </div>
+                <div className="bg-white/50 p-4 rounded border border-indian-saffron/20">
+                  <h5 className="font-semibold mb-2">Named Gifts</h5>
+                  <p className="text-sm">Donate toward specific rooms or facilities in memory of loved ones.</p>
+                </div>
+                <div className="bg-white/50 p-4 rounded border border-indian-saffron/20">
+                  <h5 className="font-semibold mb-2">Corporate Sponsorship</h5>
+                  <p className="text-sm">Businesses can sponsor major aspects of the project.</p>
+                </div>
+                <div className="bg-white/50 p-4 rounded border border-indian-saffron/20">
+                  <h5 className="font-semibold mb-2">Material Donations</h5>
+                  <p className="text-sm">Contribute building materials, furniture, or other needed items.</p>
+                </div>
+              </div>
             </div>
             
-            <h3 className="text-2xl font-heading font-semibold mb-4">Recognition</h3>
-            <p>
-              We deeply appreciate all contributions to the New Ashram Project. Donors will be recognized in the following ways:
-            </p>
-            <ul>
-              <li>All donors will be listed in our project completion commemorative book (unless anonymity is requested).</li>
-              <li>Donors contributing R10,000 or more will be recognized on our Donor Wall in the new ashram.</li>
-              <li>Major donors (R100,000+) will be invited to special recognition events and ceremonies.</li>
-            </ul>
-            <p>
-              While we offer these tokens of appreciation, we know that the greatest reward for your generosity is the knowledge that you are helping to create a spiritual sanctuary that will serve countless seekers for generations to come.
-            </p>
+            <div className="bg-gradient-to-r from-indian-cream to-white p-6 rounded-lg my-8 border border-indian-saffron/30">
+              <h4 className="text-xl font-heading font-semibold mb-2">Tax Benefits</h4>
+              <p>
+                The Ramakrishna Centre of South Africa is a registered non-profit organization. Certain local donations to the Centre may qualify for Section 18A taxation benefits from the South African Revenue Service.
+              </p>
+              <p className="mt-4">
+                Tax certificates will be issued for all qualifying donations. Please ensure you provide your full name and contact details when making a donation.
+              </p>
+            </div>
             
             <div className="text-center mt-12">
               <p className="text-xl font-semibold mb-6">
                 Every contribution makes a difference
               </p>
-              <Button size="lg">
-                Donate Now
-              </Button>
+              <Link to="/donate">
+                <Button size="lg">
+                  Donate Now
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

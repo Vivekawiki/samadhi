@@ -5,7 +5,7 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-50 border-t border-gray-200">
+    <footer className="bg-gradient-to-r from-indian-cream to-white border-t border-indian-saffron/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About Section */}
@@ -65,6 +65,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/donate" className="text-gray-600 hover:text-spiritual-500 transition-colors">
+                  Donate
+                </Link>
+              </li>
+              <li>
                 <Link to="/gallery" className="text-gray-600 hover:text-spiritual-500 transition-colors">
                   Gallery
                 </Link>
@@ -84,22 +89,18 @@ const Footer = () => {
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 text-spiritual-500 mt-1 mr-3" />
                 <span className="text-gray-600">
-                  [Centre Address], Johannesburg, South Africa
+                  Postnet Suite 204, Private Bag X3, Northriding, 2162
                 </span>
               </div>
               <div className="flex items-center">
-                <Phone className="h-5 w-5 text-spiritual-500 mr-3" />
-                <span className="text-gray-600">[Phone Number]</span>
-              </div>
-              <div className="flex items-center">
                 <Mail className="h-5 w-5 text-spiritual-500 mr-3" />
-                <span className="text-gray-600">[Email Address]</span>
+                <span className="text-gray-600">johannesburg@ramakrishna-phoenix.org.za</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-200 mt-8 pt-8 text-center">
+        <div className="border-t border-indian-saffron/20 mt-8 pt-8 text-center">
           <p className="text-gray-500 text-sm">
             &copy; {new Date().getFullYear()} Ramakrishna Centre of South Africa, Johannesburg. All rights reserved.
           </p>

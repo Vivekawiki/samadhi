@@ -5,8 +5,9 @@ import PageHeader from '../../components/shared/PageHeader';
 import SectionHeader from '../../components/shared/SectionHeader';
 import Button from '../../components/shared/Button';
 import { Link } from 'react-router-dom';
-import { Users, Book, PenTool, MessageSquare, Lightbulb, BookOpen } from 'lucide-react';
+import { BookOpen, PenTool, MessageSquare, Lightbulb } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import LearningResources from '../../components/learn/LearningResources';
 
 const LearnPage = () => {
   return (
@@ -41,47 +42,6 @@ const LearnPage = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="p-6 border border-indian-saffron rounded-lg shadow-sm bg-gradient-to-br from-indian-cream to-white text-center">
-              <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-spiritual-50 text-spiritual-500 mb-4">
-                <Users size={28} />
-              </div>
-              <h3 className="text-xl font-heading font-semibold mb-3">Community Learning</h3>
-              <p className="text-gray-600 mb-4">
-                Join our quiz platform, submit questions, and engage with other learners.
-              </p>
-              <Button href="/learn/lessons" variant="outline" className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10">
-                Start Learning
-              </Button>
-            </div>
-            
-            <div className="p-6 border border-indian-saffron rounded-lg shadow-sm bg-gradient-to-br from-indian-cream to-white text-center">
-              <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-spiritual-50 text-spiritual-500 mb-4">
-                <Book size={28} />
-              </div>
-              <h3 className="text-xl font-heading font-semibold mb-3">Interactive Quizzes</h3>
-              <p className="text-gray-600 mb-4">
-                Test your knowledge with our collection of quizzes on various topics in Hinduism.
-              </p>
-              <Button href="/learn/lessons" variant="outline" className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10">
-                Take Quizzes
-              </Button>
-            </div>
-            
-            <div className="p-6 border border-indian-saffron rounded-lg shadow-sm bg-gradient-to-br from-indian-cream to-white text-center">
-              <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-spiritual-50 text-spiritual-500 mb-4">
-                <PenTool size={28} />
-              </div>
-              <h3 className="text-xl font-heading font-semibold mb-3">Submit Questions</h3>
-              <p className="text-gray-600 mb-4">
-                Contribute to our question bank by creating and submitting your own questions.
-              </p>
-              <Button href="/learn/questions" variant="outline" className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10">
-                Submit Questions
-              </Button>
-            </div>
-          </div>
-          
           <div className="bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg mb-8">
             <h3 className="text-xl font-heading font-semibold mb-3 flex items-center">
               <MessageSquare className="w-5 h-5 mr-2 text-indian-saffron" />
@@ -102,6 +62,38 @@ const LearnPage = () => {
               
               <p className="font-semibold">4. Reference</p>
               <p className="text-sm text-gray-600">Cite the source of information (text, chapter, verse, etc.).</p>
+            </div>
+          </div>
+          
+          <LearningResources />
+          
+          <div className="mt-16">
+            <div className="mb-10">
+              <h2 className="text-2xl font-heading font-semibold mb-5">Lessons</h2>
+              <div className="space-y-4">
+                <Link to="/learn/lessons/core-concepts/introduction-to-dharma" className="block">
+                  <div className="p-4 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron/30 rounded-lg hover:shadow-md transition-all duration-300">
+                    <h3 className="text-lg font-medium mb-1">Introduction to Dharma</h3>
+                    <p className="text-gray-600">Learn about the foundational concept of dharma in Hindu philosophy</p>
+                  </div>
+                </Link>
+                <Link to="/learn/lessons/core-concepts/the-principle-of-karma" className="block">
+                  <div className="p-4 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron/30 rounded-lg hover:shadow-md transition-all duration-300">
+                    <h3 className="text-lg font-medium mb-1">The Principle of Karma</h3>
+                    <p className="text-gray-600">Understand the law of cause and effect in Hindu philosophy</p>
+                  </div>
+                </Link>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-heading font-semibold mb-5">Mantras</h2>
+              <Link to="/learn/mantras" className="block">
+                <div className="p-4 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron/30 rounded-lg hover:shadow-md transition-all duration-300">
+                  <h3 className="text-lg font-medium mb-1">Sacred Mantras</h3>
+                  <p className="text-gray-600">Explore chants with audio, text, and explanations to support spiritual practice</p>
+                </div>
+              </Link>
             </div>
           </div>
           

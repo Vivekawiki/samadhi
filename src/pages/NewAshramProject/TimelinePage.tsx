@@ -3,8 +3,71 @@ import React from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import SectionHeader from '../../components/shared/SectionHeader';
 import Button from '../../components/shared/Button';
+import { CheckCircle, Circle } from 'lucide-react';
 
 const TimelinePage = () => {
+  const phases = [
+    {
+      title: "Phase 1: Land Acquisition",
+      period: "January 2022 - December 2022",
+      items: [
+        "Formation of the Building Committee",
+        "Site selection and evaluation",
+        "Land purchase negotiations",
+        "Securing property ownership"
+      ],
+      isCompleted: true
+    },
+    {
+      title: "Phase 2: Zoning, Acquisition of Authorizations",
+      period: "January 2023 - June 2023",
+      items: [
+        "Zoning from previous farm land",
+        "Environmental Impact Assessment (EIA) reports",
+        "Wetlands assessment",
+        "Water Use License Application (WULA) licenses",
+        "Other required permits and authorizations"
+      ],
+      isCompleted: true
+    },
+    {
+      title: "Phase 3: Planning and Design",
+      period: "July 2023 - December 2023",
+      items: [
+        "Needs assessment and requirement gathering",
+        "Architectural concept development",
+        "Detailed architectural plans",
+        "Engineering specifications",
+        "Budget finalization"
+      ],
+      isCompleted: true
+    },
+    {
+      title: "Phase 4: Submission to Council for Approval",
+      period: "January 2024 - Present",
+      items: [
+        "Submission of building plans",
+        "Council review process",
+        "Addressing any council requirements",
+        "Final approval from local authorities"
+      ],
+      isCompleted: false,
+      isCurrent: true
+    },
+    {
+      title: "Phase 5: Construction",
+      period: "Projected: July 2024 - December 2025",
+      items: [
+        "Groundbreaking ceremony",
+        "Foundation work",
+        "Building construction",
+        "Interior development",
+        "Landscaping and exterior work"
+      ],
+      isCompleted: false
+    }
+  ];
+
   return (
     <PageLayout title="Timeline & Progress">
       <div className="container mx-auto px-4 py-12">
@@ -24,106 +87,81 @@ const TimelinePage = () => {
               />
             </div>
             
-            <h3 className="text-2xl font-heading font-semibold mb-4">Project Timeline</h3>
-            <p>
-              Our New Ashram Project is progressing through several carefully planned phases. Below is our projected timeline, subject to funding availability and other factors.
-            </p>
-            
-            <div className="space-y-12 mt-8">
-              {/* Timeline item 1 */}
-              <div className="relative pl-8 border-l-2 border-spiritual-200">
-                <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-spiritual-500"></div>
-                <div className="mb-1 text-spiritual-500 font-semibold">Phase 1: Planning & Design (Completed)</div>
-                <div className="text-sm text-gray-500 mb-2">January 2022 - December 2022</div>
-                <div>
-                  <ul>
-                    <li>Formation of the Building Committee</li>
-                    <li>Needs assessment and requirement gathering</li>
-                    <li>Architectural concept development</li>
-                    <li>Initial fundraising planning</li>
-                  </ul>
-                </div>
-              </div>
+            <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg mb-8">
+              <h3 className="text-2xl font-heading font-semibold mb-4">Project Timeline</h3>
+              <p className="mb-6">
+                Our New Ashram Project is progressing through several carefully planned phases. Below is our current timeline, with updates on our progress.
+              </p>
               
-              {/* Timeline item 2 */}
-              <div className="relative pl-8 border-l-2 border-spiritual-200">
-                <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-spiritual-500"></div>
-                <div className="mb-1 text-spiritual-500 font-semibold">Phase 2: Land Acquisition (In Progress)</div>
-                <div className="text-sm text-gray-500 mb-2">January 2023 - June 2023</div>
-                <div>
-                  <ul>
-                    <li>Site selection and evaluation</li>
-                    <li>Land purchase negotiations</li>
-                    <li>Securing necessary permits</li>
-                    <li>Detailed architectural plans</li>
-                  </ul>
-                </div>
-              </div>
-              
-              {/* Timeline item 3 */}
-              <div className="relative pl-8 border-l-2 border-spiritual-200">
-                <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gray-300"></div>
-                <div className="mb-1 text-gray-600 font-semibold">Phase 3: Major Fundraising Campaign</div>
-                <div className="text-sm text-gray-500 mb-2">July 2023 - December 2024</div>
-                <div>
-                  <ul>
-                    <li>Launch of public fundraising campaign</li>
-                    <li>Corporate sponsorship outreach</li>
-                    <li>Special fundraising events</li>
-                    <li>International donor engagement</li>
-                  </ul>
-                </div>
-              </div>
-              
-              {/* Timeline item 4 */}
-              <div className="relative pl-8 border-l-2 border-spiritual-200">
-                <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gray-300"></div>
-                <div className="mb-1 text-gray-600 font-semibold">Phase 4: Construction</div>
-                <div className="text-sm text-gray-500 mb-2">January 2025 - December 2026</div>
-                <div>
-                  <ul>
-                    <li>Groundbreaking ceremony</li>
-                    <li>Foundation work</li>
-                    <li>Building construction</li>
-                    <li>Interior development</li>
-                    <li>Landscaping and exterior work</li>
-                  </ul>
-                </div>
-              </div>
-              
-              {/* Timeline item 5 */}
-              <div className="relative pl-8">
-                <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gray-300"></div>
-                <div className="mb-1 text-gray-600 font-semibold">Phase 5: Opening & Dedication</div>
-                <div className="text-sm text-gray-500 mb-2">January 2027</div>
-                <div>
-                  <ul>
-                    <li>Prana Pratishtha ceremony</li>
-                    <li>Grand opening celebrations</li>
-                    <li>Dedication to the public</li>
-                    <li>Commencement of regular activities</li>
-                  </ul>
-                </div>
+              <div className="space-y-12 mt-8">
+                {phases.map((phase, index) => (
+                  <div key={index} className="relative bg-white/70 p-6 rounded-lg border border-indian-saffron/30 shadow-sm">
+                    <div className="absolute -left-3 top-6 w-6 h-6 flex items-center justify-center">
+                      {phase.isCompleted ? (
+                        <CheckCircle className="w-6 h-6 text-green-500" />
+                      ) : phase.isCurrent ? (
+                        <div className="w-6 h-6 rounded-full bg-blue-500 animate-pulse" />
+                      ) : (
+                        <Circle className="w-6 h-6 text-gray-400" />
+                      )}
+                    </div>
+                    <div className={`mb-2 ${phase.isCompleted ? 'text-green-600' : phase.isCurrent ? 'text-blue-600' : 'text-gray-600'} font-semibold text-lg`}>
+                      {phase.title}
+                    </div>
+                    <div className="text-sm text-gray-500 mb-3">{phase.period}</div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                      {phase.items.map((item, idx) => (
+                        <div key={idx} className="flex items-start gap-2">
+                          <span className="inline-block w-2 h-2 rounded-full bg-indian-saffron mt-2"></span>
+                          <span className="text-gray-700">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                    {phase.isCurrent && (
+                      <div className="mt-4 pt-4 border-t border-gray-200">
+                        <div className="flex items-center">
+                          <div className="w-full bg-gray-200 rounded-full h-3">
+                            <div 
+                              className="bg-blue-500 h-3 rounded-full" 
+                              style={{ width: '60%' }}
+                            ></div>
+                          </div>
+                          <span className="ml-2 text-sm text-gray-600">60% Complete</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
             
             <h3 className="text-2xl font-heading font-semibold mt-12 mb-4">Current Progress</h3>
-            <p>
-              We are currently in Phase 2 of our project, focused on land acquisition and detailed planning. Recent developments include:
-            </p>
-            <ul>
-              <li>Identification of potential sites in the Johannesburg area</li>
-              <li>Preliminary negotiations with property owners</li>
-              <li>Consultation with architectural firms specializing in spiritual spaces</li>
-              <li>Initial fundraising efforts that have secured 20% of our Phase 2 target</li>
-            </ul>
+            <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg mb-8">
+              <p className="mb-4">
+                We are currently in <strong>Phase 4</strong> of our project, focused on obtaining council approval for our building plans. Recent developments include:
+              </p>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <li className="bg-white/50 p-3 rounded border border-indian-saffron/20">
+                  Submission of complete building plans to local authorities
+                </li>
+                <li className="bg-white/50 p-3 rounded border border-indian-saffron/20">
+                  Engagement with council officials to address technical queries
+                </li>
+                <li className="bg-white/50 p-3 rounded border border-indian-saffron/20">
+                  Preparation for construction tenders pending approval
+                </li>
+                <li className="bg-white/50 p-3 rounded border border-indian-saffron/20">
+                  Continued fundraising efforts for the construction phase
+                </li>
+              </ul>
+            </div>
             
-            <div className="bg-gray-50 p-6 rounded-lg my-8 border-l-4 border-spiritual-500">
+            <div className="bg-gradient-to-r from-indian-cream to-white p-6 rounded-lg my-8 border border-indian-saffron/30">
               <h4 className="text-xl font-heading font-semibold mb-2">Progress Updates</h4>
-              <p>
+              <p className="mb-4">
                 We are committed to transparency throughout this project. Regular updates will be posted on this page, and major milestones will be shared in our newsletter and social media channels.
               </p>
-              <p className="mt-4">
+              <p>
                 If you would like to receive direct updates about the New Ashram Project, please sign up for our dedicated project newsletter.
               </p>
             </div>
