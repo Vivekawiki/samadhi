@@ -1,142 +1,116 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+ 
 @layer base {
   :root {
-    --background: 35 70% 97%;
-    --foreground: 20 14.3% 4.1%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 20 14.3% 4.1%;
-
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
     --popover: 0 0% 100%;
-    --popover-foreground: 20 14.3% 4.1%;
-
-    --primary: 35 95% 47%;
-    --primary-foreground: 60 9.1% 97.8%;
-
-    --secondary: 35 38% 92%;
-    --secondary-foreground: 24 9.8% 10%;
-
-    --muted: 35 25% 92%;
-    --muted-foreground: 25 5.3% 44.7%;
-
-    --accent: 35 38% 92%;
-    --accent-foreground: 24 9.8% 10%;
-
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+ 
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 60 9.1% 97.8%;
-
-    --border: 20 5.9% 90%;
-    --input: 20 5.9% 90%;
-    --ring: 35 95% 47%;
-
+    --destructive-foreground: 210 40% 98%;
+ 
+    --ring: 215 20.2% 65.1%;
+ 
     --radius: 0.5rem;
-
-    --sidebar-background: 35 70% 98%;
-    --sidebar-foreground: 20 5.3% 26.1%;
-    --sidebar-primary: 35 95% 47%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 35 38% 92%;
-    --sidebar-accent-foreground: 20 5.9% 10%;
-    --sidebar-border: 35 13% 91%;
-    --sidebar-ring: 35 95% 47%;
+    
+    /* Custom colors for Ramakrishna Centre */
+    --spiritual-50: 41 100% 95%;
+    --spiritual-100: 41 100% 90%;
+    --spiritual-200: 41 100% 80%;
+    --spiritual-300: 41 100% 70%;
+    --spiritual-400: 41 100% 60%;
+    --spiritual-500: 41 100% 50%;
+    --spiritual-600: 41 100% 40%;
+    --spiritual-700: 41 100% 30%;
+    --spiritual-800: 41 100% 20%;
+    --spiritual-900: 41 100% 10%;
+    
+    --indian-saffron: 33 100% 50%;
+    --indian-white: 0 0% 100%;
+    --indian-green: 120 100% 25%;
+    --indian-navy: 240 100% 25%;
+    --indian-cream: 35 100% 95%;
   }
-
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+ 
+    --ring: 217.2 32.6% 17.5%;
+  }
+}
+ 
+@layer base {
   * {
     @apply border-border;
-    scroll-behavior: smooth;
   }
-
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    @apply bg-background text-foreground;
   }
 }
 
 @layer components {
-  .glass-card {
-    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-sm;
-  }
-  
-  .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20;
-  }
-  
-  .page-title {
-    @apply text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-center mb-8 md:mb-12;
-  }
-  
-  .section-title {
-    @apply text-2xl md:text-3xl lg:text-4xl font-heading font-semibold mb-6;
-  }
-  
-  .subsection-title {
-    @apply text-xl md:text-2xl font-heading font-medium mb-4;
-  }
-  
-  .button-primary {
-    @apply inline-flex items-center justify-center rounded-md bg-spiritual-500 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-spiritual-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-spiritual-500 disabled:opacity-50;
-  }
-  
-  .button-secondary {
-    @apply inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:opacity-50;
-  }
-
-  .card-hover {
-    @apply transition-all duration-300 hover:shadow-md hover:-translate-y-1;
-  }
-  
   .nav-link {
-    @apply relative px-3 py-2 text-foreground/80 transition-colors hover:text-foreground/100 before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-indian-saffron before:transition-all hover:before:w-full;
+    @apply text-gray-800 hover:text-spiritual-600 relative;
   }
   
   .nav-link.active {
-    @apply text-foreground before:w-full;
+    @apply text-spiritual-600 font-medium;
   }
   
-  /* Updated styles with gradient backgrounds and saffron borders */
-  .indian-border {
-    @apply border-2 border-indian-saffron rounded-lg;
+  .nav-link.active::after {
+    content: '';
+    @apply absolute left-3 right-3 bottom-0 h-0.5 bg-spiritual-500 transform;
   }
   
-  .indian-card {
-    @apply bg-gradient-to-br from-indian-cream to-white p-6 shadow-md rounded-lg border-t-4 border-indian-saffron;
-  }
-  
-  .indian-section {
-    @apply bg-gradient-to-r from-indian-cream to-white py-12 border-t border-b border-indian-saffron/30;
-  }
-  
-  .decorative-border {
-    @apply relative before:absolute before:content-[''] before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-indian-saffron before:via-indian-gold before:to-indian-saffron;
-  }
-  
-  .mandala-bg {
-    @apply relative;
-  }
-  
-  /* New gradient and border styles */
-  .gradient-card {
-    @apply bg-gradient-to-br from-indian-cream to-white border border-indian-saffron rounded-md;
-  }
-  
-  .gradient-section {
-    @apply bg-gradient-to-r from-indian-cream to-white border-t border-b border-indian-saffron/30;
-  }
-  
-  .saffron-border {
-    @apply border border-indian-saffron;
-  }
-  
-  .saffron-accent {
-    @apply border-l-4 border-indian-saffron;
+  .font-heading {
+    @apply font-serif;
   }
 }

@@ -22,7 +22,7 @@ const NavbarDropdown: React.FC<NavbarDropdownProps> = ({
     <div className="relative group">
       <Link
         to={item.href}
-        className={`nav-link ${isActive(item.href) ? 'active' : ''}`}
+        className={`nav-link px-3 py-2 text-sm font-medium ${isActive(item.href) ? 'active' : ''}`}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >

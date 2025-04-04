@@ -56,14 +56,14 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo - Updated to be bigger */}
+        <div className="flex items-center justify-between h-16">
+          {/* Logo - Reduced in size */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
               <img 
                 src="/lovable-uploads/2e549f27-8429-4042-95be-36194a9d309c.png" 
                 alt="Ramakrishna Centre Logo" 
-                className="h-16" // Increased from h-12 to h-16
+                className="h-12" /* Reduced from h-16 to h-12 */
               />
             </Link>
           </div>
