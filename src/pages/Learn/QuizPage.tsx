@@ -20,7 +20,12 @@ const QuizPage = () => {
 
   return (
     <PageLayout title="Interactive Quizzes | Hinduism for Children">
-      {/* Future quiz content will go here */}
+      <div className="container mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto">
+          {/* Future quiz content will go here */}
+          <p>Quiz content is under development.</p>
+        </div>
+      </div>
     </PageLayout>
   );
 };

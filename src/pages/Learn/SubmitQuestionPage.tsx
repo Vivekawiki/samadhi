@@ -20,7 +20,12 @@ const SubmitQuestionPage = () => {
 
   return (
     <PageLayout title="Submit Questions | Hinduism for Children">
-      {/* Future question submission form will go here */}
+      <div className="container mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto">
+          {/* Future question submission form will go here */}
+          <p>Question submission functionality is under development.</p>
+        </div>
+      </div>
     </PageLayout>
   );
 };
