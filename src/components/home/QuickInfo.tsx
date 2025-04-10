@@ -29,10 +29,10 @@ const QuickInfo = () => {
           <div className="space-y-6 max-w-2xl">
             <h3 className="text-2xl font-heading font-semibold tracking-tight">Our Mission</h3>
             <p className="text-gray-700 leading-relaxed tracking-wide">
-              The Ramakrishna Centre of South Africa, Johannesburg is dedicated to the propagation of the teachings of Sri Ramakrishna, Holy Mother Sri Sarada Devi, and Swami Vivekananda. We strive to promote the harmony of religions, the spiritual upliftment of humanity, and service to all beings.
+              The Ramakrishna Centre of South Africa was founded in 1942 by Swami Nischalananda. Its Johannesburg Centre (started 1954) is a registered PBO/NPO (930050436/161-189 NPO) providing humanitarian and social services for over 75 years.
             </p>
             <p className="text-gray-700 leading-relaxed tracking-wide">
-              Founded on the principle of "Service to humanity is service to God," our Centre offers a variety of spiritual, educational, and humanitarian services to the community, regardless of religion, race, or background.
+              The Centre promotes peace and harmony, uplifting disadvantaged communities through outreach including medical aid, skills development, education, and distributing value-based literature.
             </p>
 
             <div className="pt-4">
@@ -49,7 +49,7 @@ const QuickInfo = () => {
             <div className="space-y-4">
               <h3 className="text-2xl font-heading font-semibold text-spiritual-800 tracking-tight">New Ashram Project</h3>
               <p className="text-gray-700 leading-relaxed tracking-wide">
-                Help us build a new spiritual center to better serve our growing community. The new ashram will provide expanded facilities for meditation, education, and community outreach programs.
+                The Johannesburg Centre conducts a wide-range of welfare work and is developing a fixed premises to expand on this. The sole purpose of this development is to serve and uplift society and to promote spirituality and tranquility, where devotees can find God in themselves and around them.
               </p>
               <div className="pt-2">
                 <Button href="/new-ashram-project" variant="primary">

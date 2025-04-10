@@ -31,19 +31,19 @@ const HolyTrinity = () => {
     {
       name: "Sri Ramakrishna",
       role: "The Spiritual Teacher",
-      description: "Sri Ramakrishna Paramahamsa was a mystic and saint whose spiritual experiences and teachings formed the foundation of the Ramakrishna Movement.",
+      description: "(1836 – 1886)\n\nSri Ramakrishna is regarded by millions all over the world as a divine incarnation. His early life was devoted to the practice and testing of spiritual disciplines including those of Hinduism, Christianity, Islam as well as the various subsets of Hinduism. After realizing God in each of those paths, he declared that all faiths, if followed with earnestness, lead to the same final goal.",
       image: "/lovable-uploads/ff802407-da30-4efc-941c-05f69a329db7.png"
     },
     {
       name: "Sri Sarada Devi",
       role: "The Holy Mother",
-      description: "Sri Sarada Devi, known reverently as Holy Mother, was the spiritual consort of Sri Ramakrishna and embodied unconditional love and compassion.",
+      description: "(1853-1920)\n\nSri Sarada Devi, known as the Holy Mother, was Sri Ramakrishna's spiritual consort and first disciple. After his passing, she continued his spiritual work, blessing many devotees. Her final message was: \"My child if you want peace of mind, then do not find fault with others. Learn to make all your own. No one is a stranger my child … the whole world is your own.\"",
       image: "/lovable-uploads/6103c45d-7ef6-40da-a95e-d5695cd3526d.png"
     },
     {
       name: "Swami Vivekananda",
       role: "The Universal Ambassador",
-      description: "Swami Vivekananda was the chief disciple of Sri Ramakrishna and the founder of the Ramakrishna Math and Mission, spreading Vedanta philosophy worldwide.",
+      description: "(1863-1902)\n\nSwami Vivekananda, Sri Ramakrishna's chief disciple, founded the Ramakrishna Order. In 1893, he brought Vedanta to the West, representing Vedanta at the Parliament of World's Religions in Chicago. He reshaped Vedanta's ancient wisdom to help humanity realize God as Truth.",
       image: "/lovable-uploads/0ee38c83-a4f6-4d5b-8142-1c66e6c7ff04.png"
     }
   ];
@@ -73,7 +73,7 @@ const HolyTrinity = () => {
               ></div>
               <h3 className="text-2xl font-heading font-bold mb-1 tracking-tight trinity-name">{deity.name}</h3>
               <h4 className="text-lg text-spiritual-600 mb-3 font-medium tracking-wide trinity-role">{deity.role}</h4>
-              <p className="text-center text-gray-600 leading-relaxed tracking-wide">{deity.description}</p>
+              <div className="text-center text-gray-600 leading-relaxed tracking-wide whitespace-pre-line">{deity.description}</div>
             </div>
           ))}
         </div>
