@@ -1,17 +1,20 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { navigation } from './NavbarData';
 import DesktopNavigation from './DesktopNavigation';
 import MobileNavigation from './MobileNavigation';
 import UserAccountNav from '../auth/UserAccountNav';
+import gsap from 'gsap';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const navRef = useRef<HTMLDivElement>(null);
+  const logoRef = useRef<HTMLImageElement>(null);
 
   // Handle scroll effect for navbar
   useEffect(() => {
@@ -35,6 +38,28 @@ const Navbar = () => {
     setActiveDropdown(null);
   }, [location.pathname]);
 
+  // Animate navbar on mount
+  useEffect(() => {
+    if (navRef.current && logoRef.current) {
+      // Initial animation for navbar
+      gsap.from(navRef.current, {
+        y: -50,
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power3.out'
+      });
+
+      // Logo animation
+      gsap.from(logoRef.current, {
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.6,
+        delay: 0.2,
+        ease: 'back.out(1.7)'
+      });
+    }
+  }, []);
+
   // Check if link is active
   const isActive = (href: string) => {
     return location.pathname === href || location.pathname.startsWith(`${href}/`);
@@ -51,6 +76,7 @@ const Navbar = () => {
 
   return (
     <nav
+      ref={navRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
       }`}
@@ -60,16 +86,17 @@ const Navbar = () => {
           {/* Logo - Reduced in size */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <img 
-                src="/lovable-uploads/2e549f27-8429-4042-95be-36194a9d309c.png" 
-                alt="Ramakrishna Centre Logo" 
-                className="h-12" /* Reduced from h-16 to h-12 */
+              <img
+                ref={logoRef}
+                src="/lovable-uploads/2e549f27-8429-4042-95be-36194a9d309c.png"
+                alt="Ramakrishna Centre Logo"
+                className="h-12 transition-transform duration-300 hover:scale-105"
               />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <DesktopNavigation 
+          <DesktopNavigation
             navigation={navigation}
             isActive={isActive}
             activeDropdown={activeDropdown}
@@ -103,7 +130,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      <MobileNavigation 
+      <MobileNavigation
         isOpen={isOpen}
         navigation={navigation}
         isActive={isActive}

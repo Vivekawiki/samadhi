@@ -2,6 +2,7 @@
 import React from 'react';
 import SectionHeader from '../shared/SectionHeader';
 import { Card, CardContent } from '../ui/card';
+import './trinity.css';
 
 const HolyTrinity = () => {
   const deities = [
@@ -32,28 +33,28 @@ const HolyTrinity = () => {
           title="The Holy Trinity"
           subtitle="Understanding Sri Ramakrishna, Sri Sarada Devi, and Swami Vivekananda"
         />
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {deities.map((deity, index) => (
-            <div key={index} className="flex flex-col items-center">
-              <div className="w-48 h-64 overflow-hidden border-4 border-indian-saffron shadow-lg mb-6 flex items-center justify-center bg-white rounded-lg">
-                <img 
-                  src={deity.image} 
+            <div key={index} className="flex flex-col items-center trinity-container">
+              <div className="w-48 h-64 overflow-hidden border-4 border-indian-saffron shadow-lg mb-6 flex items-center justify-center bg-white rounded-lg trinity-image">
+                <img
+                  src={deity.image}
                   alt={deity.name}
-                  className="w-auto h-auto max-w-full max-h-full object-contain" 
+                  className="w-auto h-auto max-w-full max-h-full object-contain"
                 />
               </div>
-              <h3 className="text-2xl font-heading font-bold mb-1">{deity.name}</h3>
-              <h4 className="text-lg text-spiritual-600 mb-3">{deity.role}</h4>
+              <h3 className="text-2xl font-heading font-bold mb-1 trinity-name">{deity.name}</h3>
+              <h4 className="text-lg text-spiritual-600 mb-3 trinity-role">{deity.role}</h4>
               <p className="text-center text-gray-600">{deity.description}</p>
             </div>
           ))}
         </div>
-        
+
         <Card className="mt-10 bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30">
           <CardContent className="p-6">
-            <p className="text-center text-lg italic text-gray-700 font-heading">
-              "The Holy Trinity represents the spiritual foundation of the Ramakrishna movement, embodying the teacher (Sri Ramakrishna), 
+            <p className="text-center text-lg italic text-gray-700 font-heading trinity-quote">
+              "The Holy Trinity represents the spiritual foundation of the Ramakrishna movement, embodying the teacher (Sri Ramakrishna),
               the compassionate mother (Sri Sarada Devi), and the dynamic disciple (Swami Vivekananda) who spread the teachings worldwide."
             </p>
           </CardContent>

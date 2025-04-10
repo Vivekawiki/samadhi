@@ -1,0 +1,89 @@
+/* Holy Trinity animations */
+.trinity-image {
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.trinity-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.trinity-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(241, 169, 18, 0.2);
+}
+
+.trinity-image:hover::before {
+  opacity: 1;
+}
+
+.trinity-image img {
+  transition: transform 0.5s ease;
+}
+
+.trinity-image:hover img {
+  transform: scale(1.05);
+}
+
+.trinity-name {
+  position: relative;
+  display: inline-block;
+}
+
+.trinity-name::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 50%;
+  background-color: #F1A912;
+  transition: all 0.3s ease;
+}
+
+.trinity-container:hover .trinity-name::after {
+  width: 100%;
+  left: 0;
+}
+
+.trinity-role {
+  transition: color 0.3s ease;
+}
+
+.trinity-container:hover .trinity-role {
+  color: #F1A912;
+}
+
+.trinity-quote {
+  position: relative;
+  overflow: hidden;
+}
+
+.trinity-quote::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  font-size: 80px;
+  color: rgba(241, 169, 18, 0.1);
+  font-family: serif;
+}
+
+.trinity-quote::after {
+  content: '"';
+  position: absolute;
+  bottom: -60px;
+  right: 10px;
+  font-size: 80px;
+  color: rgba(241, 169, 18, 0.1);
+  font-family: serif;
+}

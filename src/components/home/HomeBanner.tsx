@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Button from '../shared/Button';
+import './banner.css';
 
 // Banner slide interface
 interface BannerSlide {
@@ -74,26 +75,27 @@ const HomeBanner = () => {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 w-full h-full bg-black/40 z-10"></div>
             <div
-              className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-10000"
+              className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat ${index === currentSlide ? 'banner-image' : ''}`}
               style={{
                 backgroundImage: `url(${slide.image})`,
-                animation: index === currentSlide ? 'zoomBg 10s forwards' : 'none',
               }}
             ></div>
 
             {/* Content */}
             <div className="relative z-20 h-full flex items-center justify-center text-center px-6">
               <div className={`max-w-4xl ${index === currentSlide ? 'animate-slide-in' : ''}`}>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
+                <h1 className={`text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 ${index === currentSlide ? 'banner-title' : ''}`}>
                   {slide.title}
                 </h1>
-                <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+                <p className={`text-xl text-white/90 mb-8 max-w-3xl mx-auto ${index === currentSlide ? 'banner-subtitle' : ''}`}>
                   {slide.subtitle}
                 </p>
                 {slide.buttonText && slide.buttonLink && (
-                  <Button href={slide.buttonLink} size="lg">
-                    {slide.buttonText}
-                  </Button>
+                  <div className={`${index === currentSlide ? 'banner-button' : ''}`}>
+                    <Button href={slide.buttonLink} size="lg">
+                      {slide.buttonText}
+                    </Button>
+                  </div>
                 )}
               </div>
             </div>
@@ -103,7 +105,7 @@ const HomeBanner = () => {
 
       {/* Navigation Arrows */}
       <button
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full backdrop-blur-sm transition-all"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full backdrop-blur-sm banner-arrow"
         onClick={prevSlide}
         aria-label="Previous slide"
       >
@@ -112,7 +114,7 @@ const HomeBanner = () => {
         </svg>
       </button>
       <button
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full backdrop-blur-sm transition-all"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full backdrop-blur-sm banner-arrow"
         onClick={nextSlide}
         aria-label="Next slide"
       >
@@ -127,8 +129,8 @@ const HomeBanner = () => {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all ${
-              index === currentSlide ? 'bg-white scale-100' : 'bg-white/50 scale-75'
+            className={`w-3 h-3 rounded-full banner-dot ${
+              index === currentSlide ? 'bg-white scale-100 active' : 'bg-white/50 scale-75'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           ></button>

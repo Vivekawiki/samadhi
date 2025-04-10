@@ -1,7 +1,8 @@
 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { NavItem } from './NavbarData';
+import gsap from 'gsap';
 
 interface NavbarDropdownProps {
   item: NavItem;
@@ -18,6 +19,23 @@ const NavbarDropdown: React.FC<NavbarDropdownProps> = ({
   onMouseEnter,
   onMouseLeave
 }) => {
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (dropdownRef.current && isOpen) {
+      // Animate dropdown when it opens
+      gsap.fromTo(dropdownRef.current.children,
+        { opacity: 0, y: -5 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+          stagger: 0.05,
+          ease: 'power2.out'
+        }
+      );
+    }
+  }, [isOpen]);
   return (
     <div className="relative group">
       <Link
@@ -30,6 +48,7 @@ const NavbarDropdown: React.FC<NavbarDropdownProps> = ({
       </Link>
       {/* Desktop Dropdown */}
       <div
+        ref={dropdownRef}
         className={`absolute left-0 mt-2 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition-all duration-200 transform ${
           isOpen ? 'opacity-100 scale-100 z-50' : 'opacity-0 scale-95 pointer-events-none'
         }`}

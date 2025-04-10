@@ -1,6 +1,7 @@
 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { animateBorder, hoverScale } from '@/lib/animation';
 
 interface CardProps {
   title: string;
@@ -11,16 +12,27 @@ interface CardProps {
   className?: string;
 }
 
-const Card = ({ 
-  title, 
-  description, 
-  image, 
-  link, 
-  linkText = 'Learn More', 
+const Card = ({
+  title,
+  description,
+  image,
+  link,
+  linkText = 'Learn More',
   className = ''
 }: CardProps) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (cardRef.current) {
+      // Apply animations
+      animateBorder(cardRef.current, '#F1A912');
+      hoverScale(cardRef.current, 1.03);
+    }
+  }, []);
   const cardContent = (
-    <div className={`rounded-lg overflow-hidden shadow-sm border border-gray-100 bg-white hover:shadow-md transition-all duration-300 ${className}`}>
+    <div
+      ref={cardRef}
+      className={`rounded-lg overflow-hidden shadow-sm border border-gray-100 bg-white transition-all duration-300 ${className}`}>
       {image && (
         <div className="h-48 overflow-hidden">
           <img
@@ -37,17 +49,17 @@ const Card = ({
           <div className="mt-auto">
             <span className="inline-flex items-center text-spiritual-600 hover:text-spiritual-700 font-medium">
               {linkText}
-              <svg 
-                className="ml-1 w-4 h-4" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24" 
+              <svg
+                className="ml-1 w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth="2" 
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M14 5l7 7m0 0l-7 7m7-7H3"
                 ></path>
               </svg>
