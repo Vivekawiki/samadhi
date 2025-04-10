@@ -37,13 +37,13 @@ const events = [
 
 const FeaturedEvents = () => {
   return (
-    <section className="py-16 bg-gradient-to-r from-indian-cream to-white border-t border-indian-saffron/30">
+    <section className="py-16 bg-gradient-to-r from-indian-cream to-white border-t border-indian-saffron/30 w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Upcoming Events"
           subtitle="Join us for these upcoming spiritual gatherings and educational programs"
         />
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
           {events.map((event, index) => (
             <EventCard
@@ -59,7 +59,7 @@ const FeaturedEvents = () => {
             />
           ))}
         </div>
-        
+
         <div className="text-center mt-12">
           <Button href="/services" variant="outline" className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10">
             View All Events

@@ -38,12 +38,12 @@ const activities = [
 
 const RecentActivities = () => {
   return (
-    <section className="py-16">
+    <section className="py-16 bg-gradient-to-br from-indian-cream to-white w-full">
       <SectionHeader
         title="Nutrition Programme Activities"
         subtitle="Recent humanitarian efforts to serve our community"
       />
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
         {activities.map((activity, index) => (
           <Link key={index} to="/services/community-outreach">
@@ -60,7 +60,7 @@ const RecentActivities = () => {
           </Link>
         ))}
       </div>
-      
+
       <div className="text-center mt-12">
         <Button href="/services/community-outreach" variant="outline" className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10">
           View All Outreach Activities

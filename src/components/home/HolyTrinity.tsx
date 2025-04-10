@@ -49,7 +49,7 @@ const HolyTrinity = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50 bg-opacity-50 backdrop-blur-sm bg-gradient-to-br from-indian-cream to-white">
+    <section className="py-16 bg-gradient-to-br from-indian-cream to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="The Holy Trinity"
@@ -58,7 +58,7 @@ const HolyTrinity = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {deities.map((deity, index) => (
-            <div key={index} className="flex flex-col items-center trinity-container">
+            <div key={index} className="flex flex-col items-center p-6 border-2 border-indian-saffron/50 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-indian-cream to-white trinity-container">
               <div
                 className="w-48 h-64 overflow-hidden border-4 border-indian-saffron shadow-lg mb-6 bg-white rounded-lg trinity-image"
                 style={index === 0 ? imageStyles.ramakrishna :
@@ -72,15 +72,6 @@ const HolyTrinity = () => {
             </div>
           ))}
         </div>
-
-        <Card className="mt-10 bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30">
-          <CardContent className="p-6">
-            <p className="text-center text-lg italic text-gray-700 font-heading trinity-quote">
-              "The Holy Trinity represents the spiritual foundation of the Ramakrishna movement, embodying the teacher (Sri Ramakrishna),
-              the compassionate mother (Sri Sarada Devi), and the dynamic disciple (Swami Vivekananda) who spread the teachings worldwide."
-            </p>
-          </CardContent>
-        </Card>
       </div>
     </section>
   );

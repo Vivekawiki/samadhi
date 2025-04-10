@@ -50,24 +50,24 @@ const Index = () => {
       <HomeBanner />
       <HolyTrinity />
       <QuickInfo />
-      <GradientBackground className="border-t border-indian-saffron/30">
+      <div className="border-t border-indian-saffron/30 bg-gradient-to-br from-indian-cream to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <RecentActivities />
         </div>
-      </GradientBackground>
+      </div>
 
-      <GradientBackground className="border-t border-indian-saffron/30">
+      <div className="border-t border-indian-saffron/30 bg-gradient-to-r from-indian-cream to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FeaturedEvents />
         </div>
-      </GradientBackground>
+      </div>
 
       {/* Quick link to Donate page */}
-      <GradientBackground className="py-10 border-t border-indian-saffron/30">
+      <div className="py-10 border-t border-indian-saffron/30 bg-gradient-to-br from-indian-cream to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div
             ref={donateRef}
-            className="inline-block p-6 rounded-lg bg-white/80 backdrop-blur-sm border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01]"
+            className="inline-block p-6 rounded-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01]"
           >
             <h2 className="text-2xl font-heading font-semibold mb-4 bg-gradient-to-r from-spiritual-600 to-indian-saffron bg-clip-text text-transparent">Support Our Mission</h2>
             <p className="mb-6 max-w-2xl mx-auto text-gray-700">
@@ -88,7 +88,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </GradientBackground>
+      </div>
     </PageLayout>
   );
 };

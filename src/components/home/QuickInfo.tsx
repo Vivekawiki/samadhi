@@ -6,13 +6,13 @@ import Button from '../shared/Button';
 
 const QuickInfo = () => {
   return (
-    <section className="py-16">
+    <section className="py-16 bg-gradient-to-br from-indian-cream to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="About Our Centre"
           subtitle="Serving the spiritual and cultural needs of the community in Johannesburg"
         />
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8 items-center">
           {/* Image Column */}
           <div className="relative h-[400px] rounded-lg overflow-hidden shadow-md">
@@ -23,7 +23,7 @@ const QuickInfo = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
           </div>
-          
+
           {/* Text Column */}
           <div className="space-y-6 max-w-2xl">
             <h3 className="text-2xl font-heading font-semibold">Our Mission</h3>
@@ -33,7 +33,7 @@ const QuickInfo = () => {
             <p className="text-gray-700">
               Founded on the principle of "Service to humanity is service to God," our Centre offers a variety of spiritual, educational, and humanitarian services to the community, regardless of religion, race, or background.
             </p>
-            
+
             <div className="pt-4">
               <Button href="/about/our-centre">
                 Learn More About Us
@@ -41,9 +41,9 @@ const QuickInfo = () => {
             </div>
           </div>
         </div>
-        
+
         {/* New Ashram Project Banner */}
-        <div className="mt-20 bg-spiritual-50 rounded-lg p-8 md:p-12">
+        <div className="mt-20 bg-gradient-to-r from-spiritual-50 to-white rounded-lg p-8 md:p-12 border border-spiritual-200">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div className="space-y-4">
               <h3 className="text-2xl font-heading font-semibold text-spiritual-800">New Ashram Project</h3>
@@ -56,7 +56,7 @@ const QuickInfo = () => {
                 </Button>
               </div>
             </div>
-            
+
             <div className="h-[250px] rounded-lg overflow-hidden shadow-sm">
               <img
                 src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
