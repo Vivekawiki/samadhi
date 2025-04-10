@@ -60,7 +60,7 @@ const HolyTrinity = () => {
           {deities.map((deity, index) => (
             <div key={index} className="flex flex-col items-center p-6 border-2 border-indian-saffron/50 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-indian-cream to-white trinity-container">
               <div
-                className="w-48 h-64 overflow-hidden border-4 border-indian-saffron shadow-lg mb-6 bg-white rounded-lg trinity-image"
+                className="w-48 h-64 overflow-hidden border-2 border-indian-saffron shadow-lg mb-6 bg-white rounded-lg trinity-image"
                 style={index === 0 ? imageStyles.ramakrishna :
                        index === 1 ? imageStyles.saradaDevi :
                        imageStyles.vivekananda}

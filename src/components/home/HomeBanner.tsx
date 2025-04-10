@@ -15,21 +15,21 @@ interface BannerSlide {
 // Banner slides data
 const bannerSlides: BannerSlide[] = [
   {
-    image: 'https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
+    image: '/lovable-uploads/belurmath.jpg',
     title: 'Welcome to Ramakrishna Centre',
     subtitle: 'A spiritual sanctuary dedicated to the teachings of Sri Ramakrishna, Holy Mother Sri Sarada Devi, and Swami Vivekananda',
     buttonText: 'Explore Our Centre',
     buttonLink: '/about/our-centre',
   },
   {
-    image: 'https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
+    image: '/lovable-uploads/dakshineshwar.jpg',
     title: 'Join Our Spiritual Journey',
     subtitle: 'Discover the profound teachings of Vedanta and experience spiritual growth through our various programs',
     buttonText: 'View Services',
     buttonLink: '/services',
   },
   {
-    image: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
+    image: '/lovable-uploads/cossipore.jpg',
     title: 'Support Our New Ashram Project',
     subtitle: 'Help us build a new spiritual center to serve our growing community in Johannesburg',
     buttonText: 'Learn More',
