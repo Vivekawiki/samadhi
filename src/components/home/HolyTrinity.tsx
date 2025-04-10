@@ -60,15 +60,20 @@ const HolyTrinity = () => {
           {deities.map((deity, index) => (
             <div key={index} className="flex flex-col items-center p-6 border-2 border-indian-saffron/50 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-indian-cream to-white trinity-container">
               <div
-                className="w-48 h-64 overflow-hidden border-2 border-indian-saffron shadow-lg mb-6 bg-white rounded-lg trinity-image"
-                style={index === 0 ? imageStyles.ramakrishna :
-                       index === 1 ? imageStyles.saradaDevi :
-                       imageStyles.vivekananda}
+                className="w-48 h-64 overflow-hidden mb-6 bg-white rounded-lg trinity-image pop-shadow"
+                style={{
+                  ...(index === 0 ? imageStyles.ramakrishna :
+                     index === 1 ? imageStyles.saradaDevi :
+                     imageStyles.vivekananda),
+                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4), 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(241, 169, 18, 0.5)',
+                  border: '3px solid #F1A912',
+                  transform: 'translateZ(0)'
+                }}
                 aria-label={deity.name}
               ></div>
-              <h3 className="text-2xl font-heading font-bold mb-1 trinity-name">{deity.name}</h3>
-              <h4 className="text-lg text-spiritual-600 mb-3 trinity-role">{deity.role}</h4>
-              <p className="text-center text-gray-600">{deity.description}</p>
+              <h3 className="text-2xl font-heading font-bold mb-1 tracking-tight trinity-name">{deity.name}</h3>
+              <h4 className="text-lg text-spiritual-600 mb-3 font-medium tracking-wide trinity-role">{deity.role}</h4>
+              <p className="text-center text-gray-600 leading-relaxed tracking-wide">{deity.description}</p>
             </div>
           ))}
         </div>

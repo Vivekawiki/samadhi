@@ -40,7 +40,7 @@ const NavbarDropdown: React.FC<NavbarDropdownProps> = ({
     <div className="relative group">
       <Link
         to={item.href}
-        className={`nav-link px-3 py-2 text-sm font-medium ${isActive(item.href) ? 'active' : ''}`}
+        className={`nav-link px-3 py-2 text-sm font-medium tracking-wide ${isActive(item.href) ? 'active' : ''}`}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
@@ -55,12 +55,12 @@ const NavbarDropdown: React.FC<NavbarDropdownProps> = ({
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
-        <div className="py-1">
+        <div className="py-1 dropdown-content">
           {item.dropdown?.map((subItem) => (
             <Link
               key={subItem.name}
               to={subItem.href}
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              className={`block px-4 py-2 text-sm text-gray-700 dropdown-item ${isActive(subItem.href) ? 'active' : ''}`}
             >
               {subItem.name}
             </Link>

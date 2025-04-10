@@ -1,0 +1,143 @@
+/* QuickInfo Component Animations */
+
+/* Mission Image Animations */
+
+.mission-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 10px 15px rgba(0, 0, 0, 0.2);
+  border: 3px solid #F1A912;
+}
+
+.mission-image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid rgba(241, 169, 18, 0.5);
+  border-radius: 0.5rem;
+  z-index: 10;
+  pointer-events: none;
+  transition: all 0.5s ease;
+  box-shadow: 0 0 10px rgba(241, 169, 18, 0.3);
+}
+
+.mission-image-container:hover {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 15px 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(-10px);
+  border-color: #F1A912;
+}
+
+.mission-image-container:hover::before {
+  border-color: rgba(241, 169, 18, 0.8);
+  box-shadow: 0 0 20px rgba(241, 169, 18, 0.6), 0 0 30px rgba(241, 169, 18, 0.3);
+}
+
+.mission-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.mission-image-container:hover .mission-image {
+  transform: scale(1.05);
+}
+
+/* Pulsating border animation */
+@keyframes borderPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(241, 169, 18, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(241, 169, 18, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(241, 169, 18, 0.3);
+  }
+}
+
+.mission-image-container {
+  animation: borderPulse 3s infinite ease-in-out;
+}
+
+/* Gradient overlay */
+.mission-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  z-index: 5;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.mission-image-container:hover .mission-image-overlay {
+  opacity: 0.7;
+}
+
+/* Ashram Project Image Animations */
+
+.ashram-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ashram-image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid rgba(145, 101, 11, 0.5);
+  border-radius: 0.5rem;
+  z-index: 10;
+  pointer-events: none;
+  transition: all 0.5s ease;
+  box-shadow: 0 0 10px rgba(145, 101, 11, 0.3);
+}
+
+.ashram-image-container:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 10px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.ashram-image-container:hover::before {
+  border-color: rgba(145, 101, 11, 0.8);
+  box-shadow: 0 0 20px rgba(145, 101, 11, 0.6), 0 0 30px rgba(145, 101, 11, 0.3);
+}
+
+.ashram-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.ashram-image-container:hover .ashram-image {
+  transform: scale(1.05);
+}
+
+/* Pulsating border animation for ashram image */
+@keyframes ashramBorderPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(145, 101, 11, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(145, 101, 11, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(145, 101, 11, 0.3);
+  }
+}
+
+.ashram-image-container {
+  animation: ashramBorderPulse 4s infinite ease-in-out;
+}

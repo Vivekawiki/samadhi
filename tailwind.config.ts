@@ -178,8 +178,9 @@ export default {
 				'mandala-pulse': 'mandala-pulse 10s ease-in-out infinite'
 			},
 			fontFamily: {
-				heading: ['Playfair Display', 'serif'],
-				sans: ['Inter', 'sans-serif']
+				heading: ['Poppins', 'Inter', 'Arial', 'sans-serif'],
+				sans: ['Inter', 'Arial', 'sans-serif'],
+				poppins: ['Poppins', 'Inter', 'Arial', 'sans-serif']
 			}
 		}
 	},

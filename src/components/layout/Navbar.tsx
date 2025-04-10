@@ -7,6 +7,7 @@ import DesktopNavigation from './DesktopNavigation';
 import MobileNavigation from './MobileNavigation';
 import UserAccountNav from '../auth/UserAccountNav';
 import gsap from 'gsap';
+import './navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -14,7 +14,7 @@ const Footer = () => {
               Ramakrishna Centre of South Africa
             </h3>
             <p className="text-gray-600 mb-4">
-              Dedicated to the teachings of Sri Ramakrishna, Holy Mother Sri Sarada Devi, 
+              Dedicated to the teachings of Sri Ramakrishna, Holy Mother Sri Sarada Devi,
               and Swami Vivekananda. Promoting harmony, spiritual growth, and service.
             </p>
             <div className="flex space-x-4">
@@ -42,10 +42,10 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-heading font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-heading font-semibold mb-4 tracking-tight">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/about" className="text-gray-600 hover:text-spiritual-500 transition-colors">
+                <Link to="/about" className="text-gray-600 hover:text-spiritual-500 transition-colors text-animate">
                   About Us
                 </Link>
               </li>

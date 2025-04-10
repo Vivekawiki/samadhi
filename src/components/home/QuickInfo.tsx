@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../shared/SectionHeader';
 import Button from '../shared/Button';
+import './quickinfo.css';
 
 const QuickInfo = () => {
   return (
@@ -15,22 +16,22 @@ const QuickInfo = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8 items-center">
           {/* Image Column */}
-          <div className="relative h-[400px] rounded-lg overflow-hidden shadow-md">
+          <div className="relative h-[400px] mission-image-container pop-shadow" style={{ marginBottom: '20px' }}>
             <img
               src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
               alt="Ramakrishna Centre"
-              className="w-full h-full object-cover"
+              className="mission-image"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div className="mission-image-overlay"></div>
           </div>
 
           {/* Text Column */}
           <div className="space-y-6 max-w-2xl">
-            <h3 className="text-2xl font-heading font-semibold">Our Mission</h3>
-            <p className="text-gray-700">
+            <h3 className="text-2xl font-heading font-semibold tracking-tight">Our Mission</h3>
+            <p className="text-gray-700 leading-relaxed tracking-wide">
               The Ramakrishna Centre of South Africa, Johannesburg is dedicated to the propagation of the teachings of Sri Ramakrishna, Holy Mother Sri Sarada Devi, and Swami Vivekananda. We strive to promote the harmony of religions, the spiritual upliftment of humanity, and service to all beings.
             </p>
-            <p className="text-gray-700">
+            <p className="text-gray-700 leading-relaxed tracking-wide">
               Founded on the principle of "Service to humanity is service to God," our Centre offers a variety of spiritual, educational, and humanitarian services to the community, regardless of religion, race, or background.
             </p>
 
@@ -46,8 +47,8 @@ const QuickInfo = () => {
         <div className="mt-20 bg-gradient-to-r from-spiritual-50 to-white rounded-lg p-8 md:p-12 border border-spiritual-200">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div className="space-y-4">
-              <h3 className="text-2xl font-heading font-semibold text-spiritual-800">New Ashram Project</h3>
-              <p className="text-gray-700">
+              <h3 className="text-2xl font-heading font-semibold text-spiritual-800 tracking-tight">New Ashram Project</h3>
+              <p className="text-gray-700 leading-relaxed tracking-wide">
                 Help us build a new spiritual center to better serve our growing community. The new ashram will provide expanded facilities for meditation, education, and community outreach programs.
               </p>
               <div className="pt-2">
@@ -57,11 +58,11 @@ const QuickInfo = () => {
               </div>
             </div>
 
-            <div className="h-[250px] rounded-lg overflow-hidden shadow-sm">
+            <div className="h-[250px] ashram-image-container pop-shadow-brown" style={{ marginBottom: '20px' }}>
               <img
                 src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                 alt="New Ashram Project"
-                className="w-full h-full object-cover"
+                className="ashram-image"
               />
             </div>
           </div>

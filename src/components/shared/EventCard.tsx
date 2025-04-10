@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Calendar } from 'lucide-react';
+import './eventcard.css';
 
 interface EventCardProps {
   title: string;
@@ -24,13 +25,13 @@ const EventCard = ({
   className = ''
 }: EventCardProps) => {
   return (
-    <div className={`rounded-lg overflow-hidden shadow-sm border border-gray-100 bg-white hover:shadow-md transition-all duration-300 ${className}`}>
+    <div className={`rounded-lg overflow-hidden border border-gray-100 bg-white event-card ${className}`} style={{ boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1)' }}>
       {image && (
-        <div className="h-48 overflow-hidden border-2 border-indian-saffron">
+        <div className="h-48 event-image-container" style={{ border: '3px solid #F1A912', boxShadow: '0 10px 20px rgba(0, 0, 0, 0.15)' }}>
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+            className="event-image"
           />
         </div>
       )}
@@ -49,22 +50,22 @@ const EventCard = ({
           <p className="text-gray-600 mb-4 line-clamp-3">{description}</p>
         )}
         {link && (
-          <a 
-            href={link} 
+          <a
+            href={link}
             className="inline-flex items-center text-spiritual-600 hover:text-spiritual-700 font-medium"
           >
             View Details
-            <svg 
-              className="ml-1 w-4 h-4" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24" 
+            <svg
+              className="ml-1 w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth="2" 
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M14 5l7 7m0 0l-7 7m7-7H3"
               ></path>
             </svg>

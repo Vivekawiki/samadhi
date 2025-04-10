@@ -61,9 +61,9 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({
             ) : (
               <Link
                 to={item.href}
-                className={`block px-3 py-2 rounded-md text-base font-medium ${
+                className={`block px-3 py-2 rounded-md text-base font-medium mobile-nav-item ${
                   isActive(item.href)
-                    ? 'text-spiritual-500 bg-spiritual-50'
+                    ? 'text-spiritual-500 bg-spiritual-50 active'
                     : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'
                 }`}
               >

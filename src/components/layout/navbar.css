@@ -1,0 +1,71 @@
+/* Navbar Styling */
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #F1A912;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: #F1A912;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: #F1A912;
+}
+
+/* Dropdown styling */
+.dropdown-content {
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(241, 169, 18, 0.1);
+}
+
+.dropdown-item {
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(241, 169, 18, 0.1);
+  transform: translateX(5px);
+}
+
+.dropdown-item.active {
+  color: #F1A912;
+  font-weight: 500;
+  background-color: rgba(241, 169, 18, 0.05);
+}
+
+/* Mobile menu styling */
+.mobile-nav-item {
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+
+.mobile-nav-item:hover {
+  background-color: rgba(241, 169, 18, 0.1);
+}
+
+.mobile-nav-item.active {
+  color: #F1A912;
+  font-weight: 500;
+  background-color: rgba(241, 169, 18, 0.05);
+}

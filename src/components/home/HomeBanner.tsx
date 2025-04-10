@@ -78,16 +78,17 @@ const HomeBanner = () => {
               className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat ${index === currentSlide ? 'banner-image' : ''}`}
               style={{
                 backgroundImage: `url(${slide.image})`,
+                boxShadow: 'inset 0 -100px 100px -50px rgba(0, 0, 0, 0.7)'
               }}
             ></div>
 
             {/* Content */}
             <div className="relative z-20 h-full flex items-center justify-center text-center px-6">
               <div className={`max-w-4xl ${index === currentSlide ? 'animate-slide-in' : ''}`}>
-                <h1 className={`text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 ${index === currentSlide ? 'banner-title' : ''}`}>
+                <h1 className={`hero-text text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 tracking-tight ${index === currentSlide ? 'banner-title' : ''}`}>
                   {slide.title}
                 </h1>
-                <p className={`text-xl text-white/90 mb-8 max-w-3xl mx-auto ${index === currentSlide ? 'banner-subtitle' : ''}`}>
+                <p className={`text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed tracking-wide ${index === currentSlide ? 'banner-subtitle' : ''}`}>
                   {slide.subtitle}
                 </p>
                 {slide.buttonText && slide.buttonLink && (

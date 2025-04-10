@@ -1,0 +1,185 @@
+/* Typography Styles */
+
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Font Family Variables */
+  --font-primary: 'Inter', Arial, sans-serif;
+  --font-heading: 'Poppins', 'Inter', Arial, sans-serif;
+  
+  /* Font Size Variables */
+  --font-size-xs: 0.75rem;     /* 12px */
+  --font-size-sm: 0.875rem;    /* 14px */
+  --font-size-base: 1rem;      /* 16px */
+  --font-size-lg: 1.125rem;    /* 18px */
+  --font-size-xl: 1.25rem;     /* 20px */
+  --font-size-2xl: 1.5rem;     /* 24px */
+  --font-size-3xl: 1.875rem;   /* 30px */
+  --font-size-4xl: 2.25rem;    /* 36px */
+  --font-size-5xl: 3rem;       /* 48px */
+  
+  /* Line Height Variables */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  --line-height-loose: 2;
+  
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  --letter-spacing-widest: 0.1em;
+}
+
+/* Base Typography */
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: #333333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  margin-bottom: 0.5em;
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h1, .h1 {
+  font-size: var(--font-size-4xl);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h2, .h2 {
+  font-size: var(--font-size-3xl);
+}
+
+h3, .h3 {
+  font-size: var(--font-size-2xl);
+}
+
+h4, .h4 {
+  font-size: var(--font-size-xl);
+}
+
+h5, .h5 {
+  font-size: var(--font-size-lg);
+}
+
+h6, .h6 {
+  font-size: var(--font-size-base);
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1.5rem;
+  line-height: var(--line-height-relaxed);
+  letter-spacing: 0.5px;
+}
+
+/* Links */
+a {
+  color: #F1A912;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #C1870E;
+  text-decoration: underline;
+}
+
+/* Lists */
+ul, ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  line-height: var(--line-height-relaxed);
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Small Text */
+small, .text-small {
+  font-size: var(--font-size-sm);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  h1, .h1 {
+    font-size: var(--font-size-3xl);
+  }
+  
+  h2, .h2 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  h3, .h3 {
+    font-size: var(--font-size-xl);
+  }
+  
+  body {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Hero Text - Playful Element */
+.hero-text {
+  font-size: var(--font-size-5xl);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  transition: transform 0.3s ease;
+}
+
+.hero-text:hover {
+  transform: translateY(-5px);
+}
+
+/* Text Hover Animation */
+.text-animate {
+  position: relative;
+  display: inline-block;
+}
+
+.text-animate::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.text-animate:hover::after {
+  width: 100%;
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.font-light { font-weight: 300; }
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.uppercase { text-transform: uppercase; }
+.capitalize { text-transform: capitalize; }
+.italic { font-style: italic; }
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

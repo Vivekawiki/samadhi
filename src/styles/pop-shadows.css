@@ -1,0 +1,24 @@
+/* Strong Pop Shadow Effects */
+
+.pop-shadow {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 15px 30px rgba(0, 0, 0, 0.3) !important;
+  border: 3px solid #F1A912 !important;
+  transform: translateZ(0);
+  position: relative;
+  z-index: 10;
+}
+
+.pop-shadow-brown {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 15px 30px rgba(0, 0, 0, 0.3) !important;
+  border: 3px solid #91650B !important;
+  transform: translateZ(0);
+  position: relative;
+  z-index: 10;
+}
+
+.pop-shadow:hover, .pop-shadow-brown:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5), 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Add this to your main CSS file */
