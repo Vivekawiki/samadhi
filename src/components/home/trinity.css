@@ -26,12 +26,13 @@
   opacity: 1;
 }
 
-.trinity-image img {
-  transition: transform 0.5s ease;
+.trinity-image {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-.trinity-image:hover img {
-  transform: scale(1.05);
+.trinity-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(241, 169, 18, 0.2);
 }
 
 .trinity-name {

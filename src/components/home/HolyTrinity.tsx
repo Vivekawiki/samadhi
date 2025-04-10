@@ -5,6 +5,28 @@ import { Card, CardContent } from '../ui/card';
 import './trinity.css';
 
 const HolyTrinity = () => {
+  // Custom styles for each deity image container
+  const imageStyles = {
+    ramakrishna: {
+      backgroundImage: "url('/lovable-uploads/ff802407-da30-4efc-941c-05f69a329db7.png')",
+      backgroundSize: 'cover',
+      backgroundPosition: 'center top',
+      backgroundRepeat: 'no-repeat'
+    },
+    saradaDevi: {
+      backgroundImage: "url('/lovable-uploads/6103c45d-7ef6-40da-a95e-d5695cd3526d.png')",
+      backgroundSize: 'cover',
+      backgroundPosition: 'center top',
+      backgroundRepeat: 'no-repeat'
+    },
+    vivekananda: {
+      backgroundImage: "url('/lovable-uploads/0ee38c83-a4f6-4d5b-8142-1c66e6c7ff04.png')",
+      backgroundSize: 'cover',
+      backgroundPosition: 'center top',
+      backgroundRepeat: 'no-repeat'
+    }
+  };
+
   const deities = [
     {
       name: "Sri Ramakrishna",
@@ -37,13 +59,13 @@ const HolyTrinity = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {deities.map((deity, index) => (
             <div key={index} className="flex flex-col items-center trinity-container">
-              <div className="w-48 h-64 overflow-hidden border-4 border-indian-saffron shadow-lg mb-6 flex items-center justify-center bg-white rounded-lg trinity-image">
-                <img
-                  src={deity.image}
-                  alt={deity.name}
-                  className="w-auto h-auto max-w-full max-h-full object-contain"
-                />
-              </div>
+              <div
+                className="w-48 h-64 overflow-hidden border-4 border-indian-saffron shadow-lg mb-6 bg-white rounded-lg trinity-image"
+                style={index === 0 ? imageStyles.ramakrishna :
+                       index === 1 ? imageStyles.saradaDevi :
+                       imageStyles.vivekananda}
+                aria-label={deity.name}
+              ></div>
               <h3 className="text-2xl font-heading font-bold mb-1 trinity-name">{deity.name}</h3>
               <h4 className="text-lg text-spiritual-600 mb-3 trinity-role">{deity.role}</h4>
               <p className="text-center text-gray-600">{deity.description}</p>
