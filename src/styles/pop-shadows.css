@@ -21,4 +21,16 @@
   box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5), 0 20px 40px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Add this to your main CSS file */
+/* Card-specific pop shadow with thinner border */
+.pop-shadow-card {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid #F1A912 !important;
+  transform: translateZ(0);
+  position: relative;
+  z-index: 10;
+}
+
+.pop-shadow-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.4), 0 15px 30px rgba(0, 0, 0, 0.3) !important;
+}

@@ -83,7 +83,7 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo - Reduced in size */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
@@ -91,7 +91,7 @@ const Navbar = () => {
                 ref={logoRef}
                 src="/lovable-uploads/2e549f27-8429-4042-95be-36194a9d309c.png"
                 alt="Ramakrishna Centre Logo"
-                className="h-12 transition-transform duration-300 hover:scale-105"
+                className="h-16 transition-transform duration-300 hover:scale-105"
               />
             </Link>
           </div>

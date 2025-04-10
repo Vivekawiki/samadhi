@@ -42,7 +42,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
             <Link
               key={item.name}
               to={item.href}
-              className={`nav-link px-3 py-2 text-sm font-medium tracking-wide ${isActive(item.href) ? 'active' : ''}`}
+              className={`nav-link px-4 py-2 text-sm font-medium tracking-wide ${isActive(item.href) ? 'active' : ''} ${item.name === 'New Ashram Project' ? 'long-item' : ''}`}
             >
               {item.name}
             </Link>

@@ -1,0 +1,52 @@
+/* Tab Navigation with Animated Underline */
+
+.tab-nav-link {
+  position: relative;
+  transition: color 0.4s ease;
+  letter-spacing: 0.5px;
+  text-decoration: none !important;
+  white-space: nowrap;
+  padding: 0.5rem 0.25rem;
+  font-weight: 500;
+  border-bottom: none !important;
+}
+
+.tab-nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #F1A912;
+  transition: width 0.4s ease;
+}
+
+.tab-nav-link:hover::after {
+  width: 80%;
+}
+
+.tab-nav-link.active::after {
+  width: 80%;
+}
+
+/* For longer tab items */
+.tab-nav-link.long-item::after {
+  width: 0;
+}
+
+.tab-nav-link.long-item:hover::after,
+.tab-nav-link.long-item.active::after {
+  width: 90%;
+}
+
+/* Active state styling */
+.tab-nav-link.active {
+  color: #F1A912 !important;
+  font-weight: 500;
+}
+
+.tab-nav-link:hover {
+  color: #F1A912 !important;
+}

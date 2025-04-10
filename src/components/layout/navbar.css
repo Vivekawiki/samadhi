@@ -1,9 +1,15 @@
 /* Navbar Styling */
 
+/* Remove default underlines from all navbar links */
+nav a {
+  text-decoration: none !important;
+}
+
 .nav-link {
   position: relative;
-  transition: color 0.3s ease;
+  transition: color 0.4s ease;
   letter-spacing: 0.5px;
+  text-decoration: none !important;
 }
 
 .nav-link::after {
@@ -12,14 +18,21 @@
   width: 0;
   height: 2px;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: #F1A912;
-  transition: width 0.3s ease;
+  transition: width 0.4s ease;
 }
 
 .nav-link:hover::after,
 .nav-link.active::after {
-  width: 100%;
+  width: 80%;
+}
+
+/* Longer underline for specific menu items */
+.nav-link.long-item:hover::after,
+.nav-link.long-item.active::after {
+  width: 90%;
 }
 
 .nav-link.active {
@@ -40,7 +53,8 @@
 
 .dropdown-item {
   letter-spacing: 0.5px;
-  transition: all 0.2s ease;
+  transition: all 0.4s ease;
+  text-decoration: none !important;
 }
 
 .dropdown-item:hover {
@@ -57,7 +71,7 @@
 /* Mobile menu styling */
 .mobile-nav-item {
   letter-spacing: 0.5px;
-  transition: all 0.2s ease;
+  transition: all 0.4s ease;
 }
 
 .mobile-nav-item:hover {
