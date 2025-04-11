@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
@@ -87,7 +86,7 @@ const AuthPage = () => {
 
   return (
     <PageLayout title="Authentication">
-      <div className="flex mt-20 min-h-[80vh] px-4 mandala-bg justify-center">
+      <div className="flex my-20 min-h-[80vh] px-4 bg-gradient-to-br from-indian-cream to-white justify-center items-center">
         <Card className="w-full max-w-md border-2 border-indian-saffron/20 decorative-border mt-10">
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl font-bold tracking-tight text-indian-blue">Welcome to the Centre</CardTitle>
@@ -183,7 +182,7 @@ const AuthPage = () => {
               </TabsContent>
             </Tabs>
           </CardContent>
-          <CardFooter>
+          <CardFooter className="mb-4">
             <p className="text-center text-sm text-muted-foreground w-full">
               By continuing, you agree to our Terms of Service and Privacy Policy.
             </p>

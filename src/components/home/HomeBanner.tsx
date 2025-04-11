@@ -1,7 +1,10 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Button from '../shared/Button';
 import './banner.css';
+import gsap from 'gsap';
+import { TextPlugin } from 'gsap/TextPlugin';
+
+gsap.registerPlugin(TextPlugin);
 
 // Banner slide interface
 interface BannerSlide {
@@ -21,24 +24,13 @@ const bannerSlides: BannerSlide[] = [
     buttonText: 'Explore Our Centre',
     buttonLink: '/about/our-centre',
   },
-  {
-    image: '/lovable-uploads/dakshineshwar.jpg',
-    title: 'Join Our Spiritual Journey',
-    subtitle: 'Discover the profound teachings of Vedanta and experience spiritual growth through our various programs',
-    buttonText: 'View Services',
-    buttonLink: '/services',
-  },
-  {
-    image: '/lovable-uploads/cossipore.jpg',
-    title: 'Support Our New Ashram Project',
-    subtitle: 'Help us build a new spiritual center to serve our growing community in Johannesburg',
-    buttonText: 'Learn More',
-    buttonLink: '/new-ashram-project',
-  },
 ];
 
 const HomeBanner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const cardRef = useRef(null);
+  const textRefs = useRef([]);
+  const headingRef = useRef(null);
 
   // Auto-rotate slides
   useEffect(() => {
@@ -61,81 +53,78 @@ const HomeBanner = () => {
     setCurrentSlide((prev) => (prev - 1 + bannerSlides.length) % bannerSlides.length);
   };
 
+  useEffect(() => {
+    // Fade-in and scale animation for the card
+    gsap.fromTo(
+      cardRef.current,
+      { opacity: 0, scale: 0.8 },
+      { opacity: 1, scale: 1, duration: 1, ease: 'power3.out' }
+    );
+
+    // Staggered animation for text elements
+    gsap.fromTo(
+      textRefs.current,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: 'power3.out' }
+    );
+  }, []);
+
+  useEffect(() => {
+    // Split text into letters and preserve spaces
+    const headingText = headingRef.current;
+    const letters = headingText.textContent.split('');
+    headingText.innerHTML = letters
+      .map(letter => letter === ' ' ? '<span class=\'inline-block\'>&nbsp;</span>' : `<span class='inline-block'>${letter}</span>`)
+      .join('');
+
+    // Animate each letter
+    gsap.fromTo(
+      headingText.querySelectorAll('span'),
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 1, stagger: 0.05, ease: 'power3.out' }
+    );
+  }, []);
+
+  useEffect(() => {
+    // Typewriter effect for the word 'Johannesburg'
+    const headingText = headingRef.current;
+    const fullText = 'Welcome to The Ramakrishna Centre of South Africa, Johannesburg';
+    const animatedWord = 'Johannesburg';
+    const staticText = fullText.replace(animatedWord, `<span id='animated-word'>${animatedWord}</span>`);
+    headingText.innerHTML = staticText;
+
+    gsap.fromTo(
+      '#animated-word',
+      { text: '' },
+      { text: animatedWord, duration: 6, ease: 'power3.out' }
+    );
+  }, []);
+
   return (
-    <div className="relative h-screen w-full overflow-hidden">
-      {/* Slides */}
-      <div className="relative h-full w-full">
-        {bannerSlides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'
-            }`}
-          >
-            {/* Background Image with Overlay */}
-            <div className="absolute inset-0 w-full h-full bg-black/40 z-10"></div>
-            <div
-              className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat ${index === currentSlide ? 'banner-image' : ''}`}
-              style={{
-                backgroundImage: `url(${slide.image})`,
-                boxShadow: 'inset 0 -100px 100px -50px rgba(0, 0, 0, 0.7)'
-              }}
-            ></div>
-
-            {/* Content */}
-            <div className="relative z-20 h-full flex items-center justify-center text-center px-6">
-              <div className={`max-w-4xl ${index === currentSlide ? 'animate-slide-in' : ''}`}>
-                <h1 className={`hero-text text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 tracking-tight ${index === currentSlide ? 'banner-title' : ''}`}>
-                  {slide.title}
-                </h1>
-                <p className={`text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed tracking-wide ${index === currentSlide ? 'banner-subtitle' : ''}`}>
-                  {slide.subtitle}
-                </p>
-                {slide.buttonText && slide.buttonLink && (
-                  <div className={`${index === currentSlide ? 'banner-button' : ''}`}>
-                    <Button href={slide.buttonLink} size="lg">
-                      {slide.buttonText}
-                    </Button>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Navigation Arrows */}
-      <button
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full backdrop-blur-sm banner-arrow"
-        onClick={prevSlide}
-        aria-label="Previous slide"
+    <div className="relative w-full overflow-hidden bg-gradient-to-br from-indian-cream to-white flex items-center justify-center mt-20 py-8">
+      <div
+        ref={cardRef}
+        className="inline-block p-6 rounded-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01] text-center"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-      <button
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full backdrop-blur-sm banner-arrow"
-        onClick={nextSlide}
-        aria-label="Next slide"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-
-      {/* Dots Navigation */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex space-x-2">
-        {bannerSlides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full banner-dot ${
-              index === currentSlide ? 'bg-white scale-100 active' : 'bg-white/50 scale-75'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          ></button>
-        ))}
+        <h1
+          ref={headingRef}
+          className="text-3xl font-heading font-bold mb-4 text-black"
+        >
+          Welcome to The Ramakrishna Centre of South Africa, Johannesburg
+        </h1>
+        <p
+          ref={(el) => (textRefs.current[1] = el)}
+          className="mb-6 max-w-2xl mx-auto text-gray-700"
+        >
+          A spiritual sanctuary dedicated to the teachings of Sri Ramakrishna, Holy Mother Sri Sarada Devi, and Swami Vivekananda
+        </p>
+        <a
+          ref={(el) => (textRefs.current[2] = el)}
+          href="/about/our-centre"
+          className="inline-block bg-indian-saffron hover:bg-indian-saffron/90 text-white py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all"
+        >
+          Explore Our Centre
+        </a>
       </div>
     </div>
   );
