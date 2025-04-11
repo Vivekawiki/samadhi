@@ -1,4 +1,3 @@
-
 import React from 'react';
 import SectionHeader from '../../components/shared/SectionHeader';
 import { Card, CardContent } from '@/components/ui/card';
@@ -25,7 +24,10 @@ const PresenceInSA = () => {
           <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg shadow-sm">
             <h3 className="text-2xl font-heading font-semibold mb-4">Introduction</h3>
             <p>
-              The Ramakrishna Movement has a significant presence in South Africa, with the Ramakrishna Centre of South Africa serving as the focal point for spiritual activities based on the teachings of Sri Ramakrishna, Holy Mother Sri Sarada Devi, and Swami Vivekananda. The establishment and growth of the Centre in Johannesburg represent an important chapter in this ongoing story.
+              The idea of starting a Ramakrishna Movement in Africa had germinated in the mind of Swami Vivekananda, 
+              the principal architect of the organisation, for in 1897 he wrote to his brother monk, Swami Shivananda Mahapurush: 
+              “Mr Setlur... writes to me to send somebody to Africa... No immediate results can be expected but in the long run 
+              it will prove more beneficial work for India than any yet attempted.”
             </p>
           </div>
           

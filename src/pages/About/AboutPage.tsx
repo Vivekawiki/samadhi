@@ -52,16 +52,6 @@ const AboutPage = () => {
         {isMainAboutPage ? (
           // Main About page content
           <div className="prose prose-lg max-w-none animate-fade-in">
-            <h2 className="text-3xl font-heading font-semibold mb-6">Welcome to the Ramakrishna Centre of South Africa, Johannesburg</h2>
-
-            <p>
-              The Ramakrishna Centre of South Africa is dedicated to the propagation of the universal teachings of Vedanta as exemplified in the lives of Sri Ramakrishna, Holy Mother Sri Sarada Devi, and Swami Vivekananda. Our Centre serves as a spiritual haven for all seekers, irrespective of their religious background.
-            </p>
-
-            <p>
-              Explore the sections below to learn more about our Centre, the philosophy of Vedanta, the Holy Trinity of the Ramakrishna Order, and our presence in South Africa.
-            </p>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
               {aboutLinks.map((link) => (
                 <Link
