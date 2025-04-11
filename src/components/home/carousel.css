@@ -1,0 +1,37 @@
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.card-container {
+  transition: transform 0.3s ease;
+}
+
+.card-container:hover {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 640px) {
+  .card-container {
+    width: 252px; /* 280px - 10% on each side */
+    max-width: 252px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .card-container {
+    width: 270px; /* 300px - 10% on each side */
+    max-width: 270px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-container {
+    width: 288px; /* 320px - 10% on each side */
+    max-width: 288px;
+  }
+}

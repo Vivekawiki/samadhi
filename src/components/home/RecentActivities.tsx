@@ -1,70 +1,180 @@
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import SectionHeader from '../shared/SectionHeader';
 import EventCard from '../shared/EventCard';
 import Button from '../shared/Button';
 import { Link } from 'react-router-dom';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import './carousel.css';
 
-// Sample recent activities data
+// Nutrition programme activities data with real images
 const activities = [
   {
-    title: 'Food Donation Drive',
-    date: 'March 15, 2024',
-    time: '9:00 AM - 1:00 PM',
-    location: 'Diepsloot Community Centre',
-    description: 'Distributed food parcels and hot meals to 200 families in the Diepsloot community.',
-    image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: '/services/community-outreach',
-  },
-  {
-    title: 'Women Empowerment Workshop',
-    date: 'February 28, 2024',
-    time: '10:00 AM - 3:00 PM',
+    id: 'march2025',
+    title: 'March Nutrition Workshop',
+    date: 'March 15, 2025',
     location: 'Centre Hall',
-    description: 'Conducted skills development training for 50 women, focusing on entrepreneurship and financial literacy.',
-    image: 'https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: '/services/community-outreach',
+    description: 'Workshop on balanced diets and healthy eating habits.',
+    image: '/images/nutrition/march2025.jpg',
+    link: '/services/nutrition-programme/image/march2025',
   },
   {
-    title: 'Back-to-School Supply Distribution',
-    date: 'January 20, 2024',
-    time: '8:00 AM - 12:00 PM',
-    location: 'Northriding Primary School',
-    description: 'Provided school supplies, uniforms, and books to 150 underprivileged children starting the new school year.',
-    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: '/services/community-outreach',
+    id: 'feb2025',
+    title: 'February Food Distribution',
+    date: 'February 18, 2025',
+    location: 'Diepsloot Community Centre',
+    description: 'Food parcels with staples and fresh produce for 220 families.',
+    image: '/images/nutrition/feb2025.jpg',
+    link: '/services/nutrition-programme/image/feb2025',
+  },
+  {
+    id: 'jan2025',
+    title: 'January Food Relief',
+    date: 'January 20, 2025',
+    location: 'Soweto Community Centre',
+    description: 'Emergency food relief for families affected by recent floods.',
+    image: '/images/nutrition/jan2025.jpg',
+    link: '/services/nutrition-programme/image/jan2025',
+  },
+  {
+    id: 'december2024',
+    title: 'December Holiday Program',
+    date: 'December 15, 2024',
+    location: 'Alexandra Township',
+    description: 'Special holiday nutrition program for children and families.',
+    image: '/images/nutrition/december2024.jpg',
+    link: '/services/nutrition-programme/image/december2024',
+  },
+  {
+    id: 'november2024',
+    title: 'November Food Drive',
+    date: 'November 10, 2024',
+    location: 'Diepsloot Community Centre',
+    description: 'Community food drive providing meals to 180 families.',
+    image: '/images/nutrition/november2024.jpg',
+    link: '/services/nutrition-programme/image/november2024',
+  },
+  {
+    id: 'september2024',
+    title: 'September Food Distribution',
+    date: 'September 22, 2024',
+    location: 'Soweto Community Hall',
+    description: 'Food distribution supporting 200 families in Soweto.',
+    image: '/images/nutrition/september2024.jpg',
+    link: '/services/nutrition-programme/image/september2024',
   },
 ];
 
 const RecentActivities = () => {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [maxScroll, setMaxScroll] = useState(0);
+
+  // Calculate if we can scroll left or right
+  const canScrollLeft = scrollPosition > 0;
+  const canScrollRight = scrollPosition < maxScroll;
+
+  // Handle scrolling left and right
+  const handleScroll = (direction: 'left' | 'right') => {
+    if (!carouselRef.current) return;
+
+    const container = carouselRef.current;
+    const cardWidth = container.querySelector('.card-container')?.clientWidth || 0;
+    const scrollAmount = cardWidth + 24; // Card width + gap
+
+    if (direction === 'left' && canScrollLeft) {
+      container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else if (direction === 'right' && canScrollRight) {
+      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+  // Update scroll position when scrolling
+  const handleScrollEvent = () => {
+    if (!carouselRef.current) return;
+
+    const container = carouselRef.current;
+    setScrollPosition(container.scrollLeft);
+    setMaxScroll(container.scrollWidth - container.clientWidth);
+  };
+
+  // Initialize maxScroll on component mount
+  React.useEffect(() => {
+    if (carouselRef.current) {
+      const container = carouselRef.current;
+      setMaxScroll(container.scrollWidth - container.clientWidth);
+
+      // Add resize listener to update maxScroll when window resizes
+      const handleResize = () => {
+        setMaxScroll(container.scrollWidth - container.clientWidth);
+      };
+
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+
   return (
     <section className="py-16 bg-gradient-to-br from-indian-cream to-white w-full">
-      <SectionHeader
-        title="Nutrition Programme Activities"
-        subtitle="Recent humanitarian efforts to serve our community"
-      />
+      <div className="container mx-auto px-4">
+        <div className="mb-8 text-center">
+          <SectionHeader
+            title="Nutrition Programme Activities"
+            subtitle="Recent humanitarian efforts to serve our community"
+          />
+        </div>
+        <div className="flex justify-center mb-4 max-w-5xl mx-auto">
+          <div className="flex space-x-2">
+            <button
+              onClick={() => handleScroll('left')}
+              disabled={!canScrollLeft}
+              className={`p-2 rounded-full ${canScrollLeft ? 'bg-spiritual-100 text-spiritual-600 hover:bg-spiritual-200' : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            <button
+              onClick={() => handleScroll('right')}
+              disabled={!canScrollRight}
+              className={`p-2 rounded-full ${canScrollRight ? 'bg-spiritual-100 text-spiritual-600 hover:bg-spiritual-200' : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+          </div>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-        {activities.map((activity, index) => (
-          <Link key={index} to="/services/community-outreach">
-            <EventCard
-              title={activity.title}
-              date={activity.date}
-              time={activity.time}
-              location={activity.location}
-              description={activity.description}
-              image={activity.image}
-              link="/services/community-outreach"
-              className="border-indian-saffron bg-gradient-to-br from-indian-cream to-white"
-            />
-          </Link>
-        ))}
-      </div>
+        <div
+          ref={carouselRef}
+          className="flex overflow-x-auto hide-scrollbar pb-4 max-w-5xl mx-auto"
+          onScroll={handleScrollEvent}
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          <div className="flex space-x-4">
+            {activities.map((activity, index) => (
+              <div key={index} className="card-container flex-shrink-0 w-[252px] sm:w-[270px] lg:w-[288px]">
+                <Link to={activity.link}>
+                  <div className="h-full">
+                    <EventCard
+                      title={activity.title}
+                      date={activity.date}
+                      location={activity.location}
+                      description={activity.description}
+                      image={activity.image}
+                      className="border-indian-saffron bg-gradient-to-br from-indian-cream to-white pop-shadow-card h-full"
+                    />
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
 
-      <div className="text-center mt-12">
-        <Button href="/services/community-outreach" variant="outline" className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10">
-          View All Outreach Activities
-        </Button>
+        <div className="text-center mt-12">
+          <Button href="/services/nutrition-programme" variant="outline" className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10">
+            View All Nutrition Programme Activities
+          </Button>
+        </div>
       </div>
     </section>
   );

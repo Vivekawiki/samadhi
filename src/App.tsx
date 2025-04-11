@@ -23,6 +23,8 @@ import Satsangs from "./pages/Services/Satsangs";
 import HinduismForChildren from "./pages/Services/HinduismForChildren";
 import SpecialFunctions from "./pages/Services/SpecialFunctions";
 import CommunityOutreach from "./pages/Services/CommunityOutreach";
+import NutritionProgramme from "./pages/Services/NutritionProgramme";
+import FullSizeImage from "./pages/Services/FullSizeImage";
 
 // Import Gallery pages
 import GalleryPage from "./pages/Gallery/GalleryPage";
@@ -88,6 +90,8 @@ const App = () => (
               <Route path="/services/hinduism-for-children" element={<HinduismForChildren />} />
               <Route path="/services/special-functions" element={<SpecialFunctions />} />
               <Route path="/services/community-outreach" element={<CommunityOutreach />} />
+              <Route path="/services/nutrition-programme" element={<NutritionProgramme />} />
+              <Route path="/services/nutrition-programme/image/:imageId" element={<FullSizeImage />} />
             </Route>
 
             {/* Gallery Section */}

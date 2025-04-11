@@ -43,7 +43,8 @@ const LearnPage = () => {
         backgroundImage="/lovable-uploads/learn.png"
       />
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12 -mt-6">
+        <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto mb-16">
           <div className="bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg mb-12 pop-shadow-card">
             <h2 className="text-2xl font-heading font-semibold mb-4">Welcome</h2>
@@ -61,12 +62,12 @@ const LearnPage = () => {
               subtitle="Discover our collection of lessons on Hindu philosophy and deities"
             />
             <Tabs defaultValue="lessons" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 mb-8">
-                <TabsTrigger value="lessons" className="text-lg">
+              <TabsList className="grid w-full grid-cols-2 mb-8 bg-gradient-to-br from-spiritual-50 to-white border border-spiritual-200 p-1 rounded-md">
+                <TabsTrigger value="lessons" className="text-lg data-[state=active]:bg-gradient-to-br data-[state=active]:from-indian-cream data-[state=active]:to-white data-[state=active]:border-b-2 data-[state=active]:border-indian-saffron">
                   <BookOpen className="w-5 h-5 mr-2" />
                   Lessons
                 </TabsTrigger>
-                <TabsTrigger value="mantras" className="text-lg">
+                <TabsTrigger value="mantras" className="text-lg data-[state=active]:bg-gradient-to-br data-[state=active]:from-indian-cream data-[state=active]:to-white data-[state=active]:border-b-2 data-[state=active]:border-indian-saffron">
                   <Music className="w-5 h-5 mr-2" />
                   Mantras
                 </TabsTrigger>
@@ -194,6 +195,7 @@ const LearnPage = () => {
               </Card>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </PageLayout>

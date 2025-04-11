@@ -23,15 +23,25 @@ const Navbar = () => {
       if (window.scrollY > 0) {
         setScrolled(true);
       } else {
-        setScrolled(false);
+        // Always keep navbar with background on certain pages
+        if (location.pathname === '/donate') {
+          setScrolled(true);
+        } else {
+          setScrolled(false);
+        }
       }
     };
+
+    // Initial check for specific pages
+    if (location.pathname === '/donate') {
+      setScrolled(true);
+    }
 
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [location.pathname]);
 
   // Close mobile menu when route changes
   useEffect(() => {

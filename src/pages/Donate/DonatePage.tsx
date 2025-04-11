@@ -1,15 +1,15 @@
 
 import React, { useState } from 'react';
-import PageLayout from '@/components/layout/PageLayout';
-import PageHeader from '@/components/shared/PageHeader';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import PageLayout from '../../components/layout/PageLayout';
+import PageHeader from '../../components/shared/PageHeader';
+import { Card } from '../../components/ui/card';
+import { Button } from '../../components/ui/button';
 import { Heart, CreditCard } from 'lucide-react';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { useToast } from '@/components/ui/use-toast';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Input } from '../../components/ui/input';
+import { Label } from '../../components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../components/ui/select';
+import { useToast } from '../../components/ui/use-toast';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../../components/ui/form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -28,9 +28,9 @@ type DonationFormValues = z.infer<typeof donationSchema>;
 const DonatePage = () => {
   const { toast } = useToast();
   const [isProcessing, setIsProcessing] = useState(false);
-  
+
   const presetAmounts = [100, 250, 500, 1000];
-  
+
   const donationPurposes = [
     "General Donation",
     "Nutrition Programme",
@@ -54,7 +54,7 @@ const DonatePage = () => {
 
   const handleDonate = (values: DonationFormValues) => {
     setIsProcessing(true);
-    
+
     // Redirect to PayFast with required parameters
     // Note: This is a simplified version. In production, a proper hash should be calculated server-side.
     const merchantId = '10000100'; // Replace with your actual PayFast Merchant ID
@@ -62,7 +62,7 @@ const DonatePage = () => {
     const returnUrl = `${window.location.origin}/donate/thank-you`;
     const cancelUrl = `${window.location.origin}/donate`;
     const notifyUrl = `${window.location.origin}/api/payfast-notification`; // This would need a backend handler
-    
+
     const paymentData = {
       merchant_id: merchantId,
       merchant_key: merchantKey,
@@ -76,12 +76,12 @@ const DonatePage = () => {
       amount: values.amount.toFixed(2),
       item_name: `Donation to Ramakrishna Centre - ${values.purpose}`,
     };
-    
+
     // Create a form and submit it to PayFast
     const form = document.createElement('form');
     form.method = 'POST';
     form.action = 'https://sandbox.payfast.co.za/eng/process'; // Use 'https://www.payfast.co.za/eng/process' for production
-    
+
     Object.entries(paymentData).forEach(([key, value]) => {
       const input = document.createElement('input');
       input.type = 'hidden';
@@ -89,43 +89,46 @@ const DonatePage = () => {
       input.value = String(value);
       form.appendChild(input);
     });
-    
+
     document.body.appendChild(form);
     form.submit();
   };
 
   return (
     <PageLayout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <PageHeader 
+      <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12 -mt-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <PageHeader
           title="Support Our Mission"
           subtitle="Your generosity helps us serve the community and spread the teachings of Sri Ramakrishna, Sri Sarada Devi, and Swami Vivekananda."
         />
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
           <div className="space-y-6">
-            <h2 className="text-2xl font-heading font-semibold">Why Donate?</h2>
-            <p>Your donations support our various spiritual and humanitarian services including:</p>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>Spiritual gatherings and educational programs</li>
-              <li>Nutrition Programme for underprivileged communities</li>
-              <li>Women Empowerment Programme</li>
-              <li>Children's value education classes</li>
-              <li>Maintenance of our temple and facilities</li>
-              <li>New Ashram Project development</li>
-            </ul>
-            
-            <div className="p-4 bg-spiritual-50 border-l-4 border-spiritual-500 rounded">
+            <Card className="p-6 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron pop-shadow-card">
+              <h2 className="text-2xl font-heading font-semibold mb-4">Why Donate?</h2>
+              <p className="mb-4">Your donations support our various spiritual and humanitarian services including:</p>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>Spiritual gatherings and educational programs</li>
+                <li>Nutrition Programme for underprivileged communities</li>
+                <li>Women Empowerment Programme</li>
+                <li>Children's value education classes</li>
+                <li>Maintenance of our temple and facilities</li>
+                <li>New Ashram Project development</li>
+              </ul>
+            </Card>
+
+            <div className="p-4 bg-gradient-to-br from-spiritual-50 to-white border-l-4 border-spiritual-500 rounded pop-shadow-card">
               <p className="italic">"The best form of worship is service to mankind." - Swami Vivekananda</p>
             </div>
           </div>
-          
-          <Card className="p-6 shadow-lg">
+
+          <Card className="p-6 shadow-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron pop-shadow-card">
             <h2 className="text-2xl font-heading font-semibold mb-4 flex items-center">
               <Heart className="mr-2 text-red-500" />
               Make a Donation
             </h2>
-            
+
             <Form {...form}>
               <form onSubmit={form.handleSubmit(handleDonate)} className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
@@ -142,7 +145,7 @@ const DonatePage = () => {
                       </FormItem>
                     )}
                   />
-                  
+
                   <FormField
                     control={form.control}
                     name="lastName"
@@ -157,7 +160,7 @@ const DonatePage = () => {
                     )}
                   />
                 </div>
-                
+
                 <FormField
                   control={form.control}
                   name="email"
@@ -171,7 +174,7 @@ const DonatePage = () => {
                     </FormItem>
                   )}
                 />
-                
+
                 <FormField
                   control={form.control}
                   name="mobile"
@@ -185,7 +188,7 @@ const DonatePage = () => {
                     </FormItem>
                   )}
                 />
-                
+
                 <FormField
                   control={form.control}
                   name="purpose"
@@ -208,7 +211,7 @@ const DonatePage = () => {
                     </FormItem>
                   )}
                 />
-                
+
                 <FormField
                   control={form.control}
                   name="amount"
@@ -222,8 +225,8 @@ const DonatePage = () => {
                             type="button"
                             onClick={() => onChange(preset)}
                             className={`py-2 px-4 border rounded-md ${
-                              value === preset 
-                                ? 'bg-spiritual-100 border-spiritual-500 text-spiritual-700' 
+                              value === preset
+                                ? 'bg-spiritual-100 border-spiritual-500 text-spiritual-700'
                                 : 'border-gray-300 hover:bg-gray-50'
                             }`}
                           >
@@ -248,8 +251,8 @@ const DonatePage = () => {
                     </FormItem>
                   )}
                 />
-                
-                <Button 
+
+                <Button
                   type="submit"
                   disabled={isProcessing}
                   className="w-full bg-spiritual-600 hover:bg-spiritual-700 text-white py-3 flex items-center justify-center space-x-2"
@@ -259,7 +262,7 @@ const DonatePage = () => {
                 </Button>
               </form>
             </Form>
-            
+
             <p className="text-xs text-gray-500 text-center mt-4">
               Secure payment processing provided by PayFast.
               <br />
@@ -267,31 +270,6 @@ const DonatePage = () => {
             </p>
           </Card>
         </div>
-        
-        <div className="mt-12 p-6 bg-gray-50 rounded-lg">
-          <h2 className="text-2xl font-heading font-semibold mb-4">Other Ways to Donate</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <h3 className="font-semibold">Direct Bank Transfer</h3>
-              <p>You can make a direct donation to our bank account:</p>
-              <p>Bank: Standard Bank</p>
-              <p>Account Name: Ramakrishna Centre of South Africa</p>
-              <p>Account Number: 1234567890</p>
-              <p>Branch Code: 12345</p>
-              <p>Reference: Your Name + Donation</p>
-            </div>
-            
-            <div className="space-y-2">
-              <h3 className="font-semibold">In-Person Donations</h3>
-              <p>Visit our centre to make a donation in person:</p>
-              <p>Ramakrishna Centre of South Africa</p>
-              <p>8 Flanders Road, Avoca</p>
-              <p>Durban North, 4051</p>
-              <p>Monday to Friday: 9:00 AM - 4:00 PM</p>
-              <p>Weekends: 9:00 AM - 1:00 PM</p>
-            </div>
-          </div>
         </div>
       </div>
     </PageLayout>

@@ -27,27 +27,28 @@ const EventCard = ({
   return (
     <div className={`rounded-lg overflow-hidden border border-gray-100 bg-white event-card ${className}`} style={{ boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1)' }}>
       {image && (
-        <div className="h-48 event-image-container" style={{ border: '3px solid #F1A912', boxShadow: '0 10px 20px rgba(0, 0, 0, 0.15)' }}>
+        <div className="event-image-container" style={{ border: '3px solid #F1A912', boxShadow: '0 10px 20px rgba(0, 0, 0, 0.15)', aspectRatio: '4/3', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8px', backgroundColor: '#f8f8f8' }}>
           <img
             src={image}
             alt={title}
             className="event-image"
+            style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }}
           />
         </div>
       )}
-      <div className="p-6">
+      <div className="p-4">
         <div className="flex items-center mb-3 text-spiritual-500">
           <Calendar className="h-5 w-5 mr-2" />
           <span className="text-sm font-medium">{date}{time && ` • ${time}`}</span>
         </div>
-        <h3 className="text-xl font-heading font-semibold mb-2">{title}</h3>
+        <h3 className="text-lg font-heading font-semibold mb-2">{title}</h3>
         {location && (
           <p className="text-gray-600 text-sm mb-3">
             <span className="font-medium">Location:</span> {location}
           </p>
         )}
         {description && (
-          <p className="text-gray-600 mb-4 line-clamp-3">{description}</p>
+          <p className="text-gray-600 mb-3 line-clamp-2 text-sm">{description}</p>
         )}
         {link && (
           <a

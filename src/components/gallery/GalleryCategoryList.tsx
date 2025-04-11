@@ -41,7 +41,7 @@ const GalleryCategoryList = () => {
             to={`/gallery/${category.id}`}
             className="block group"
           >
-            <div className="rounded-lg overflow-hidden pop-shadow-card transition-all duration-300 bg-white">
+            <div className="rounded-lg overflow-hidden pop-shadow-card transition-all duration-300 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron">
               <div className="h-60 overflow-hidden">
                 {category.image ? (
                   <img

@@ -26,7 +26,8 @@ const AboutPage = () => {
         backgroundImage="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12 -mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* About Navigation */}
         <div className="mb-8">
           <nav className="flex space-x-8 overflow-x-auto pb-3 scrollbar-none">
@@ -64,7 +65,7 @@ const AboutPage = () => {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className="block p-6 bg-white rounded-lg pop-shadow-card transition-all duration-300"
+                  className="block p-6 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron rounded-lg pop-shadow-card transition-all duration-300"
                 >
                   <h3 className="text-xl font-heading font-semibold mb-2">{link.name}</h3>
                   <p className="text-gray-600 mb-2">
@@ -98,6 +99,7 @@ const AboutPage = () => {
           // Render subpages via Outlet
           <Outlet />
         )}
+        </div>
       </div>
     </PageLayout>
   );
