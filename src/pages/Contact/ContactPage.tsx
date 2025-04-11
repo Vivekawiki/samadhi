@@ -8,23 +8,24 @@ import { MapPin, Phone, Mail, Clock, User } from 'lucide-react';
 const ContactPage = () => {
   return (
     <PageLayout title="Contact Us">
-      <PageHeader 
-        title="Contact Us" 
+      <PageHeader
+        title="Contact Us"
         subtitle="Reach out to the Ramakrishna Centre of South Africa, Johannesburg"
         backgroundImage="https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80"
       />
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+      <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12 -mt-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Information */}
           <div className="animate-fade-in">
-            <SectionHeader 
-              title="Get in Touch" 
+            <SectionHeader
+              title="Get in Touch"
               subtitle="We'd love to hear from you. Contact us with any questions or inquiries."
               alignment="left"
             />
-            
-            <div className="space-y-6 mt-8">
+
+            <div className="space-y-6 mt-8 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg pop-shadow-card">
               <div className="flex items-start">
                 <div className="flex-shrink-0">
                   <Mail className="h-6 w-6 text-spiritual-500 mt-1" />
@@ -34,7 +35,7 @@ const ContactPage = () => {
                   <p className="mt-1 text-gray-600">johannesburg@ramakrishna-phoenix.org.za</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start">
                 <div className="flex-shrink-0">
                   <MapPin className="h-6 w-6 text-spiritual-500 mt-1" />
@@ -47,10 +48,10 @@ const ContactPage = () => {
                   </p>
                 </div>
               </div>
-              
+
               <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg">
                 <h3 className="text-lg font-medium text-gray-900 mb-4">Persons in Charge</h3>
-                
+
                 <div className="space-y-4">
                   <div className="flex items-start">
                     <div className="flex-shrink-0">
@@ -61,7 +62,7 @@ const ContactPage = () => {
                       <p className="text-gray-600">Revered Swami Saradaprabhananda</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <div className="flex-shrink-0">
                       <User className="h-5 w-5 text-spiritual-500 mt-1" />
@@ -71,7 +72,7 @@ const ContactPage = () => {
                       <p className="text-gray-600">Revered Swami Viprananda</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <div className="flex-shrink-0">
                       <User className="h-5 w-5 text-spiritual-500 mt-1" />
@@ -81,7 +82,7 @@ const ContactPage = () => {
                       <p className="text-gray-600">Mr. Naresh Ramatar (+27) 82 923 6537</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <div className="flex-shrink-0">
                       <User className="h-5 w-5 text-spiritual-500 mt-1" />
@@ -94,7 +95,7 @@ const ContactPage = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="mt-12">
               <h3 className="text-lg font-medium text-gray-900 mb-4">Connect With Us</h3>
               <div className="flex space-x-4">
@@ -119,16 +120,16 @@ const ContactPage = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Contact Form */}
           <div className="animate-fade-in">
-            <SectionHeader 
-              title="Send a Message" 
+            <SectionHeader
+              title="Send a Message"
               subtitle="Fill out the form below and we'll get back to you as soon as possible."
               alignment="left"
             />
-            
-            <form className="mt-8 space-y-6 bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg">
+
+            <form className="mt-8 space-y-6 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg pop-shadow-card">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
@@ -153,7 +154,7 @@ const ContactPage = () => {
                   />
                 </div>
               </div>
-              
+
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                   Email
@@ -165,7 +166,7 @@ const ContactPage = () => {
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-spiritual-500 focus:ring-spiritual-500"
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
                   Phone (optional)
@@ -177,7 +178,7 @@ const ContactPage = () => {
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-spiritual-500 focus:ring-spiritual-500"
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-700">
                   Subject
@@ -189,7 +190,7 @@ const ContactPage = () => {
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-spiritual-500 focus:ring-spiritual-500"
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700">
                   Message
@@ -201,7 +202,7 @@ const ContactPage = () => {
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-spiritual-500 focus:ring-spiritual-500"
                 ></textarea>
               </div>
-              
+
               <div>
                 <button
                   type="submit"
@@ -213,9 +214,9 @@ const ContactPage = () => {
             </form>
           </div>
         </div>
-        
+
         {/* Map */}
-        <div className="mt-16 rounded-lg overflow-hidden shadow-md h-96 animate-fade-in">
+        <div className="mt-16 rounded-lg overflow-hidden border border-indian-saffron pop-shadow-card h-96 animate-fade-in">
           <iframe
             title="Ramakrishna Centre Location"
             className="w-full h-full"
@@ -224,6 +225,7 @@ const ContactPage = () => {
             allowFullScreen
             loading="lazy"
           ></iframe>
+        </div>
         </div>
       </div>
     </PageLayout>
