@@ -4,7 +4,7 @@ import PageHeader from '../../components/shared/PageHeader';
 import SectionHeader from '../../components/shared/SectionHeader';
 import Button from '../../components/shared/Button';
 import { Card, CardContent } from '../../components/ui/card';
-import { Gamepad2, Brain, Puzzle, Trophy } from 'lucide-react';
+import { Gamepad2, Brain, Puzzle, Trophy, Image } from 'lucide-react';
 
 const GamesPage = () => {
   return (
@@ -15,9 +15,9 @@ const GamesPage = () => {
         backgroundImage="/lovable-uploads/learn.png"
       />
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12 pt-20">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg mb-12 pop-shadow-card">
+          <div className="bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg mb-6 pop-shadow-card">
             <h2 className="text-2xl font-heading font-semibold mb-4">Learning Through Play</h2>
             <p className="text-gray-700">
               Games are a powerful way to learn and retain knowledge. Our interactive games are designed to make learning about
@@ -31,7 +31,7 @@ const GamesPage = () => {
             subtitle="Explore our collection of educational games"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
             <Card className="border-spiritual-200 bg-gradient-to-br from-spiritual-50 to-white pop-shadow-card">
               <CardContent className="p-6">
                 <div className="flex items-center justify-center w-12 h-12 bg-spiritual-100 rounded-full mb-4">
@@ -91,6 +91,22 @@ const GamesPage = () => {
                   A fun way to become familiar with important terms in Hindu philosophy.
                 </p>
                 <Button href="/learn/games/word-scramble" variant="outline" size="sm">
+                  Play Game
+                </Button>
+              </CardContent>
+            </Card>
+
+
+            <Card className="border-spiritual-200 bg-gradient-to-br from-spiritual-50 to-white pop-shadow-card">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-center w-12 h-12 bg-spiritual-100 rounded-full mb-4">
+                  <Image className="w-6 h-6 text-spiritual-500" />
+                </div>
+                <h3 className="text-xl font-heading font-semibold mb-3">Guess the Picture</h3>
+                <p className="text-gray-600 mb-4">
+                  Test your visual recognition skills as images are slowly revealed. Identify spiritual figures and symbols as quickly as you can.
+                </p>
+                <Button href="/learn/games/guess-picture" variant="outline" size="sm">
                   Play Game
                 </Button>
               </CardContent>

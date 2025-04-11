@@ -80,7 +80,7 @@ const RecentActivities = () => {
 
     const container = carouselRef.current;
     const cardWidth = container.querySelector('.card-container')?.clientWidth || 0;
-    const scrollAmount = cardWidth + 24; // Card width + gap
+    const scrollAmount = cardWidth + 24; // Card width + gap (24px)
 
     if (direction === 'left' && canScrollLeft) {
       container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
@@ -123,7 +123,7 @@ const RecentActivities = () => {
             subtitle="Recent humanitarian efforts to serve our community"
           />
         </div>
-        <div className="flex justify-center mb-4 max-w-5xl mx-auto">
+        <div className="flex justify-center mb-4 max-w-[930px] mx-auto">
           <div className="flex space-x-2">
             <button
               onClick={() => handleScroll('left')}
@@ -146,13 +146,13 @@ const RecentActivities = () => {
 
         <div
           ref={carouselRef}
-          className="flex overflow-x-auto hide-scrollbar pb-4 max-w-5xl mx-auto"
+          className="flex overflow-x-auto hide-scrollbar pb-4 w-full max-w-[930px] mx-auto"
           onScroll={handleScrollEvent}
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          <div className="flex space-x-4">
+          <div className="flex gap-[30px]">
             {activities.map((activity, index) => (
-              <div key={index} className="card-container flex-shrink-0 w-[252px] sm:w-[270px] lg:w-[288px]">
+              <div key={index} className="card-container flex-shrink-0" style={{ width: '300px' }}>
                 <Link to={activity.link}>
                   <div className="h-full">
                     <EventCard

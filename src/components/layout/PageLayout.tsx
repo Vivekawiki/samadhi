@@ -35,7 +35,7 @@ const PageLayout = ({ children, title, className = '' }: PageLayoutProps) => {
       {/* Main content with padding for fixed navbar */}
       <main
         ref={mainRef}
-        className={`flex-grow pt-20 ${className}`}
+        className={`flex-grow ${className}`}
       >
         {children}
       </main>

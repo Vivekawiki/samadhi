@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
+import PageLayout from "./components/layout/PageLayout";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 // Import pages
@@ -47,7 +48,9 @@ import CommunityLearningPage from "./pages/Learn/CommunityLearningPage";
 import QuizPage from "./pages/Learn/QuizPage";
 import GamesPage from "./pages/Learn/GamesPage";
 import GamesPageSimple from "./pages/Learn/GamesPageSimple";
+import GuessThePictureGame from "./components/games/GuessThePictureGame";
 import SubmitQuestionPage from "./pages/Learn/SubmitQuestionPage";
+import GuessThePicturePage from "./pages/Learn/GuessThePicturePage";
 
 // Import Auth pages
 import AuthPage from "./pages/Auth/AuthPage";
@@ -72,9 +75,10 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            {/* Home Page */}
-            <Route path="/" element={<Index />} />
+          <PageLayout>
+            <Routes>
+              {/* Home Page */}
+              <Route path="/" element={<Index />} />
 
             {/* About Section */}
             <Route path="/about" element={<AboutPage />}>
@@ -115,6 +119,7 @@ const App = () => (
             <Route path="/learn/quizzes" element={<QuizPage />} />
             <Route path="/learn/submit" element={<SubmitQuestionPage />} />
             <Route path="/learn/games" element={<GamesPage />} />
+            <Route path="/learn/games/guess-picture" element={<GuessThePicturePage />} />
 
             {/* Authentication and User Routes */}
             <Route path="/auth" element={<AuthPage />} />
@@ -144,6 +149,7 @@ const App = () => (
             {/* 404 Page */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+        </PageLayout>
         </BrowserRouter>
       </TooltipProvider>
     </AuthProvider>
