@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -19,11 +18,11 @@ import PresenceInSA from "./pages/About/PresenceInSA";
 import ContactPage from "./pages/Contact/ContactPage";
 
 // Import Services pages
-import ServicesPage from "./pages/Services/ServicesPage";
-import Satsangs from "./pages/Services/Satsangs";
+import ServicesPage from "./pages/Services/ServicesPage.tsx";
+import Satsangs from "./pages/Services/Satsangs.tsx";
 import HinduismForChildren from "./pages/Services/HinduismForChildren";
 import SpecialFunctions from "./pages/Services/SpecialFunctions";
-import CommunityOutreach from "./pages/Services/CommunityOutreach";
+import CommunityOutreach from "./pages/Services/CommunityOutreach.tsx";
 import NutritionProgramme from "./pages/Services/NutritionProgramme";
 import FullSizeImage from "./pages/Services/FullSizeImage";
 
@@ -39,17 +38,16 @@ import TimelinePage from "./pages/NewAshramProject/TimelinePage";
 import FundraisingPage from "./pages/NewAshramProject/FundraisingPage";
 
 // Import Learn pages
-import LearnPage from "./pages/Learn/LearnPage";
+import LessonsPage from "./pages/Learn/LessonsPage";
 // MantrasPage import removed
 // TopicPage import removed
 import LessonPage from "./pages/Learn/LessonPage";
-import LessonsPage from "./pages/Learn/LessonsPage";
 import CommunityLearningPage from "./pages/Learn/CommunityLearningPage";
 import QuizPage from "./pages/Learn/QuizPage";
-import GamesPage from "./pages/Learn/GamesPage";
-import GamesPageSimple from "./pages/Learn/GamesPageSimple";
-import GuessThePictureGame from "./components/games/GuessThePictureGame";
+// import GamesPageSimple from "./pages/Learn/GamesPageSimple"; // Unused import
 import SubmitQuestionPage from "./pages/Learn/SubmitQuestionPage";
+import LearnPage from "./pages/Learn/LearnPage";
+import GamesPage from "./pages/Learn/GamesPage";
 import GuessThePicturePage from "./pages/Learn/GuessThePicturePage";
 
 // Import Auth pages

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // Define all name options for guessing
 const nameOptions = [
   { id: 1, name: 'Sri Ramakrishna' },
-  { id: 2, name: 'Holy Mother' },
+  { id: 2, name: 'Sri Sarada Devi' },
   { id: 3, name: 'Swami Vivekananda' },
   { id: 4, name: 'Belur Math' },
   { id: 5, name: 'Dakshineswar Temple' },
@@ -27,151 +27,133 @@ function GuessThePictureGame() {
   const [nameOptionsList] = useState(nameOptions); // All possible name options for guessing
   const [currentImage, setCurrentImage] = useState(imageFiles[0]); // Default to first image, will be randomized in startGame
   const [correctAnswerId, setCorrectAnswerId] = useState(imageFiles[0].correctId); // Default to first image's correctId
-  const [revealedSquares, setRevealedSquares] = useState([]);
+  const [revealedSquares, setRevealedSquares] = useState<{x: number, y: number}[]>([]);
   const [gameOver, setGameOver] = useState(false);
-  const [startTime, setStartTime] = useState(null);
+  const [startTime, setStartTime] = useState<number | null>(null);
   const [timeTaken, setTimeTaken] = useState(0);
   const [feedbackMessage, setFeedbackMessage] = useState('');
 
   // Refs for intervals to manage them correctly
-  const timerIntervalRef = useRef(null);
-  const revealIntervalRef = useRef(null);
-  const feedbackTimeoutRef = useRef(null);
+  const timerIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const revealIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const feedbackTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Constants corresponding to Vue computed properties
+  // Constants for the grid
   const gridSize = 10;
   const totalSquares = gridSize * gridSize;
 
-  // revealSquare logic moved directly into useEffect/setInterval
-
-  // Function to start/reset the game (using useCallback)
+  // Function to start/reset the game
   const startGame = useCallback(() => {
     // Clear any existing intervals/timeouts
-    clearInterval(timerIntervalRef.current);
-    clearInterval(revealIntervalRef.current);
-    clearTimeout(feedbackTimeoutRef.current);
+    if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
+    if (revealIntervalRef.current) clearInterval(revealIntervalRef.current);
+    if (feedbackTimeoutRef.current) clearTimeout(feedbackTimeoutRef.current);
 
     // Select a random image from the three available images
     const randomIndex = Math.floor(Math.random() * imageFiles.length);
     const selectedImage = imageFiles[randomIndex];
-
+    
     // Set the current image and its correct answer ID
     setCurrentImage(selectedImage);
     setCorrectAnswerId(selectedImage.correctId);
 
+    // Reset game state
     setRevealedSquares([]);
     setGameOver(false);
     setTimeTaken(0);
     setFeedbackMessage('');
     setStartTime(Date.now()); // Set start time to trigger effects
-
-  }, []); // No dependencies needed as imageFiles is defined outside the component
+  }, []);
 
   // Effect to handle the timer (updates every second)
   useEffect(() => {
     if (gameOver || !startTime) {
-      clearInterval(timerIntervalRef.current); // Stop timer if game over or not started
+      if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
       return;
     }
 
     // Clear previous timer before setting a new one
-    clearInterval(timerIntervalRef.current);
+    if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
 
     timerIntervalRef.current = setInterval(() => {
       setTimeTaken(Math.floor((Date.now() - startTime) / 1000));
     }, 1000);
 
     // Cleanup function for this effect
-    return () => clearInterval(timerIntervalRef.current);
-  }, [gameOver, startTime]); // Run when game state or start time changes
+    return () => {
+      if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
+    };
+  }, [gameOver, startTime]);
 
   // Effect to handle revealing squares (every 1 second)
   useEffect(() => {
     // Clear any previous interval when effect re-runs or cleans up
-    clearInterval(revealIntervalRef.current);
+    if (revealIntervalRef.current) clearInterval(revealIntervalRef.current);
 
     // Only start a new interval if the game is active
     if (!gameOver && startTime) {
       revealIntervalRef.current = setInterval(() => {
         setRevealedSquares(currentSquares => {
-          // Check if already full inside the state updater
+          // If already full, don't add more squares
           if (currentSquares.length >= totalSquares) {
-            clearInterval(revealIntervalRef.current); // Stop interval
-            return currentSquares; // No change needed
+            if (revealIntervalRef.current) clearInterval(revealIntervalRef.current);
+            return currentSquares;
           }
-
-          // If not full, proceed with revealing logic
-          let newSquare;
-          let attempts = 0;
-          const maxAttempts = totalSquares * 2; // Use component scope variable
-          do {
-            newSquare = {
-              x: Math.floor(Math.random() * gridSize), // Use component scope variable
-              y: Math.floor(Math.random() * gridSize), // Use component scope variable
-            };
-            attempts++;
-          } while (
-            currentSquares.some((s) => s.x === newSquare.x && s.y === newSquare.y) &&
-            attempts < maxAttempts
-          );
-
-          // Add the new square if found and not already full
-          if (attempts < maxAttempts) {
-            console.log('Revealed (in interval):', currentSquares.length + 1, 'of', totalSquares);
-            const nextSquares = [...currentSquares, newSquare];
-            // Check if this *was* the last square to reveal
-            if (nextSquares.length >= totalSquares) {
-               clearInterval(revealIntervalRef.current); // Stop interval
+          
+          // Find a new square that hasn't been revealed yet
+          for (let attempts = 0; attempts < 100; attempts++) {
+            const x = Math.floor(Math.random() * gridSize);
+            const y = Math.floor(Math.random() * gridSize);
+            
+            // Check if this square is already revealed
+            if (!currentSquares.some(s => s.x === x && s.y === y)) {
+              return [...currentSquares, { x, y }];
             }
-            return nextSquares;
           }
-
-          // If no new square could be found, stop to prevent infinite loops/calls
-          clearInterval(revealIntervalRef.current);
+          
+          // If we couldn't find a new square after 100 attempts, just return the current squares
           return currentSquares;
         });
-      }, 1000); // Reveal every 1 second
+      }, 1000);
     }
 
-    // Cleanup function clears interval when game stops or component unmounts
-    return () => clearInterval(revealIntervalRef.current);
-
-    // Dependencies: Only game start/end should control the interval lifecycle.
-    // gridSize and totalSquares are stable within the component's render cycle.
-  }, [gameOver, startTime, gridSize, totalSquares]);
+    // Cleanup function
+    return () => {
+      if (revealIntervalRef.current) clearInterval(revealIntervalRef.current);
+    };
+  }, [gameOver, startTime, totalSquares, gridSize]);
 
   // Effect to start the game on component mount
   useEffect(() => {
     startGame();
-
+    
     // Cleanup on component unmount
     return () => {
-      clearInterval(timerIntervalRef.current);
-      clearInterval(revealIntervalRef.current);
-      clearTimeout(feedbackTimeoutRef.current);
+      if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
+      if (revealIntervalRef.current) clearInterval(revealIntervalRef.current);
+      if (feedbackTimeoutRef.current) clearTimeout(feedbackTimeoutRef.current);
     };
-  }, [startGame]); // Dependency: startGame function
+  }, [startGame]);
 
   // Function to handle player's guess
-  const handleGuess = (id) => {
+  const handleGuess = (id: number) => {
     if (gameOver) return;
 
     // Clear previous feedback timeout if guess is made quickly again
-    clearTimeout(feedbackTimeoutRef.current);
+    if (feedbackTimeoutRef.current) clearTimeout(feedbackTimeoutRef.current);
 
-    const currentTimeTaken = Math.floor((Date.now() - startTime) / 1000);
+    const currentTimeTaken = Math.floor((Date.now() - (startTime || 0)) / 1000);
     setTimeTaken(currentTimeTaken); // Update time immediately on guess
 
-    // Find the name of the guessed option
-    const guessedOption = nameOptionsList.find(option => option.id === id);
     // Find the name of the correct option
     const correctOption = nameOptionsList.find(option => option.id === correctAnswerId);
 
     if (id === correctAnswerId) {
-      setGameOver(true); // Stop intervals via useEffect dependencies
+      setGameOver(true);
       setFeedbackMessage(
-        `Correct! You identified "${correctOption.name}" in ${currentTimeTaken} seconds!`
+        `Correct! You identified "${correctOption?.name}" in ${currentTimeTaken} seconds!`
       );
+      
       // Reveal all remaining squares instantly on correct guess
       const allSquares = [];
       for (let y = 0; y < gridSize; y++) {
@@ -182,10 +164,12 @@ function GuessThePictureGame() {
       setRevealedSquares(allSquares);
     } else {
       setFeedbackMessage('Incorrect, try again!');
+      
       // Clear the incorrect feedback message after 2 seconds
       feedbackTimeoutRef.current = setTimeout(() => {
-         // Check if game hasn't ended in the meantime
-         setFeedbackMessage((prevMessage) => prevMessage === 'Incorrect, try again!' ? '' : prevMessage);
+        setFeedbackMessage(prevMessage => 
+          prevMessage === 'Incorrect, try again!' ? '' : prevMessage
+        );
       }, 2000);
     }
   };
@@ -224,10 +208,10 @@ function GuessThePictureGame() {
                   return (
                     <div
                       key={`${x}-${y}`}
-                      className={`w-full h-full border border-gray-900/20 ${
-                        isRevealed ? 'bg-transparent' : 'bg-gray-800'
+                      className={`w-full h-full bg-gray-800 border border-gray-900/20 transition-opacity duration-300 ${
+                        isRevealed ? 'opacity-0' : 'opacity-100'
                       }`}
-                      // style={{ transitionDelay: `${Math.random() * 0.2}s` }} // Removed transition styles
+                      style={{ transitionDelay: `${Math.random() * 0.2}s` }}
                     ></div>
                   );
                 })}

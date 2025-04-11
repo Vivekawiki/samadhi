@@ -4,34 +4,35 @@ import { Link, Outlet, useLocation } from 'react-router-dom';
 import PageLayout from '../../components/layout/PageLayout';
 import PageHeader from '../../components/shared/PageHeader';
 
-const AboutPage = () => {
+const ServicesPage = () => {
   const location = useLocation();
 
-  // Navigation links for About section
-  const aboutLinks = [
-    { name: "Our Centre", path: "/about/our-centre" },
-    { name: "Vedanta", path: "/about/vedanta" },
-    { name: "The Holy Trinity", path: "/about/holy-trinity" },
-    { name: "Presence in South Africa", path: "/about/presence-in-sa" },
+  // Navigation links for Services section
+  const servicesLinks = [
+    { name: "Satsangs & Spiritual Gatherings", path: "/services/satsangs" },
+    { name: "Hinduism for Children", path: "/services/hinduism-for-children" },
+    { name: "Special Functions & Festivals", path: "/services/special-functions" },
+    { name: "Community Outreach", path: "/services/community-outreach" },
+    { name: "Nutrition Programme", path: "/services/nutrition-programme" },
   ];
 
-  // Check if we're on the main about page or a subpage
-  const isMainAboutPage = location.pathname === '/about';
+  // Check if we're on the main services page or a subpage
+  const isMainServicesPage = location.pathname === '/services';
 
   return (
-    <PageLayout title="About">
+    <PageLayout title="Services">
       <PageHeader
-        title="About Us"
-        subtitle="Learn about the Ramakrishna Centre, our philosophy, and our history"
-        backgroundImage="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80"
+        title="Our Services"
+        subtitle="Explore the spiritual and community services offered by the Ramakrishna Centre"
+        backgroundImage="https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80"
       />
 
-      <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12">
+      <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12 -mt-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* About Navigation */}
+        {/* Services Navigation */}
         <div className="mb-8">
           <nav className="flex space-x-8 overflow-x-auto pb-3 scrollbar-none">
-            {aboutLinks.map((link) => (
+            {servicesLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
@@ -47,21 +48,21 @@ const AboutPage = () => {
           </nav>
         </div>
 
-        {isMainAboutPage ? (
-          // Main About page content
+        {isMainServicesPage ? (
+          // Main Services page content
           <div className="prose prose-lg max-w-none animate-fade-in">
-            <h2 className="text-3xl font-heading font-semibold mb-6">Welcome to the Ramakrishna Centre of South Africa, Johannesburg</h2>
+            <h2 className="text-3xl font-heading font-semibold mb-6">Services Offered by the Ramakrishna Centre</h2>
 
             <p>
-              The Ramakrishna Centre of South Africa is dedicated to the propagation of the universal teachings of Vedanta as exemplified in the lives of Sri Ramakrishna, Holy Mother Sri Sarada Devi, and Swami Vivekananda. Our Centre serves as a spiritual haven for all seekers, irrespective of their religious background.
+              The Ramakrishna Centre of South Africa offers a variety of spiritual and community services aimed at promoting spiritual growth, education, and community welfare in line with the teachings of Sri Ramakrishna, Holy Mother Sri Sarada Devi, and Swami Vivekananda.
             </p>
 
             <p>
-              Explore the sections below to learn more about our Centre, the philosophy of Vedanta, the Holy Trinity of the Ramakrishna Order, and our presence in South Africa.
+              Explore the sections below to learn more about our various services and how you can participate.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-              {aboutLinks.map((link) => (
+              {servicesLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
@@ -69,10 +70,10 @@ const AboutPage = () => {
                 >
                   <h3 className="text-xl font-heading font-semibold mb-2">{link.name}</h3>
                   <p className="text-gray-600 mb-2">
-                    {link.name === "Our Centre" && "Learn about our Centre's history, mission, and values."}
-                    {link.name === "Vedanta" && "Explore the philosophy of Vedanta and its universal principles."}
-                    {link.name === "The Holy Trinity" && "Discover the lives and teachings of Sri Ramakrishna, Sri Sarada Devi, and Swami Vivekananda."}
-                    {link.name === "Presence in South Africa" && "Learn about the history and growth of the Ramakrishna movement in South Africa."}
+                    {link.name === "Satsangs & Spiritual Gatherings" && "Join our regular spiritual gatherings, meditation sessions, and discourses."}
+                    {link.name === "Hinduism for Children" && "Educational programs designed to teach Hindu values and philosophy to children."}
+                    {link.name === "Special Functions & Festivals" && "Celebrations of special occasions, holy days, and religious festivals."}
+                    {link.name === "Community Outreach" && "Our initiatives to serve the community through various welfare programs."}
                   </p>
                   <span className="text-spiritual-500 inline-flex items-center">
                     Read More
@@ -105,4 +106,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default ServicesPage;
