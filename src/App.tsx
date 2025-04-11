@@ -38,11 +38,13 @@ import FundraisingPage from "./pages/NewAshramProject/FundraisingPage";
 // Import Learn pages
 import LearnPage from "./pages/Learn/LearnPage";
 // MantrasPage import removed
-import TopicPage from "./pages/Learn/TopicPage";
+// TopicPage import removed
 import LessonPage from "./pages/Learn/LessonPage";
 import LessonsPage from "./pages/Learn/LessonsPage";
 import CommunityLearningPage from "./pages/Learn/CommunityLearningPage";
 import QuizPage from "./pages/Learn/QuizPage";
+import GamesPage from "./pages/Learn/GamesPage";
+import GamesPageSimple from "./pages/Learn/GamesPageSimple";
 import SubmitQuestionPage from "./pages/Learn/SubmitQuestionPage";
 
 // Import Auth pages
@@ -102,13 +104,13 @@ const App = () => (
             {/* Learn Section */}
             <Route path="/learn" element={<LearnPage />} />
             {/* Mantras page removed */}
-            <Route path="/learn/topics/:topicId" element={<TopicPage />} />
-            <Route path="/learn/topics/:topicId/:subtopicId" element={<TopicPage />} />
+            {/* Topics pages removed */}
             <Route path="/learn/lessons" element={<LessonsPage />} />
             <Route path="/learn/lessons/:topicId/:lessonId" element={<LessonPage />} />
             <Route path="/learn/community" element={<CommunityLearningPage />} />
             <Route path="/learn/quizzes" element={<QuizPage />} />
             <Route path="/learn/submit" element={<SubmitQuestionPage />} />
+            <Route path="/learn/games" element={<GamesPage />} />
 
             {/* Authentication and User Routes */}
             <Route path="/auth" element={<AuthPage />} />

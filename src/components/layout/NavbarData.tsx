@@ -34,8 +34,8 @@ export const navigation: NavItem[] = [
     name: 'Learn',
     href: '/learn',
     dropdown: [
-      { name: 'Topics', href: '/learn/topics/core-concepts' },
       { name: 'Lessons', href: '/learn/lessons' },
+      { name: 'Games', href: '/learn/games' },
     ]
   },
   { name: 'Donate', href: '/donate' },

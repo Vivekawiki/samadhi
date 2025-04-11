@@ -5,101 +5,135 @@ import PageHeader from '../../components/shared/PageHeader';
 import SectionHeader from '../../components/shared/SectionHeader';
 import Button from '../../components/shared/Button';
 import { Link } from 'react-router-dom';
-import { BookOpen, PenTool, MessageSquare, Lightbulb } from 'lucide-react';
+import { BookOpen, PenTool, MessageSquare, Lightbulb, Music } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { lessonsData } from '../../data/lessonsData';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const LearnPage = () => {
+  // Sample mantras for display
+  const mantras = [
+    {
+      id: 'gayatri',
+      title: 'Gayatri Mantra',
+      description: 'A highly revered mantra from Rigveda dedicated to Savitr, the sun deity',
+      audio: '/mantras/gayatri.mp3',
+      text: 'ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात्'
+    },
+    {
+      id: 'mahamrityunjaya',
+      title: 'Mahamrityunjaya Mantra',
+      description: 'A healing mantra dedicated to Lord Shiva that rejuvenates and bestows immortality',
+      audio: '/mantras/mahamrityunjaya.mp3',
+      text: 'ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम् उर्वारुकमिव बन्धनान् मृत्योर्मुक्षीय मामृतात्'
+    },
+    {
+      id: 'shanti',
+      title: 'Shanti Mantra',
+      description: 'A peace mantra from the Upanishads that invokes peace in all realms of existence',
+      audio: '/mantras/shanti.mp3',
+      text: 'ॐ सह नाववतु । सह नौ भुनक्तु । सह वीर्यं करवावहै । तेजस्वि नावधीतमस्तु मा विद्विषावहै । ॐ शान्तिः शान्तिः शान्तिः ॥'
+    },
+  ];
   return (
     <PageLayout title="Hinduism for Children">
       <PageHeader
         title="Hinduism for Children"
         subtitle="Educational resources for understanding Hindu philosophy and practices"
-        backgroundImage="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80"
+        backgroundImage="/lovable-uploads/learn.png"
       />
 
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto mb-16">
-          <p className="text-xl text-gray-700 mb-8">
-            Welcome to our learning platform, designed to provide accessible and comprehensive education about Hinduism and Vedanta philosophy for children.
-            We aim to instill values, cultural appreciation, and spiritual understanding in an engaging and age-appropriate manner.
-          </p>
-
-          <div className="bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg mb-12">
-            <h2 className="text-2xl font-heading font-semibold mb-4">Creating Active Learners</h2>
-            <p className="mb-4">
-              At the Ramakrishna Centre, we believe in fostering active learning rather than passive consumption of information.
-              We encourage our students to:
-            </p>
-            <ul className="list-disc pl-6 mb-4 space-y-2">
-              <li>Read lessons and engage with the material</li>
-              <li>Watch informative videos that bring concepts to life</li>
-              <li>Test their knowledge through interactive quizzes</li>
-              <li>Participate by submitting questions to our growing question bank</li>
-            </ul>
-            <p className="italic text-gray-700">
-              "Education is the manifestation of the perfection already in man." - Swami Vivekananda
+          <div className="bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg mb-12 pop-shadow-card">
+            <h2 className="text-2xl font-heading font-semibold mb-4">Welcome</h2>
+            <p className="text-gray-700">
+              Welcome to our learning platform, designed to provide accessible and comprehensive education about Hinduism and Vedanta philosophy for children.
+              We aim to instill values, cultural appreciation, and spiritual understanding in an engaging and age-appropriate manner.
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg mb-8">
-            <h3 className="text-xl font-heading font-semibold mb-3 flex items-center">
-              <MessageSquare className="w-5 h-5 mr-2 text-indian-saffron" />
-              Question Submission Format
-            </h3>
-            <p className="mb-4">
-              We encourage students to submit questions for our question bank in the following format:
-            </p>
-            <div className="bg-white p-4 rounded border border-gray-200">
-              <p className="font-semibold">1. The Question</p>
-              <p className="text-sm text-gray-600 mb-2">Write a clear, concise question about Hindu philosophy, practices, or stories.</p>
 
-              <p className="font-semibold">2. Four Options for the Answer</p>
-              <p className="text-sm text-gray-600 mb-2">Provide four possible answers labeled A, B, C, and D.</p>
-
-              <p className="font-semibold">3. Select the Correct Option</p>
-              <p className="text-sm text-gray-600 mb-2">Indicate which option is the correct answer.</p>
-
-              <p className="font-semibold">4. Reference</p>
-              <p className="text-sm text-gray-600">Cite the source of information (text, chapter, verse, etc.).</p>
-            </div>
-          </div>
 
           <div className="mt-16">
-            <div className="mb-10">
-              <h2 className="text-2xl font-heading font-semibold mb-5">Lessons</h2>
-              <div className="space-y-4">
-                <Link to="/learn/lessons/core-concepts/introduction-to-dharma" className="block">
-                  <div className="p-4 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron/30 rounded-lg hover:shadow-md transition-all duration-300">
-                    <h3 className="text-lg font-medium mb-1">Introduction to Dharma</h3>
-                    <p className="text-gray-600">Learn about the foundational concept of dharma in Hindu philosophy</p>
-                  </div>
-                </Link>
-                <Link to="/learn/lessons/core-concepts/the-principle-of-karma" className="block">
-                  <div className="p-4 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron/30 rounded-lg hover:shadow-md transition-all duration-300">
-                    <h3 className="text-lg font-medium mb-1">The Principle of Karma</h3>
-                    <p className="text-gray-600">Understand the law of cause and effect in Hindu philosophy</p>
-                  </div>
-                </Link>
-                <Link to="/learn/lessons/deities/the-trimurti-concept" className="block">
-                  <div className="p-4 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron/30 rounded-lg hover:shadow-md transition-all duration-300">
-                    <h3 className="text-lg font-medium mb-1">The Trimurti Concept</h3>
-                    <p className="text-gray-600">Explore the trinity of Brahma, Vishnu, and Shiva</p>
-                  </div>
-                </Link>
-              </div>
-            </div>
+            <SectionHeader
+              title="Explore Lessons"
+              subtitle="Discover our collection of lessons on Hindu philosophy and deities"
+            />
+            <Tabs defaultValue="lessons" className="w-full">
+              <TabsList className="grid w-full grid-cols-2 mb-8">
+                <TabsTrigger value="lessons" className="text-lg">
+                  <BookOpen className="w-5 h-5 mr-2" />
+                  Lessons
+                </TabsTrigger>
+                <TabsTrigger value="mantras" className="text-lg">
+                  <Music className="w-5 h-5 mr-2" />
+                  Mantras
+                </TabsTrigger>
+              </TabsList>
 
-            {/* Mantras section removed */}
+              <TabsContent value="lessons">
+                <div className="space-y-8">
+                  {lessonsData.map((lessonGroup) => (
+                    <div key={lessonGroup.topicId} className="mb-10">
+                      <h2 className="text-2xl font-heading font-semibold mb-5">{lessonGroup.topicName}</h2>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {lessonGroup.lessons.map((lesson) => (
+                          <Card key={lesson.id} className="hover:shadow-md transition-shadow cursor-pointer bg-gradient-to-br from-indian-cream to-white border border-indian-saffron pop-shadow-card">
+                            <Link to={`/learn/lessons/${lessonGroup.topicId}/${lesson.id}`}>
+                              <CardContent className="p-4">
+                                <div className="text-lg font-medium mb-2">{lesson.title}</div>
+                                <p className="text-gray-600">{lesson.description}</p>
+                              </CardContent>
+                            </Link>
+                          </Card>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="mantras">
+                <div className="space-y-8">
+                  <p className="text-lg">
+                    Mantras are sacred sound formulas that have spiritual and psychological effects.
+                    Learn these mantras to enhance your meditation practice and connect with divine energies.
+                  </p>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {mantras.map((mantra) => (
+                      <Card key={mantra.id} className="bg-gradient-to-br from-indian-cream to-white border border-indian-saffron pop-shadow-card">
+                        <CardContent className="p-6">
+                          <h3 className="text-xl font-heading font-semibold mb-2">{mantra.title}</h3>
+                          <p className="text-gray-600 mb-4">{mantra.description}</p>
+                          <div className="bg-white p-4 rounded border border-gray-200 mb-4">
+                            <p className="font-mono text-center text-lg">{mantra.text}</p>
+                          </div>
+                          <div className="flex justify-center">
+                            <audio controls className="w-full">
+                              <source src={mantra.audio} type="audio/mpeg" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                </div>
+              </TabsContent>
+            </Tabs>
           </div>
 
-          <SectionHeader
-            title="Explore Topics"
+          <div className="mt-24">
+            <SectionHeader
+            title="Explore Subjects"
             subtitle="Dive into our comprehensive curriculum covering the key aspects of Hinduism"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { id: 'core-concepts', title: 'Core Concepts', desc: 'Dharma, Karma, etc.' },
+              /* Core Concepts entry removed */
               { id: 'scriptures', title: 'Scriptures', desc: 'Vedas, Upanishads, etc.' },
               { id: 'deities', title: 'Deities', desc: 'Trimurti, Major Deities, etc.' },
               { id: 'philosophical-schools', title: 'Philosophical Schools', desc: 'Samkhya, Yoga, etc.' },
@@ -111,14 +145,15 @@ const LearnPage = () => {
               { id: 'society-culture', title: 'Society and Culture', desc: 'Family, Arts, etc.' },
               { id: 'cosmology-mythology', title: 'Cosmology and Mythology', desc: 'Creation Myths, Yugas, etc.' },
               { id: 'modern-issues', title: 'Modern Issues and Debates', desc: 'Science, Secularism, etc.' },
-            ].map(topic => (
-              <Link key={topic.id} to={`/learn/topics/${topic.id}`} className="block group">
-                <div className="h-full p-6 border border-indian-saffron rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300 bg-gradient-to-br from-indian-cream to-white">
-                  <h3 className="text-lg font-heading font-semibold mb-2 group-hover:text-spiritual-500 transition-colors">{topic.title}</h3>
-                  <p className="text-gray-600 text-sm">{topic.desc}</p>
+            ].map(subject => (
+              <Link key={subject.id} to="/learn" className="block group">
+                <div className="h-full p-6 border border-indian-saffron rounded-lg pop-shadow-card transition-all duration-300 bg-gradient-to-br from-indian-cream to-white">
+                  <h3 className="text-lg font-heading font-semibold mb-2 group-hover:text-spiritual-500 transition-colors">{subject.title}</h3>
+                  <p className="text-gray-600 text-sm">{subject.desc}</p>
                 </div>
               </Link>
             ))}
+          </div>
           </div>
 
           {/* Restoring the cards that were removed */}
@@ -128,22 +163,9 @@ const LearnPage = () => {
               subtitle="Engage with our community learning tools"
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              <Card className="border-spiritual-200 bg-gradient-to-br from-spiritual-50 to-white">
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-center w-12 h-12 bg-spiritual-100 rounded-full mb-4">
-                    <BookOpen className="w-6 h-6 text-spiritual-500" />
-                  </div>
-                  <h3 className="text-xl font-heading font-semibold mb-3">Community Learning</h3>
-                  <p className="text-gray-600 mb-4">Join our quiz platform, submit questions, and engage with other learners.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
 
-                  <Button href="/learn/community" variant="outline" size="sm">
-                    Start Learning
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="border-spiritual-200 bg-gradient-to-br from-spiritual-50 to-white">
+              <Card className="border-spiritual-200 bg-gradient-to-br from-spiritual-50 to-white pop-shadow-card">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-center w-12 h-12 bg-spiritual-100 rounded-full mb-4">
                     <PenTool className="w-6 h-6 text-spiritual-500" />
@@ -157,7 +179,7 @@ const LearnPage = () => {
                 </CardContent>
               </Card>
 
-              <Card className="border-spiritual-200 bg-gradient-to-br from-spiritual-50 to-white">
+              <Card className="border-spiritual-200 bg-gradient-to-br from-spiritual-50 to-white pop-shadow-card">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-center w-12 h-12 bg-spiritual-100 rounded-full mb-4">
                     <Lightbulb className="w-6 h-6 text-spiritual-500" />
