@@ -8,8 +8,8 @@ export interface NavItem {
 
 export const navigation: NavItem[] = [
   { name: 'Home', href: '/' },
-  { 
-    name: 'About', 
+  {
+    name: 'About',
     href: '/about',
     dropdown: [
       { name: 'Our Centre', href: '/about/our-centre' },
@@ -18,8 +18,8 @@ export const navigation: NavItem[] = [
       { name: 'Presence in South Africa', href: '/about/presence-in-sa' },
     ]
   },
-  { 
-    name: 'Services', 
+  {
+    name: 'Services',
     href: '/services',
     dropdown: [
       { name: 'Satsangs & Spiritual Gatherings', href: '/services/satsangs' },
@@ -30,12 +30,11 @@ export const navigation: NavItem[] = [
   },
   { name: 'Gallery', href: '/gallery' },
   { name: 'New Ashram Project', href: '/new-ashram-project' },
-  { 
-    name: 'Learn', 
+  {
+    name: 'Learn',
     href: '/learn',
     dropdown: [
       { name: 'Topics', href: '/learn/topics/core-concepts' },
-      { name: 'Mantras', href: '/learn/mantras' },
       { name: 'Lessons', href: '/learn/lessons' },
     ]
   },

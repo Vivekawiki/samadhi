@@ -37,7 +37,7 @@ import FundraisingPage from "./pages/NewAshramProject/FundraisingPage";
 
 // Import Learn pages
 import LearnPage from "./pages/Learn/LearnPage";
-import MantrasPage from "./pages/Learn/MantrasPage";
+// MantrasPage import removed
 import TopicPage from "./pages/Learn/TopicPage";
 import LessonPage from "./pages/Learn/LessonPage";
 import LessonsPage from "./pages/Learn/LessonsPage";
@@ -71,7 +71,7 @@ const App = () => (
           <Routes>
             {/* Home Page */}
             <Route path="/" element={<Index />} />
-            
+
             {/* About Section */}
             <Route path="/about" element={<AboutPage />}>
               <Route path="/about/our-centre" element={<OurCentre />} />
@@ -79,7 +79,7 @@ const App = () => (
               <Route path="/about/holy-trinity" element={<HolyTrinity />} />
               <Route path="/about/presence-in-sa" element={<PresenceInSA />} />
             </Route>
-            
+
             {/* Services Section */}
             <Route path="/services" element={<ServicesPage />}>
               <Route path="/services/satsangs" element={<Satsangs />} />
@@ -87,21 +87,21 @@ const App = () => (
               <Route path="/services/special-functions" element={<SpecialFunctions />} />
               <Route path="/services/community-outreach" element={<CommunityOutreach />} />
             </Route>
-            
+
             {/* Gallery Section */}
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/gallery/:categoryId" element={<GalleryAlbum />} />
             <Route path="/gallery/:categoryId/:albumId" element={<GalleryPhotoGrid />} />
-            
+
             {/* New Ashram Project Section */}
             <Route path="/new-ashram-project" element={<NewAshramProjectPage />} />
             <Route path="/new-ashram-project/vision" element={<VisionPage />} />
             <Route path="/new-ashram-project/timeline" element={<TimelinePage />} />
             <Route path="/new-ashram-project/fundraising" element={<FundraisingPage />} />
-            
+
             {/* Learn Section */}
             <Route path="/learn" element={<LearnPage />} />
-            <Route path="/learn/mantras" element={<MantrasPage />} />
+            {/* Mantras page removed */}
             <Route path="/learn/topics/:topicId" element={<TopicPage />} />
             <Route path="/learn/topics/:topicId/:subtopicId" element={<TopicPage />} />
             <Route path="/learn/lessons" element={<LessonsPage />} />
@@ -109,7 +109,7 @@ const App = () => (
             <Route path="/learn/community" element={<CommunityLearningPage />} />
             <Route path="/learn/quizzes" element={<QuizPage />} />
             <Route path="/learn/submit" element={<SubmitQuestionPage />} />
-            
+
             {/* Authentication and User Routes */}
             <Route path="/auth" element={<AuthPage />} />
             <Route path="/profile" element={
@@ -127,14 +127,14 @@ const App = () => (
             <Route path="/dashboard/student" element={<StudentDashboard />} />
             <Route path="/dashboard/teacher" element={<TeacherDashboard />} />
             <Route path="/dashboard/admin" element={<AdminDashboardNew />} />
-            
+
             {/* Donation Routes */}
             <Route path="/donate" element={<DonatePage />} />
             <Route path="/donate/thank-you" element={<ThankYouPage />} />
-            
+
             {/* Contact Page */}
             <Route path="/contact" element={<ContactPage />} />
-            
+
             {/* 404 Page */}
             <Route path="*" element={<NotFound />} />
           </Routes>

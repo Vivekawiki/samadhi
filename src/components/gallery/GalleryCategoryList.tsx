@@ -29,23 +29,23 @@ const galleryCategories = [
 const GalleryCategoryList = () => {
   return (
     <div>
-      <SectionHeader 
-        title="Gallery Categories" 
+      <SectionHeader
+        title="Gallery Categories"
         subtitle="Browse our collection of photos and videos"
       />
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
         {galleryCategories.map((category) => (
-          <Link 
+          <Link
             key={category.id}
             to={`/gallery/${category.id}`}
             className="block group"
           >
-            <div className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+            <div className="rounded-lg overflow-hidden pop-shadow-card transition-all duration-300 bg-white">
               <div className="h-60 overflow-hidden">
                 {category.image ? (
-                  <img 
-                    src={category.image} 
+                  <img
+                    src={category.image}
                     alt={category.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />

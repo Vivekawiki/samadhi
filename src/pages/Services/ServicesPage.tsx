@@ -64,7 +64,7 @@ const ServicesPage = () => {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className="block p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+                  className="block p-6 bg-white rounded-lg pop-shadow-card transition-all duration-300"
                 >
                   <h3 className="text-xl font-heading font-semibold mb-2">{link.name}</h3>
                   <p className="text-gray-600 mb-2">
