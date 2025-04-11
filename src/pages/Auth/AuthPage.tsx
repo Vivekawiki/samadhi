@@ -87,8 +87,8 @@ const AuthPage = () => {
 
   return (
     <PageLayout title="Authentication">
-      <div className="flex items-center justify-center min-h-[80vh] px-4 mandala-bg">
-        <Card className="w-full max-w-md border-2 border-indian-saffron/20 decorative-border">
+      <div className="flex mt-20 min-h-[80vh] px-4 mandala-bg justify-center">
+        <Card className="w-full max-w-md border-2 border-indian-saffron/20 decorative-border mt-10">
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl font-bold tracking-tight text-indian-blue">Welcome to the Centre</CardTitle>
             <CardDescription>

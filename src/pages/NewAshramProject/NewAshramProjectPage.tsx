@@ -1,4 +1,3 @@
-
 import React from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import PageHeader from '../../components/shared/PageHeader';
@@ -15,7 +14,7 @@ const NewAshramProjectPage = () => {
         backgroundImage="https://images.unsplash.com/photo-1566264956194-e49942084030?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80"
       />
 
-      <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12 -mt-6">
+      <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12">
         <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="prose prose-lg max-w-none mb-12">

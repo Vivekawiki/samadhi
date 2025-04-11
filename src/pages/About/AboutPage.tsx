@@ -29,7 +29,7 @@ const AboutPage = () => {
       <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* About Navigation */}
-        <div className="mb-8">
+        <div className="mb-12">
           <nav className="flex space-x-8 overflow-x-auto pb-3 scrollbar-none">
             {aboutLinks.map((link) => (
               <Link

@@ -1,6 +1,4 @@
-
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import { api } from '@/services/api';
 import { useToast } from '@/hooks/use-toast';
 
 // Define types
@@ -52,23 +50,23 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const loadUser = async () => {
       try {
         setLoading(true);
-        const currentUser = await api.auth.getCurrentUser();
+        // Removed: const currentUser = await api.auth.getCurrentUser();
         
-        if (currentUser) {
-          setUser(currentUser);
+        // Removed: if (currentUser) {
+          // Removed: setUser(currentUser);
           
-          // Load profile
-          const userProfile = await api.profile.get(currentUser.id);
-          setProfile(userProfile);
+          // Removed: // Load profile
+          // Removed: const userProfile = await api.profile.get(currentUser.id);
+          // Removed: setProfile(userProfile);
           
-          // Check admin role
-          const hasAdminRole = await api.roles.check('admin');
-          setIsAdmin(hasAdminRole);
+          // Removed: // Check admin role
+          // Removed: const hasAdminRole = await api.roles.check('admin');
+          // Removed: setIsAdmin(hasAdminRole);
           
-          // Check moderator role
-          const hasModeratorRole = await api.roles.check('moderator');
-          setIsModerator(hasModeratorRole);
-        }
+          // Removed: // Check moderator role
+          // Removed: const hasModeratorRole = await api.roles.check('moderator');
+          // Removed: setIsModerator(hasModeratorRole);
+        // Removed: }
       } catch (error) {
         console.error("Failed to load user:", error);
       } finally {
@@ -83,20 +81,20 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const signIn = async (email: string, password: string) => {
     try {
       setLoading(true);
-      const user = await api.auth.login(email, password);
-      setUser(user);
+      // Removed: const user = await api.auth.login(email, password);
+      // Removed: setUser(user);
       
-      // Load profile
-      const userProfile = await api.profile.get(user.id);
-      setProfile(userProfile);
+      // Removed: // Load profile
+      // Removed: const userProfile = await api.profile.get(user.id);
+      // Removed: setProfile(userProfile);
       
-      // Check admin role
-      const hasAdminRole = await api.roles.check('admin');
-      setIsAdmin(hasAdminRole);
+      // Removed: // Check admin role
+      // Removed: const hasAdminRole = await api.roles.check('admin');
+      // Removed: setIsAdmin(hasAdminRole);
       
-      // Check moderator role
-      const hasModeratorRole = await api.roles.check('moderator');
-      setIsModerator(hasModeratorRole);
+      // Removed: // Check moderator role
+      // Removed: const hasModeratorRole = await api.roles.check('moderator');
+      // Removed: setIsModerator(hasModeratorRole);
       
       toast({
         title: "Welcome back!",
@@ -120,16 +118,16 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const signUp = async (email: string, password: string, userData: { firstName?: string; lastName?: string }) => {
     try {
       setLoading(true);
-      const user = await api.auth.register(email, password, {
-        firstName: userData.firstName,
-        lastName: userData.lastName,
-      });
+      // Removed: const user = await api.auth.register(email, password, {
+        // Removed: firstName: userData.firstName,
+        // Removed: lastName: userData.lastName,
+      // Removed: });
       
-      setUser(user);
+      // Removed: setUser(user);
       
-      // Load profile
-      const userProfile = await api.profile.get(user.id);
-      setProfile(userProfile);
+      // Removed: // Load profile
+      // Removed: const userProfile = await api.profile.get(user.id);
+      // Removed: setProfile(userProfile);
       
       // By default, new users are not admins
       setIsAdmin(false);
@@ -156,7 +154,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   // Sign out
   const signOut = async () => {
     try {
-      await api.auth.logout();
+      // Removed: await api.auth.logout();
       setUser(null);
       setProfile(null);
       setIsAdmin(false);

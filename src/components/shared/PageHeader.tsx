@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface PageHeaderProps {
@@ -9,14 +8,15 @@ interface PageHeaderProps {
 
 const PageHeader = ({ title, subtitle, backgroundImage }: PageHeaderProps) => {
   return (
-    <div className="relative w-full h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden">
+    <div className="relative w-full min-h-[40vh] md:min-h-[50vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full bg-black/50 z-10"></div>
       <div 
         className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
         style={{ 
           backgroundImage: `url(${backgroundImage || 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80'})`,
-          filter: 'blur(1px)'
+          backgroundSize: 'cover',
+          objectFit: 'cover', // Ensures proper scaling
         }}
       ></div>
       
