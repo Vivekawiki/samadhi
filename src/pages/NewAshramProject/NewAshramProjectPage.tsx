@@ -8,11 +8,14 @@ import { Link } from 'react-router-dom';
 const NewAshramProjectPage = () => {
   return (
     <PageLayout title="New Ashram Project">
-      <PageHeader
-        title="New Ashram Project"
-        subtitle="Help us build a new spiritual home for our community"
-        backgroundImage="https://images.unsplash.com/photo-1566264956194-e49942084030?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80"
-      />
+      <div className="flex items-center justify-center py-12 bg-gradient-to-br from-indian-cream to-white mt-20">
+        <div className="inline-block p-6 rounded-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01] text-center">
+          <h1 className="text-3xl font-heading font-bold mb-4 text-black">New Ashram Project</h1>
+          <p className="text-gray-700">
+            Help us build a new spiritual home for our community
+          </p>
+        </div>
+      </div>
 
       <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12">
         <div className="container mx-auto px-4">

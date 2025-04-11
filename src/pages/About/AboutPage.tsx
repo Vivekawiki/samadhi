@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import PageLayout from '../../components/layout/PageLayout';
@@ -20,11 +19,14 @@ const AboutPage = () => {
 
   return (
     <PageLayout title="About">
-      <PageHeader
-        title="About Us"
-        subtitle="Learn about the Ramakrishna Centre, our philosophy, and our history"
-        backgroundImage="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80"
-      />
+      <div className="flex items-center justify-center py-12 bg-gradient-to-br from-indian-cream to-white mt-20">
+        <div className="inline-block p-6 rounded-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01] text-center">
+          <h1 className="text-3xl font-heading font-bold mb-4 text-black">About Us</h1>
+          <p className="text-gray-700">
+            Learn about the Ramakrishna Centre, our philosophy, and our history
+          </p>
+        </div>
+      </div>
 
       <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

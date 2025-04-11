@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import PageHeader from '../../components/shared/PageHeader';
@@ -119,7 +118,7 @@ const DonatePage = () => {
             </Card>
 
             <div className="p-4 bg-gradient-to-br from-spiritual-50 to-white border-l-4 border-spiritual-500 rounded pop-shadow-card">
-              <p className="italic">"The best form of worship is service to mankind." - Swami Vivekananda</p>
+              <p className="italic">"It is a privilege to serve mankind, for this is the worship of God. God is here, in all these human souls. He is the soul of man." - Swami Vivekananda</p>
             </div>
           </div>
 

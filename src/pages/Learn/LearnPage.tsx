@@ -1,4 +1,3 @@
-
 import React from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import PageHeader from '../../components/shared/PageHeader';
@@ -37,11 +36,14 @@ const LearnPage = () => {
   ];
   return (
     <PageLayout title="Hinduism for Children">
-      <PageHeader
-        title="Hinduism for Children"
-        subtitle="Educational resources for understanding Hindu philosophy and practices"
-        backgroundImage="/lovable-uploads/learn.png"
-      />
+      <div className="flex items-center justify-center py-12 bg-gradient-to-br from-indian-cream to-white mt-20">
+        <div className="inline-block p-6 rounded-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01] text-center">
+          <h1 className="text-3xl font-heading font-bold mb-4 text-black">Hinduism for Children</h1>
+          <p className="text-gray-700">
+            Educational resources for understanding Hindu philosophy and practices
+          </p>
+        </div>
+      </div>
 
       <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12 -mt-6">
         <div className="container mx-auto px-4">
