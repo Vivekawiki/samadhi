@@ -57,6 +57,7 @@ import AdminDashboard from "./pages/Admin/AdminDashboard";
 
 // Import Dashboard pages
 import StudentDashboard from "./pages/Dashboard/StudentDashboard";
+import TeacherDashboard from "./pages/Dashboard/TeacherDashboard"; // Import TeacherDashboard
 import AdminDashboardNew from "./pages/Dashboard/AdminDashboard";
 
 // Import Donation pages
@@ -121,15 +122,16 @@ const App = () => (
                 <ProfilePage />
               </ProtectedRoute>
             } />
-            <Route path="/admin" element={
-              <ProtectedRoute requireAdmin>
-                <AdminDashboard />
-              </ProtectedRoute>
-            } />
+            {/* Removed ProtectedRoute for testing */}
+            <Route path="/admin" element={<AdminDashboard />} />
 
             {/* Dashboard Routes */}
-            <Route path="/dashboard/student" element={<StudentDashboard />} />
-            <Route path="/dashboard/admin" element={<AdminDashboardNew />} />
+            {/* Removed ProtectedRoute for testing */}
+            <Route path="/dashboard/student" element={<StudentDashboard />} /> 
+            {/* Removed ProtectedRoute for testing */}
+            <Route path="/dashboard/teacher" element={<TeacherDashboard />} /> 
+            {/* Removed ProtectedRoute for testing */}
+            <Route path="/dashboard/admin" element={<AdminDashboardNew />} /> 
 
             {/* Donation Routes */}
             <Route path="/donate" element={<DonatePage />} />

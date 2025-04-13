@@ -18,6 +18,7 @@ interface AuthContextType {
   user: User | null;
   profile: Profile | null;
   isAdmin: boolean;
+  isTeacher: boolean; // Added teacher role state
   isLoading: boolean;
   isModerator: boolean;
   signIn: (email: string, password: string) => Promise<{ success: boolean; error?: any }>;
@@ -41,6 +42,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isTeacher, setIsTeacher] = useState(false); // Added teacher state
   const [isLoading, setLoading] = useState(true);
   const [isModerator, setIsModerator] = useState(false);
   const { toast } = useToast();
@@ -66,6 +68,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           // Removed: // Check moderator role
           // Removed: const hasModeratorRole = await api.roles.check('moderator');
           // Removed: setIsModerator(hasModeratorRole);
+
+          // Removed: // Placeholder: Check teacher role (adjust based on your API)
+          // Removed: const hasTeacherRole = await api.roles.check('teacher'); 
+          // Removed: setIsTeacher(hasTeacherRole); 
         // Removed: }
       } catch (error) {
         console.error("Failed to load user:", error);
@@ -95,6 +101,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       // Removed: // Check moderator role
       // Removed: const hasModeratorRole = await api.roles.check('moderator');
       // Removed: setIsModerator(hasModeratorRole);
+
+      // Removed: // Placeholder: Check teacher role (adjust based on your API)
+      // Removed: const hasTeacherRole = await api.roles.check('teacher');
+      // Removed: setIsTeacher(hasTeacherRole);
       
       toast({
         title: "Welcome back!",
@@ -129,9 +139,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       // Removed: const userProfile = await api.profile.get(user.id);
       // Removed: setProfile(userProfile);
       
-      // By default, new users are not admins
+      // By default, new users are not admins or teachers
       setIsAdmin(false);
       setIsModerator(false);
+      setIsTeacher(false); // Initialize teacher role
       
       toast({
         title: "Account created",
@@ -159,6 +170,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setProfile(null);
       setIsAdmin(false);
       setIsModerator(false);
+      setIsTeacher(false); // Reset teacher role on sign out
       
       toast({
         title: "Signed out",
@@ -174,6 +186,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     user,
     profile,
     isAdmin,
+    isTeacher, // Added teacher state to context value
     isLoading,
     isModerator,
     signIn,

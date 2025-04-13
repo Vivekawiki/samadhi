@@ -24,7 +24,8 @@ const AdminDashboard = () => {
 
   return (
     <PageLayout title="Admin Dashboard">
-      <div className="container py-12">
+      {/* Added pt-20 here to account for fixed navbar */}
+      <div className="container py-12 pt-20"> 
         <div className="space-y-6">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>

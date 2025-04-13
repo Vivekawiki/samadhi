@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SectionHeader from '../shared/SectionHeader';
 import Button from '../shared/Button';
 import './quickinfo.css';
 
