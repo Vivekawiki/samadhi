@@ -25,6 +25,7 @@ export const navigation: NavItem[] = [
       { name: 'Hinduism for Children', href: '/services/hinduism-for-children' },
       { name: 'Special Functions & Festivals', href: '/services/special-functions' },
       { name: 'Community Outreach', href: '/services/community-outreach' },
+      { name: 'Nutrition Programme', href: '/services/nutrition-programme' },
     ]
   },
   { name: 'Gallery', href: '/gallery' },
