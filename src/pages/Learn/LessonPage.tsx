@@ -49,8 +49,8 @@ const LessonPage = () => {
       <NotFoundMessage 
         title="Lesson Not Found"
         message="The lesson you're looking for doesn't exist."
-        backTo="/learn/lessons"
-        backLabel="Back to Lessons"
+        backTo="/learn"
+        backLabel="Back to Learning Centre"
       />
     );
   }
@@ -58,9 +58,9 @@ const LessonPage = () => {
   return (
     <PageLayout title={`Lesson: ${lesson.title}`}>
       <div className="container mx-auto px-4 py-8">
-        <Link to="/learn/lessons" className="inline-flex items-center text-spiritual-500 hover:text-spiritual-600 mb-4">
+        <Link to="/learn" className="inline-flex items-center text-spiritual-500 hover:text-spiritual-600 mb-4">
           <ArrowLeft className="w-4 h-4 mr-2" />
-          Back to All Lessons
+          Back to Learning Centre
         </Link>
         
         <div className="text-center mb-8">

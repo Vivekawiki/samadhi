@@ -1,4 +1,3 @@
-
 // Define the navigation data structure
 export interface NavItem {
   name: string;
@@ -34,7 +33,6 @@ export const navigation: NavItem[] = [
     name: 'Learn',
     href: '/learn',
     dropdown: [
-      { name: 'Lessons', href: '/learn/lessons' },
       { name: 'Games', href: '/learn/games' },
     ]
   },

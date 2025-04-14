@@ -6,7 +6,7 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-indian-cream to-white border-t border-indian-saffron/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About Section */}
           <div>
@@ -43,43 +43,29 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h3 className="text-lg font-heading font-semibold mb-4 tracking-tight">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/about" className="text-gray-600 hover:text-spiritual-500 transition-colors text-animate">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-gray-600 hover:text-spiritual-500 transition-colors">
-                  Our Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/new-ashram-project" className="text-gray-600 hover:text-spiritual-500 transition-colors">
-                  New Ashram Project
-                </Link>
-              </li>
-              <li>
-                <Link to="/learn" className="text-gray-600 hover:text-spiritual-500 transition-colors">
-                  Learn Hinduism
-                </Link>
-              </li>
-              <li>
-                <Link to="/donate" className="text-gray-600 hover:text-spiritual-500 transition-colors">
-                  Donate
-                </Link>
-              </li>
-              <li>
-                <Link to="/gallery" className="text-gray-600 hover:text-spiritual-500 transition-colors">
-                  Gallery
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-gray-600 hover:text-spiritual-500 transition-colors">
-                  Contact Us
-                </Link>
-              </li>
-            </ul>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+              <Link to="/about" className="text-gray-600 hover:text-spiritual-500 transition-colors text-animate">
+                About Us
+              </Link>
+              <Link to="/services" className="text-gray-600 hover:text-spiritual-500 transition-colors">
+                Our Services
+              </Link>
+              <Link to="/new-ashram-project" className="text-gray-600 hover:text-spiritual-500 transition-colors">
+                New Ashram Project
+              </Link>
+              <Link to="/learn" className="text-gray-600 hover:text-spiritual-500 transition-colors">
+                Learn Hinduism
+              </Link>
+              <Link to="/donate" className="text-gray-600 hover:text-spiritual-500 transition-colors">
+                Donate
+              </Link>
+              <Link to="/gallery" className="text-gray-600 hover:text-spiritual-500 transition-colors">
+                Gallery
+              </Link>
+              <Link to="/contact" className="text-gray-600 hover:text-spiritual-500 transition-colors">
+                Contact Us
+              </Link>
+            </div>
           </div>
 
           {/* Contact Information */}

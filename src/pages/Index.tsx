@@ -24,9 +24,9 @@ const Index = () => {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            staggerElements(buttons, 0.2, {
-              scale: [0.9, 1],
-              y: [20, 0],
+            staggerElements(Array.from(buttons), 0.2, {
+              scale: 0.9,
+              y: 20,
               duration: 0.6,
               ease: 'back.out(1.7)'
             });
@@ -75,13 +75,13 @@ const Index = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/donate">
-                <Button className="bg-indian-saffron hover:bg-indian-saffron/90 text-white gap-2 shadow-md hover:shadow-lg transition-all">
+                <Button className="bg-indian-saffron hover:bg-indian-saffron/90 text-white hover:text-white gap-2 shadow-md hover:shadow-lg transition-all">
                   <Heart className="h-5 w-5 animate-pulse" />
                   Donate Now
                 </Button>
               </Link>
               <Link to="/new-ashram-project/fundraising">
-                <Button variant="outline" className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10 gap-2 shadow-sm hover:shadow-md transition-all">
+                <Button variant="outline" className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10 hover:text-white gap-2 shadow-sm hover:shadow-md transition-all">
                   Support New Ashram Project
                 </Button>
               </Link>

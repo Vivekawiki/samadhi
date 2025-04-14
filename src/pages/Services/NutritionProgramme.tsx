@@ -1,103 +1,151 @@
 import React from 'react';
+import { Heart, Calendar, MapPin, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PageLayout from '@/components/layout/PageLayout';
 
 const NutritionProgramme = () => {
-  // Nutrition programme activities data with real images, sorted from most recent to oldest
   const nutritionActivities = [
     {
-      id: 'march2025',
-      title: 'March 2025 Nutrition Workshop',
-      image: '/images/nutrition/march2025.jpg',
+      id: 1,
+      title: "Food Distribution",
+      description: "Weekly distribution of food parcels to families in need",
+      image: "/images/nutrition/food-distribution.jpg"
     },
     {
-      id: 'feb2025',
-      title: 'February 2025 Food Distribution',
-      image: '/images/nutrition/feb2025.jpg',
+      id: 2,
+      title: "Community Kitchen",
+      description: "Daily meals served at our community kitchen",
+      image: "/images/nutrition/community-kitchen.jpg"
     },
     {
-      id: 'jan2025',
-      title: 'January 2025 Food Relief',
-      image: '/images/nutrition/jan2025.jpg',
-    },
-    {
-      id: 'december2024',
-      title: 'December 2024 Holiday Program',
-      image: '/images/nutrition/december2024.jpg',
-    },
-    {
-      id: 'november2024',
-      title: 'November 2024 Food Drive',
-      image: '/images/nutrition/november2024.jpg',
-    },
-    {
-      id: 'september2024',
-      title: 'September 2024 Food Distribution',
-      image: '/images/nutrition/september2024.jpg',
-    },
+      id: 3,
+      title: "School Feeding",
+      description: "Providing nutritious meals to school children",
+      image: "/images/nutrition/school-feeding.jpg"
+    }
   ];
 
   return (
-    <div className="prose prose-lg max-w-none animate-fade-in">
-      <h2 className="text-3xl font-heading font-semibold mb-6">Nutrition Programme</h2>
-
-      <p>
-        The Ramakrishna Centre's Nutrition Programme is one of our core community outreach initiatives,
-        dedicated to addressing food insecurity and promoting healthy nutrition in underserved communities
-        around Johannesburg.
-      </p>
-
-      <div className="bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg my-8 pop-shadow-card">
-        <h3 className="text-xl font-heading font-semibold mb-4">Programme Objectives</h3>
-        <ul>
-          <li>Provide regular nutritious meals to those in need</li>
-          <li>Educate communities about balanced nutrition and healthy eating habits</li>
-          <li>Support families facing food insecurity</li>
-          <li>Collaborate with local organizations to maximize impact</li>
-          <li>Create sustainable food solutions through education and empowerment</li>
-        </ul>
-      </div>
-
-      <h3 className="text-2xl font-heading font-semibold mt-12 mb-6">Recent Activities</h3>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-8">
-        {nutritionActivities.map((activity) => (
-          <div key={activity.id} className="border border-indian-saffron rounded-lg overflow-hidden pop-shadow-card transition-transform hover:scale-[1.02] duration-300">
-            <Link to={`/services/nutrition-programme/image/${activity.id}`} className="block">
-              <div className="overflow-hidden" style={{ border: '3px solid #F1A912', boxShadow: '0 10px 20px rgba(0, 0, 0, 0.15)', backgroundColor: '#f8f8f8', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '12px', aspectRatio: '4/3' }}>
-                <img
-                  src={activity.image}
-                  alt={activity.title}
-                  className="max-w-full max-h-[300px] object-contain"
-                />
+    <PageLayout title="Nutrition Programme" className="pt-20">
+      <div className="w-full bg-white">
+        <div className="w-full bg-gradient-to-br from-indian-cream to-white border-t border-indian-saffron/30">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="max-w-4xl mx-auto">
+              <div className="inline-block p-6 rounded-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01] text-center w-full mb-8">
+                <h1 className="text-3xl font-heading font-bold mb-4 text-black flex items-center justify-center gap-2">
+                  <Heart className="w-8 h-8 text-indian-saffron" />
+                  Nutrition Programme
+                </h1>
+                <p className="text-gray-700">
+                  Our core community service initiative focusing on providing nutritious meals 
+                  and food support to those in need within our community.
+                </p>
               </div>
-              <div className="p-4 text-center">
-                <h4 className="text-lg font-heading font-semibold text-spiritual-600 hover:text-spiritual-700">{activity.title}</h4>
-                <p className="text-sm text-gray-500 mt-1">Click to view full size</p>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-12">
+                {nutritionActivities.map((activity) => (
+                  <div 
+                    key={activity.id} 
+                    className="bg-white rounded-lg overflow-hidden shadow-sm border border-indian-saffron/20 hover:shadow-md transition-all hover:scale-[1.02] duration-300"
+                  >
+                    <Link to={`/services/nutrition-programme/image/${activity.id}`}>
+                      <div className="aspect-video overflow-hidden">
+                        <img
+                          src={activity.image}
+                          alt={activity.title}
+                          className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="text-xl font-heading font-semibold mb-2 text-indian-maroon">
+                          {activity.title}
+                        </h3>
+                        <p className="text-gray-700">{activity.description}</p>
+                      </div>
+                    </Link>
+                  </div>
+                ))}
               </div>
-            </Link>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
+                <div className="bg-gradient-to-br from-indian-cream to-white p-6 rounded-lg shadow-sm border border-indian-saffron/20">
+                  <h3 className="text-xl font-heading font-semibold mb-4 text-indian-blue flex items-center gap-2">
+                    <Calendar className="w-5 h-5 text-indian-saffron" />
+                    Programme Schedule
+                  </h3>
+                  <ul className="space-y-3 text-gray-700">
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-indian-saffron"></span>
+                      Daily Meals: 12:00 PM - 2:00 PM
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-indian-saffron"></span>
+                      Food Parcel Distribution: Every Saturday
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-indian-saffron"></span>
+                      School Feeding: During School Terms
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-gradient-to-br from-indian-cream to-white p-6 rounded-lg shadow-sm border border-indian-saffron/20">
+                  <h3 className="text-xl font-heading font-semibold mb-4 text-indian-blue flex items-center gap-2">
+                    <MapPin className="w-5 h-5 text-indian-saffron" />
+                    Locations
+                  </h3>
+                  <ul className="space-y-3 text-gray-700">
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-indian-saffron"></span>
+                      Main Centre Kitchen
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-indian-saffron"></span>
+                      Mobile Distribution Points
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-indian-saffron"></span>
+                      Partner Schools
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-spiritual-50 to-white p-8 rounded-lg border border-spiritual-200 shadow-sm">
+                <h3 className="text-xl font-heading font-semibold mb-6 text-indian-blue flex items-center gap-2">
+                  <Users className="w-6 h-6 text-indian-saffron" />
+                  How to Help
+                </h3>
+                <p className="text-gray-700 mb-6">
+                  You can support our Nutrition Programme through:
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="bg-white/50 p-4 rounded-lg border border-spiritual-200">
+                    <h4 className="font-semibold mb-2 text-indian-maroon">Volunteer</h4>
+                    <p className="text-sm text-gray-700">Join us in food preparation and distribution</p>
+                  </div>
+                  <div className="bg-white/50 p-4 rounded-lg border border-spiritual-200">
+                    <h4 className="font-semibold mb-2 text-indian-maroon">Donate</h4>
+                    <p className="text-sm text-gray-700">Contribute food items or funds</p>
+                  </div>
+                  <div className="bg-white/50 p-4 rounded-lg border border-spiritual-200">
+                    <h4 className="font-semibold mb-2 text-indian-maroon">Spread Awareness</h4>
+                    <p className="text-sm text-gray-700">Help us reach more people in need</p>
+                  </div>
+                  <div className="bg-white/50 p-4 rounded-lg border border-spiritual-200">
+                    <h4 className="font-semibold mb-2 text-indian-maroon">Partner With Us</h4>
+                    <p className="text-sm text-gray-700">Join as a business or organization</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        ))}
+        </div>
       </div>
-
-      <div className="bg-spiritual-50 p-6 rounded-lg border-l-4 border-spiritual-500 my-12">
-        <h3 className="text-xl font-heading font-semibold mb-4">How You Can Help</h3>
-        <p>
-          Our Nutrition Programme relies on the generous support of volunteers and donors.
-          Here are ways you can contribute:
-        </p>
-        <ul>
-          <li>Donate non-perishable food items</li>
-          <li>Volunteer for meal preparation and distribution</li>
-          <li>Sponsor meals for special occasions</li>
-          <li>Provide financial contributions to sustain the program</li>
-          <li>Share your expertise in nutrition, cooking, or food management</li>
-        </ul>
-        <p className="mt-4">
-          To get involved, please contact our Community Service Coordinator at <a href="mailto:community@ramakrishna.org.za">community@ramakrishna.org.za</a> or call 011-123-4567.
-        </p>
-      </div>
-    </div>
+    </PageLayout>
   );
 };
 
 export default NutritionProgramme;
+
+

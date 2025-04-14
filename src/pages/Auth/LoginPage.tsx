@@ -10,7 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
-const AuthPage = () => {
+const LoginPage = () => {
   const [activeTab, setActiveTab] = useState('login');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -196,4 +196,6 @@ const AuthPage = () => {
   );
 };
 
-export default AuthPage;
+export default LoginPage;
+
+

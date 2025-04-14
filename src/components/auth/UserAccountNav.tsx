@@ -20,7 +20,7 @@ const UserAccountNav = () => {
   if (!user) {
     return (
       <Button variant="outline" size="sm" asChild className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10">
-        <Link to="/auth">Sign In</Link>
+        <Link to="/login">Sign In</Link>
       </Button>
     );
   }

@@ -8,6 +8,7 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    historyApiFallback: true, // Ensures React Router handles dynamic routes
   },
   plugins: [
     react(),

@@ -1,10 +1,13 @@
 
 import React, { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import SectionHeader from '../../components/shared/SectionHeader';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const HolyTrinity = () => {
-  const [activeTab, setActiveTab] = useState("sri-ramakrishna");
+  const [searchParams] = useSearchParams();
+  const tabFromUrl = searchParams.get('tab');
+  const [activeTab, setActiveTab] = useState(tabFromUrl || "sri-ramakrishna");
   
   return (
     <div className="animate-fade-in">
@@ -19,11 +22,59 @@ const HolyTrinity = () => {
           The Ramakrishna Movement is centered around three pivotal figures known as the "Holy Trinity": Sri Ramakrishna Paramahamsa, Holy Mother Sri Sarada Devi, and Swami Vivekananda. Their lives and teachings form the spiritual foundation of our Centre.
         </p>
         
-        <Tabs defaultValue="sri-ramakrishna" className="w-full mt-8" onValueChange={setActiveTab}>
-          <TabsList className="grid w-full grid-cols-3 mb-8">
-            <TabsTrigger value="sri-ramakrishna">Sri Ramakrishna</TabsTrigger>
-            <TabsTrigger value="sri-sarada-devi">Sri Sarada Devi</TabsTrigger>
-            <TabsTrigger value="swami-vivekananda">Swami Vivekananda</TabsTrigger>
+        <Tabs defaultValue={tabFromUrl || "sri-ramakrishna"} className="w-full mt-8" onValueChange={setActiveTab}>
+          <TabsList className="grid w-full grid-cols-3 mb-8 bg-gradient-to-br from-spiritual-50 to-white border border-spiritual-200 p-1 rounded-lg h-[60px]">
+            <TabsTrigger 
+              value="sri-ramakrishna"
+              className="block w-full px-4 py-3 text-lg transition-all duration-300
+                data-[state=active]:bg-gradient-to-br 
+                data-[state=active]:from-indian-cream 
+                data-[state=active]:to-white
+                data-[state=active]:text-spiritual-900
+                data-[state=active]:shadow-md
+                data-[state=active]:border-b-2
+                data-[state=active]:border-indian-saffron
+                hover:bg-spiritual-50
+                rounded-md
+                text-center
+                h-full"
+            >
+              Sri Ramakrishna
+            </TabsTrigger>
+            <TabsTrigger 
+              value="sri-sarada-devi"
+              className="block w-full px-4 py-3 text-lg transition-all duration-300
+                data-[state=active]:bg-gradient-to-br 
+                data-[state=active]:from-indian-cream 
+                data-[state=active]:to-white
+                data-[state=active]:text-spiritual-900
+                data-[state=active]:shadow-md
+                data-[state=active]:border-b-2
+                data-[state=active]:border-indian-saffron
+                hover:bg-spiritual-50
+                rounded-md
+                text-center
+                h-full"
+            >
+              Sri Sarada Devi
+            </TabsTrigger>
+            <TabsTrigger 
+              value="swami-vivekananda"
+              className="block w-full px-4 py-3 text-lg transition-all duration-300
+                data-[state=active]:bg-gradient-to-br 
+                data-[state=active]:from-indian-cream 
+                data-[state=active]:to-white
+                data-[state=active]:text-spiritual-900
+                data-[state=active]:shadow-md
+                data-[state=active]:border-b-2
+                data-[state=active]:border-indian-saffron
+                hover:bg-spiritual-50
+                rounded-md
+                text-center
+                h-full"
+            >
+              Swami Vivekananda
+            </TabsTrigger>
           </TabsList>
           
           <TabsContent value="sri-ramakrishna" className="animate-fade-in">

@@ -50,8 +50,7 @@ import GamesPage from "./pages/Learn/GamesPage";
 import GuessThePicturePage from "./pages/Learn/GuessThePicturePage.tsx";
 import ThankYouPage from "./pages/Donate/ThankYouPage.tsx";
 
-// Import Auth pages
-import AuthPage from "./pages/Auth/AuthPage";
+import LoginPage from "@/pages/Auth/LoginPage";
 import ProfilePage from "./pages/User/ProfilePage";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 
@@ -107,7 +106,6 @@ const App = () => (
 
             {/* Learn Section */}
             <Route path="/learn" element={<LearnPage />} />
-              <Route path="/learn/lessons" element={<LessonsPage />} />
               <Route path="/learn/lessons/:topicId/:lessonId" element={<LessonPage />} />
               <Route path="/learn/community" element={<CommunityLearningPage />} />
               <Route path="/learn/quizzes" element={<QuizPage />} />
@@ -116,7 +114,7 @@ const App = () => (
               <Route path="/learn/games/guess-picture" element={<GuessThePicturePage />} />
 
             {/* Authentication and User Routes */}
-            <Route path="/auth" element={<AuthPage />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/profile" element={
               <ProtectedRoute>
                 <ProfilePage />

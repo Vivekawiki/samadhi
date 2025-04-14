@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -99,7 +98,7 @@ const Navbar = () => {
                 ref={logoRef}
                 src="/lovable-uploads/2e549f27-8429-4042-95be-36194a9d309c.png"
                 alt="Ramakrishna Centre Logo"
-                className="h-16 transition-transform duration-300 hover:scale-105"
+                className="h-12 md:h-16 transition-transform duration-300 hover:scale-105"
               />
             </Link>
           </div>
