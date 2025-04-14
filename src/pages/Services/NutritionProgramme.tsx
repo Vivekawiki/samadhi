@@ -49,18 +49,20 @@ const NutritionProgramme = () => {
                     className="h-[400px] flex flex-col bg-white rounded-lg overflow-hidden shadow-sm border border-indian-saffron/20 hover:shadow-md transition-all hover:scale-[1.02] duration-300"
                   >
                     <Link to={`/services/nutrition-programme/image/${activity.id}`} className="h-full flex flex-col">
-                      <div className="h-[75%] overflow-hidden">
+                      <div className="h-[80%] overflow-hidden">
                         <img
                           src={activity.image}
                           alt={activity.title}
                           className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
                         />
                       </div>
-                      <div className="h-[25%] p-4 bg-gradient-to-br from-indian-cream to-white">
+                      <div className="h-[20%] p-4 bg-gradient-to-br from-indian-cream to-white">
                         <h3 className="text-xl font-heading font-semibold mb-2 text-indian-maroon">
                           {activity.title}
                         </h3>
-                        <p className="text-gray-700 line-clamp-2">{activity.description}</p>
+                        <p className="text-gray-700 text-sm line-clamp-2">
+                          {activity.description}
+                        </p>
                       </div>
                     </Link>
                   </div>
