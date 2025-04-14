@@ -7,6 +7,18 @@ nav a {
 
 :root {
   --active-color: #F1A912;
+  --bevel-size: 4px;
+  --bevel-blur: 6px;
+}
+
+/* Add bevel effect to navbar */
+nav {
+  position: relative;
+  box-shadow: 
+    inset -2px -2px var(--bevel-size) rgba(0, 0, 0, 0.1),
+    inset 2px 2px var(--bevel-size) rgba(255, 255, 255, 0.5),
+    0 2px var(--bevel-size) rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .nav-link {
@@ -49,10 +61,14 @@ nav a {
 }
 
 /* Dropdown styling */
+/* Add bevel effect to dropdown menus */
 .dropdown-content {
   border-radius: 0.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(241, 169, 18, 0.1);
+  box-shadow: 
+    inset -1px -1px 3px rgba(0, 0, 0, 0.1),
+    inset 1px 1px 3px rgba(255, 255, 255, 0.5),
+    0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .dropdown-content a {
@@ -93,4 +109,5 @@ nav a {
   font-weight: 500;
   background-color: rgba(241, 169, 18, 0.05);
 }
+
 
