@@ -123,7 +123,7 @@ const RecentActivities = () => {
             subtitle="Recent humanitarian efforts to serve our community"
           />
         </div>
-        <div className="flex justify-center mb-4 max-w-[930px] mx-auto">
+        <div className="flex justify-center mb-4 max-w-[977px] mx-auto">
           <div className="flex space-x-2">
             <button
               onClick={() => handleScroll('left')}
@@ -146,23 +146,30 @@ const RecentActivities = () => {
 
         <div
           ref={carouselRef}
-          className="flex overflow-x-auto hide-scrollbar pb-4 w-full max-w-[930px] mx-auto"
+          className="flex overflow-x-auto hide-scrollbar pb-4 w-full max-w-[977px] mx-auto"
           onScroll={handleScrollEvent}
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           <div className="flex gap-[30px]">
             {activities.map((activity, index) => (
-              <div key={index} className="card-container flex-shrink-0" style={{ width: '300px' }}>
+              <div key={index} className="flex-shrink-0" style={{ width: '300px' }}>
                 <Link to={activity.link}>
-                  <div className="h-full">
-                    <EventCard
-                      title={activity.title}
-                      date={activity.date}
-                      location={activity.location}
-                      description={activity.description}
-                      image={activity.image}
-                      className="border-indian-saffron bg-gradient-to-br from-indian-cream to-white pop-shadow-card h-full"
-                    />
+                  <div className="h-[400px] flex flex-col bg-white rounded-lg overflow-hidden border border-indian-saffron hover:shadow-md transition-all hover:scale-[1.02] duration-300">
+                    <div className="h-[75%] overflow-hidden">
+                      <img
+                        src={activity.image}
+                        alt={activity.title}
+                        className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="h-[25%] p-4 bg-gradient-to-br from-indian-cream to-white border-t border-indian-saffron">
+                      <h3 className="text-xl font-heading font-semibold mb-2 text-indian-maroon line-clamp-1">
+                        {activity.title}
+                      </h3>
+                      <p className="text-gray-700 text-sm line-clamp-2">
+                        {activity.description}
+                      </p>
+                    </div>
                   </div>
                 </Link>
               </div>
@@ -171,7 +178,11 @@ const RecentActivities = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button href="/services/nutrition-programme" variant="outline" className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10">
+          <Button 
+            href="/services/nutrition-programme" 
+            variant="outline" 
+            className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10"
+          >
             View All Nutrition Programme Activities
           </Button>
         </div>
