@@ -86,18 +86,18 @@ const RecentActivities = () => {
                 <CarouselItem key={activity.id} className="pl-2 basis-1/3">
                   <div className="h-[475px] flex flex-col bg-white rounded-lg overflow-hidden shadow-md border-2 border-indian-saffron/40 hover:border-indian-saffron/60 hover:shadow-lg transition-all hover:scale-[1.02] duration-300">
                     <Link to={activity.link} className="h-full flex flex-col">
-                      <div className="h-[75%] bg-indian-cream/20">
+                      <div className="h-[70%] bg-gradient-to-br from-indian-cream to-white flex items-center justify-center px-4">
                         <img
                           src={activity.image}
                           alt={activity.title}
-                          className="w-full h-full object-contain"
+                          className="w-[90%] h-full object-contain"
                         />
                       </div>
-                      <div className="h-[25%] p-5 bg-gradient-to-br from-indian-cream to-white border-t-2 border-indian-saffron/40">
-                        <h3 className="text-xl font-heading font-semibold text-indian-maroon line-clamp-1 mb-2">
+                      <div className="h-[30%] p-4 bg-gradient-to-br from-indian-cream to-white border-t-2 border-indian-saffron/40 flex flex-col items-center justify-center text-center">
+                        <h3 className="text-xl font-heading font-semibold text-indian-maroon mb-2 px-2">
                           {activity.title}
                         </h3>
-                        <p className="text-base text-gray-700 line-clamp-2">
+                        <p className="text-base text-gray-700 px-2">
                           {activity.description}
                         </p>
                       </div>

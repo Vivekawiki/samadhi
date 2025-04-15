@@ -25,53 +25,23 @@ const EventCard = ({
   className = ''
 }: EventCardProps) => {
   return (
-    <div className={`rounded-lg overflow-hidden border border-gray-100 bg-white event-card ${className}`} style={{ boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1)' }}>
+    <div className={`rounded-lg overflow-hidden border-2 border-indian-saffron/40 bg-white event-card hover:border-indian-saffron/60 hover:shadow-lg transition-all hover:scale-[1.02] duration-300 ${className}`}>
       {image && (
-        <div className="event-image-container" style={{ border: '3px solid #F1A912', boxShadow: '0 10px 20px rgba(0, 0, 0, 0.15)', aspectRatio: '4/3', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8px', backgroundColor: '#f8f8f8' }}>
+        <div className="h-[350px] bg-gradient-to-br from-indian-cream to-white flex items-center justify-center px-4">
           <img
             src={image}
             alt={title}
-            className="event-image"
-            style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }}
+            className="w-[90%] h-full object-contain"
           />
         </div>
       )}
-      <div className="p-4">
-        <div className="flex items-center mb-3 text-spiritual-500">
-          <Calendar className="h-5 w-5 mr-2" />
-          <span className="text-sm font-medium">{date}{time && ` • ${time}`}</span>
+      <div className="p-4 bg-gradient-to-br from-indian-cream to-white border-t-2 border-indian-saffron/40">
+        <h3 className="text-xl font-heading font-semibold text-indian-maroon mb-2 text-center">{title}</h3>
+        <div className="space-y-2 text-center">
+          <p className="text-gray-700">{date} • {time}</p>
+          <p className="text-gray-700">{location}</p>
+          <p className="text-gray-700">{description}</p>
         </div>
-        <h3 className="text-lg font-heading font-semibold mb-2">{title}</h3>
-        {location && (
-          <p className="text-gray-600 text-sm mb-3">
-            <span className="font-medium">Location:</span> {location}
-          </p>
-        )}
-        {description && (
-          <p className="text-gray-600 mb-3 line-clamp-2 text-sm">{description}</p>
-        )}
-        {link && (
-          <a
-            href={link}
-            className="inline-flex items-center text-spiritual-600 hover:text-spiritual-700 font-medium"
-          >
-            View Details
-            <svg
-              className="ml-1 w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
-            </svg>
-          </a>
-        )}
       </div>
     </div>
   );
