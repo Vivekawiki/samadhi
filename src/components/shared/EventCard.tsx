@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Calendar } from 'lucide-react';
 import './eventcard.css';
@@ -38,7 +37,7 @@ const EventCard = ({
       <div className="p-4 bg-gradient-to-br from-indian-cream to-white border-t-2 border-indian-saffron/40">
         <h3 className="text-xl font-heading font-semibold text-indian-maroon mb-2 text-center">{title}</h3>
         <div className="space-y-2 text-center">
-          <p className="text-gray-700">{date} • {time}</p>
+          <p className="text-gray-700">{date}{time && ` ${time}`}</p>
           <p className="text-gray-700">{location}</p>
           <p className="text-gray-700">{description}</p>
         </div>

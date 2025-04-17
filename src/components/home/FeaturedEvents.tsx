@@ -1,4 +1,3 @@
-
 import React from 'react';
 import SectionHeader from '../shared/SectionHeader';
 import EventCard from '../shared/EventCard';
@@ -25,11 +24,11 @@ const events = [
     link: '/services/hinduism-for-children',
   },
   {
-    title: 'Meditation Workshop',
-    date: 'June 15, 2023',
-    time: '6:00 PM - 8:00 PM',
-    location: 'Meditation Hall',
-    description: 'Learn meditation techniques based on Vedantic principles. This workshop is suitable for beginners and those looking to deepen their practice.',
+    title: 'Seminar on Sri Ramakrishna\'s Organisational Wisdom and the Early History of the Ramakrishna Movement in South Africa (1897-1965)',
+    date: 'Sunday, 18th May 2025',
+    time: '',
+    location: 'South African Museum of Military History',
+    description: '',
     image: 'https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: '/services/special-functions',
   },
