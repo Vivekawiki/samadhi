@@ -8,8 +8,8 @@ const events = [
   {
     title: 'Sunday Satsang',
     date: 'Every Sunday',
-    time: '9:00 AM - 11:00 AM',
-    location: 'Main Temple Hall',
+    time: '9:00 AM - 10:30 AM',
+    location: 'Benvenuto Conference Centre',
     description: 'Join us for our weekly Sunday Satsang, featuring bhajans (devotional songs), readings from sacred texts, and a spiritual discourse.',
     image: 'https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: '/services/satsangs',
@@ -17,8 +17,8 @@ const events = [
   {
     title: 'Hinduism for Children Classes',
     date: 'Every Saturday',
-    time: '10:00 AM - 12:00 PM',
-    location: 'Education Building',
+    time: '9:15 AM - 10:15 AM',
+    location: 'Benvenuto Conference Centre',
     description: 'Weekly classes teaching fundamental concepts of Hinduism, Vedanta philosophy, and moral values to children through engaging activities and stories.',
     image: 'https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: '/services/hinduism-for-children',
