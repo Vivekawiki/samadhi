@@ -118,82 +118,90 @@ const FullSizeImage = () => {
 
   if (!currentImage) {
     return (
-      <PageLayout>
-        <div className="container mx-auto px-4 py-16 text-center">
-          <h1 className="text-2xl font-heading font-semibold mb-4">Image Not Found</h1>
-          <p className="mb-8">The requested image could not be found.</p>
-          <button 
-            onClick={handleClose}
-            className="px-4 py-2 bg-spiritual-500 text-white rounded hover:bg-spiritual-600"
-          >
-            Return to Nutrition Programme
-          </button>
+      <PageLayout className="pt-32">
+        <div className="min-h-screen w-full bg-gradient-to-br from-indian-cream to-white">
+          <div className="w-full">
+            <div className="container mx-auto px-4 py-16 text-center">
+              <h1 className="text-2xl font-heading font-semibold mb-4">Image Not Found</h1>
+              <p className="mb-8">The requested image could not be found.</p>
+              <button 
+                onClick={handleClose}
+                className="px-4 py-2 bg-spiritual-500 text-white rounded hover:bg-spiritual-600"
+              >
+                Return to Nutrition Programme
+              </button>
+            </div>
+          </div>
         </div>
       </PageLayout>
     );
   }
 
   return (
-    <PageLayout>
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-heading font-semibold">{currentImage.title}</h1>
-          <button 
-            onClick={handleClose}
-            className="p-2 rounded-full bg-gray-100 hover:bg-gray-200"
-            aria-label="Close"
-          >
-            <X className="h-6 w-6" />
-          </button>
-        </div>
-        
-        <div className="relative bg-gray-100 p-4 rounded-lg flex justify-center items-center min-h-[60vh]">
-          {/* Left arrow */}
-          <button 
-            onClick={handlePrev}
-            className="absolute left-2 p-2 rounded-full bg-white/80 hover:bg-white shadow-md z-10"
-            aria-label="Previous image"
-          >
-            <ChevronLeft className="h-8 w-8 text-indian-saffron" />
-          </button>
-          
-          <img 
-            src={currentImage.path} 
-            alt={currentImage.title} 
-            className="max-w-full max-h-[80vh] object-contain"
-          />
-          
-          {/* Right arrow */}
-          <button 
-            onClick={handleNext}
-            className="absolute right-2 p-2 rounded-full bg-white/80 hover:bg-white shadow-md z-10"
-            aria-label="Next image"
-          >
-            <ChevronRight className="h-8 w-8 text-indian-saffron" />
-          </button>
-        </div>
-        
-        <div className="mt-6 flex justify-between items-center">
-          <button 
-            onClick={handlePrev}
-            className="px-4 py-2 flex items-center gap-2 bg-gray-100 hover:bg-gray-200 rounded"
-          >
-            <ChevronLeft className="h-5 w-5" /> Previous
-          </button>
-          
-          <button 
-            onClick={handleClose}
-            className="px-4 py-2 bg-spiritual-500 text-white rounded hover:bg-spiritual-600"
-          >
-            Return to Nutrition Programme
-          </button>
-          
-          <button 
-            onClick={handleNext}
-            className="px-4 py-2 flex items-center gap-2 bg-gray-100 hover:bg-gray-200 rounded"
-          >
-            Next <ChevronRight className="h-5 w-5" />
-          </button>
+    <PageLayout className="pt-32">
+      <div className="min-h-screen w-full bg-gradient-to-br from-indian-cream to-white">
+        <div className="w-full">
+          <div className="container mx-auto px-4 py-8">
+            <div className="flex justify-between items-center mb-6">
+              <h1 className="text-2xl font-heading font-semibold">{currentImage.title}</h1>
+              <button 
+                onClick={handleClose}
+                className="p-2 rounded-full bg-gray-100 hover:bg-gray-200"
+                aria-label="Close"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            
+            <div className="relative bg-gradient-to-br from-indian-cream to-white p-4 rounded-lg flex justify-center items-center min-h-[60vh] border border-indian-saffron/30">
+              {/* Left arrow */}
+              <button 
+                onClick={handlePrev}
+                className="absolute left-2 p-2 rounded-full bg-white/80 hover:bg-white shadow-md z-10"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="h-8 w-8 text-indian-saffron" />
+              </button>
+              
+              <img 
+                src={currentImage.path} 
+                alt={currentImage.title} 
+                className="max-w-full max-h-[80vh] object-contain"
+              />
+              
+              {/* Right arrow */}
+              <button 
+                onClick={handleNext}
+                className="absolute right-2 p-2 rounded-full bg-white/80 hover:bg-white shadow-md z-10"
+                aria-label="Next image"
+              >
+                <ChevronRight className="h-8 w-8 text-indian-saffron" />
+              </button>
+            </div>
+            
+            <div className="mt-6 flex justify-between items-center">
+              <button 
+                onClick={handlePrev}
+                className="px-4 py-2 flex items-center gap-2 bg-gradient-to-br from-indian-cream to-white hover:bg-white rounded border border-indian-saffron/30"
+              >
+                <ChevronLeft className="h-5 w-5" /> Previous
+              </button>
+              
+              <button 
+                onClick={handleClose}
+                className="px-4 py-2 bg-spiritual-500 text-white rounded hover:bg-spiritual-600"
+              >
+                Return to Nutrition Programme
+              </button>
+              
+              <button 
+                onClick={handleNext}
+                className="px-4 py-2 flex items-center gap-2 bg-gradient-to-br from-indian-cream to-white hover:bg-white rounded border border-indian-saffron/30"
+              >
+                Next <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </PageLayout>

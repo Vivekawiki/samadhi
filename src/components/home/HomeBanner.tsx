@@ -101,7 +101,7 @@ const HomeBanner = () => {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden bg-gradient-to-br from-indian-cream to-white flex items-center justify-center mt-20 py-8">
+    <div className="relative w-full overflow-hidden bg-gradient-to-br from-indian-cream to-white flex items-center justify-center py-8">
       <div
         ref={cardRef}
         className="inline-block p-6 rounded-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01] text-center"

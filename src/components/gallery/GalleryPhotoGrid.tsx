@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import PageLayout from '../../components/layout/PageLayout';
@@ -120,11 +119,16 @@ const GalleryPhotoGrid = () => {
         </div>
         
         {/* Carousel for larger screens */}
-        <div className="hidden md:block max-w-5xl mx-auto">
-          <Carousel>
+        <div className="hidden md:block max-w-5xl mx-auto px-8">
+          <Carousel
+            opts={{
+              align: "center",
+              loop: true,
+            }}
+          >
             <CarouselContent>
               {album.images.map((image, index) => (
-                <CarouselItem key={index}>
+                <CarouselItem key={index} className="pl-4">
                   <AspectRatio ratio={16 / 9}>
                     <img 
                       src={image} 
@@ -135,10 +139,8 @@ const GalleryPhotoGrid = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="px-4">
-              <CarouselPrevious className="left-0" />
-              <CarouselNext className="right-0" />
-            </div>
+            <CarouselPrevious className="-left-4" />
+            <CarouselNext className="-right-4" />
           </Carousel>
         </div>
         

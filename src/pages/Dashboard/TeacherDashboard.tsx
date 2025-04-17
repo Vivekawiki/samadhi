@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -25,8 +24,7 @@ const TeacherDashboard = () => {
 
   return (
     <PageLayout title="Teacher Dashboard">
-      {/* Added pt-20 here to account for fixed navbar */}
-      <div className="container max-w-6xl py-8 pt-20"> 
+      <div className="container max-w-6xl py-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Teacher Dashboard</h1>

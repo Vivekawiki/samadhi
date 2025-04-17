@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -35,7 +34,7 @@ const PageLayout = ({ children, title, className = '' }: PageLayoutProps) => {
       {/* Main content with padding for fixed navbar */}
       <main
         ref={mainRef}
-        className={`flex-grow ${className}`} // Removed pt-20, will apply padding within specific pages
+        className={`flex-grow pt-20 ${className}`} // Added consistent pt-20 padding
       >
         {children}
       </main>

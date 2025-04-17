@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Heart, Users, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -7,7 +6,7 @@ import PageLayout from '@/components/layout/PageLayout';
 const CommunityOutreach = () => {
   return (
     <PageLayout title="Community Outreach">
-      <div className="w-full bg-white mt-20">
+      <div className="w-full bg-white">
         <div className="w-full bg-gradient-to-br from-indian-cream to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="max-w-4xl mx-auto animate-fade-in">
@@ -22,9 +21,9 @@ const CommunityOutreach = () => {
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
-                <div className="bg-white rounded-lg overflow-hidden shadow-sm border border-indian-saffron/20 hover:shadow-md transition-all hover:scale-[1.02] duration-300">
+                <div className="bg-gradient-to-br from-indian-cream to-white rounded-lg overflow-hidden shadow-sm border border-indian-saffron/20 hover:shadow-md transition-all hover:scale-[1.02] duration-300">
                   <Link to="/services/nutrition-programme" className="block">
-                    <h3 className="text-xl font-heading font-semibold mb-4 p-4 bg-spiritual-50 text-spiritual-600 border-b border-spiritual-100">
+                    <h3 className="text-xl font-heading font-semibold mb-4 p-4 bg-gradient-to-br from-indian-cream to-white text-spiritual-600 border-b border-spiritual-100">
                       Nutrition Programme
                     </h3>
                     <div className="p-4">
@@ -42,7 +41,7 @@ const CommunityOutreach = () => {
                   </Link>
                 </div>
 
-                <div className="bg-white rounded-lg overflow-hidden shadow-sm border border-indian-saffron/20 hover:shadow-md transition-all hover:scale-[1.02] duration-300">
+                <div className="bg-gradient-to-br from-indian-cream to-white rounded-lg overflow-hidden shadow-sm border border-indian-saffron/20 hover:shadow-md transition-all hover:scale-[1.02] duration-300">
                   <div className="p-4">
                     <h3 className="text-xl font-heading font-semibold mb-4 text-spiritual-600">
                       Women Empowerment Programme (WEP)
@@ -74,7 +73,7 @@ const CommunityOutreach = () => {
                 </div>
               </div>
 
-              <div className="bg-white rounded-lg shadow-sm border border-indian-saffron/20 my-8">
+              <div className="bg-gradient-to-br from-indian-cream to-white rounded-lg shadow-sm border border-indian-saffron/20 my-8">
                 <div className="p-6">
                   <h3 className="text-xl font-heading font-semibold mb-4 text-spiritual-600 flex items-center gap-2">
                     <Calendar className="w-5 h-5 text-indian-saffron" />
@@ -102,7 +101,7 @@ const CommunityOutreach = () => {
                 </div>
               </div>
 
-              <div className="bg-spiritual-50 rounded-lg border-l-4 border-spiritual-500 p-6">
+              <div className="bg-gradient-to-br from-indian-cream to-white rounded-lg border-l-4 border-spiritual-500 p-6">
                 <h3 className="text-xl font-heading font-semibold mb-4 text-spiritual-600 flex items-center gap-2">
                   <Users className="w-5 h-5 text-indian-saffron" />
                   Get Involved

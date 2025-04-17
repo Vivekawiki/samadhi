@@ -26,9 +26,9 @@ const NutritionProgramme = () => {
   ];
 
   return (
-    <PageLayout title="Nutrition Programme" className="pt-20">
-      <div className="w-full bg-white">
-        <div className="w-full bg-gradient-to-br from-indian-cream to-white border-t border-indian-saffron/30">
+    <PageLayout title="Nutrition Programme">
+      <div className="min-h-screen w-full bg-gradient-to-br from-indian-cream to-white">
+        <div className="w-full">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="max-w-4xl mx-auto">
               <div className="inline-block p-6 rounded-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01] text-center w-full mb-8">
@@ -46,7 +46,7 @@ const NutritionProgramme = () => {
                 {nutritionActivities.map((activity) => (
                   <div 
                     key={activity.id} 
-                    className="h-auto flex flex-col bg-gradient-to-br from-indian-cream to-white rounded-lg overflow-hidden shadow-sm border border-indian-saffron/20 hover:shadow-md transition-all hover:scale-[1.02] duration-300"
+                    className="h-auto flex flex-col bg-gradient-to-br from-indian-cream to-white rounded-lg overflow-hidden shadow-sm border border-indian-saffron/30 hover:shadow-md transition-all hover:scale-[1.02] duration-300"
                   >
                     <Link to={`/services/nutrition-programme/image/${activity.id}`} className="h-full flex flex-col">
                       <div className="h-[200px] md:h-[250px] overflow-hidden bg-gradient-to-br from-indian-cream to-white border-b border-indian-saffron/30 flex items-center justify-center px-4">
@@ -68,7 +68,7 @@ const NutritionProgramme = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
-                <div className="bg-gradient-to-br from-indian-cream to-white p-6 rounded-lg shadow-sm border border-indian-saffron/20">
+                <div className="bg-gradient-to-br from-indian-cream to-white p-6 rounded-lg shadow-sm border border-indian-saffron/30">
                   <h3 className="text-xl font-heading font-semibold mb-4 text-indian-blue flex items-center gap-2">
                     <Calendar className="w-5 h-5 text-indian-saffron" />
                     Programme Schedule
@@ -89,7 +89,7 @@ const NutritionProgramme = () => {
                   </ul>
                 </div>
 
-                <div className="bg-gradient-to-br from-indian-cream to-white p-6 rounded-lg shadow-sm border border-indian-saffron/20">
+                <div className="bg-gradient-to-br from-indian-cream to-white p-6 rounded-lg shadow-sm border border-indian-saffron/30">
                   <h3 className="text-xl font-heading font-semibold mb-4 text-indian-blue flex items-center gap-2">
                     <MapPin className="w-5 h-5 text-indian-saffron" />
                     Locations
@@ -111,7 +111,7 @@ const NutritionProgramme = () => {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-spiritual-50 to-white p-8 rounded-lg border border-spiritual-200 shadow-sm">
+              <div className="bg-gradient-to-br from-indian-cream to-white p-8 rounded-lg border border-indian-saffron/30 shadow-sm">
                 <h3 className="text-xl font-heading font-semibold mb-6 text-indian-blue flex items-center gap-2">
                   <Users className="w-6 h-6 text-indian-saffron" />
                   How to Help
@@ -120,19 +120,19 @@ const NutritionProgramme = () => {
                   You can support our Nutrition Programme through:
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="bg-white/50 p-4 rounded-lg border border-spiritual-200">
+                  <div className="bg-gradient-to-br from-indian-cream to-white p-4 rounded-lg border border-indian-saffron/30">
                     <h4 className="font-semibold mb-2 text-indian-maroon">Volunteer</h4>
                     <p className="text-sm text-gray-700">Join us in food preparation and distribution</p>
                   </div>
-                  <div className="bg-white/50 p-4 rounded-lg border border-spiritual-200">
+                  <div className="bg-gradient-to-br from-indian-cream to-white p-4 rounded-lg border border-indian-saffron/30">
                     <h4 className="font-semibold mb-2 text-indian-maroon">Donate</h4>
                     <p className="text-sm text-gray-700">Contribute food items or funds</p>
                   </div>
-                  <div className="bg-white/50 p-4 rounded-lg border border-spiritual-200">
+                  <div className="bg-gradient-to-br from-indian-cream to-white p-4 rounded-lg border border-indian-saffron/30">
                     <h4 className="font-semibold mb-2 text-indian-maroon">Spread Awareness</h4>
                     <p className="text-sm text-gray-700">Help us reach more people in need</p>
                   </div>
-                  <div className="bg-white/50 p-4 rounded-lg border border-spiritual-200">
+                  <div className="bg-gradient-to-br from-indian-cream to-white p-4 rounded-lg border border-indian-saffron/30">
                     <h4 className="font-semibold mb-2 text-indian-maroon">Partner With Us</h4>
                     <p className="text-sm text-gray-700">Join as a business or organization</p>
                   </div>

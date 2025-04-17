@@ -1,4 +1,3 @@
-
 import React from 'react';
 import PageLayout from '@/components/layout/PageLayout';
 import { Book, Calendar, Users, Star } from 'lucide-react';
@@ -6,7 +5,7 @@ import { Book, Calendar, Users, Star } from 'lucide-react';
 const HinduismForChildren = () => {
   return (
     <PageLayout title="Hinduism for Children">
-      <div className="w-full bg-white mt-20">
+      <div className="w-full bg-white">
         <div className="w-full bg-gradient-to-br from-indian-cream to-white border-t border-indian-saffron/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="max-w-4xl mx-auto">

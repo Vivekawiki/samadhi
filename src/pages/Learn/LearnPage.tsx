@@ -36,7 +36,7 @@ const LearnPage = () => {
   ];
   return (
     <PageLayout title="Hinduism for Children">
-      <div className="flex items-center justify-center py-12 bg-gradient-to-br from-indian-cream to-white mt-20">
+      <div className="flex items-center justify-center py-12 bg-gradient-to-br from-indian-cream to-white">
         <div className="inline-block p-6 rounded-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01] text-center">
           <h1 className="text-3xl font-heading font-bold mb-4 text-black">Hinduism for Children</h1>
           <p className="text-gray-700">
@@ -45,7 +45,7 @@ const LearnPage = () => {
         </div>
       </div>
 
-      <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12 -mt-6">
+      <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12">
         <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto mb-16">
           <div className="bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg mb-12 pop-shadow-card">

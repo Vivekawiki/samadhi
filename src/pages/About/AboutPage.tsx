@@ -19,7 +19,7 @@ const AboutPage = () => {
 
   return (
     <PageLayout title="About">
-      <div className="flex items-center justify-center py-12 bg-gradient-to-br from-indian-cream to-white mt-20">
+      <div className="flex items-center justify-center py-12 bg-gradient-to-br from-indian-cream to-white">
         <div className="inline-block p-6 rounded-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01] text-center">
           <h1 className="text-3xl font-heading font-bold mb-4 text-black">About Us</h1>
           <p className="text-gray-700">

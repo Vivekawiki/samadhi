@@ -1,11 +1,10 @@
-
 import React from 'react';
 import PageLayout from '@/components/layout/PageLayout';
 
 const SpecialFunctions = () => {
   return (
     <PageLayout title="Special Functions & Festivals">
-      <div className="w-full bg-white mt-20">
+      <div className="w-full bg-white">
         <div className="w-full bg-gradient-to-br from-indian-cream to-white border-t border-indian-saffron/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="max-w-4xl mx-auto">
@@ -17,7 +16,7 @@ const SpecialFunctions = () => {
                 </p>
               </div>
 
-              <div className="mt-12 bg-white rounded-lg p-6 shadow-sm border border-indian-saffron/20">
+              <div className="mt-12 bg-gradient-to-br from-indian-cream to-white rounded-lg p-6 shadow-sm border border-indian-saffron/20">
                 <h3 className="text-2xl font-heading font-semibold mb-6">Annual Calendar of Major Events</h3>
                 
                 <div className="overflow-x-auto">
