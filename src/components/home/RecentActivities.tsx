@@ -126,7 +126,7 @@ const RecentActivities = () => {
             <CarouselContent className="-ml-4">
               {activities.map((activity, index) => (
                 <CarouselItem key={activity.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <div className="h-[400px] sm:h-[450px] md:h-[475px] flex flex-col bg-white rounded-lg overflow-hidden shadow-sm border border-indian-saffron/20 hover:shadow-md transition-all hover:scale-[1.02] duration-300">
+                  <div className="h-[400px] sm:h-[450px] md:h-[475px] flex flex-col bg-white rounded-lg overflow-hidden border-2 border-indian-saffron/40 hover:border-indian-saffron/60 hover:shadow-lg transition-all hover:scale-[1.02] duration-300">
                     <Link to={activity.link} className="h-full flex flex-col">
                       <div className="h-[75%] bg-gradient-to-br from-indian-cream to-white flex items-center justify-center px-4">
                         <img
@@ -135,16 +135,11 @@ const RecentActivities = () => {
                           className="w-[90%] h-full object-contain transform hover:scale-105 transition-transform duration-300"
                         />
                       </div>
-                      <div className="h-[25%] p-4 bg-gradient-to-br from-indian-cream to-white border-t-4 border-indian-saffron/50 flex flex-col items-center justify-center text-center">
-                        <h3 className="text-lg font-heading font-semibold mb-1 text-indian-maroon">
+                      <div className="flex-grow p-4 bg-gradient-to-br from-indian-cream to-white border-t-2 border-indian-saffron/40">
+                        <h3 className="text-lg md:text-xl font-heading font-semibold mb-1 md:mb-2 text-indian-maroon">
                           {activity.title}
                         </h3>
-                        <div className="flex items-center text-sm text-gray-500 mb-2">
-                          <span>{activity.date}</span>
-                          <span className="mx-2">•</span>
-                          <span>{activity.location}</span>
-                        </div>
-                        <p className="text-gray-700 text-sm line-clamp-2">{activity.description}</p>
+                        <p className="text-sm md:text-base text-gray-700">{activity.description}</p>
                       </div>
                     </Link>
                   </div>
