@@ -52,12 +52,11 @@ import ThankYouPage from "./pages/Donate/ThankYouPage.tsx";
 
 import LoginPage from "@/pages/Auth/LoginPage";
 import ProfilePage from "./pages/User/ProfilePage";
-import AdminDashboard from "./pages/Admin/AdminDashboard";
 
 // Import Dashboard pages
 import StudentDashboard from "./pages/Dashboard/StudentDashboard";
-import TeacherDashboard from "./pages/Dashboard/TeacherDashboard"; // Import TeacherDashboard
-import AdminDashboardNew from "./pages/Dashboard/AdminDashboard";
+import TeacherDashboard from "./pages/Dashboard/TeacherDashboard";
+import AdminDashboard from "./pages/Dashboard/AdminDashboard";
 
 // Import Donation pages
 import DonatePage from "./pages/Donate/DonatePage";
@@ -129,7 +128,7 @@ const App = () => (
             {/* Removed ProtectedRoute for testing */}
             <Route path="/dashboard/teacher" element={<TeacherDashboard />} /> 
             {/* Removed ProtectedRoute for testing */}
-            <Route path="/dashboard/admin" element={<AdminDashboardNew />} /> 
+            <Route path="/dashboard/admin" element={<AdminDashboard />} /> 
 
             {/* Donation Routes */}
             <Route path="/donate" element={<DonatePage />} />

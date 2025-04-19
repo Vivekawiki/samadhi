@@ -24,185 +24,187 @@ const TeacherDashboard = () => {
 
   return (
     <PageLayout title="Teacher Dashboard">
-      <div className="container max-w-6xl py-8">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Teacher Dashboard</h1>
-            <p className="text-muted-foreground">Manage your courses and students</p>
+      <div className="min-h-screen w-full bg-gradient-to-br from-indian-cream to-white">
+        <div className="container max-w-6xl py-8">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+            <div>
+              <h1 className="text-3xl font-bold tracking-tight">Teacher Dashboard</h1>
+              <p className="text-muted-foreground">Manage your courses and students</p>
+            </div>
+            <div className="flex gap-2 mt-4 md:mt-0">
+              <Button variant="outline">Schedule Session</Button>
+              <Button className="bg-indian-saffron hover:bg-indian-saffron/90">Create Course</Button>
+            </div>
           </div>
-          <div className="flex gap-2 mt-4 md:mt-0">
-            <Button variant="outline">Schedule Session</Button>
-            <Button className="bg-indian-saffron hover:bg-indian-saffron/90">Create Course</Button>
-          </div>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-2xl">3</CardTitle>
-              <CardDescription>Active Courses</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex items-center text-muted-foreground">
-                <BookOpen className="mr-2 h-4 w-4" />
-                <span className="text-sm">View all courses</span>
-              </div>
-            </CardContent>
-          </Card>
-          
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-2xl">74</CardTitle>
-              <CardDescription>Total Students</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex items-center text-muted-foreground">
-                <Users className="mr-2 h-4 w-4" />
-                <span className="text-sm">Across all courses</span>
-              </div>
-            </CardContent>
-          </Card>
-          
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-2xl">12</CardTitle>
-              <CardDescription>Pending Reviews</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex items-center text-muted-foreground">
-                <MessageSquare className="mr-2 h-4 w-4" />
-                <span className="text-sm">Assignments & questions</span>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        <Tabs defaultValue="courses" className="space-y-4">
-          <TabsList>
-            <TabsTrigger value="courses">My Courses</TabsTrigger>
-            <TabsTrigger value="schedule">Teaching Schedule</TabsTrigger>
-            <TabsTrigger value="activity">Recent Activity</TabsTrigger>
-          </TabsList>
-          
-          <TabsContent value="courses">
-            <Card>
-              <CardHeader>
-                <CardTitle>Your Courses</CardTitle>
-                <CardDescription>Manage your current teaching assignments</CardDescription>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <Card className="border border-indian-saffron bg-gradient-to-br from-indian-cream to-white">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-2xl">3</CardTitle>
+                <CardDescription>Active Courses</CardDescription>
               </CardHeader>
               <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Course</TableHead>
-                      <TableHead>Students</TableHead>
-                      <TableHead>Next Session</TableHead>
-                      <TableHead>Status</TableHead>
-                      <TableHead className="text-right">Actions</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {courses.map(course => (
-                      <TableRow key={course.id}>
-                        <TableCell className="font-medium">{course.title}</TableCell>
-                        <TableCell>{course.students}</TableCell>
-                        <TableCell>{course.nextSession}</TableCell>
-                        <TableCell>
-                          <Badge variant="outline" className="bg-green-100 text-green-800 border-green-200">
-                            {course.status}
-                          </Badge>
-                        </TableCell>
-                        <TableCell className="text-right">
-                          <Button variant="ghost" size="sm">View</Button>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </CardContent>
-            </Card>
-          </TabsContent>
-          
-          <TabsContent value="schedule">
-            <Card>
-              <CardHeader>
-                <CardTitle>Teaching Schedule</CardTitle>
-                <CardDescription>Upcoming classes and sessions</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4 p-4 border rounded-lg">
-                    <div className="bg-muted p-3 rounded-full">
-                      <Calendar className="h-6 w-6" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-medium">Introduction to Vedanta</h4>
-                      <p className="text-sm text-muted-foreground">Today, 2:00 PM - 4:00 PM • Main Hall</p>
-                    </div>
-                    <Button variant="outline" size="sm">View Details</Button>
-                  </div>
-                  
-                  <div className="flex items-center gap-4 p-4 border rounded-lg">
-                    <div className="bg-muted p-3 rounded-full">
-                      <Calendar className="h-6 w-6" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-medium">Sanskrit Fundamentals</h4>
-                      <p className="text-sm text-muted-foreground">Tomorrow, 10:00 AM - 12:00 PM • Room 203</p>
-                    </div>
-                    <Button variant="outline" size="sm">View Details</Button>
-                  </div>
-                  
-                  <div className="flex items-center gap-4 p-4 border rounded-lg">
-                    <div className="bg-muted p-3 rounded-full">
-                      <Calendar className="h-6 w-6" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-medium">History of Hinduism</h4>
-                      <p className="text-sm text-muted-foreground">Friday, 4:00 PM - 6:00 PM • Lecture Hall</p>
-                    </div>
-                    <Button variant="outline" size="sm">View Details</Button>
-                  </div>
+                <div className="flex items-center text-muted-foreground">
+                  <BookOpen className="mr-2 h-4 w-4" />
+                  <span className="text-sm">View all courses</span>
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
-          
-          <TabsContent value="activity">
-            <Card>
-              <CardHeader>
-                <CardTitle>Recent Student Activity</CardTitle>
-                <CardDescription>Latest actions from your students</CardDescription>
+            
+            <Card className="border border-indian-saffron bg-gradient-to-br from-indian-cream to-white">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-2xl">74</CardTitle>
+                <CardDescription>Total Students</CardDescription>
               </CardHeader>
               <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Student</TableHead>
-                      <TableHead>Action</TableHead>
-                      <TableHead>Course</TableHead>
-                      <TableHead>Time</TableHead>
-                      <TableHead className="text-right">Respond</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {recentActivity.map(activity => (
-                      <TableRow key={activity.id}>
-                        <TableCell className="font-medium">{activity.student}</TableCell>
-                        <TableCell>{activity.action}</TableCell>
-                        <TableCell>{activity.course}</TableCell>
-                        <TableCell>{activity.time}</TableCell>
-                        <TableCell className="text-right">
-                          <Button variant="ghost" size="sm">View</Button>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                <div className="flex items-center text-muted-foreground">
+                  <Users className="mr-2 h-4 w-4" />
+                  <span className="text-sm">Across all courses</span>
+                </div>
               </CardContent>
             </Card>
-          </TabsContent>
-        </Tabs>
+            
+            <Card className="border border-indian-saffron bg-gradient-to-br from-indian-cream to-white">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-2xl">12</CardTitle>
+                <CardDescription>Pending Reviews</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center text-muted-foreground">
+                  <MessageSquare className="mr-2 h-4 w-4" />
+                  <span className="text-sm">Assignments & questions</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <Tabs defaultValue="courses" className="space-y-4">
+            <TabsList>
+              <TabsTrigger value="courses">My Courses</TabsTrigger>
+              <TabsTrigger value="schedule">Teaching Schedule</TabsTrigger>
+              <TabsTrigger value="activity">Recent Activity</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="courses">
+              <Card className="border border-indian-saffron bg-gradient-to-br from-indian-cream to-white">
+                <CardHeader>
+                  <CardTitle>Your Courses</CardTitle>
+                  <CardDescription>Manage your current teaching assignments</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Course</TableHead>
+                        <TableHead>Students</TableHead>
+                        <TableHead>Next Session</TableHead>
+                        <TableHead>Status</TableHead>
+                        <TableHead className="text-right">Actions</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {courses.map(course => (
+                        <TableRow key={course.id}>
+                          <TableCell className="font-medium">{course.title}</TableCell>
+                          <TableCell>{course.students}</TableCell>
+                          <TableCell>{course.nextSession}</TableCell>
+                          <TableCell>
+                            <Badge variant="outline" className="bg-green-100 text-green-800 border-green-200">
+                              {course.status}
+                            </Badge>
+                          </TableCell>
+                          <TableCell className="text-right">
+                            <Button variant="ghost" size="sm">View</Button>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </CardContent>
+              </Card>
+            </TabsContent>
+            
+            <TabsContent value="schedule">
+              <Card className="border border-indian-saffron bg-gradient-to-br from-indian-cream to-white">
+                <CardHeader>
+                  <CardTitle>Teaching Schedule</CardTitle>
+                  <CardDescription>Upcoming classes and sessions</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4 p-4 border border-indian-saffron rounded-lg bg-gradient-to-br from-indian-cream to-white">
+                      <div className="bg-muted p-3 rounded-full">
+                        <Calendar className="h-6 w-6" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-medium">Introduction to Vedanta</h4>
+                        <p className="text-sm text-muted-foreground">Today, 2:00 PM - 4:00 PM • Main Hall</p>
+                      </div>
+                      <Button variant="outline" size="sm">View Details</Button>
+                    </div>
+                    
+                    <div className="flex items-center gap-4 p-4 border border-indian-saffron rounded-lg bg-gradient-to-br from-indian-cream to-white">
+                      <div className="bg-muted p-3 rounded-full">
+                        <Calendar className="h-6 w-6" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-medium">Sanskrit Fundamentals</h4>
+                        <p className="text-sm text-muted-foreground">Tomorrow, 10:00 AM - 12:00 PM • Room 203</p>
+                      </div>
+                      <Button variant="outline" size="sm">View Details</Button>
+                    </div>
+                    
+                    <div className="flex items-center gap-4 p-4 border border-indian-saffron rounded-lg bg-gradient-to-br from-indian-cream to-white">
+                      <div className="bg-muted p-3 rounded-full">
+                        <Calendar className="h-6 w-6" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-medium">History of Hinduism</h4>
+                        <p className="text-sm text-muted-foreground">Friday, 4:00 PM - 6:00 PM • Lecture Hall</p>
+                      </div>
+                      <Button variant="outline" size="sm">View Details</Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+            
+            <TabsContent value="activity">
+              <Card className="border border-indian-saffron bg-gradient-to-br from-indian-cream to-white">
+                <CardHeader>
+                  <CardTitle>Recent Student Activity</CardTitle>
+                  <CardDescription>Latest actions from your students</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Student</TableHead>
+                        <TableHead>Action</TableHead>
+                        <TableHead>Course</TableHead>
+                        <TableHead>Time</TableHead>
+                        <TableHead className="text-right">Respond</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {recentActivity.map(activity => (
+                        <TableRow key={activity.id}>
+                          <TableCell className="font-medium">{activity.student}</TableCell>
+                          <TableCell>{activity.action}</TableCell>
+                          <TableCell>{activity.course}</TableCell>
+                          <TableCell>{activity.time}</TableCell>
+                          <TableCell className="text-right">
+                            <Button variant="ghost" size="sm">View</Button>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </CardContent>
+              </Card>
+            </TabsContent>
+          </Tabs>
+        </div>
       </div>
     </PageLayout>
   );

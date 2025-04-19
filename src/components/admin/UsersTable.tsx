@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
@@ -23,9 +22,9 @@ const UsersTable = ({ loading, users, filteredUsers, openRoleDialog }: UsersTabl
   }
 
   return (
-    <Table>
+    <Table className="w-full">
       <TableHeader>
-        <TableRow>
+        <TableRow className="border-b border-indian-saffron/30">
           <TableHead>Name</TableHead>
           <TableHead>User ID</TableHead>
           <TableHead>Roles</TableHead>
@@ -41,8 +40,8 @@ const UsersTable = ({ loading, users, filteredUsers, openRoleDialog }: UsersTabl
           </TableRow>
         ) : (
           filteredUsers.map((user) => (
-            <TableRow key={user.id}>
-              <TableCell>
+            <TableRow key={user.id} className="border-b border-indian-saffron/30">
+              <TableCell className="font-medium">
                 {user.first_name} {user.last_name}
               </TableCell>
               <TableCell className="font-mono text-xs">
