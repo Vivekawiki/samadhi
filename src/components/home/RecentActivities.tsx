@@ -77,7 +77,7 @@ const RecentActivities = () => {
 
     api.on("select", onSelect);
     api.on("reInit", onSelect);
-    
+
     return () => {
       api.off("select", onSelect);
       api.off("reInit", onSelect);
@@ -96,7 +96,7 @@ const RecentActivities = () => {
 
         {/* Navigation arrows above the carousel for mobile */}
         <div className="max-w-[1140px] mx-auto flex justify-center gap-4 mb-4 sm:hidden">
-          <button 
+          <button
             className="h-10 w-10 rounded-full flex items-center justify-center bg-white border border-indian-saffron text-indian-saffron shadow-md hover:bg-indian-saffron/10 transition-colors"
             onClick={() => api?.scrollPrev()}
             aria-label="Previous slide"
@@ -104,7 +104,7 @@ const RecentActivities = () => {
             <span className="sr-only">Previous</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
           </button>
-          <button 
+          <button
             className="h-10 w-10 rounded-full flex items-center justify-center bg-white border border-indian-saffron text-indian-saffron shadow-md hover:bg-indian-saffron/10 transition-colors"
             onClick={() => api?.scrollNext()}
             aria-label="Next slide"
@@ -126,9 +126,9 @@ const RecentActivities = () => {
             <CarouselContent className="-ml-4">
               {activities.map((activity, index) => (
                 <CarouselItem key={activity.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <div className="h-[400px] sm:h-[450px] md:h-[475px] flex flex-col bg-white rounded-lg overflow-hidden border-2 border-indian-saffron/40 hover:border-indian-saffron/60 hover:shadow-lg transition-all hover:scale-[1.02] duration-300">
+                  <div className="h-[425px] sm:h-[475px] md:h-[500px] flex flex-col bg-white rounded-lg overflow-hidden border-2 border-indian-saffron/40 hover:border-indian-saffron/60 hover:shadow-lg transition-all hover:scale-[1.02] duration-300">
                     <Link to={activity.link} className="h-full flex flex-col">
-                      <div className="h-[75%] bg-gradient-to-br from-indian-cream to-white flex items-center justify-center px-4">
+                      <div className="h-[70%] bg-gradient-to-br from-indian-cream to-white flex items-center justify-center px-4">
                         <img
                           src={activity.image}
                           alt={activity.title}
@@ -139,6 +139,19 @@ const RecentActivities = () => {
                         <h3 className="text-lg md:text-xl font-heading font-semibold mb-1 md:mb-2 text-indian-maroon">
                           {activity.title}
                         </h3>
+                        <div className="flex items-center text-xs md:text-sm text-indian-saffron mb-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          <span>{activity.date}</span>
+                        </div>
+                        <div className="flex items-center text-xs md:text-sm text-gray-600 mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                          <span>{activity.location}</span>
+                        </div>
                         <p className="text-sm md:text-base text-gray-700">{activity.description}</p>
                       </div>
                     </Link>
@@ -149,13 +162,13 @@ const RecentActivities = () => {
             <CarouselPrevious className="hidden sm:flex -left-8 h-10 w-10 bg-white hover:bg-white border-indian-saffron text-indian-saffron hover:text-indian-saffron shadow-md hover:bg-indian-saffron/10 transition-colors" />
             <CarouselNext className="hidden sm:flex -right-8 h-10 w-10 bg-white hover:bg-white border-indian-saffron text-indian-saffron hover:text-indian-saffron shadow-md hover:bg-indian-saffron/10 transition-colors" />
           </Carousel>
-          
+
           {/* Mobile indicator dots */}
           <div className="flex justify-center mt-4 sm:hidden">
             <div className="flex space-x-2">
               {[0, 1, 2].map((index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className={`h-2 w-2 rounded-full ${index === current ? 'bg-indian-saffron' : 'bg-gray-300'}`}
                 />
               ))}
@@ -164,9 +177,9 @@ const RecentActivities = () => {
         </div>
 
         <div className="text-center mt-8 sm:mt-12">
-          <Button 
-            href="/services/nutrition-programme" 
-            variant="outline" 
+          <Button
+            href="/services/nutrition-programme"
+            variant="outline"
             className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10"
           >
             View All Nutrition Programme Activities
