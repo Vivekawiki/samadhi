@@ -1,11 +1,161 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import PageHeader from '../../components/shared/PageHeader';
 import SectionHeader from '../../components/shared/SectionHeader';
-import { MapPin, Phone, Mail, Clock, User } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, User, Loader2 } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useToast } from '@/components/ui/use-toast';
+import { Button } from '@/components/ui/button';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+
+// Define the contact form schema with Zod
+const contactFormSchema = z.object({
+  firstName: z.string().min(2, { message: "First name must be at least 2 characters." }),
+  lastName: z.string().min(2, { message: "Last name must be at least 2 characters." }),
+  email: z.string().email({ message: "Please enter a valid email address." }),
+  phone: z.string().optional(),
+  subject: z.string().min(5, { message: "Subject must be at least 5 characters." }),
+  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+  honeypot: z.string().max(0, { message: "Bot detected" }), // Honeypot field should be empty
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
+
+// reCAPTCHA site key - in a real app, this would be in an environment variable
+const RECAPTCHA_SITE_KEY = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'; // This is Google's test key
 
 const ContactPage = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionCount, setSubmissionCount] = useState(0);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+
+  // Load reCAPTCHA script
+  useEffect(() => {
+    // Check if the script is already loaded
+    if (window.grecaptcha) return;
+
+    // Add reCAPTCHA script
+    const script = document.createElement('script');
+    script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+
+    return () => {
+      // Clean up script when component unmounts
+      document.head.removeChild(script);
+    };
+  }, []);
+
+  // Initialize form with react-hook-form and zod validation
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
+      honeypot: "",
+    },
+  });
+
+  // Handle form submission
+  const handleSubmit = async (values: ContactFormValues) => {
+    // Check for honeypot (if filled, it's likely a bot)
+    if (values.honeypot) {
+      console.log("Bot detected");
+      toast({
+        title: "Message sent",
+        description: "Thank you for your message. We'll get back to you soon.",
+      });
+      return;
+    }
+
+    // Rate limiting - prevent more than 3 submissions in a short period
+    if (submissionCount >= 3) {
+      toast({
+        title: "Too many attempts",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmissionCount(prev => prev + 1);
+
+    try {
+      // Execute reCAPTCHA
+      let token = '';
+      if (window.grecaptcha) {
+        try {
+          await new Promise<void>((resolve) => {
+            window.grecaptcha?.ready(() => resolve());
+          });
+          token = await window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'contact_form_submit' });
+        } catch (recaptchaError) {
+          console.error('reCAPTCHA error:', recaptchaError);
+          // Continue without reCAPTCHA if there's an error
+        }
+      }
+
+      // Prepare form data to send to the backend
+      const formData = {
+        ...values,
+        recaptchaToken: token,
+      };
+
+      console.log('Form data to be sent:', formData);
+
+      // In a production environment, this would point to your actual API
+      // For now, we'll use the Laravel API we set up
+      const response = await fetch('https://finalapi.test/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to send message');
+      }
+
+      // Reset the form
+      form.reset();
+
+      toast({
+        title: "Message sent",
+        description: "Thank you for your message. We'll get back to you soon.",
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error",
+        description: "There was an error sending your message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <PageLayout title="Contact Us">
       <PageHeader
@@ -129,89 +279,140 @@ const ContactPage = () => {
               alignment="left"
             />
 
-            <form className="mt-8 space-y-6 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg pop-shadow-card">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    name="first-name"
-                    id="first-name"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-spiritual-500 focus:ring-spiritual-500"
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(handleSubmit)} className="mt-8 space-y-6 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg pop-shadow-card">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="firstName"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>First Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Your first name" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="lastName"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Last Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Your last name" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
                 </div>
-                <div>
-                  <label htmlFor="last-name" className="block text-sm font-medium text-gray-700">
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    name="last-name"
-                    id="last-name"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-spiritual-500 focus:ring-spiritual-500"
-                  />
-                </div>
-              </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                  Email
-                </label>
-                <input
-                  type="email"
+                <FormField
+                  control={form.control}
                   name="email"
-                  id="email"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-spiritual-500 focus:ring-spiritual-500"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input type="email" placeholder="your.email@example.com" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-              </div>
 
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                  Phone (optional)
-                </label>
-                <input
-                  type="tel"
+                <FormField
+                  control={form.control}
                   name="phone"
-                  id="phone"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-spiritual-500 focus:ring-spiritual-500"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Phone (optional)</FormLabel>
+                      <FormControl>
+                        <Input type="tel" placeholder="Your phone number" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-              </div>
 
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700">
-                  Subject
-                </label>
-                <input
-                  type="text"
+                <FormField
+                  control={form.control}
                   name="subject"
-                  id="subject"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-spiritual-500 focus:ring-spiritual-500"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Subject</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Message subject" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-              </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                  Message
-                </label>
-                <textarea
-                  id="message"
+                <FormField
+                  control={form.control}
                   name="message"
-                  rows={4}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-spiritual-500 focus:ring-spiritual-500"
-                ></textarea>
-              </div>
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Message</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Your message here..."
+                          className="min-h-[120px]"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
 
-              <div>
-                <button
-                  type="submit"
-                  className="inline-flex justify-center rounded-md border border-transparent bg-spiritual-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-spiritual-600 focus:outline-none focus:ring-2 focus:ring-spiritual-500 focus:ring-offset-2"
-                >
-                  Send Message
-                </button>
-              </div>
-            </form>
+                {/* Honeypot field - hidden from users but bots will fill it out */}
+                <div className="hidden" aria-hidden="true">
+                  <FormField
+                    control={form.control}
+                    name="honeypot"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Leave this empty</FormLabel>
+                        <FormControl>
+                          <Input
+                            tabIndex={-1}
+                            autoComplete="off"
+                            {...field}
+                          />
+                        </FormControl>
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <div className="pt-2">
+                  <Button
+                    type="submit"
+                    className="bg-spiritual-500 hover:bg-spiritual-600"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      'Send Message'
+                    )}
+                  </Button>
+                  <div className="mt-2 text-xs text-gray-500">
+                    This site is protected by reCAPTCHA and the Google
+                    <a href="https://policies.google.com/privacy" className="text-spiritual-500 hover:underline"> Privacy Policy</a> and
+                    <a href="https://policies.google.com/terms" className="text-spiritual-500 hover:underline"> Terms of Service</a> apply.
+                  </div>
+                </div>
+              </form>
+            </Form>
           </div>
         </div>
 

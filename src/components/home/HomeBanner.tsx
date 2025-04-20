@@ -20,7 +20,7 @@ const bannerSlides: BannerSlide[] = [
   {
     image: '/lovable-uploads/belurmath.jpg',
     title: 'Welcome to Ramakrishna Centre',
-    subtitle: 'A spiritual sanctuary dedicated to the teachings of Sri Ramakrishna, Holy Mother Sri Sarada Devi, and Swami Vivekananda',
+    subtitle: 'A Sub-Centre of the Ramakrishna Centre of South Africa - Phoenix',
     buttonText: 'Explore Our Centre',
     buttonLink: '/about/our-centre',
   },
@@ -116,7 +116,7 @@ const HomeBanner = () => {
           ref={(el) => (textRefs.current[1] = el)}
           className="mb-6 max-w-2xl mx-auto text-gray-700"
         >
-          A spiritual sanctuary dedicated to the teachings of Sri Ramakrishna, Holy Mother Sri Sarada Devi, and Swami Vivekananda
+          A Sub-Centre of the Ramakrishna Centre of South Africa - Phoenix
         </p>
         <a
           ref={(el) => (textRefs.current[2] = el)}
