@@ -10,7 +10,7 @@ const events = [
     date: 'Every Sunday',
     time: '9:00 AM - 10:30 AM',
     location: 'Benvenuto Conference Centre',
-    description: 'Join us for our weekly Sunday Satsang, featuring bhajans (devotional songs), readings from sacred texts, and a spiritual discourse.',
+    description: 'Join us for our weekly Sunday Satsang, featuring bhajans, chantings, a spiritual discourse and arati.',
     image: 'https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: '/services/satsangs',
   },
@@ -52,7 +52,7 @@ const FeaturedEvents = () => {
               time={event.time}
               location={event.location}
               description={event.description}
-              image={event.image}
+              // image prop removed to hide images
               link={event.link}
               className="border-indian-saffron bg-gradient-to-br from-indian-cream to-white"
             />

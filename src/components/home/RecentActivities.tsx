@@ -10,7 +10,7 @@ import './carousel.css';
 const activities = [
   {
     id: 'march2025',
-    title: 'March Nutrition Workshop',
+    title: 'March Nutrition Programme',
     date: 'March 29, 2025',
     location: 'Lenasia',
     description: 'Workshop on balanced diets and healthy eating habits.',
@@ -19,7 +19,7 @@ const activities = [
   },
   {
     id: 'feb2025',
-    title: 'February Food Distribution',
+    title: 'February Nutrition Programme',
     date: 'February 22, 2025',
     location: 'Lenasia',
     description: 'Food parcels with staples and fresh produce for 220 families.',
@@ -28,7 +28,7 @@ const activities = [
   },
   {
     id: 'jan2025',
-    title: 'January Food Relief',
+    title: 'January Nutrition Programme',
     date: 'January 25, 2025',
     location: 'Lenasia',
     description: 'Emergency food relief for families affected by recent floods.',
@@ -37,7 +37,7 @@ const activities = [
   },
   {
     id: 'december2024',
-    title: 'December Holiday Program',
+    title: 'December Nutrition Programme',
     date: 'December 7, 2024',
     location: 'Lenasia',
     description: 'Special holiday nutrition program for children and families.',
@@ -46,7 +46,7 @@ const activities = [
   },
   {
     id: 'november2024',
-    title: 'November Food Drive',
+    title: 'November Nutrition Programme',
     date: 'November 23, 2024',
     location: 'Lenasia',
     description: 'Community food drive providing meals to 180 families.',
@@ -55,7 +55,7 @@ const activities = [
   },
   {
     id: 'september2024',
-    title: 'September Food Distribution',
+    title: 'September Nutrition Programme',
     date: 'September 21, 2024',
     location: 'Lenasia',
     description: 'Food distribution supporting 200 families in Soweto.',
@@ -126,33 +126,34 @@ const RecentActivities = () => {
             <CarouselContent className="-ml-4">
               {activities.map((activity, index) => (
                 <CarouselItem key={activity.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <div className="h-[425px] sm:h-[475px] md:h-[500px] flex flex-col bg-white rounded-lg overflow-hidden border-2 border-indian-saffron/40 hover:border-indian-saffron/60 hover:shadow-lg transition-all hover:scale-[1.02] duration-300">
+                  <div className="h-[420px] sm:h-[470px] md:h-[495px] flex flex-col bg-white rounded-lg overflow-hidden border-2 border-indian-saffron/40 hover:border-indian-saffron/60 hover:shadow-lg transition-all hover:scale-[1.02] duration-300">
                     <Link to={activity.link} className="h-full flex flex-col">
-                      <div className="h-[70%] bg-gradient-to-br from-indian-cream to-white flex items-center justify-center px-4">
+                      <div className="h-[75%] bg-gradient-to-br from-indian-cream to-white flex items-center justify-center px-4">
                         <img
                           src={activity.image}
                           alt={activity.title}
                           className="w-[90%] h-full object-contain transform hover:scale-105 transition-transform duration-300"
                         />
                       </div>
-                      <div className="flex-grow p-4 bg-gradient-to-br from-indian-cream to-white border-t-2 border-indian-saffron/40">
+                      <div className="flex-grow p-4 pb-6 bg-gradient-to-br from-indian-cream to-white border-t-2 border-indian-saffron/40 text-center">
                         <h3 className="text-lg md:text-xl font-heading font-semibold mb-1 md:mb-2 text-indian-maroon">
                           {activity.title}
                         </h3>
-                        <div className="flex items-center text-xs md:text-sm text-indian-saffron mb-1">
+                        <div className="flex items-center justify-center text-xs md:text-sm text-indian-saffron mb-1">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                           </svg>
                           <span>{activity.date}</span>
                         </div>
-                        <div className="flex items-center text-xs md:text-sm text-gray-600 mb-2">
+                        <div className="flex items-center justify-center text-xs md:text-sm text-gray-600">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                           </svg>
                           <span>{activity.location}</span>
                         </div>
-                        <p className="text-sm md:text-base text-gray-700">{activity.description}</p>
+                        <div className="h-8"></div>
+
                       </div>
                     </Link>
                   </div>

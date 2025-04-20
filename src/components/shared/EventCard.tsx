@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
 import './eventcard.css';
 
 interface EventCardProps {
@@ -34,12 +34,22 @@ const EventCard = ({
           />
         </div>
       )}
-      <div className="p-4 bg-gradient-to-br from-indian-cream to-white border-t-2 border-indian-saffron/40">
-        <h3 className="text-xl font-heading font-semibold text-indian-maroon mb-2 text-center">{title}</h3>
+      <div className="p-6 bg-gradient-to-br from-indian-cream to-white">
+        <h3 className="text-xl font-heading font-semibold text-indian-maroon mb-4 text-center">{title}</h3>
         <div className="space-y-2 text-center">
-          <p className="text-gray-700">{date}{time && ` ${time}`}</p>
-          <p className="text-gray-700">{location}</p>
-          <p className="text-gray-700">{description}</p>
+          <div className="flex items-center justify-center text-indian-saffron mb-2">
+            <Calendar className="h-5 w-5 mr-2" />
+            <p className="text-gray-700">{date}{time && ` ${time}`}</p>
+          </div>
+          {location && (
+            <div className="flex items-center justify-center text-gray-600 mb-2">
+              <MapPin className="h-5 w-5 mr-2 text-indian-saffron" />
+              <p className="text-gray-700">{location}</p>
+            </div>
+          )}
+          {description && description.length > 0 && (
+            <p className="text-gray-700 mt-2">{description}</p>
+          )}
         </div>
       </div>
     </div>
