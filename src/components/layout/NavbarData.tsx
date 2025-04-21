@@ -28,7 +28,7 @@ export const navigation: NavItem[] = [
       { name: 'Nutrition Programme and Community Outreach', href: '/services/nutrition-programme' },
     ]
   },
-  { name: 'Gallery', href: '/gallery' },
+
   { name: 'New Ashram Project', href: '/new-ashram-project' },
   {
     name: 'Learn',

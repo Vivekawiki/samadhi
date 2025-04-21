@@ -2,6 +2,9 @@ import React from 'react';
 import { Heart, Calendar, MapPin, Users, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageLayout from '@/components/layout/PageLayout';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Soup, Utensils } from 'lucide-react';
 
 const NutritionProgramme = () => {
   // All nutrition programme images
@@ -148,8 +151,6 @@ const NutritionProgramme = () => {
                     </button>
                   </div>
                 </div>
-
-
               </div>
 
               <div className="bg-gradient-to-br from-indian-cream to-white rounded-lg shadow-sm border border-indian-saffron/20 my-8">
@@ -220,85 +221,17 @@ const NutritionProgramme = () => {
                   <p className="text-gray-700 mb-4">
                     Our community outreach programs rely on the generous support of volunteers and donors.
                     If you would like to contribute your time, skills, or resources to any of these initiatives,
-                    please contact our Community Service Coordinator.
+                    please contact us on our <Link to="/contact" className="text-indian-saffron hover:underline font-medium">Contact Page</Link>.
                   </p>
                   <p className="italic text-gray-600 border-l-2 border-spiritual-300 pl-4">
-                    "The best way to find yourself is to lose yourself in the service of others." - Mahatma Gandhi
+                    "Awake, awake, great ones! The world is burning with misery. Can you sleep? Let us call and call till the sleeping gods awake, till the god within answers to the call. What more is in life? What greater work? The details come to me as I go. I never make plans. Plans grow and work themselves. I only say, awake, awake!"<br />
+                    - Swami Vivekananda
                   </p>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
-                <div className="bg-gradient-to-br from-indian-cream to-white p-6 rounded-lg shadow-sm border border-indian-saffron/30">
-                  <h3 className="text-xl font-heading font-semibold mb-4 text-indian-blue flex items-center gap-2">
-                    <Calendar className="w-5 h-5 text-indian-saffron" />
-                    Programme Schedule
-                  </h3>
-                  <ul className="space-y-3 text-gray-700">
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-indian-saffron"></span>
-                      Daily Meals: 12:00 PM - 2:00 PM
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-indian-saffron"></span>
-                      Food Parcel Distribution: Every Saturday
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-indian-saffron"></span>
-                      School Feeding: During School Terms
-                    </li>
-                  </ul>
-                </div>
 
-                <div className="bg-gradient-to-br from-indian-cream to-white p-6 rounded-lg shadow-sm border border-indian-saffron/30">
-                  <h3 className="text-xl font-heading font-semibold mb-4 text-indian-blue flex items-center gap-2">
-                    <MapPin className="w-5 h-5 text-indian-saffron" />
-                    Locations
-                  </h3>
-                  <ul className="space-y-3 text-gray-700">
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-indian-saffron"></span>
-                      Main Centre Kitchen
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-indian-saffron"></span>
-                      Mobile Distribution Points
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-indian-saffron"></span>
-                      Partner Schools
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-indian-cream to-white p-8 rounded-lg border border-indian-saffron/30 shadow-sm">
-                <h3 className="text-xl font-heading font-semibold mb-6 text-indian-blue flex items-center gap-2">
-                  <Users className="w-6 h-6 text-indian-saffron" />
-                  How to Help
-                </h3>
-                <p className="text-gray-700 mb-6">
-                  You can support our Nutrition Programme through:
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="bg-gradient-to-br from-indian-cream to-white p-4 rounded-lg border border-indian-saffron/30">
-                    <h4 className="font-semibold mb-2 text-indian-maroon">Volunteer</h4>
-                    <p className="text-sm text-gray-700">Join us in food preparation and distribution</p>
-                  </div>
-                  <div className="bg-gradient-to-br from-indian-cream to-white p-4 rounded-lg border border-indian-saffron/30">
-                    <h4 className="font-semibold mb-2 text-indian-maroon">Donate</h4>
-                    <p className="text-sm text-gray-700">Contribute food items or funds</p>
-                  </div>
-                  <div className="bg-gradient-to-br from-indian-cream to-white p-4 rounded-lg border border-indian-saffron/30">
-                    <h4 className="font-semibold mb-2 text-indian-maroon">Spread Awareness</h4>
-                    <p className="text-sm text-gray-700">Help us reach more people in need</p>
-                  </div>
-                  <div className="bg-gradient-to-br from-indian-cream to-white p-4 rounded-lg border border-indian-saffron/30">
-                    <h4 className="font-semibold mb-2 text-indian-maroon">Partner With Us</h4>
-                    <p className="text-sm text-gray-700">Join as a business or organization</p>
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>

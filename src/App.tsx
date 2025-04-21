@@ -28,10 +28,6 @@ import SpecialFunctions from "./pages/Services/SpecialFunctions.tsx";
 import NutritionProgramme from "./pages/Services/NutritionProgramme";
 import FullSizeImage from "./pages/Services/FullSizeImage";
 
-// Import Gallery pages
-import GalleryPage from "./pages/Gallery/GalleryPage";
-import GalleryAlbum from "@/components/gallery/GalleryAlbum";
-import GalleryPhotoGrid from "@/components/gallery/GalleryPhotoGrid";
 
 // Import New Ashram Project Section
 import NewAshramProjectPage from "./pages/NewAshramProject/NewAshramProjectPage";
@@ -92,10 +88,6 @@ const App = () => (
               <Route path="/services/nutrition-programme" element={<NutritionProgramme />} />
               <Route path="/services/nutrition-programme/image/:imageId" element={<FullSizeImage />} />
 
-            {/* Gallery Section */}
-            <Route path="/gallery" element={<GalleryPage />} />
-            <Route path="/gallery/:categoryId" element={<GalleryAlbum />} />
-            <Route path="/gallery/:categoryId/:albumId" element={<GalleryPhotoGrid />} />
 
             {/* New Ashram Project Section */}
             <Route path="/new-ashram-project" element={<NewAshramProjectPage />} />
