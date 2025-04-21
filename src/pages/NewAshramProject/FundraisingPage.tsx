@@ -7,8 +7,15 @@ import { Link } from 'react-router-dom';
 const FundraisingPage = () => {
   return (
     <PageLayout title="Fundraising">
-      <div className="min-h-screen w-full bg-gradient-to-br from-indian-cream to-white">
-        <div className="w-full">
+      <div className="min-h-screen w-full bg-gradient-to-br from-indian-cream to-white relative">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/pics/nad.jpg" 
+            alt="New Ashram Project Fundraising" 
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
+        <div className="w-full relative z-10">
           <div className="container mx-auto px-4 py-12">
             <div className="max-w-4xl mx-auto">
               <SectionHeader 
@@ -37,6 +44,9 @@ const FundraisingPage = () => {
                   </div>
                   <p className="text-sm text-gray-600 text-center">
                     16.7% of our goal reached. Thank you to all our donors!
+                  </p>
+                  <p className="text-xs text-gray-500 text-center mt-2">
+                    *Note: These are approximate values and may vary slightly.
                   </p>
                 </div>
                 
@@ -80,51 +90,13 @@ const FundraisingPage = () => {
                   </div>
                 </div>
                 
-                <div className="p-6 border border-indian-saffron/30 rounded-lg shadow-sm bg-gradient-to-r from-indian-cream to-white my-8">
-                  <h4 className="text-xl font-heading font-semibold mb-3">In Person</h4>
-                  <p className="mb-2">
-                    Visit our centre to make a donation in person by cash, check, or card:
-                  </p>
-                  <p className="text-sm mb-4">
-                    <strong>Address:</strong> Postnet Suite 204, Private Bag X3, Northriding, 2162<br />
-                  </p>
-                  <Button href="/contact">
-                    Contact Us
-                  </Button>
-                </div>
-                
-                <h3 className="text-2xl font-heading font-semibold mb-4">Donation Programs</h3>
-                <div className="bg-gradient-to-r from-indian-cream to-white p-6 rounded-lg my-8 border border-indian-saffron/30">
-                  <p className="mb-4">
-                    We offer several specific donation programs to suit different interests and capacities:
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="bg-gradient-to-br from-indian-cream to-white p-4 rounded border border-indian-saffron/20">
-                      <h5 className="font-semibold mb-2">Monthly Giving</h5>
-                      <p className="text-sm">Set up a recurring monthly donation to support the project over time.</p>
-                    </div>
-                    <div className="bg-gradient-to-br from-indian-cream to-white p-4 rounded border border-indian-saffron/20">
-                      <h5 className="font-semibold mb-2">Named Gifts</h5>
-                      <p className="text-sm">Donate toward specific rooms or facilities in memory of loved ones.</p>
-                    </div>
-                    <div className="bg-gradient-to-br from-indian-cream to-white p-4 rounded border border-indian-saffron/20">
-                      <h5 className="font-semibold mb-2">Corporate Sponsorship</h5>
-                      <p className="text-sm">Businesses can sponsor major aspects of the project.</p>
-                    </div>
-                    <div className="bg-gradient-to-br from-indian-cream to-white p-4 rounded border border-indian-saffron/20">
-                      <h5 className="font-semibold mb-2">Material Donations</h5>
-                      <p className="text-sm">Contribute building materials, furniture, or other needed items.</p>
-                    </div>
-                  </div>
-                </div>
-                
                 <div className="bg-gradient-to-r from-indian-cream to-white p-6 rounded-lg my-8 border border-indian-saffron/30">
                   <h4 className="text-xl font-heading font-semibold mb-2">Tax Benefits</h4>
                   <p>
                     The Ramakrishna Centre of South Africa is a registered non-profit organization. Certain local donations to the Centre may qualify for Section 18A taxation benefits from the South African Revenue Service.
                   </p>
                   <p className="mt-4">
-                    Tax certificates will be issued for all qualifying donations. Please ensure you provide your full name and contact details when making a donation.
+                    Please consult a tax advisor to understand your tax implications.
                   </p>
                 </div>
                 

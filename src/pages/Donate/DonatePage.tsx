@@ -97,48 +97,87 @@ const DonatePage = () => {
     <PageLayout>
       <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12 -mt-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <PageHeader
-          title="Support Our Mission"
-          subtitle="Your generosity helps us serve the community and spread the teachings of Sri Ramakrishna, Sri Sarada Devi, and Swami Vivekananda."
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-          <div className="space-y-6">
-            <Card className="p-6 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron pop-shadow-card">
-              <h2 className="text-2xl font-heading font-semibold mb-4">Why Donate?</h2>
-              <p className="mb-4">Your donations support our various spiritual and humanitarian services including:</p>
-              <ul className="list-disc pl-5 space-y-2">
-                <li>Spiritual gatherings and educational programs</li>
-                <li>Nutrition Programme for underprivileged communities</li>
-                <li>Women Empowerment Programme</li>
-                <li>Children's value education classes</li>
-                <li>Maintenance of our temple and facilities</li>
-                <li>New Ashram Project development</li>
-              </ul>
-            </Card>
-
-            <div className="p-4 bg-gradient-to-br from-spiritual-50 to-white border-l-4 border-spiritual-500 rounded pop-shadow-card">
-              <p className="italic">"It is a privilege to serve mankind, for this is the worship of God. God is here, in all these human souls. He is the soul of man." - Swami Vivekananda</p>
+          <div className="relative h-[400px] w-full mb-8 rounded-lg overflow-hidden">
+            <img 
+              src="/pics/belurmath.jpg" 
+              alt="Belur Math" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            <div className="absolute top-0 left-0 p-8 text-white">
+              <h1 className="text-4xl font-heading font-bold">Support Our Mission</h1>
+            </div>
+            <div className="absolute bottom-0 right-0 p-4 text-white text-sm italic">
+              Belur Math, Headquarters of the Ramakrishna Math and Mission
             </div>
           </div>
 
-          <Card className="p-6 shadow-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron pop-shadow-card">
-            <h2 className="text-2xl font-heading font-semibold mb-4 flex items-center">
-              <Heart className="mr-2 text-red-500" />
-              Make a Donation
-            </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            <div className="space-y-6">
+              <Card className="p-6 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron pop-shadow-card">
+                <h2 className="text-2xl font-heading font-semibold mb-4">Why Donate?</h2>
+                <p className="mb-4">Your donations support our various spiritual and humanitarian services including:</p>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li>Spiritual gatherings and educational programs</li>
+                  <li>Nutrition Programme for underprivileged communities</li>
+                  <li>Women Empowerment Programme</li>
+                  <li>Children's value education classes</li>
+                  <li>Maintenance of our temple and facilities</li>
+                  <li>New Ashram Project development</li>
+                </ul>
+              </Card>
 
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(handleDonate)} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+              <div className="p-4 bg-gradient-to-br from-spiritual-50 to-white border-l-4 border-spiritual-500 rounded pop-shadow-card">
+                <p className="italic">"It is a privilege to serve mankind, for this is the worship of God. God is here, in all these human souls. He is the soul of man." - Swami Vivekananda</p>
+              </div>
+            </div>
+
+            <Card className="p-6 shadow-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron pop-shadow-card">
+              <h2 className="text-2xl font-heading font-semibold mb-4 flex items-center">
+                <Heart className="mr-2 text-red-500" />
+                Make a Donation
+              </h2>
+
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(handleDonate)} className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <FormField
+                      control={form.control}
+                      name="firstName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>First Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Your first name" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="lastName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Last Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Your last name" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
                   <FormField
                     control={form.control}
-                    name="firstName"
+                    name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>First Name</FormLabel>
+                        <FormLabel>Email Address</FormLabel>
                         <FormControl>
-                          <Input placeholder="Your first name" {...field} />
+                          <Input type="email" placeholder="your.email@example.com" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -147,128 +186,99 @@ const DonatePage = () => {
 
                   <FormField
                     control={form.control}
-                    name="lastName"
+                    name="mobile"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Last Name</FormLabel>
+                        <FormLabel>Mobile Number</FormLabel>
                         <FormControl>
-                          <Input placeholder="Your last name" {...field} />
+                          <Input type="tel" placeholder="Your mobile number" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-                </div>
 
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email Address</FormLabel>
-                      <FormControl>
-                        <Input type="email" placeholder="your.email@example.com" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                  <FormField
+                    control={form.control}
+                    name="purpose"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Purpose of Donation</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select purpose" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {donationPurposes.map((purpose) => (
+                              <SelectItem key={purpose} value={purpose}>{purpose}</SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-                <FormField
-                  control={form.control}
-                  name="mobile"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Mobile Number</FormLabel>
-                      <FormControl>
-                        <Input type="tel" placeholder="Your mobile number" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="purpose"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Purpose of Donation</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select purpose" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          {donationPurposes.map((purpose) => (
-                            <SelectItem key={purpose} value={purpose}>{purpose}</SelectItem>
+                  <FormField
+                    control={form.control}
+                    name="amount"
+                    render={({ field: { onChange, value } }) => (
+                      <FormItem>
+                        <FormLabel>Donation Amount (ZAR)</FormLabel>
+                        <div className="grid grid-cols-2 gap-3 mb-4">
+                          {presetAmounts.map((preset) => (
+                            <button
+                              key={preset}
+                              type="button"
+                              onClick={() => onChange(preset)}
+                              className={`py-2 px-4 border rounded-md ${
+                                value === preset
+                                  ? 'bg-spiritual-100 border-spiritual-500 text-spiritual-700'
+                                  : 'border-gray-300 hover:bg-gray-50'
+                              }`}
+                            >
+                              R{preset}
+                            </button>
                           ))}
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="amount"
-                  render={({ field: { onChange, value } }) => (
-                    <FormItem>
-                      <FormLabel>Donation Amount (ZAR)</FormLabel>
-                      <div className="grid grid-cols-2 gap-3 mb-4">
-                        {presetAmounts.map((preset) => (
-                          <button
-                            key={preset}
-                            type="button"
-                            onClick={() => onChange(preset)}
-                            className={`py-2 px-4 border rounded-md ${
-                              value === preset
-                                ? 'bg-spiritual-100 border-spiritual-500 text-spiritual-700'
-                                : 'border-gray-300 hover:bg-gray-50'
-                            }`}
-                          >
-                            R{preset}
-                          </button>
-                        ))}
-                      </div>
-                      <FormLabel className="mt-4">Or enter a custom amount</FormLabel>
-                      <div className="relative rounded-md shadow-sm">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <span className="text-gray-500">R</span>
                         </div>
-                        <Input
-                          type="number"
-                          min="10"
-                          value={value}
-                          onChange={(e) => onChange(Number(e.target.value))}
-                          className="pl-8"
-                        />
-                      </div>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                        <FormLabel className="mt-4">Or enter a custom amount</FormLabel>
+                        <div className="relative rounded-md shadow-sm">
+                          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <span className="text-gray-500">R</span>
+                          </div>
+                          <Input
+                            type="number"
+                            min="10"
+                            value={value}
+                            onChange={(e) => onChange(Number(e.target.value))}
+                            className="pl-8"
+                          />
+                        </div>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-                <Button
-                  type="submit"
-                  disabled={isProcessing}
-                  className="w-full bg-spiritual-600 hover:bg-spiritual-700 text-white py-3 flex items-center justify-center space-x-2"
-                >
-                  <CreditCard className="h-5 w-5" />
-                  <span>{isProcessing ? 'Processing...' : `Donate`}</span>
-                </Button>
-              </form>
-            </Form>
+                  <Button
+                    type="submit"
+                    disabled={isProcessing}
+                    className="w-full bg-spiritual-600 hover:bg-spiritual-700 text-white py-3 flex items-center justify-center space-x-2"
+                  >
+                    <CreditCard className="h-5 w-5" />
+                    <span>{isProcessing ? 'Processing...' : `Donate`}</span>
+                  </Button>
+                </form>
+              </Form>
 
-            <p className="text-xs text-gray-500 text-center mt-4">
-              Secure payment processing provided by PayFast.
-              <br />
-              The Ramakrishna Centre is a registered Non-Profit Organization.
-            </p>
-          </Card>
-        </div>
+              <p className="text-xs text-gray-500 text-center mt-4">
+                Secure payment processing provided by PayFast.
+                <br />
+                The Ramakrishna Centre is a registered Non-Profit Organization.
+              </p>
+            </Card>
+          </div>
         </div>
       </div>
     </PageLayout>

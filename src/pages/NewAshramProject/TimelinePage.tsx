@@ -69,8 +69,15 @@ const TimelinePage = () => {
 
   return (
     <PageLayout title="Timeline & Progress">
-      <div className="min-h-screen w-full bg-gradient-to-br from-indian-cream to-white">
-        <div className="w-full">
+      <div className="min-h-screen w-full bg-gradient-to-br from-indian-cream to-white relative">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/pics/nad.jpg" 
+            alt="New Ashram Project Timeline" 
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
+        <div className="w-full relative z-10">
           <div className="container mx-auto px-4 py-12">
             <div className="max-w-4xl mx-auto">
               <SectionHeader 
@@ -80,14 +87,6 @@ const TimelinePage = () => {
               />
               
               <div className="prose prose-lg max-w-none mb-12">
-                <div className="my-8 rounded-lg overflow-hidden shadow-md">
-                  <img 
-                    src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-                    alt="Construction Progress" 
-                    className="w-full h-auto"
-                  />
-                </div>
-                
                 <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg mb-8">
                   <h3 className="text-2xl font-heading font-semibold mb-4">Project Timeline</h3>
                   <p className="mb-6">

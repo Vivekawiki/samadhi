@@ -12,7 +12,7 @@ const NewAshramProjectPage = () => {
         <div className="inline-block p-6 rounded-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01] text-center">
           <h1 className="text-3xl font-heading font-bold mb-4 text-black">New Ashram Project</h1>
           <p className="text-gray-700">
-            Help us build a new spiritual home for our community
+            Help us build a new spiritual home in Johannesburg
           </p>
         </div>
       </div>
@@ -22,7 +22,9 @@ const NewAshramProjectPage = () => {
         <div className="max-w-4xl mx-auto">
           <div className="prose prose-lg max-w-none mb-12">
             <p className="lead text-xl text-gray-700">
-              The Ramakrishna Centre of South Africa, Johannesburg, is embarking on an important journey to build a new ashram to better serve our growing community and expand our spiritual, educational, and humanitarian services.
+              The Johannesburg Centre conducts a wide-range of welfare work and is developing a fixed premises to expand on this.
+The sole purpose of this development is to serve and uplift society and to promote spirituality and tranquility,
+where devotees can find God in themselves and around them.
             </p>
 
             <div className="my-8 grid grid-cols-1 md:grid-cols-3 gap-8">
