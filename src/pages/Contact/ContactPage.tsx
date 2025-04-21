@@ -176,14 +176,14 @@ const ContactPage = () => {
                 alignment="left"
               />
 
-              <div className="space-y-6 mt-8 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg pop-shadow-card">
+              <div className="space-y-5 mt-8 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-5 rounded-lg pop-shadow-card">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
                     <Mail className="h-6 w-6 text-spiritual-500 mt-1" />
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-medium text-gray-900">Email</h3>
-                    <p className="mt-1 text-gray-600">johannesburg@ramakrishna-phoenix.org.za</p>
+                    <h3 className="text-lg font-medium text-gray-900 mb-1">Email</h3>
+                    <p className="text-gray-600 mt-0">johannesburg@ramakrishna-phoenix.org.za</p>
                   </div>
                 </div>
 
@@ -192,25 +192,22 @@ const ContactPage = () => {
                     <MapPin className="h-6 w-6 text-spiritual-500 mt-1" />
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-medium text-gray-900">Address</h3>
-                    <p className="mt-1 text-gray-600">
-                      Postnet Suite 204, Private Bag X3,<br />
-                      Northriding, 2162
-                    </p>
+                    <h3 className="text-lg font-medium text-gray-900 mb-1">Address</h3>
+                    <p className="text-gray-600 mt-0">Postnet Suite 204, Private Bag X3, Northriding, 2162</p>
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg">
-                  <h3 className="text-lg font-medium text-gray-900 mb-4">Persons in Charge</h3>
+                <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-5 rounded-lg">
+                  <h3 className="text-lg font-medium text-gray-900 mb-3">Persons in Charge</h3>
 
-                  <div className="space-y-4">
+                  <div className="space-y-2">
                     <div className="flex items-start">
                       <div className="flex-shrink-0">
                         <User className="h-5 w-5 text-spiritual-500 mt-1" />
                       </div>
                       <div className="ml-3">
-                        <p className="font-medium">President</p>
-                        <p className="text-gray-600">Revered Swami Saradaprabhananda</p>
+                        <p className="font-medium mb-1">President</p>
+                        <p className="text-gray-600 mt-0">Revered Swami Saradaprabhananda</p>
                       </div>
                     </div>
 
@@ -219,8 +216,8 @@ const ContactPage = () => {
                         <User className="h-5 w-5 text-spiritual-500 mt-1" />
                       </div>
                       <div className="ml-3">
-                        <p className="font-medium">Swami in Charge</p>
-                        <p className="text-gray-600">Revered Swami Viprananda</p>
+                        <p className="font-medium mb-1">Swami in Charge</p>
+                        <p className="text-gray-600 mt-0">Revered Swami Viprananda</p>
                       </div>
                     </div>
 
@@ -229,8 +226,8 @@ const ContactPage = () => {
                         <User className="h-5 w-5 text-spiritual-500 mt-1" />
                       </div>
                       <div className="ml-3">
-                        <p className="font-medium">Chairperson</p>
-                        <p className="text-gray-600">Mr. Naresh Ramatar (+27) 82 923 6537</p>
+                        <p className="font-medium mb-1">Chairperson</p>
+                        <p className="text-gray-600 mt-0">Mr. Naresh Ramatar (+27) 82 923 6537</p>
                       </div>
                     </div>
 
@@ -239,8 +236,8 @@ const ContactPage = () => {
                         <User className="h-5 w-5 text-spiritual-500 mt-1" />
                       </div>
                       <div className="ml-3">
-                        <p className="font-medium">Secretary</p>
-                        <p className="text-gray-600">Mr. Pranil Bhodraj (+27) 72 052 1284</p>
+                        <p className="font-medium mb-1">Secretary</p>
+                        <p className="text-gray-600 mt-0">Mr. Pranil Bhodraj (+27) 72 052 1284</p>
                       </div>
                     </div>
                   </div>
