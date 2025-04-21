@@ -80,14 +80,13 @@ const App = () => (
             </Route>
 
             {/* Services Section */}
-            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services" element={<ServicesPage />}>
               <Route path="/services/satsangs" element={<Satsangs />} />
               <Route path="/services/hinduism-for-children" element={<HinduismForChildren />} />
               <Route path="/services/special-functions" element={<SpecialFunctions />} />
-
               <Route path="/services/nutrition-programme" element={<NutritionProgramme />} />
               <Route path="/services/nutrition-programme/image/:imageId" element={<FullSizeImage />} />
-
+            </Route>
 
             {/* New Ashram Project Section */}
             <Route path="/new-ashram-project" element={<NewAshramProjectPage />} />

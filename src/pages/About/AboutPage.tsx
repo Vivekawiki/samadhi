@@ -28,25 +28,29 @@ const AboutPage = () => {
         </div>
       </div>
 
-      <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12">
+      <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12 -mt-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* About Navigation */}
-        <div className="mb-12">
-          <nav className="flex space-x-8 overflow-x-auto pb-3 scrollbar-none">
-            {aboutLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className={`tab-nav-link text-md ${link.name.length > 15 ? 'long-item' : ''} ${
-                  location.pathname === link.path
-                    ? 'active text-spiritual-500'
-                    : 'text-gray-500'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
+        <div className="mb-8 flex justify-center">
+          <div className="p-0.5 rounded-full bg-gradient-to-r from-indian-saffron/40 to-indian-saffron/20 shadow-md">
+            <nav className="inline-flex items-center overflow-x-auto scrollbar-none max-w-fit mx-auto px-6 py-3 bg-white/90 rounded-full border border-indian-saffron/30">
+              {aboutLinks.map((link, index) => (
+                <React.Fragment key={link.name}>
+                  {index > 0 && <span className="mx-2 text-gray-400 font-light">|</span>}
+                  <Link
+                    to={link.path}
+                    className={`tab-nav-link text-md ${link.name.length > 15 ? 'long-item' : ''} ${
+                      location.pathname === link.path
+                        ? 'active text-spiritual-500'
+                        : 'text-gray-500'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                </React.Fragment>
+              ))}
+            </nav>
+          </div>
         </div>
 
         {isMainAboutPage ? (

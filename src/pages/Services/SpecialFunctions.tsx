@@ -5,9 +5,10 @@ const SpecialFunctions = () => {
   return (
     <PageLayout title="Upcoming Events">
       <div className="w-full bg-white">
-        <div className="w-full bg-gradient-to-br from-indian-cream to-white border-t border-indian-saffron/30">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div className="max-w-4xl mx-auto">
+        <div className="w-full bg-gradient-to-br from-indian-cream to-white">
+          {/* Replaced py-8 with pb-8 */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8"> 
+            <div className="max-w-4xl mx-auto mt-8">
               <div className="inline-block p-6 rounded-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01] text-center w-full mb-8">
                 <h1 className="text-3xl font-heading font-bold mb-4 text-black">Upcoming Events</h1>
                 <p className="text-gray-700">
@@ -70,6 +71,3 @@ const SpecialFunctions = () => {
 };
 
 export default SpecialFunctions;
-
-
-

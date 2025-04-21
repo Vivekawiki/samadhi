@@ -1,21 +1,20 @@
 import React from 'react';
-import PageLayout from '@/components/layout/PageLayout';
 
 const Satsangs = () => {
   return (
-    <PageLayout title="Satsangs">
       <div className="w-full bg-white">
-        <div className="w-full bg-gradient-to-br from-indian-cream to-white border-t border-indian-saffron/30">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div className="max-w-4xl mx-auto">
-              <div className="inline-block p-6 rounded-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01] text-center w-full mb-8">
-                <h1 className="text-3xl font-heading font-bold mb-4 text-black">Satsangs</h1>
+      <div className="w-full bg-gradient-to-br from-indian-cream to-white">
+        {/* Removed py-4 from this container */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> 
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-block p-6 rounded-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01] text-center w-full">
+              <h1 className="text-3xl font-heading font-bold mb-4 text-black">Satsangs</h1>
                 <p className="text-gray-700">
                   Join our regular spiritual gatherings which include the chanting of prayers, meditation, and a discourse on Vedantic Philosophy and Principles
                 </p>
               </div>
 
-              <div className="mt-12 bg-gradient-to-br from-indian-cream to-white rounded-lg p-6 shadow-sm border border-indian-saffron/20">
+              <div className="bg-gradient-to-br from-indian-cream to-white rounded-lg p-6 shadow-sm border border-indian-saffron/20">
                 <h3 className="text-2xl font-heading font-semibold mb-6">Satsang Information</h3>
 
                 <div className="space-y-8">
@@ -38,11 +37,7 @@ const Satsangs = () => {
           </div>
         </div>
       </div>
-    </PageLayout>
   );
 };
 
 export default Satsangs;
-
-
-
