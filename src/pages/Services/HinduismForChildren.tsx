@@ -15,27 +15,43 @@ const HinduismForChildren = () => {
                   <Star className="w-6 h-6 text-indian-saffron" />
                 </h1>
                 <p className="text-gray-700">
-                  Fun and engaging programs to help children learn about Hindu values and culture
+                  Interactive and engaging programs to help children learn about Hindu values and culture
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <div className="bg-gradient-to-br from-indian-cream to-yellow-50 rounded-2xl border-2 border-indian-saffron p-6 text-center hover:shadow-md transition-all duration-300">
-                  <Book className="w-12 h-12 text-indian-saffron mx-auto mb-4" />
-                  <h3 className="text-xl font-heading font-semibold mb-3">Weekly Classes</h3>
-                  <p className="text-gray-700">Interactive lessons on Hindu scriptures, stories, and values</p>
-                </div>
+              <div className="bg-gradient-to-br from-indian-cream to-white rounded-lg p-6 shadow-sm border border-indian-saffron/20 mt-12">
+                <h3 className="text-2xl font-heading font-semibold mb-6">Class Information</h3>
 
-                <div className="bg-gradient-to-br from-indian-cream to-yellow-50 rounded-2xl border-2 border-indian-saffron p-6 text-center hover:shadow-md transition-all duration-300">
-                  <Calendar className="w-12 h-12 text-indian-saffron mx-auto mb-4" />
-                  <h3 className="text-xl font-heading font-semibold mb-3">Festival Celebrations</h3>
-                  <p className="text-gray-700">Special programs during major Hindu festivals</p>
+                <div className="bg-gradient-to-br from-indian-cream to-yellow-50 rounded-2xl border-2 border-indian-saffron p-6 hover:shadow-md transition-all duration-300">
+                  <h4 className="text-xl font-heading font-semibold mb-3 flex items-center justify-center gap-2">
+                    <Book className="w-6 h-6 text-indian-saffron" />
+                    Hinduism for Children Classes
+                  </h4>
+                  <div className="space-y-3 mt-4">
+                    <p className="text-gray-700"><span className="font-semibold">When:</span> Every Saturday</p>
+                    <p className="text-gray-700"><span className="font-semibold">Time:</span> 9:15 AM - 10:15 AM</p>
+                    <p className="text-gray-700"><span className="font-semibold">Location:</span> Benvenuto Conference Centre</p>
+                    <p className="text-gray-700 mt-4">Weekly classes teaching Hinduism, Vedanta philosophy, and moral values to children through engaging activities and lessons.</p>
+                  </div>
                 </div>
+              </div>
 
-                <div className="bg-gradient-to-br from-indian-cream to-yellow-50 rounded-2xl border-2 border-indian-saffron p-6 text-center hover:shadow-md transition-all duration-300">
-                  <Users className="w-12 h-12 text-indian-saffron mx-auto mb-4" />
-                  <h3 className="text-xl font-heading font-semibold mb-3">Group Activities</h3>
-                  <p className="text-gray-700">Cultural activities, bhajans, and creative workshops</p>
+              <div className="bg-gradient-to-br from-indian-cream to-white rounded-lg p-6 shadow-sm border border-indian-saffron/20 mt-12">
+                <div className="text-center">
+                  <h3 className="text-2xl font-heading font-semibold mb-4">Online Learning Platform</h3>
+                  <div className="flex justify-center mb-6">
+                    <div className="w-16 h-16 bg-indian-saffron/10 rounded-full flex items-center justify-center">
+                      <Book className="w-8 h-8 text-indian-saffron" />
+                    </div>
+                  </div>
+                  <p className="text-gray-700 max-w-2xl mx-auto">
+                    We are happy to announce that our new online learning platform will be launching soon!
+                    This platform will provide interactive lessons, videos, and activities for children to
+                    learn about Hindu scriptures, stories, and values from the comfort of their homes.
+                  </p>
+                  <div className="mt-6 inline-block bg-indian-saffron/10 px-4 py-2 rounded-full text-indian-saffron font-medium">
+                    Coming Soon
+                  </div>
                 </div>
               </div>
             </div>

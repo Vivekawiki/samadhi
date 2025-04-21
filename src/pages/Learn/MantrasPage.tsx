@@ -38,12 +38,12 @@ const MantrasPage = () => {
     <PageLayout title="Learning Mantras">
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto">
-          <SectionHeader 
-            title="Learning Mantras" 
+          <SectionHeader
+            title="Learning Mantras"
             subtitle="Sacred sound formulas for meditation and spiritual practice"
             alignment="left"
           />
-          
+
           <div className="prose prose-lg max-w-none mb-8">
             <p>
               Mantras are sacred sounds, syllables, words, or phrases in Sanskrit that are repeated during meditation or rituals. Each mantra carries specific vibrations and meanings that can help focus the mind, invoke particular energies, and deepen spiritual connection.
@@ -52,18 +52,18 @@ const MantrasPage = () => {
               Below you'll find several important mantras with their meaning, audio pronunciation guides, and instructions for practice. We encourage you to approach these sacred sounds with respect and consistent practice.
             </p>
           </div>
-          
+
           <div className="space-y-12">
             {mantras.map((mantra) => (
               <div key={mantra.id} className="bg-white p-6 md:p-8 rounded-lg shadow-sm border border-gray-100">
                 <h2 className="text-2xl font-heading font-semibold mb-4">{mantra.title}</h2>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
                   <div className="col-span-1">
                     <h3 className="text-lg font-medium mb-2">Sanskrit</h3>
                     <p className="text-2xl font-sans leading-relaxed">{mantra.sanskrit}</p>
                   </div>
-                  
+
                   <div className="col-span-2">
                     <h3 className="text-lg font-medium mb-2">Audio Pronunciation</h3>
                     <div className="bg-gray-50 rounded-md p-4 flex items-center justify-center h-24">
@@ -74,17 +74,17 @@ const MantrasPage = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="mb-4">
                   <h3 className="text-lg font-medium mb-2">Description</h3>
                   <p>{mantra.description}</p>
                 </div>
-                
+
                 <div className="mb-4">
                   <h3 className="text-lg font-medium mb-2">Explanation</h3>
                   <p>{mantra.explanation}</p>
                 </div>
-                
+
                 <div>
                   <h3 className="text-lg font-medium mb-2">Practice Instructions</h3>
                   <p>{mantra.instructions}</p>
@@ -92,14 +92,14 @@ const MantrasPage = () => {
               </div>
             ))}
           </div>
-          
+
           <div className="bg-spiritual-50 p-6 rounded-lg my-12 border-l-4 border-spiritual-500">
             <h3 className="text-xl font-heading font-semibold mb-2">Learning with Guidance</h3>
             <p>
               While these resources can help you begin your practice, learning mantras directly from a qualified teacher is highly recommended for proper pronunciation and understanding. Consider joining our satsangs or special mantra chanting sessions at the centre.
             </p>
             <p className="mt-4">
-              Check our <a href="/services/satsangs" className="text-spiritual-600 hover:text-spiritual-700">Satsangs & Spiritual Gatherings</a> page for upcoming chanting sessions.
+              Check our <a href="/services/satsangs" className="text-spiritual-600 hover:text-spiritual-700">Satsangs</a> page for upcoming chanting sessions.
             </p>
           </div>
         </div>

@@ -8,11 +8,11 @@ const ServicesPage = () => {
 
   // Navigation links for Services section
   const servicesLinks = [
-    { name: "Satsangs & Spiritual Gatherings", path: "/services/satsangs" },
+    { name: "Satsangs", path: "/services/satsangs" },
     { name: "Hinduism for Children", path: "/services/hinduism-for-children" },
-    { name: "Special Functions & Festivals", path: "/services/special-functions" },
-    { name: "Community Outreach", path: "/services/community-outreach" },
-    { name: "Nutrition Programme", path: "/services/nutrition-programme" },
+    { name: "Upcoming Events", path: "/services/special-functions" },
+
+    { name: "Nutrition Programme and Community Outreach", path: "/services/nutrition-programme" },
   ];
 
   // Check if we're on the main services page or a subpage
@@ -32,22 +32,26 @@ const ServicesPage = () => {
       <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12 -mt-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Services Navigation */}
-        <div className="mb-8">
-          <nav className="flex space-x-8 overflow-x-auto pb-3 scrollbar-none">
-            {servicesLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className={`tab-nav-link text-md ${link.name.length > 15 ? 'long-item' : ''} ${
-                  location.pathname === link.path
-                    ? 'active text-spiritual-500'
-                    : 'text-gray-500'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
+        <div className="mb-8 flex justify-center">
+          <div className="p-0.5 rounded-full bg-gradient-to-r from-indian-saffron/40 to-indian-saffron/20 shadow-md">
+            <nav className="inline-flex items-center overflow-x-auto scrollbar-none max-w-fit mx-auto px-6 py-3 bg-white/90 rounded-full border border-indian-saffron/30">
+              {servicesLinks.map((link, index) => (
+                <React.Fragment key={link.name}>
+                  {index > 0 && <span className="mx-2 text-gray-400 font-light">|</span>}
+                  <Link
+                    to={link.path}
+                    className={`tab-nav-link text-md px-1 ${link.name.length > 15 ? 'long-item' : ''} ${
+                      location.pathname === link.path
+                        ? 'active text-spiritual-500'
+                        : 'text-gray-500'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                </React.Fragment>
+              ))}
+            </nav>
+          </div>
         </div>
 
         {isMainServicesPage ? (
@@ -72,10 +76,10 @@ const ServicesPage = () => {
                 >
                   <h3 className="text-xl font-heading font-semibold mb-2">{link.name}</h3>
                   <p className="text-gray-600 mb-2">
-                    {link.name === "Satsangs & Spiritual Gatherings" && "Join our regular spiritual gatherings, meditation sessions, and discourses."}
+                    {link.name === "Satsangs" && "Join our regular spiritual gatherings which include the chanting of prayers, meditation, and a discourse on Vedantic Philosophy and Principles."}
                     {link.name === "Hinduism for Children" && "Educational programs designed to teach Hindu values and philosophy to children."}
-                    {link.name === "Special Functions & Festivals" && "Celebrations of special occasions, holy days, and religious festivals."}
-                    {link.name === "Community Outreach" && "Our initiatives to serve the community through various welfare programs."}
+                    {link.name === "Upcoming Events" && "Celebrations of religious festivals and other special programmes extending our service activities (seminars/workshops etc)"}
+                    {link.name === "Nutrition Programme and Community Outreach" && "Our initiatives to serve the community through nutrition programs and various welfare activities."}
                   </p>
                   <span className="text-spiritual-500 inline-flex items-center">
                     Read More

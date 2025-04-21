@@ -8,7 +8,7 @@ import { BookOpen, Heart, Users, Baby, Star } from 'lucide-react';
 const services = [
   {
     title: "Spiritual Gatherings",
-    description: "Join our regular satsangs, meditation sessions, and spiritual discourses based on the teachings of Vedanta philosophy.",
+    description: "Join our regular spiritual gatherings which include the chanting of prayers, meditation, and a discourse on Vedantic Philosophy and Principles.",
     icon: <Users className="w-12 h-12 text-indian-saffron" />,
     link: "/services/satsangs"
   },
@@ -20,10 +20,10 @@ const services = [
     isChildThemed: true
   },
   {
-    title: "Community Outreach",
+    title: "Nutrition Programme and Community Outreach",
     description: "Various humanitarian services including nutrition programs, women empowerment initiatives, and educational support for the underprivileged.",
     icon: <Heart className="w-12 h-12 text-indian-saffron" />,
-    link: "/services/community-outreach"
+    link: "/services/nutrition-programme"
   }
 ];
 
@@ -35,14 +35,14 @@ const ServicesPreview = () => {
           title="Prayer Services"
           subtitle="Explore the various spiritual, educational, and humanitarian services we offer"
         />
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
           {services.map((service, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className={`flex flex-col items-center text-center p-6 ${
-                service.isChildThemed 
-                  ? "bg-gradient-to-br from-indian-cream to-yellow-50 rounded-2xl border-2 border-indian-saffron" 
+                service.isChildThemed
+                  ? "bg-gradient-to-br from-indian-cream to-yellow-50 rounded-2xl border-2 border-indian-saffron"
                   : "bg-gradient-to-br from-indian-cream to-white rounded-lg border border-indian-saffron"
               } hover:shadow-md transition-all duration-300 card-hover`}
             >
@@ -54,26 +54,26 @@ const ServicesPreview = () => {
                 {service.title}
               </h3>
               <p className="text-gray-600 mb-4">{service.description}</p>
-              <a 
-                href={service.link} 
+              <a
+                href={service.link}
                 className={`mt-auto inline-flex items-center ${
-                  service.isChildThemed 
-                    ? "text-indian-maroon hover:text-indian-vermilion" 
+                  service.isChildThemed
+                    ? "text-indian-maroon hover:text-indian-vermilion"
                     : "text-indian-saffron hover:text-indian-vermilion"
                 } font-medium`}
               >
                 Learn More
-                <svg 
-                  className="ml-1 w-4 h-4" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24" 
+                <svg
+                  className="ml-1 w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth="2" 
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M14 5l7 7m0 0l-7 7m7-7H3"
                   ></path>
                 </svg>
