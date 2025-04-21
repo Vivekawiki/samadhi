@@ -6,40 +6,50 @@ import { Card, CardContent } from '@/components/ui/card';
 const OurCentre = () => {
   return (
     <div className="animate-fade-in">
-      <SectionHeader 
-        title="Our Centre" 
+      <SectionHeader
+        title="Our Centre"
         subtitle="History, Mission, and Values of the Ramakrishna Centre of South Africa, Johannesburg"
         alignment="left"
       />
-      
+
       <div className="prose prose-lg max-w-none mb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div>
             <h3 className="text-2xl font-heading font-semibold mb-4">History</h3>
             <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg shadow-sm">
               <p>
-                The Ramakrishna Centre of South Africa, Johannesburg Branch, has a rich history dating back to [placeholder year]. It was established to serve the spiritual needs of the growing community interested in the universal teachings of Vedanta as exemplified by Sri Ramakrishna, Holy Mother Sri Sarada Devi, and Swami Vivekananda.
-              </p>
-              <p className="mt-4">
-                Over the decades, the Centre has grown from small gatherings in devotees' homes to a full-fledged spiritual and cultural institution serving thousands of people across Johannesburg and surrounding areas.
+                The idea of starting a Ramakrishna Movement in Africa had germinated in the mind of Swami Vivekananda, the principal architect of the organisation, for in 1897 he wrote to his brother monk, Swami Shivananda Mahapurush: "Mr Setlur... writes to me to send somebody to Africa... No immediate results can be expected but in the long run it will prove more beneficial work for India than any yet attempted."
               </p>
             </div>
           </div>
-          
+
           <div className="rounded-lg overflow-hidden shadow-md h-full flex">
-            <img 
-              src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-              alt="Ramakrishna Centre Building" 
+            <img
+              src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+              alt="Ramakrishna Centre Building"
               className="w-full h-full object-cover"
             />
           </div>
         </div>
-        
+
+        <Card className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 mb-12">
+          <CardContent className="p-6">
+            <h3 className="text-2xl font-heading font-semibold mb-4">About the Centre</h3>
+            <p className="mb-4">
+              The Ramakrishna Centre of South Africa was founded in 1942 by Swami Nischalananda.
+              The Johannesburg Centre which started in 1954 is a registered Public Benefit Organisation and Non-Profit Organisation (PBO No.: 930050436 NPO No.: 161-189 NPO) that has been engaged in various forms of humanitarian and social service activities in South Africa for more than seventy-five years.
+            </p>
+            <p>
+              The Ramakrishna Centre has been actively spreading the universal message of peace and harmony. It continues to contribute to the upliftment of disadvantaged communities through many of its outreach programmes, which include medical services, nutritional aid, skills development, women empowerment, youth resource development, educational services, support to HIV/AIDS hospices and the distribution of value-based literature.
+            </p>
+          </CardContent>
+        </Card>
+
         <Card className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 mb-12">
           <CardContent className="p-6">
             <h3 className="text-2xl font-heading font-semibold mb-4">Our Mission</h3>
             <p>
-              The mission of the Ramakrishna Centre of South Africa, Johannesburg Branch, is to propagate the universal teachings of Vedanta as exemplified in the lives of Sri Ramakrishna, Holy Mother Sri Sarada Devi, and Swami Vivekananda, and to promote:
+              The mission of the Ramakrishna Centre of South Africa, Johannesburg, is to propagate the universal teachings of Vedanta as exemplified in the lives of Sri Ramakrishna, Holy Mother Sri Sarada Devi, and Swami Vivekananda, and to promote:
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
               <div className="bg-white/50 p-4 rounded border border-indian-saffron/20">
@@ -60,7 +70,7 @@ const OurCentre = () => {
             </div>
           </CardContent>
         </Card>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <Card className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 h-full">
             <CardContent className="p-6">
@@ -108,13 +118,14 @@ const OurCentre = () => {
               </ul>
             </CardContent>
           </Card>
-          
+
           <Card className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 h-full">
             <CardContent className="p-6">
               <h4 className="text-xl font-heading font-semibold mb-2">Our Motto</h4>
               <div className="p-6 bg-white/70 rounded-lg mb-4 border border-indian-saffron/20">
-                <blockquote className="italic text-xl text-center text-gray-700">
-                  "For one's own liberation and for the welfare of the world."
+                <blockquote className="text-xl text-center text-gray-700">
+                  <div className="font-semibold mb-2">Atmano Mokshartam Jagat Hitaya Cha</div>
+                  <div className="italic">"For one's own salvation and for the welfare of the world"</div>
                 </blockquote>
               </div>
               <p className="text-gray-700">

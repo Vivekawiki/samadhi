@@ -24,7 +24,7 @@ const QuickInfo = () => {
 
             <div className="h-[250px] ashram-image-container pop-shadow-brown" style={{ marginBottom: '20px' }}>
               <img
-                src="/pics/nad.png"
+                src="/pics/nad.jpg"
                 alt="New Ashram Project"
                 className="ashram-image"
               />
