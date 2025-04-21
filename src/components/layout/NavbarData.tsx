@@ -14,7 +14,7 @@ export const navigation: NavItem[] = [
       { name: 'Our Centre', href: '/about/our-centre' },
       { name: 'Vedanta', href: '/about/vedanta' },
       { name: 'The Holy Trinity', href: '/about/holy-trinity' },
-      { name: 'Presence in South Africa', href: '/about/presence-in-sa' },
+
     ]
   },
   {

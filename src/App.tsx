@@ -16,7 +16,7 @@ import AboutPage from "./pages/About/AboutPage";
 import OurCentre from "./pages/About/OurCentre";
 import Vedanta from "./pages/About/Vedanta";
 import HolyTrinity from "./pages/About/HolyTrinity";
-import PresenceInSA from "./pages/About/PresenceInSA";
+
 import ContactPage from "./pages/Contact/ContactPage";
 
 // Import Services pages
@@ -80,7 +80,7 @@ const App = () => (
               <Route path="/about/our-centre" element={<OurCentre />} />
               <Route path="/about/vedanta" element={<Vedanta />} />
               <Route path="/about/holy-trinity" element={<HolyTrinity />} />
-              <Route path="/about/presence-in-sa" element={<PresenceInSA />} />
+
             </Route>
 
             {/* Services Section */}
@@ -124,11 +124,11 @@ const App = () => (
 
             {/* Dashboard Routes */}
             {/* Removed ProtectedRoute for testing */}
-            <Route path="/dashboard/student" element={<StudentDashboard />} /> 
+            <Route path="/dashboard/student" element={<StudentDashboard />} />
             {/* Removed ProtectedRoute for testing */}
-            <Route path="/dashboard/teacher" element={<TeacherDashboard />} /> 
+            <Route path="/dashboard/teacher" element={<TeacherDashboard />} />
             {/* Removed ProtectedRoute for testing */}
-            <Route path="/dashboard/admin" element={<AdminDashboard />} /> 
+            <Route path="/dashboard/admin" element={<AdminDashboard />} />
 
             {/* Donation Routes */}
             <Route path="/donate" element={<DonatePage />} />

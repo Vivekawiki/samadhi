@@ -11,7 +11,7 @@ const AboutPage = () => {
     { name: "Our Centre", path: "/about/our-centre" },
     { name: "Vedanta", path: "/about/vedanta" },
     { name: "The Holy Trinity", path: "/about/holy-trinity" },
-    { name: "Presence in South Africa", path: "/about/presence-in-sa" },
+
   ];
 
   // Check if we're on the main about page or a subpage

@@ -53,13 +53,13 @@ const OurCentre = () => {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
               <div className="bg-white/50 p-4 rounded border border-indian-saffron/20">
-                <p className="font-medium">The harmony of religions and the spiritual unity of humanity</p>
+                <p className="font-medium">Dissemination of Vedanta Philosophy</p>
+              </div>
+              <div className="bg-white/50 p-4 rounded border border-indian-saffron/20">
+                <p className="font-medium">Outreach work under the dictum 'service to man is worship of God'</p>
               </div>
               <div className="bg-white/50 p-4 rounded border border-indian-saffron/20">
                 <p className="font-medium">Character building based on spiritual values</p>
-              </div>
-              <div className="bg-white/50 p-4 rounded border border-indian-saffron/20">
-                <p className="font-medium">Service to humanity as service to the Divine</p>
               </div>
               <div className="bg-white/50 p-4 rounded border border-indian-saffron/20">
                 <p className="font-medium">Educational and cultural activities that foster spiritual growth</p>
@@ -74,48 +74,17 @@ const OurCentre = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <Card className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 h-full">
             <CardContent className="p-6">
-              <h3 className="text-2xl font-heading font-semibold mb-4">Our Values</h3>
-              <p className="mb-4">
-                The Ramakrishna Centre is guided by the following core values:
+              <h3 className="text-2xl font-heading font-semibold mb-4">Our Logo</h3>
+              <div className="flex flex-col items-center mb-6">
+                <img
+                  src="/pics/icon.png"
+                  alt="Ramakrishna Mission Logo"
+                  className="w-48 h-48 object-contain mb-6"
+                />
+              </div>
+              <p className="text-gray-700">
+                The emblem of the Ramakrishna Mission is a profound symbol of harmony. Swami Vivekananda, the creator of this symbol, sums up its significance: "The wavy waters in the picture are symbolic of Karma (selfless actions), the lotus of Bhakti (devotion to God) and the rising sun of Jnana (Knowledge of God). The encircling serpent is indicative of Yoga (meditative practices to realize God) and awakened Kundalini Shakti while the swan in the picture stands for Paramatman (the Supreme Reality). Therefore, the ideal of the picture is that by the union of Karma, Jnana, Bhakti and Yoga the vision of the Paramatman is obtained."
               </p>
-              <ul className="space-y-2">
-                <li className="flex items-start">
-                  <span className="inline-block w-2 h-2 rounded-full bg-indian-saffron mt-2 mr-2"></span>
-                  <div>
-                    <span className="font-semibold">Universal Acceptance:</span> Recognizing the validity of all religions as paths to the same ultimate reality
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="inline-block w-2 h-2 rounded-full bg-indian-saffron mt-2 mr-2"></span>
-                  <div>
-                    <span className="font-semibold">Service:</span> Serving humanity as a form of worship
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="inline-block w-2 h-2 rounded-full bg-indian-saffron mt-2 mr-2"></span>
-                  <div>
-                    <span className="font-semibold">Spiritual Growth:</span> Encouraging the realization of one's divine nature
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="inline-block w-2 h-2 rounded-full bg-indian-saffron mt-2 mr-2"></span>
-                  <div>
-                    <span className="font-semibold">Harmony:</span> Promoting peace and understanding among all
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="inline-block w-2 h-2 rounded-full bg-indian-saffron mt-2 mr-2"></span>
-                  <div>
-                    <span className="font-semibold">Knowledge:</span> Disseminating the wisdom of Vedanta and other spiritual traditions
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="inline-block w-2 h-2 rounded-full bg-indian-saffron mt-2 mr-2"></span>
-                  <div>
-                    <span className="font-semibold">Character:</span> Developing moral and ethical strength
-                  </div>
-                </li>
-              </ul>
             </CardContent>
           </Card>
 

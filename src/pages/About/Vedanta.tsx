@@ -29,32 +29,43 @@ const Vedanta = () => {
 
   return (
     <div className="animate-fade-in">
-      <SectionHeader 
-        title="Vedanta Philosophy" 
-        subtitle="Understanding the ancient wisdom tradition that forms the foundation of our teachings"
+      <SectionHeader
+        title="Vedanta Philosophy"
+        subtitle="Understanding the philosophy behind our approach to service and life"
         alignment="left"
       />
-      
+
       <div className="prose prose-lg max-w-none mb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg shadow-sm">
             <h3 className="text-2xl font-heading font-semibold mb-4">What is Vedanta?</h3>
-            <p>
-              Vedanta is one of the world's oldest and most profound philosophical systems, derived from the concluding portions of the Vedas, the ancient sacred texts of India. The word "Vedanta" literally means "the end of the Vedas" or "the culmination of knowledge." It represents the essence of Vedic wisdom and offers insights into the nature of reality, consciousness, and the purpose of human existence.
+            <p className="mb-4">
+              The ideology of the Centre consists of the eternal principles of Vedanta as lived and experienced by Sri Ramakrishna and expounded by Swami Vivekananda.
             </p>
+            <h4 className="text-lg font-heading font-semibold mb-2">This Ideology Has Three Characteristics:</h4>
+            <ol className="list-decimal pl-5 mb-4 space-y-1">
+              <li>It is modern in the sense that the ancient principles of Vedanta are expressed in the current context</li>
+              <li>It is universal, that is, it is meant for the whole of humanity</li>
+              <li>It is practical in the sense that its principles can be applied to solve the problems of day-to-day life</li>
+            </ol>
+            <h4 className="text-lg font-heading font-semibold mb-2">The Two Main Principles of Vedanta Philosophy Are:</h4>
+            <ol className="list-decimal pl-5 space-y-1">
+              <li>God-realisation is the ultimate goal of life</li>
+              <li>Each soul is potentially divine</li>
+            </ol>
           </div>
-          
+
           <div className="rounded-lg overflow-hidden shadow-md h-full flex">
-            <img 
-              src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-              alt="Spiritual Nature Scene" 
+            <img
+              src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+              alt="Spiritual Nature Scene"
               className="w-full h-full object-cover"
             />
           </div>
         </div>
-        
+
         <h3 className="text-2xl font-heading font-semibold mb-6">Core Principles of Vedanta</h3>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {corePrinciples.map((principle, index) => (
             <Card key={index} className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 h-full">
@@ -65,7 +76,7 @@ const Vedanta = () => {
             </Card>
           ))}
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <Card className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 h-full">
             <CardContent className="p-6">
@@ -75,50 +86,33 @@ const Vedanta = () => {
               </p>
             </CardContent>
           </Card>
-          
+
           <Card className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 h-full">
-            <CardContent className="p-6">
+            <CardContent className="p-6 pl-4">
               <h3 className="text-2xl font-heading font-semibold mb-4">Practical Vedanta</h3>
               <p className="mb-4">
                 Swami Vivekananda, the foremost disciple of Sri Ramakrishna, propagated what he called "Practical Vedanta" - the application of Vedantic principles in daily life. He emphasized:
               </p>
-              <ul className="space-y-2 ml-6">
-                <li>Seeing the Divine in every being and serving humanity as an expression of worship</li>
-                <li>Strengthening character and moral values based on spiritual understanding</li>
-                <li>Working for one's own spiritual growth while contributing to the welfare of society</li>
-                <li>Harmonizing reason and faith, ancient wisdom and modern knowledge</li>
+              <ul className="space-y-2 ml-0 pl-0">
+                <li className="flex items-start">
+                  <span className="inline-block w-2 h-2 rounded-full bg-indian-saffron mt-2 mr-3 flex-shrink-0"></span>
+                  <span>Seeing the Divine in every being and serving humanity as an expression of worship</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="inline-block w-2 h-2 rounded-full bg-indian-saffron mt-2 mr-3 flex-shrink-0"></span>
+                  <span>Strengthening character and moral values based on spiritual understanding</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="inline-block w-2 h-2 rounded-full bg-indian-saffron mt-2 mr-3 flex-shrink-0"></span>
+                  <span>Working for one's own spiritual growth while contributing to the welfare of society</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="inline-block w-2 h-2 rounded-full bg-indian-saffron mt-2 mr-3 flex-shrink-0"></span>
+                  <span>Harmonizing reason and faith, ancient wisdom and modern knowledge</span>
+                </li>
               </ul>
             </CardContent>
           </Card>
-        </div>
-        
-        <Card className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 mb-12">
-          <CardContent className="p-6">
-            <h4 className="text-xl font-heading font-semibold mb-2">Vedanta at Our Centre</h4>
-            <p className="mb-4">
-              At the Ramakrishna Centre of South Africa, Johannesburg Branch, we offer various programs to help individuals understand and practice Vedanta in their daily lives:
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-white/50 p-4 rounded border border-indian-saffron/20 text-center">
-                <p className="font-medium">Regular classes on Vedantic texts</p>
-              </div>
-              <div className="bg-white/50 p-4 rounded border border-indian-saffron/20 text-center">
-                <p className="font-medium">Meditation sessions based on Vedantic principles</p>
-              </div>
-              <div className="bg-white/50 p-4 rounded border border-indian-saffron/20 text-center">
-                <p className="font-medium">Spiritual retreats for deeper exploration</p>
-              </div>
-              <div className="bg-white/50 p-4 rounded border border-indian-saffron/20 text-center">
-                <p className="font-medium">Discussion groups that apply Vedantic wisdom</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-        
-        <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg mb-4">
-          <p className="text-lg text-center italic">
-            Vedanta offers a comprehensive framework for understanding life's deepest questions and provides practical guidance for spiritual growth. It remains as relevant today as it was thousands of years ago, offering solutions to modern problems through its timeless wisdom.
-          </p>
         </div>
       </div>
     </div>
