@@ -31,12 +31,12 @@ const DonatePage = () => {
   const presetAmounts = [100, 250, 500, 1000];
 
   const donationPurposes = [
+    "New Ashram Project",
     "General Donation",
     "Nutrition Programme",
     "Women Empowerment",
     "Children's Value Education",
-    "Temple Maintenance",
-    "New Ashram Project"
+    "Temple Maintenance"
   ];
 
   const form = useForm<DonationFormValues>({
@@ -47,7 +47,7 @@ const DonatePage = () => {
       email: "",
       mobile: "",
       amount: 100,
-      purpose: "General Donation"
+      purpose: "New Ashram Project"
     }
   });
 
@@ -122,13 +122,12 @@ const DonatePage = () => {
                   <li>Nutrition Programme for underprivileged communities</li>
                   <li>Women Empowerment Programme</li>
                   <li>Children's value education classes</li>
-                  <li>Maintenance of our temple and facilities</li>
                   <li>New Ashram Project development</li>
                 </ul>
               </Card>
 
               <div className="p-4 bg-gradient-to-br from-spiritual-50 to-white border-l-4 border-spiritual-500 rounded pop-shadow-card">
-                <p className="italic">"It is a privilege to serve mankind, for this is the worship of God. God is here, in all these human souls. He is the soul of man." - Swami Vivekananda</p>
+                <p className="italic">"It is a privilege to serve mankind, for this is the worship of God. God is here, in all these human souls. He is the soul of man." <span className="whitespace-nowrap">- Swami Vivekananda</span></p>
               </div>
             </div>
 
