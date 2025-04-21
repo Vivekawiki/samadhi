@@ -103,7 +103,7 @@ const ServicesPage = () => {
               </div>
             </div>
           ) : (
-            <div>
+            <div className="mt-8">
               <Outlet />
             </div>
           )}

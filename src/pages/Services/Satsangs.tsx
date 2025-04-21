@@ -5,7 +5,7 @@ const Satsangs = () => {
       <div className="w-full bg-white">
       <div className="w-full bg-gradient-to-br from-indian-cream to-white">
         {/* Removed py-4 from this container */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> 
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="inline-block p-6 rounded-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01] text-center w-full">
               <h1 className="text-3xl font-heading font-bold mb-4 text-black">Satsangs</h1>
@@ -14,7 +14,7 @@ const Satsangs = () => {
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-indian-cream to-white rounded-lg p-6 shadow-sm border border-indian-saffron/20">
+              <div className="mt-12 bg-gradient-to-br from-indian-cream to-white rounded-lg p-6 shadow-sm border border-indian-saffron/20">
                 <h3 className="text-2xl font-heading font-semibold mb-6">Satsang Information</h3>
 
                 <div className="space-y-8">
