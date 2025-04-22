@@ -153,6 +153,37 @@ const NutritionProgramme = () => {
                 </div>
               </div>
 
+              <div className="bg-gradient-to-br from-indian-cream to-white rounded-lg overflow-hidden shadow-sm border border-indian-saffron/20 hover:shadow-md transition-all hover:scale-[1.02] duration-300 my-8">
+                <div className="p-6">
+                  <h3 className="text-xl font-heading font-semibold mb-4 text-spiritual-600">
+                    Women Empowerment Programme (WEP)
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    The WEP supports women in developing skills for financial independence and personal growth.
+                    Through workshops, training sessions, and mentoring, we help women become self-reliant and confident.
+                  </p>
+                  <h4 className="font-bold mt-4 mb-2 text-spiritual-600">Activities</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-spiritual-400"></span>
+                      Vocational training in various crafts and skills
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-spiritual-400"></span>
+                      Financial literacy and entrepreneurship workshops
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-spiritual-400"></span>
+                      Health and wellness education
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-spiritual-400"></span>
+                      Support groups and counseling services
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
               <div className="bg-gradient-to-br from-indian-cream to-white rounded-lg shadow-sm border border-indian-saffron/20 my-8">
                 <div className="p-6">
                   <h3 className="text-xl font-heading font-semibold mb-4 text-spiritual-600 flex items-center gap-2">
@@ -182,36 +213,6 @@ const NutritionProgramme = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
-                <div className="bg-gradient-to-br from-indian-cream to-white rounded-lg overflow-hidden shadow-sm border border-indian-saffron/20 hover:shadow-md transition-all hover:scale-[1.02] duration-300">
-                  <div className="p-4">
-                    <h3 className="text-xl font-heading font-semibold mb-4 text-spiritual-600">
-                      Women Empowerment Programme (WEP)
-                    </h3>
-                    <p className="text-gray-700 mb-4">
-                      The WEP supports women in developing skills for financial independence and personal growth.
-                      Through workshops, training sessions, and mentoring, we help women become self-reliant and confident.
-                    </p>
-                    <h4 className="font-bold mt-4 mb-2 text-spiritual-600">Activities</h4>
-                    <ul className="space-y-2 text-gray-700">
-                      <li className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-spiritual-400"></span>
-                        Vocational training in various crafts and skills
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-spiritual-400"></span>
-                        Financial literacy and entrepreneurship workshops
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-spiritual-400"></span>
-                        Health and wellness education
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-spiritual-400"></span>
-                        Support groups and counseling services
-                      </li>
-                    </ul>
-                  </div>
-                </div>
 
                 <div className="bg-gradient-to-br from-indian-cream to-white rounded-lg border-l-4 border-spiritual-500 p-6">
                   <h3 className="text-xl font-heading font-semibold mb-4 text-spiritual-600 flex items-center gap-2">
