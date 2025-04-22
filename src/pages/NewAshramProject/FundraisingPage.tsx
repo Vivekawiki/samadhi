@@ -7,28 +7,21 @@ import { Link } from 'react-router-dom';
 const FundraisingPage = () => {
   return (
     <PageLayout title="Fundraising">
-      <div className="min-h-screen w-full bg-gradient-to-br from-indian-cream to-white relative">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="/pics/nad.jpg" 
-            alt="New Ashram Project Fundraising" 
-            className="w-full h-full object-cover opacity-20"
-          />
-        </div>
-        <div className="w-full relative z-10">
+      <div className="min-h-screen w-full bg-gradient-to-br from-indian-cream to-white">
+        <div className="w-full">
           <div className="container mx-auto px-4 py-12">
             <div className="max-w-4xl mx-auto">
-              <SectionHeader 
-                title="Support the New Ashram Project" 
+              <SectionHeader
+                title="Support the New Ashram Project"
                 subtitle="Join us in building a spiritual home for generations to come"
                 alignment="left"
               />
-              
+
               <div className="prose prose-lg max-w-none mb-12">
                 <p className="lead text-xl text-gray-700">
                   Your contribution to the New Ashram Project will help create a spiritual sanctuary that serves our community and upholds the teachings of Sri Ramakrishna, Holy Mother Sri Sarada Devi, and Swami Vivekananda for generations to come.
                 </p>
-                
+
                 {/* Fundraising Progress */}
                 <div className="my-10 bg-gradient-to-r from-indian-cream to-white p-6 rounded-lg shadow-sm border border-indian-saffron/30">
                   <h3 className="text-2xl font-heading font-semibold mb-4">Fundraising Progress</h3>
@@ -37,8 +30,8 @@ const FundraisingPage = () => {
                     <span className="font-medium">Goal: R60,000,000</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
-                    <div 
-                      className="bg-spiritual-500 h-4 rounded-full" 
+                    <div
+                      className="bg-spiritual-500 h-4 rounded-full"
                       style={{ width: '16.7%' }}
                     ></div>
                   </div>
@@ -49,12 +42,12 @@ const FundraisingPage = () => {
                     *Note: These are approximate values and may vary slightly.
                   </p>
                 </div>
-                
+
                 <h3 className="text-2xl font-heading font-semibold mb-4">How to Donate</h3>
                 <p>
                   We offer several convenient ways to contribute to the New Ashram Project:
                 </p>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
                   <div className="p-6 border border-indian-saffron/30 rounded-lg shadow-sm bg-gradient-to-r from-indian-cream to-white">
                     <h4 className="text-xl font-heading font-semibold mb-3">Online Donation</h4>
@@ -67,7 +60,7 @@ const FundraisingPage = () => {
                       </Button>
                     </Link>
                   </div>
-                  
+
                   <div className="p-6 border border-indian-saffron/30 rounded-lg shadow-sm bg-gradient-to-r from-indian-cream to-white">
                     <h4 className="text-xl font-heading font-semibold mb-3">Bank Transfer</h4>
                     <p className="mb-4">
@@ -89,7 +82,7 @@ const FundraisingPage = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="bg-gradient-to-r from-indian-cream to-white p-6 rounded-lg my-8 border border-indian-saffron/30">
                   <h4 className="text-xl font-heading font-semibold mb-2">Tax Benefits</h4>
                   <p>
@@ -99,7 +92,7 @@ const FundraisingPage = () => {
                     Please consult a tax advisor to understand your tax implications.
                   </p>
                 </div>
-                
+
                 <div className="text-center mt-12">
                   <p className="text-xl font-semibold mb-6">
                     Every contribution makes a difference

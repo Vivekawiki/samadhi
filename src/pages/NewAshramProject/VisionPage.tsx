@@ -25,32 +25,25 @@ const VisionPage = () => {
 
   return (
     <PageLayout title="Project Vision & Necessity">
-      <div className="min-h-screen w-full bg-gradient-to-br from-indian-cream to-white relative">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="/pics/nad.jpg" 
-            alt="New Ashram Project Vision" 
-            className="w-full h-full object-cover opacity-20"
-          />
-        </div>
-        <div className="w-full relative z-10">
+      <div className="min-h-screen w-full bg-gradient-to-br from-indian-cream to-white">
+        <div className="w-full">
           <div className="container mx-auto px-4 py-12">
             <div className="max-w-6xl mx-auto">
-              <SectionHeader 
-                title="Project Vision & Necessity" 
+              <SectionHeader
+                title="Project Vision & Necessity"
                 subtitle="Building a spiritual home for generations to come"
                 alignment="left"
               />
-              
+
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-12">
                 <div className="bg-gradient-to-br from-indian-cream to-white p-8 rounded-lg border border-indian-saffron">
                   <h2 className="text-3xl font-heading font-semibold mb-6 text-indian-blue">Our Vision</h2>
                   <p className="text-gray-700 mb-6">
-                    The vision for our new ashram is to create a spiritual sanctuary that embodies the ideals of Sri Ramakrishna, 
-                    Holy Mother Sri Sarada Devi, and Swami Vivekananda. This center will serve as a beacon of spiritual light, 
+                    The vision for our new ashram is to create a spiritual sanctuary that embodies the ideals of Sri Ramakrishna,
+                    Holy Mother Sri Sarada Devi, and Swami Vivekananda. This center will serve as a beacon of spiritual light,
                     offering a space for meditation, study, and service to the community.
                   </p>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
                     {features.map((feature, index) => (
                       <div key={index} className="flex items-start p-4 rounded-md bg-gradient-to-br from-indian-cream to-white shadow-sm border border-indian-saffron/20">
@@ -63,14 +56,14 @@ const VisionPage = () => {
                     ))}
                   </div>
                 </div>
-                
+
                 <div className="space-y-8">
                   <div className="bg-gradient-to-br from-indian-cream to-white p-8 rounded-lg border border-indian-saffron">
                     <h2 className="text-3xl font-heading font-semibold mb-6 text-indian-blue">Why It's Necessary</h2>
                     <p className="text-gray-700 mb-6">
                       For several years we have been operating from rented premises. This has severely restricted the scope of our spiritual and humanitarian activities. Currently, we have:
                     </p>
-                    
+
                     <ul className="space-y-3">
                       {challenges.map((challenge, index) => (
                         <li key={index} className="flex items-start">
@@ -80,7 +73,7 @@ const VisionPage = () => {
                       ))}
                     </ul>
                   </div>
-                  
+
                   <Card className="p-6 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron">
                     <h3 className="text-2xl font-heading font-semibold mb-4 flex items-center">
                       <Target className="mr-2 h-6 w-6 text-indian-saffron" />
@@ -124,7 +117,7 @@ const VisionPage = () => {
                   </Card>
                 </div>
               </div>
-              
+
               <div className="text-center mt-12 py-8 bg-gradient-to-br from-indian-cream to-white rounded-lg border border-indian-saffron">
                 <p className="text-xl font-semibold mb-6">
                   Help us bring this vision to life

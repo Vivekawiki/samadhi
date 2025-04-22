@@ -69,30 +69,23 @@ const TimelinePage = () => {
 
   return (
     <PageLayout title="Timeline & Progress">
-      <div className="min-h-screen w-full bg-gradient-to-br from-indian-cream to-white relative">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="/pics/nad.jpg" 
-            alt="New Ashram Project Timeline" 
-            className="w-full h-full object-cover opacity-20"
-          />
-        </div>
-        <div className="w-full relative z-10">
+      <div className="min-h-screen w-full bg-gradient-to-br from-indian-cream to-white">
+        <div className="w-full">
           <div className="container mx-auto px-4 py-12">
             <div className="max-w-4xl mx-auto">
-              <SectionHeader 
-                title="Timeline & Progress" 
+              <SectionHeader
+                title="Timeline & Progress"
                 subtitle="Following our journey from vision to reality"
                 alignment="left"
               />
-              
+
               <div className="prose prose-lg max-w-none mb-12">
                 <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg mb-8">
                   <h3 className="text-2xl font-heading font-semibold mb-4">Project Timeline</h3>
                   <p className="mb-6">
                     Our New Ashram Project is progressing through several carefully planned phases. Below is our current timeline, with updates on our progress.
                   </p>
-                  
+
                   <div className="space-y-12 mt-8">
                     {phases.map((phase, index) => (
                       <div key={index} className="relative bg-gradient-to-br from-indian-cream to-white p-6 rounded-lg border border-indian-saffron/30 shadow-sm">
@@ -121,8 +114,8 @@ const TimelinePage = () => {
                           <div className="mt-4 pt-4 border-t border-gray-200">
                             <div className="flex items-center">
                               <div className="w-full bg-gray-200 rounded-full h-3">
-                                <div 
-                                  className="bg-blue-500 h-3 rounded-full" 
+                                <div
+                                  className="bg-blue-500 h-3 rounded-full"
                                   style={{ width: '60%' }}
                                 ></div>
                               </div>
@@ -134,7 +127,7 @@ const TimelinePage = () => {
                     ))}
                   </div>
                 </div>
-                
+
                 <h3 className="text-2xl font-heading font-semibold mt-12 mb-4">Current Progress</h3>
                 <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg mb-8">
                   <p className="mb-4">
@@ -155,7 +148,7 @@ const TimelinePage = () => {
                     </li>
                   </ul>
                 </div>
-                
+
                 <div className="bg-gradient-to-r from-indian-cream to-white p-6 rounded-lg my-8 border border-indian-saffron/30">
                   <h4 className="text-xl font-heading font-semibold mb-2">Progress Updates</h4>
                   <p className="mb-4">
@@ -165,7 +158,7 @@ const TimelinePage = () => {
                     If you would like to receive direct updates about the New Ashram Project, please sign up for our dedicated project newsletter.
                   </p>
                 </div>
-                
+
                 <div className="text-center mt-12">
                   <p className="text-xl font-semibold mb-6">
                     Help us reach our next milestone
