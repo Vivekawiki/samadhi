@@ -17,7 +17,7 @@ const HolyTrinity = () => {
       />
 
       <div className="prose prose-lg max-w-none mb-12">
-        <p className="lead mb-8 md:mb-4">
+        <p className="lead mb-12">
           The Ramakrishna Movement is centered around three pivotal figures known as the "Holy Trinity": Sri Ramakrishna Paramahamsa, Holy Mother Sri Sarada Devi, and Swami Vivekananda. Their lives and teachings form the spiritual foundation of our Centre.
         </p>
 
@@ -79,7 +79,7 @@ const HolyTrinity = () => {
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="sri-ramakrishna" className="animate-fade-in pt-10 sm:pt-0"> {/* Increased pt-6 to pt-10 */}
+          <TabsContent value="sri-ramakrishna" className="animate-fade-in">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="md:col-span-1">
                 <div className="rounded-lg overflow-hidden shadow-md mb-4">
@@ -150,7 +150,7 @@ const HolyTrinity = () => {
             </div>
           </TabsContent>
 
-          <TabsContent value="sri-sarada-devi" className="animate-fade-in pt-10 sm:pt-0"> {/* Increased pt-6 to pt-10 */}
+          <TabsContent value="sri-sarada-devi" className="animate-fade-in">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="md:col-span-1">
                 <div className="rounded-lg overflow-hidden shadow-md mb-4">
@@ -221,7 +221,7 @@ const HolyTrinity = () => {
             </div>
           </TabsContent>
 
-          <TabsContent value="swami-vivekananda" className="animate-fade-in pt-10 sm:pt-0"> {/* Increased pt-6 to pt-10 */}
+          <TabsContent value="swami-vivekananda" className="animate-fade-in">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="md:col-span-1">
                 <div className="rounded-lg overflow-hidden shadow-md mb-4">

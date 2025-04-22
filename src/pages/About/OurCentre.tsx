@@ -14,20 +14,18 @@ const OurCentre = () => {
 
       <div className="prose prose-lg max-w-none mb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div>
+          <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg shadow-sm h-[96%]">
             <h3 className="text-2xl font-heading font-semibold mb-4">History</h3>
-            <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg shadow-sm">
-              <p>
-                The idea of starting a Ramakrishna Movement in Africa had germinated in the mind of Swami Vivekananda, the principal architect of the organisation, for in 1897 he wrote to his brother monk, Swami Shivananda Mahapurush: "Mr Setlur... writes to me to send somebody to Africa... No immediate results can be expected but in the long run it will prove more beneficial work for India than any yet attempted."
-              </p>
-            </div>
+            <p>
+              The idea of starting a Ramakrishna Movement in Africa had germinated in the mind of Swami Vivekananda, the principal architect of the organisation, for in 1897 he wrote to his brother monk, Swami Shivananda Mahapurush: "Mr Setlur... writes to me to send somebody to Africa... No immediate results can be expected but in the long run it will prove more beneficial work for India than any yet attempted."
+            </p>
           </div>
 
-          <div className="flex items-center justify-center p-4">
+          <div className="rounded-lg overflow-hidden shadow-xl border-[3px] border-indian-saffron/30 transition-transform duration-300 hover:scale-[1.02] h-[95%] w-[95%] mx-auto">
             <img
               src="/pics/swamijiwriting.jpg"
               alt="Swami Vivekananda Writing"
-              className="w-[62.5%] h-full object-cover rounded-lg border border-indian-saffron/40 shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
