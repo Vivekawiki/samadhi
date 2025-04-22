@@ -18,15 +18,15 @@ const HolyTrinity = () => {
       />
 
       <div className="prose prose-lg max-w-none mb-12">
-        <p className="lead">
+        <p className="lead mb-8 md:mb-4">
           The Ramakrishna Movement is centered around three pivotal figures known as the "Holy Trinity": Sri Ramakrishna Paramahamsa, Holy Mother Sri Sarada Devi, and Swami Vivekananda. Their lives and teachings form the spiritual foundation of our Centre.
         </p>
 
         <Tabs defaultValue={tabFromUrl || "sri-ramakrishna"} className="w-full mt-8" onValueChange={setActiveTab}>
-          <TabsList className="flex flex-col sm:grid w-full sm:grid-cols-3 mb-8 bg-gradient-to-br from-spiritual-50 to-white border border-spiritual-200 p-2 sm:p-1 rounded-lg sm:h-[60px] gap-2 sm:gap-1">
+          <TabsList className="flex flex-col sm:grid w-full sm:grid-cols-3 mb-10 sm:mb-8 bg-gradient-to-br from-spiritual-50 to-white border border-spiritual-200 p-3 sm:p-1 rounded-lg sm:h-[60px] space-y-3 sm:space-y-0 sm:gap-1">
             <TabsTrigger
               value="sri-ramakrishna"
-              className="block w-full px-4 py-2 sm:py-3 text-base sm:text-lg transition-all duration-300
+              className="block w-full px-4 py-3 text-base sm:text-lg transition-all duration-300
                 data-[state=active]:bg-gradient-to-br
                 data-[state=active]:from-indian-cream
                 data-[state=active]:to-white
@@ -38,13 +38,13 @@ const HolyTrinity = () => {
                 rounded-md
                 text-center
                 h-auto sm:h-full
-                mb-0"
+                border border-indian-saffron/20"
             >
               Sri Ramakrishna
             </TabsTrigger>
             <TabsTrigger
               value="sri-sarada-devi"
-              className="block w-full px-4 py-2 sm:py-3 text-base sm:text-lg transition-all duration-300
+              className="block w-full px-4 py-3 text-base sm:text-lg transition-all duration-300
                 data-[state=active]:bg-gradient-to-br
                 data-[state=active]:from-indian-cream
                 data-[state=active]:to-white
@@ -56,13 +56,13 @@ const HolyTrinity = () => {
                 rounded-md
                 text-center
                 h-auto sm:h-full
-                mb-0"
+                border border-indian-saffron/20"
             >
               Sri Sarada Devi
             </TabsTrigger>
             <TabsTrigger
               value="swami-vivekananda"
-              className="block w-full px-4 py-2 sm:py-3 text-base sm:text-lg transition-all duration-300
+              className="block w-full px-4 py-3 text-base sm:text-lg transition-all duration-300
                 data-[state=active]:bg-gradient-to-br
                 data-[state=active]:from-indian-cream
                 data-[state=active]:to-white
@@ -74,13 +74,13 @@ const HolyTrinity = () => {
                 rounded-md
                 text-center
                 h-auto sm:h-full
-                mb-0"
+                border border-indian-saffron/20"
             >
               Swami Vivekananda
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="sri-ramakrishna" className="animate-fade-in">
+          <TabsContent value="sri-ramakrishna" className="animate-fade-in pt-4 sm:pt-0">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="md:col-span-1">
                 <div className="rounded-lg overflow-hidden shadow-md mb-4">
@@ -151,7 +151,7 @@ const HolyTrinity = () => {
             </div>
           </TabsContent>
 
-          <TabsContent value="sri-sarada-devi" className="animate-fade-in">
+          <TabsContent value="sri-sarada-devi" className="animate-fade-in pt-4 sm:pt-0">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="md:col-span-1">
                 <div className="rounded-lg overflow-hidden shadow-md mb-4">
@@ -222,7 +222,7 @@ const HolyTrinity = () => {
             </div>
           </TabsContent>
 
-          <TabsContent value="swami-vivekananda" className="animate-fade-in">
+          <TabsContent value="swami-vivekananda" className="animate-fade-in pt-4 sm:pt-0">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="md:col-span-1">
                 <div className="rounded-lg overflow-hidden shadow-md mb-4">
