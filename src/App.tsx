@@ -44,6 +44,8 @@ import SubmitQuestionPage from "./pages/Learn/SubmitQuestionPage";
 import LearnPage from "./pages/Learn/LearnPage";
 import GamesPage from "./pages/Learn/GamesPage";
 import GuessThePicturePage from "./pages/Learn/GuessThePicturePage.tsx";
+import WordlePage from "./pages/Learn/WordlePage";
+import QuotesPage from "./pages/Learn/QuotesPage";
 import ThankYouPage from "./pages/Donate/ThankYouPage.tsx";
 
 import LoginPage from "@/pages/Auth/LoginPage";
@@ -102,6 +104,8 @@ const App = () => (
               <Route path="/learn/submit" element={<SubmitQuestionPage />} />
               <Route path="/learn/games" element={<GamesPage />} />
               <Route path="/learn/games/guess-picture" element={<GuessThePicturePage />} />
+              <Route path="/learn/games/wordle" element={<WordlePage />} />
+              <Route path="/learn/games/quotes" element={<QuotesPage />} />
 
             {/* Authentication and User Routes */}
             <Route path="/login" element={<LoginPage />} />

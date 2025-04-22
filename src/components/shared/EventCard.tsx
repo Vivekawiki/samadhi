@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './eventcard.css';
 
 interface EventCardProps {
@@ -23,8 +24,8 @@ const EventCard = ({
   link,
   className = ''
 }: EventCardProps) => {
-  return (
-    <div className={`rounded-lg overflow-hidden border-2 border-indian-saffron/40 bg-white event-card hover:border-indian-saffron/60 hover:shadow-lg transition-all hover:scale-[1.02] duration-300 flex flex-col h-full ${className}`}>
+  const cardContent = (
+    <>
       {image && (
         <div className="h-[350px] bg-gradient-to-br from-indian-cream to-white flex items-center justify-center px-4">
           <img
@@ -52,6 +53,22 @@ const EventCard = ({
           )}
         </div>
       </div>
+    </>
+  );
+
+  if (link) {
+    return (
+      <Link to={link} className="block h-full">
+        <div className={`rounded-lg overflow-hidden border-2 border-indian-saffron/40 bg-white event-card hover:border-indian-saffron/60 hover:shadow-lg transition-all hover:scale-[1.02] duration-300 flex flex-col h-full ${className} cursor-pointer`}>
+          {cardContent}
+        </div>
+      </Link>
+    );
+  }
+
+  return (
+    <div className={`rounded-lg overflow-hidden border-2 border-indian-saffron/40 bg-white event-card hover:border-indian-saffron/60 hover:shadow-lg transition-all hover:scale-[1.02] duration-300 flex flex-col h-full ${className}`}>
+      {cardContent}
     </div>
   );
 };

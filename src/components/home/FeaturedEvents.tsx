@@ -25,10 +25,10 @@ const events = [
   },
   {
     title: 'Upcoming Seminar',
-    date: '18th May, Sunday',
-    time: '10:00 AM - 12:00 PM',
+    date: 'Sunday, 18th May',
+    time: '10 AM - 12 PM',
     location: 'Benvenuto Conference Centre',
-    description: 'Seminar on Sri Ramakrishna\'s Organisational Wisdom and the Early History of the Ramakrishna Movement in South Africa (1897-1965). Speakers: Revered Swami Saradaprabhananda, Swami Vipranandaji',
+    description: 'Seminar on Sri Ramakrishna\'s Organisational Wisdom and the Early History of the Ramakrishna Movement in South Africa (1897-1965).',
     image: 'https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: '/services/special-functions',
   },

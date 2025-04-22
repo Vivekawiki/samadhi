@@ -3,7 +3,7 @@ import PageLayout from '../../components/layout/PageLayout';
 import SectionHeader from '../../components/shared/SectionHeader';
 import Button from '../../components/shared/Button';
 import { Card, CardContent } from '../../components/ui/card';
-import { Gamepad2, Brain, Puzzle, Trophy, Image } from 'lucide-react';
+import { Gamepad2, Brain, Puzzle, Trophy, Image, Quote, AlignJustify } from 'lucide-react';
 
 const GamesPage = () => {
   return (
@@ -11,13 +11,6 @@ const GamesPage = () => {
       <div className="w-full bg-gradient-to-br from-indian-cream to-white">
         <div className="container mx-auto px-4 py-12">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg mb-6 pop-shadow-card">
-              <h1 className="text-3xl font-heading font-bold mb-4">Learning Games</h1>
-              <p className="text-gray-700">
-                Fun and interactive games to learn about Hindu philosophy and practices
-              </p>
-            </div>
-
             <div className="bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg mb-6 pop-shadow-card">
               <h2 className="text-2xl font-heading font-semibold mb-4">Learning Through Play</h2>
               <p className="text-gray-700">
@@ -33,54 +26,6 @@ const GamesPage = () => {
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-              <Card className="border-spiritual-200 bg-gradient-to-br from-spiritual-50 to-white pop-shadow-card">
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-center w-12 h-12 bg-spiritual-100 rounded-full mb-4">
-                    <Puzzle className="w-6 h-6 text-spiritual-500" />
-                  </div>
-                  <h3 className="text-xl font-heading font-semibold mb-3">Hindu Mythology Matching</h3>
-                  <p className="text-gray-600 mb-4">
-                    Match deities with their symbols, stories, and attributes in this memory-building game.
-                    Learn about the major gods and goddesses of Hinduism while having fun.
-                  </p>
-                  <Button href="/learn/games/matching" variant="outline" size="sm">
-                    Play Game
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="border-spiritual-200 bg-gradient-to-br from-spiritual-50 to-white pop-shadow-card">
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-center w-12 h-12 bg-spiritual-100 rounded-full mb-4">
-                    <Brain className="w-6 h-6 text-spiritual-500" />
-                  </div>
-                  <h3 className="text-xl font-heading font-semibold mb-3">Vedic Wisdom Quiz</h3>
-                  <p className="text-gray-600 mb-4">
-                    Test your knowledge of Vedic concepts, teachings, and stories in this interactive quiz game.
-                    Multiple difficulty levels make it suitable for beginners and advanced learners.
-                  </p>
-                  <Button href="/learn/games/quiz" variant="outline" size="sm">
-                    Play Game
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="border-spiritual-200 bg-gradient-to-br from-spiritual-50 to-white pop-shadow-card">
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-center w-12 h-12 bg-spiritual-100 rounded-full mb-4">
-                    <Gamepad2 className="w-6 h-6 text-spiritual-500" />
-                  </div>
-                  <h3 className="text-xl font-heading font-semibold mb-3">Dharma Adventure</h3>
-                  <p className="text-gray-600 mb-4">
-                    Navigate through challenges and make choices based on dharmic principles in this adventure game.
-                    Learn about right action, duty, and moral decision-making.
-                  </p>
-                  <Button href="/learn/games/adventure" variant="outline" size="sm">
-                    Play Game
-                  </Button>
-                </CardContent>
-              </Card>
-
               <Card className="border-spiritual-200 bg-gradient-to-br from-spiritual-50 to-white pop-shadow-card">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-center w-12 h-12 bg-spiritual-100 rounded-full mb-4">
@@ -108,6 +53,36 @@ const GamesPage = () => {
                     Test your visual recognition skills as images are slowly revealed. Identify spiritual figures and symbols as quickly as you can.
                   </p>
                   <Button href="/learn/games/guess-picture" variant="outline" size="sm">
+                    Play Game
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="border-spiritual-200 bg-gradient-to-br from-spiritual-50 to-white pop-shadow-card">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-center w-12 h-12 bg-spiritual-100 rounded-full mb-4">
+                    <AlignJustify className="w-6 h-6 text-spiritual-500" />
+                  </div>
+                  <h3 className="text-xl font-heading font-semibold mb-3">Spiritual Wordle</h3>
+                  <p className="text-gray-600 mb-4">
+                    Guess the hidden spiritual term in six tries or less. Each guess provides clues about which letters are correct and in the right position.
+                  </p>
+                  <Button href="/learn/games/wordle" variant="outline" size="sm">
+                    Play Game
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="border-spiritual-200 bg-gradient-to-br from-spiritual-50 to-white pop-shadow-card">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-center w-12 h-12 bg-spiritual-100 rounded-full mb-4">
+                    <Quote className="w-6 h-6 text-spiritual-500" />
+                  </div>
+                  <h3 className="text-xl font-heading font-semibold mb-3">Wisdom Quotes</h3>
+                  <p className="text-gray-600 mb-4">
+                    Match inspirational quotes with the spiritual figures who said them. Learn wisdom from Sri Ramakrishna, Swami Vivekananda, and other great teachers.
+                  </p>
+                  <Button href="/learn/games/quotes" variant="outline" size="sm">
                     Play Game
                   </Button>
                 </CardContent>

@@ -30,8 +30,8 @@ const SpecialFunctions = () => {
                     <tbody>
                       <tr>
                         <td className="px-6 py-4 border-b border-indian-saffron/30">
-                          <p>18th May, Sunday</p>
-                          <p className="mt-1 text-sm text-gray-600">10:00 AM - 12:00 PM</p>
+                          <p>Sunday, 18th May</p>
+                          <p className="mt-1 text-sm text-gray-600">10 AM - 12 PM</p>
                         </td>
                         <td className="px-6 py-4 border-b border-indian-saffron/30">Seminar</td>
                         <td className="px-6 py-4 border-b border-indian-saffron/30">
