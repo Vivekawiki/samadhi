@@ -23,10 +23,10 @@ const HolyTrinity = () => {
         </p>
 
         <Tabs defaultValue={tabFromUrl || "sri-ramakrishna"} className="w-full mt-8" onValueChange={setActiveTab}>
-          <TabsList className="grid w-full grid-cols-3 mb-8 bg-gradient-to-br from-spiritual-50 to-white border border-spiritual-200 p-1 rounded-lg h-[60px]">
+          <TabsList className="flex flex-col sm:grid w-full sm:grid-cols-3 mb-8 bg-gradient-to-br from-spiritual-50 to-white border border-spiritual-200 p-2 sm:p-1 rounded-lg sm:h-[60px] gap-2 sm:gap-1">
             <TabsTrigger
               value="sri-ramakrishna"
-              className="block w-full px-4 py-3 text-lg transition-all duration-300
+              className="block w-full px-4 py-2 sm:py-3 text-base sm:text-lg transition-all duration-300
                 data-[state=active]:bg-gradient-to-br
                 data-[state=active]:from-indian-cream
                 data-[state=active]:to-white
@@ -37,13 +37,14 @@ const HolyTrinity = () => {
                 hover:bg-spiritual-50
                 rounded-md
                 text-center
-                h-full"
+                h-auto sm:h-full
+                mb-0"
             >
               Sri Ramakrishna
             </TabsTrigger>
             <TabsTrigger
               value="sri-sarada-devi"
-              className="block w-full px-4 py-3 text-lg transition-all duration-300
+              className="block w-full px-4 py-2 sm:py-3 text-base sm:text-lg transition-all duration-300
                 data-[state=active]:bg-gradient-to-br
                 data-[state=active]:from-indian-cream
                 data-[state=active]:to-white
@@ -54,13 +55,14 @@ const HolyTrinity = () => {
                 hover:bg-spiritual-50
                 rounded-md
                 text-center
-                h-full"
+                h-auto sm:h-full
+                mb-0"
             >
               Sri Sarada Devi
             </TabsTrigger>
             <TabsTrigger
               value="swami-vivekananda"
-              className="block w-full px-4 py-3 text-lg transition-all duration-300
+              className="block w-full px-4 py-2 sm:py-3 text-base sm:text-lg transition-all duration-300
                 data-[state=active]:bg-gradient-to-br
                 data-[state=active]:from-indian-cream
                 data-[state=active]:to-white
@@ -71,7 +73,8 @@ const HolyTrinity = () => {
                 hover:bg-spiritual-50
                 rounded-md
                 text-center
-                h-full"
+                h-auto sm:h-full
+                mb-0"
             >
               Swami Vivekananda
             </TabsTrigger>
