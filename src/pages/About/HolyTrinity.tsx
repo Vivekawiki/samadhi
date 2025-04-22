@@ -17,11 +17,11 @@ const HolyTrinity = () => {
       />
 
       <div className="prose prose-lg max-w-none">
-        <p className="lead mb-8">
+        <p className="lead mb-16 sm:mb-8">
           The Ramakrishna Movement is centered around three pivotal figures known as the "Holy Trinity": Sri Ramakrishna Paramahamsa, Holy Mother Sri Sarada Devi, and Swami Vivekananda. Their lives and teachings form the spiritual foundation of our Centre.
         </p>
 
-        <div className="mt-8">
+        <div className="relative">
           <Tabs defaultValue={activeTab} className="w-full">
             <TabsList className="flex flex-col sm:grid w-full sm:grid-cols-3 mb-8 bg-gradient-to-br from-spiritual-50 to-white border border-spiritual-200 p-3 sm:p-1 rounded-lg sm:h-[60px] space-y-3 sm:space-y-0 sm:gap-1">
               <TabsTrigger

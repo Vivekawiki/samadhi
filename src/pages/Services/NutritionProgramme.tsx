@@ -212,22 +212,27 @@ const NutritionProgramme = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
-
+              <div className="my-8">
                 <div className="bg-gradient-to-br from-indian-cream to-white rounded-lg border-l-4 border-spiritual-500 p-6">
-                  <h3 className="text-xl font-heading font-semibold mb-4 text-spiritual-600 flex items-center gap-2">
-                    <Users className="w-5 h-5 text-indian-saffron" />
-                    Get Involved
-                  </h3>
-                  <p className="text-gray-700 mb-4">
-                    Our community outreach programs rely on the generous support of volunteers and donors.
-                    If you would like to contribute your time, skills, or resources to any of these initiatives,
-                    please contact us on our <Link to="/contact" className="text-indian-saffron hover:underline font-medium">Contact Page</Link>.
-                  </p>
-                  <p className="italic text-gray-600 border-l-2 border-spiritual-300 pl-4">
-                    "Awake, awake, great ones! The world is burning with misery. Can you sleep? Let us call and call till the sleeping gods awake, till the god within answers to the call. What more is in life? What greater work? The details come to me as I go. I never make plans. Plans grow and work themselves. I only say, awake, awake!"<br />
-                    - Swami Vivekananda
-                  </p>
+                  <div className="flex flex-col md:flex-row md:items-center gap-6">
+                    <div className="md:w-1/2">
+                      <h3 className="text-xl font-heading font-semibold mb-4 text-spiritual-600 flex items-center gap-2">
+                        <Users className="w-5 h-5 text-indian-saffron" />
+                        Get Involved
+                      </h3>
+                      <p className="text-gray-700 mb-4">
+                        Our community outreach programs rely on the generous support of volunteers and donors.
+                        If you would like to contribute your time, skills, or resources to any of these initiatives,
+                        please contact us on our <Link to="/contact" className="text-indian-saffron hover:underline font-medium">Contact Page</Link>.
+                      </p>
+                    </div>
+                    <div className="md:w-1/2 border-t-2 md:border-t-0 md:border-l-2 border-spiritual-300 pt-4 md:pt-0 md:pl-6">
+                      <p className="italic text-gray-600">
+                        "Awake, awake, great ones! The world is burning with misery. Can you sleep? Let us call and call till the sleeping gods awake, till the god within answers to the call. What more is in life? What greater work? The details come to me as I go. I never make plans. Plans grow and work themselves. I only say, awake, awake!"<br />
+                        - Swami Vivekananda
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
