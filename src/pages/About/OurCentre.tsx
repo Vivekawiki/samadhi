@@ -25,8 +25,8 @@ const OurCentre = () => {
 
           <div className="rounded-lg overflow-hidden shadow-md h-full flex">
             <img
-              src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-              alt="Ramakrishna Centre Building"
+              src="/pics/swamijiwriting.jpg"
+              alt="Swami Vivekananda Writing"
               className="w-full h-full object-cover"
             />
           </div>
