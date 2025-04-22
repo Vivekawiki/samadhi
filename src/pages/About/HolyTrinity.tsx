@@ -81,7 +81,7 @@ const HolyTrinity = () => {
               <TabsContent value="sri-ramakrishna" className="animate-fade-in">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="md:col-span-1">
-                    <div className="rounded-lg overflow-hidden shadow-md mb-4">
+                    <div className="rounded-lg overflow-hidden shadow-xl border-[3px] border-indian-saffron/30 transition-transform duration-300 hover:scale-[1.02] mb-4">
                       <img
                         src="/lovable-uploads/ff802407-da30-4efc-941c-05f69a329db7.png"
                         alt="Sri Ramakrishna"
@@ -152,7 +152,7 @@ const HolyTrinity = () => {
               <TabsContent value="sri-sarada-devi" className="animate-fade-in">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="md:col-span-1">
-                    <div className="rounded-lg overflow-hidden shadow-md mb-4">
+                    <div className="rounded-lg overflow-hidden shadow-xl border-[3px] border-indian-saffron/30 transition-transform duration-300 hover:scale-[1.02] mb-4">
                       <img
                         src="/lovable-uploads/6103c45d-7ef6-40da-a95e-d5695cd3526d.png"
                         alt="Sri Sarada Devi"
@@ -223,7 +223,7 @@ const HolyTrinity = () => {
               <TabsContent value="swami-vivekananda" className="animate-fade-in">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="md:col-span-1">
-                    <div className="rounded-lg overflow-hidden shadow-md mb-4">
+                    <div className="rounded-lg overflow-hidden shadow-xl border-[3px] border-indian-saffron/30 transition-transform duration-300 hover:scale-[1.02] mb-4">
                       <img
                         src="/lovable-uploads/0ee38c83-a4f6-4d5b-8142-1c66e6c7ff04.png"
                         alt="Swami Vivekananda"
