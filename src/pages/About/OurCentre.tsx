@@ -23,11 +23,11 @@ const OurCentre = () => {
             </div>
           </div>
 
-          <div className="rounded-lg overflow-hidden shadow-md flex items-center justify-center">
+          <div className="flex items-center justify-center p-4">
             <img
               src="/pics/swamijiwriting.jpg"
               alt="Swami Vivekananda Writing"
-              className="w-1/2 h-full object-cover pop-shadow-card transition-all duration-300 hover:scale-105"
+              className="w-[62.5%] h-full object-cover rounded-lg border border-indian-saffron/40 shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl"
             />
           </div>
         </div>

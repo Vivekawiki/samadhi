@@ -1,4 +1,3 @@
-
 import React from 'react';
 import SectionHeader from '../../components/shared/SectionHeader';
 import { Card, CardContent } from '@/components/ui/card';
@@ -37,7 +36,7 @@ const Vedanta = () => {
 
       <div className="prose prose-lg max-w-none mb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg shadow-sm">
+          <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg shadow-sm h-[96%]">
             <h3 className="text-2xl font-heading font-semibold mb-4">What is Vedanta?</h3>
             <p className="mb-4">
               The ideology of the Centre consists of the eternal principles of Vedanta as lived and experienced by Sri Ramakrishna and expounded by Swami Vivekananda.
@@ -55,10 +54,10 @@ const Vedanta = () => {
             </ol>
           </div>
 
-          <div className="rounded-lg overflow-hidden shadow-md h-full flex">
+          <div className="rounded-lg overflow-hidden shadow-xl border-[3px] border-indian-saffron/30 transition-transform duration-300 hover:scale-[1.02] h-[95%] w-[95%] mx-auto">
             <img
-              src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-              alt="Spiritual Nature Scene"
+              src="/pics/vedanta.jpeg"
+              alt="Vedanta Philosophy"
               className="w-full h-full object-cover"
             />
           </div>
