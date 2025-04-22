@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import SectionHeader from '../../components/shared/SectionHeader';
@@ -18,12 +17,12 @@ const HolyTrinity = () => {
       />
 
       <div className="prose prose-lg max-w-none mb-12">
-        <p className="lead mb-16 md:mb-4">
+        <p className="lead mb-8 md:mb-4">
           The Ramakrishna Movement is centered around three pivotal figures known as the "Holy Trinity": Sri Ramakrishna Paramahamsa, Holy Mother Sri Sarada Devi, and Swami Vivekananda. Their lives and teachings form the spiritual foundation of our Centre.
         </p>
 
-        <Tabs defaultValue={tabFromUrl || "sri-ramakrishna"} className="w-full mt-4" onValueChange={setActiveTab}>
-          <TabsList className="flex flex-col sm:grid w-full sm:grid-cols-3 mb-12 sm:mb-8 bg-gradient-to-br from-spiritual-50 to-white border border-spiritual-200 p-3 sm:p-1 rounded-lg sm:h-[60px] space-y-3 sm:space-y-0 sm:gap-1"> {/* Increased mb-10 to mb-12 */}
+        <Tabs defaultValue={activeTab} className="w-full">
+          <TabsList className="flex flex-col sm:grid w-full sm:grid-cols-3 mb-8 sm:mb-4 bg-gradient-to-br from-spiritual-50 to-white border border-spiritual-200 p-3 sm:p-1 rounded-lg sm:h-[60px] space-y-3 sm:space-y-0 sm:gap-1">
             <TabsTrigger
               value="sri-ramakrishna"
               className="block w-full px-4 py-3 text-base sm:text-lg transition-all duration-300
