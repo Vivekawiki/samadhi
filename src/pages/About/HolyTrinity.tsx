@@ -77,7 +77,7 @@ const HolyTrinity = () => {
               </TabsTrigger>
             </TabsList>
 
-            <div className="mt-12 sm:mt-8">
+            <div className="mt-16 sm:mt-8">
               <TabsContent value="sri-ramakrishna" className="animate-fade-in">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="md:col-span-1">
