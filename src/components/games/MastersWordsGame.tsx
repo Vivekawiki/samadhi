@@ -2,17 +2,54 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 
 // --- Constants (Static Data) ---
 const WORD_LIST = [
-    'peace', 'faith', 'truth', 'bliss', 'grace',
-    'unity', 'light', 'divine', 'saint', 'prayer',
-    'silence', 'devotion', 'mantra', 'wisdom', 'atma' // Added more 5/6 letter words
-    // Consider filtering dynamically or having separate lists if length varies significantly
+    {
+        word: 'acting',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 22, Chapter 4'
+    },
+    {
+        word: 'aqua',
+        reference: 'Sri Ramakrishna Kathamrita, Part 5, Khand 2, Chapter 2'
+    },
+    {
+        word: 'asiatic',
+        reference: 'Sri Ramakrishna Kathamrita, Part 5, Khand 12, Chapter 5'
+    },
+    {
+        word: 'society',
+        reference: 'Sri Ramakrishna Kathamrita, Part 5, Khand 12, Chapter 5'
+    },
+    {
+        word: 'boot',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 11, Chapter 1'
+    },
+    {
+        word: 'box',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 16, Chapter 3'
+    },
+    {
+        word: 'behead',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 23, Chapter 2'
+    },
+    {
+        word: 'building',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 3, Chapter 2'
+    },
+    {
+        word: 'beautiful',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 12, Chapter 2'
+    },
+    {
+        word: 'bank',
+        reference: 'Sri Ramakrishna Kathamrita, Part 5, Khand 9, Chapter 2'
+    }
+    // More words with references can be added here
 ];
 const MAX_ATTEMPTS = 6;
 
 // --- Helper Function for Styling ---
 // Moved outside component as it doesn't rely on component state directly,
 // but receives necessary data as arguments.
-const getLetterStyle = (guess, targetWord, attemptMade) => {
+const getLetterStyle = (guess: string, targetWord: string, attemptMade: boolean) => {
     if (!attemptMade || !guess) {
         return 'bg-white border-gray-300'; // Default empty/future guess
     }
@@ -23,12 +60,12 @@ const getLetterStyle = (guess, targetWord, attemptMade) => {
     const targetLetterCounts = {};
 
     // Count letters in target word for accurate yellow checking
-    targetArray.forEach(letter => {
+    targetArray.forEach((letter: string) => {
         targetLetterCounts[letter] = (targetLetterCounts[letter] || 0) + 1;
     });
 
     // First pass: Check for correct letters in the correct position (Green)
-    guessArray.forEach((letter, index) => {
+    guessArray.forEach((letter: string, index: number) => {
         if (letter === targetArray[index]) {
             letterStyles[index] = 'bg-green-500 text-white border-green-600';
             targetLetterCounts[letter]--; // Decrement count for used green letters
@@ -36,7 +73,7 @@ const getLetterStyle = (guess, targetWord, attemptMade) => {
     });
 
     // Second pass: Check for correct letters in the wrong position (Yellow)
-    guessArray.forEach((letter, index) => {
+    guessArray.forEach((letter: string, index: number) => {
         // Only check if not already green and the letter exists in the target word with remaining count
         if (letterStyles[index] !== 'bg-green-500 text-white border-green-600' && targetLetterCounts[letter] > 0) {
             letterStyles[index] = 'bg-yellow-500 text-white border-yellow-600';
@@ -52,25 +89,31 @@ const getLetterStyle = (guess, targetWord, attemptMade) => {
 function MastersWordsGame() {
     // --- State ---
     const [targetWord, setTargetWord] = useState('');
+    const [currentReference, setCurrentReference] = useState('');
     const [wordLength, setWordLength] = useState(0); // Store length explicitly
     const [guesses, setGuesses] = useState(() => Array(MAX_ATTEMPTS).fill(''));
     const [currentGuess, setCurrentGuess] = useState('');
     const [attempt, setAttempt] = useState(0);
     const [gameOver, setGameOver] = useState(false);
     const [message, setMessage] = useState('');
+    const [showReference, setShowReference] = useState(false);
     // Pre-calculate styles for performance? Memoize if grid rendering becomes slow.
     // const [letterStylesGrid, setLetterStylesGrid] = useState(() => Array(MAX_ATTEMPTS).fill([]));
 
     // --- Initialize Game ---
     const initializeGame = useCallback(() => {
-        const newWord = WORD_LIST[Math.floor(Math.random() * WORD_LIST.length)].toLowerCase();
+        const randomIndex = Math.floor(Math.random() * WORD_LIST.length);
+        const selectedWordObj = WORD_LIST[randomIndex];
+        const newWord = selectedWordObj.word.toLowerCase();
         setTargetWord(newWord);
+        setCurrentReference(selectedWordObj.reference);
         setWordLength(newWord.length); // Set word length based on the chosen word
         setGuesses(Array(MAX_ATTEMPTS).fill(''));
         setCurrentGuess('');
         setAttempt(0);
         setGameOver(false);
         setMessage('');
+        setShowReference(false);
         // setLetterStylesGrid(Array(MAX_ATTEMPTS).fill([])); // Reset styles
         console.log('Game initialized/reset - New Target Word:', newWord);
     }, []); // Empty dependency array means this function itself doesn't change
@@ -92,7 +135,7 @@ function MastersWordsGame() {
 
 
     // --- Event Handlers ---
-    const handleInputChange = (event) => {
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         // Allow only letters and limit length
         const value = event.target.value.replace(/[^a-zA-Z]/g, '').toLowerCase();
         if (value.length <= wordLength) {
@@ -128,18 +171,20 @@ function MastersWordsGame() {
         if (guess === targetWord) {
             setGameOver(true);
             setMessage("Congratulations! You've found the Master's word!");
+            setShowReference(true); // Show reference on win
         } else if (newAttempt === MAX_ATTEMPTS) {
             setGameOver(true);
             setMessage(`Game Over! The word was "${targetWord.toUpperCase()}".`);
+            setShowReference(true); // Show reference on loss
         } else {
             setMessage(''); // Clear previous messages
         }
 
         setCurrentGuess(''); // Clear input field
 
-    }, [currentGuess, wordLength, gameOver, attempt, guesses, targetWord]); // Dependencies for useCallback
+    }, [currentGuess, wordLength, gameOver, attempt, guesses, targetWord, currentReference]); // Dependencies for useCallback
 
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: React.KeyboardEvent) => {
         if (event.key === 'Enter') {
             submitGuess();
         }
@@ -215,8 +260,24 @@ function MastersWordsGame() {
                         </div>
                     )}
 
+                    {/* Reference Area */}
+                    {showReference && currentReference && (
+                        <div className="mb-6 p-4 bg-gradient-to-r from-spiritual-50 to-white rounded-lg border border-spiritual-300 shadow-md">
+                            <h3 className="text-lg font-semibold mb-2 text-spiritual-700">Reference:</h3>
+                            <p className="text-gray-700 italic">{currentReference}</p>
+                        </div>
+                    )}
+
                     {/* Control Buttons */}
                     <div className="space-x-3 mt-2">
+                        {gameOver && !showReference && (
+                            <button
+                                onClick={() => setShowReference(true)}
+                                className="bg-spiritual-500 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-spiritual-600 transition-colors duration-300 shadow-md"
+                            >
+                                Show Reference
+                            </button>
+                        )}
                          {gameOver && (
                             <button
                                 onClick={initializeGame} // Use initializeGame for reset

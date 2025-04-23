@@ -63,9 +63,9 @@ const GamesPage = () => {
                   <div className="flex items-center justify-center w-12 h-12 bg-spiritual-100 rounded-full mb-4">
                     <AlignJustify className="w-6 h-6 text-spiritual-500" />
                   </div>
-                  <h3 className="text-xl font-heading font-semibold mb-3">Spiritual Wordle</h3>
+                  <h3 className="text-xl font-heading font-semibold mb-3">Ramkridle</h3>
                   <p className="text-gray-600 mb-4">
-                    Guess the hidden spiritual term in six tries or less. Each guess provides clues about which letters are correct and in the right position.
+                    A Wordle-like game where players guess English words spoken by Sri Ramakrishna - from the original Bengali - Sri Sri Ramakrishna Kathamrita.
                   </p>
                   <Button href="/learn/games/wordle" variant="outline" size="sm">
                     Play Game
