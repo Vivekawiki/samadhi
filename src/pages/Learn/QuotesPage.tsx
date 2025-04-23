@@ -1,11 +1,11 @@
 import React from 'react';
 import PageLayout from '../../components/layout/PageLayout';
-import WisdomQuotesGame from '../../components/games/WisdomQuotesGame';
+import WisdomWordsGame from '../../components/games/WisdomWordsGame';
 
 const QuotesPage = () => {
   return (
     <PageLayout>
-      <WisdomQuotesGame />
+      <WisdomWordsGame />
     </PageLayout>
   );
 };

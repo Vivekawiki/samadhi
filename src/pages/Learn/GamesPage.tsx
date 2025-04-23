@@ -78,9 +78,9 @@ const GamesPage = () => {
                   <div className="flex items-center justify-center w-12 h-12 bg-spiritual-100 rounded-full mb-4">
                     <Quote className="w-6 h-6 text-spiritual-500" />
                   </div>
-                  <h3 className="text-xl font-heading font-semibold mb-3">Wisdom Quotes</h3>
+                  <h3 className="text-xl font-heading font-semibold mb-3">Wisdom Words</h3>
                   <p className="text-gray-600 mb-4">
-                    Match inspirational quotes with the spiritual figures who said them. Learn wisdom from Sri Ramakrishna, Swami Vivekananda, and other great teachers.
+                    Rearrange scrambled words to form wisdom sayings from Sri Ramakrishna, Sri Sarada Devi, and Swami Vivekananda. Test your skills at different difficulty levels.
                   </p>
                   <Button href="/learn/games/quotes" variant="outline" size="sm">
                     Play Game
