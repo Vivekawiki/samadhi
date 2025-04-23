@@ -46,6 +46,7 @@ import GamesPage from "./pages/Learn/GamesPage";
 import GuessThePicturePage from "./pages/Learn/GuessThePicturePage.tsx";
 import MastersWordsGamePage from "./pages/Learn/MastersWordsGame.tsx";
 import QuotesPage from "./pages/Learn/QuotesPage";
+import WordScramblePage from "./pages/Learn/WordScramblePage";
 import ThankYouPage from "./pages/Donate/ThankYouPage.tsx";
 
 import LoginPage from "@/pages/Auth/LoginPage";
@@ -106,6 +107,7 @@ const App = () => (
               <Route path="/learn/games/guess-picture" element={<GuessThePicturePage />} />
               <Route path="/learn/games/wordle" element={<MastersWordsGamePage />} />
               <Route path="/learn/games/quotes" element={<QuotesPage />} />
+              <Route path="/learn/games/word-scramble" element={<WordScramblePage />} />
 
             {/* Authentication and User Routes */}
             <Route path="/login" element={<LoginPage />} />
