@@ -1,5 +1,3 @@
-import React from 'react';
-
 
 const SpecialFunctions = () => {
   return (
@@ -18,7 +16,8 @@ const SpecialFunctions = () => {
               <div className="mt-12 bg-gradient-to-br from-indian-cream to-white rounded-lg p-6 shadow-sm border border-indian-saffron/20">
                 <h3 className="text-2xl font-heading font-semibold mb-6">Upcoming Programmes</h3>
 
-                <div className="overflow-x-auto">
+                {/* Desktop view - table */}
+                <div className="hidden md:block overflow-x-auto">
                   <table className="min-w-full bg-gradient-to-br from-indian-cream to-white border border-indian-saffron/30 rounded-lg">
                     <thead>
                       <tr className="bg-indian-saffron/10">
@@ -50,6 +49,49 @@ const SpecialFunctions = () => {
                       </tr>
                     </tbody>
                   </table>
+                </div>
+
+                {/* Mobile view - cards */}
+                <div className="md:hidden space-y-6">
+                  {/* Event 1 */}
+                  <div className="bg-gradient-to-br from-indian-cream to-white border border-indian-saffron/30 rounded-lg p-4 shadow-sm pop-shadow-card">
+                    <div className="font-semibold text-lg mb-2 bg-indian-saffron/10 p-2 rounded">Sunday, 18th May</div>
+                    <div className="text-sm text-gray-600 mb-3">10 AM - 12 PM</div>
+                    <div className="grid grid-cols-2 gap-2 mb-3">
+                      <div className="font-medium">Event:</div>
+                      <div>Seminar</div>
+                    </div>
+                    <div className="grid grid-cols-1 gap-2">
+                      <div className="font-medium">Details:</div>
+                      <div className="text-sm">Sri Ramakrishna's Organisational Wisdom and the Early History of the Ramakrishna Movement in South Africa (1897-1965)</div>
+                    </div>
+                  </div>
+
+                  {/* Event 2 */}
+                  <div className="bg-gradient-to-br from-indian-cream to-white border border-indian-saffron/30 rounded-lg p-4 shadow-sm pop-shadow-card">
+                    <div className="font-semibold text-lg mb-2 bg-indian-saffron/10 p-2 rounded">24th May, Saturday</div>
+                    <div className="grid grid-cols-2 gap-2 mb-3">
+                      <div className="font-medium">Event:</div>
+                      <div>Nutrition Programme</div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="font-medium">Details:</div>
+                      <div>Hamper Distribution</div>
+                    </div>
+                  </div>
+
+                  {/* Event 3 */}
+                  <div className="bg-gradient-to-br from-indian-cream to-white border border-indian-saffron/30 rounded-lg p-4 shadow-sm pop-shadow-card">
+                    <div className="font-semibold text-lg mb-2 bg-indian-saffron/10 p-2 rounded">24th May, Saturday</div>
+                    <div className="grid grid-cols-2 gap-2 mb-3">
+                      <div className="font-medium">Event:</div>
+                      <div>Women's Empowerment Programme</div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="font-medium">Details:</div>
+                      <div>Skills development workshop</div>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="mt-8 p-6 bg-gradient-to-br from-indian-cream to-white rounded-lg border border-indian-saffron/30">
