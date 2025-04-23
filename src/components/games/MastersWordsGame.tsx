@@ -147,35 +147,34 @@ function MastersWordsGame() {
 
     // --- Render ---
     return (
-        <div className="min-h-screen bg-gradient-to-br from-indian-cream to-white flex flex-col items-center p-4 sm:p-8 pt-12 sm:pt-16 text-center relative z-10">
-            <h1 className="text-3xl sm:text-4xl font-heading font-bold text-spiritual-600 mb-4 sm:mb-6">Spiritual Wordle</h1>
+        <div className="min-h-screen bg-gradient-to-r from-indian-cream to-white flex flex-col items-center p-4 sm:p-8 pt-6 sm:pt-8 text-center relative z-10">
+            <div className="text-center mb-2">
+                <h1 className="text-3xl sm:text-4xl font-heading font-bold text-spiritual-600 mb-1">Spiritual Wordle</h1>
+                {wordLength > 0 && <p className="text-sm text-gray-600 mb-2">Guess the {wordLength}-letter spiritual word in {MAX_ATTEMPTS} attempts</p>}
+
+                {wordLength > 0 && (
+                    <div className="flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-3 gap-y-1 text-xs text-gray-600 bg-gradient-to-r from-spiritual-50/30 to-white p-1.5 rounded-md shadow-sm max-w-md mx-auto">
+                        <span className="inline-flex items-center"><span className="inline-block w-3 h-3 bg-green-500 mr-1 border border-green-600 rounded"></span> = Right spot</span>
+                        <span className="inline-flex items-center"><span className="inline-block w-3 h-3 bg-yellow-500 mr-1 border border-yellow-600 rounded"></span> = Wrong spot</span>
+                        <span className="inline-flex items-center"><span className="inline-block w-3 h-3 bg-gray-300 mr-1 border border-gray-400 rounded"></span> = Not in word</span>
+                    </div>
+                )}
+            </div>
 
             {wordLength > 0 && ( // Only render instructions etc. once word is loaded
                 <>
-                    <p className="text-base sm:text-lg text-gray-600 max-w-xl sm:max-w-2xl mb-4">
-                        Guess the {wordLength}-letter spiritual word. You have {MAX_ATTEMPTS} attempts to find the hidden word!
-                    </p>
-                    <div className="bg-white p-4 rounded-lg shadow-md border border-indian-saffron/30 w-full max-w-md sm:max-w-2xl mb-6 sm:mb-8">
-                        <h3 className="text-lg sm:text-xl font-heading font-semibold text-spiritual-600 mb-2">How to Play</h3>
-                        <ul className="text-left text-sm sm:text-base text-gray-600 list-disc pl-5 sm:pl-6 space-y-1">
-                            <li>Type a {wordLength}-letter word and press Enter.</li>
-                            <li><span className="inline-block w-4 h-4 bg-green-500 mr-1 border border-green-600 rounded align-middle"></span> = Correct letter, right spot.</li>
-                            <li><span className="inline-block w-4 h-4 bg-yellow-500 mr-1 border border-yellow-600 rounded align-middle"></span> = Correct letter, wrong spot.</li>
-                            <li><span className="inline-block w-4 h-4 bg-gray-300 mr-1 border border-gray-400 rounded align-middle"></span> = Letter not in the word.</li>
-                        </ul>
-                    </div>
 
                     {/* Guess Grid */}
-                    <div className="mb-6 sm:mb-8">
+                    <div className="mb-4 sm:mb-6">
                         {guesses.map((_, row) => (
-                            <div key={`row-${row}`} className="flex justify-center gap-1 sm:gap-2 mb-1 sm:mb-2">
+                            <div key={`row-${row}`} className="flex justify-center gap-1 mb-1">
                                 {[...Array(wordLength)].map((_, col) => {
                                      const style = letterStylesGrid[row]?.[col] ?? 'bg-white border-gray-300'; // Fallback style
                                      const letter = guesses[row]?.[col] ?? '';
                                      return (
                                         <div
                                             key={`col-${row}-${col}`}
-                                            className={`w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center text-2xl font-bold uppercase border-2 rounded transition-colors duration-300 ${style}`}
+                                            className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-xl sm:text-2xl font-bold uppercase border-2 rounded transition-colors duration-300 ${style}`}
                                         >
                                             {letter}
                                         </div>
@@ -187,22 +186,22 @@ function MastersWordsGame() {
 
                     {/* Input Area */}
                     {!gameOver && (
-                        <div className="mb-6 sm:mb-8 flex flex-col items-center gap-3 sm:gap-4">
+                        <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
                             <input
                                 type="text"
                                 value={currentGuess}
                                 onChange={handleInputChange}
                                 onKeyDown={handleKeyDown}
                                 maxLength={wordLength}
-                                placeholder={`Enter ${wordLength}-letter guess`}
-                                className="w-60 sm:w-72 p-2 sm:p-3 border-2 border-spiritual-600 rounded text-center text-xl sm:text-2xl uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-spiritual-500"
+                                placeholder="Enter guess"
+                                className="w-56 sm:w-64 p-2 border-2 border-spiritual-600 rounded text-center text-xl uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-spiritual-500 bg-gradient-to-r from-spiritual-50/50 to-white"
                                 disabled={gameOver || attempt >= MAX_ATTEMPTS}
                                 autoFocus // Focus input on load/reset
                             />
                             <button
                                 onClick={submitGuess}
                                 disabled={gameOver || attempt >= MAX_ATTEMPTS || currentGuess.length !== wordLength}
-                                className="bg-indian-saffron text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold hover:bg-indian-saffron/80 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="bg-indian-saffron text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold hover:bg-indian-saffron/80 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
                             >
                                 Enter Guess
                             </button>
@@ -211,17 +210,17 @@ function MastersWordsGame() {
 
                     {/* Message Area */}
                     {message && (
-                        <div className="text-xl sm:text-2xl text-spiritual-600 font-semibold mb-6 sm:mb-8 px-4 min-h-[3rem] flex items-center justify-center">
+                        <div className="text-lg sm:text-xl text-spiritual-600 font-semibold mb-4 px-3 min-h-[2.5rem] flex items-center justify-center bg-gradient-to-r from-spiritual-50/50 to-white rounded-lg shadow-sm py-1">
                            <p>{message}</p>
                         </div>
                     )}
 
                     {/* Control Buttons */}
-                    <div className="space-x-4 mt-4">
+                    <div className="space-x-3 mt-2">
                          {gameOver && (
                             <button
                                 onClick={initializeGame} // Use initializeGame for reset
-                                className="bg-indian-saffron text-white px-5 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-indian-saffron/80 transition-colors duration-300"
+                                className="bg-indian-saffron text-white px-5 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-indian-saffron/80 transition-colors duration-300 shadow-md"
                             >
                                 Play Again
                             </button>
@@ -229,7 +228,7 @@ function MastersWordsGame() {
                         {/* Replace NuxtLink with a standard anchor or React Router Link if applicable */}
                         <a
                             href="/learn/games" // Correct path to games page
-                            className="bg-gray-600 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-300"
+                            className="bg-gray-600 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-300 shadow-md"
                         >
                             Back to Games
                         </a>

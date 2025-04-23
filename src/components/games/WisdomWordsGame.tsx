@@ -424,11 +424,11 @@ function WisdomWordsGame() {
         }
       `}</style>
 
-      <div className="min-h-screen bg-gradient-to-br from-indian-cream to-white flex flex-col items-center p-4 sm:p-8 pt-12 sm:pt-16 text-center relative z-10">
+      <div className="min-h-screen bg-gradient-to-r from-indian-cream to-white flex flex-col items-center p-4 sm:p-8 pt-6 sm:pt-10 text-center relative z-10">
         <div className="container mx-auto px-4 py-4">
-          <div className="max-w-4xl mx-auto p-6 rounded-lg shadow-lg bg-white border border-indian-saffron/30 relative">
-            <h1 className="text-3xl font-heading font-bold text-center mb-6 text-spiritual-600">Wisdom Quotes</h1>
-            <p className="text-lg text-center mb-6 text-gray-700">Rearrange the words to form wisdom sayings from great spiritual teachers.</p>
+          <div className="max-w-4xl mx-auto p-6 rounded-lg shadow-lg border border-indian-saffron/30 relative bg-gradient-to-br from-spiritual-50/30 to-white">
+            <h1 className="text-2xl sm:text-3xl font-heading font-bold text-center mb-2 sm:mb-4 text-spiritual-600">Wisdom Quotes</h1>
+            <p className="text-base sm:text-lg text-center mb-4 sm:mb-6 text-gray-700">Rearrange the words to form wisdom sayings from great spiritual teachers.</p>
 
             {/* Game controls */}
             <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
@@ -436,7 +436,7 @@ function WisdomWordsGame() {
                 <label htmlFor="teacher-select" className="block text-sm font-medium mb-1 text-spiritual-600">Select Teacher:</label>
                 <select
                   id="teacher-select"
-                  className="w-full sm:w-auto p-2 border border-spiritual-200 rounded-md bg-spiritual-50 text-spiritual-800"
+                  className="w-full sm:w-auto p-2 border border-spiritual-200 rounded-md bg-gradient-to-r from-spiritual-50 to-white text-spiritual-800"
                   value={currentAuthor}
                   onChange={(e) => setCurrentAuthor(e.target.value)}
                   disabled={gameActive}
@@ -451,7 +451,7 @@ function WisdomWordsGame() {
                 <label htmlFor="difficulty-select" className="block text-sm font-medium mb-1 text-spiritual-600">Difficulty:</label>
                 <select
                   id="difficulty-select"
-                  className="w-full sm:w-auto p-2 border border-spiritual-200 rounded-md bg-spiritual-50 text-spiritual-800"
+                  className="w-full sm:w-auto p-2 border border-spiritual-200 rounded-md bg-gradient-to-r from-spiritual-50 to-white text-spiritual-800"
                   value={difficulty.name} // Use name as value for simplicity
                   onChange={(e) => {
                       const selectedLevel = difficultyLevels.find(level => level.name === e.target.value);
@@ -467,7 +467,7 @@ function WisdomWordsGame() {
 
               <div className="flex items-end w-full sm:w-auto">
                 <button
-                  className="w-full sm:w-auto py-2 px-4 bg-indian-saffron text-white rounded-md hover:bg-indian-saffron/80 transition-colors disabled:opacity-50"
+                  className="w-full sm:w-auto py-2 px-4 bg-indian-saffron text-white rounded-md hover:bg-indian-saffron/80 transition-colors disabled:opacity-50 shadow-md"
                   onClick={startGame}
                   disabled={gameActive}
                 >
@@ -500,7 +500,7 @@ function WisdomWordsGame() {
 
                 {/* Show the original quote after completion */}
                 {gameComplete && (
-                  <div className="mt-4 p-4 bg-spiritual-50 rounded-lg border border-spiritual-200">
+                  <div className="mt-4 p-4 rounded-lg border border-spiritual-200 bg-gradient-to-br from-spiritual-100/90 to-white shadow-sm">
                     <p className="italic">"{originalQuote}"</p>
                     <p className="mt-2 font-semibold text-spiritual-600">— {currentAuthor}</p>
                   </div>
@@ -514,7 +514,7 @@ function WisdomWordsGame() {
                 {/* Arranged words area */}
                 <div
                   ref={arrangedAreaRef}
-                  className={`min-h-24 p-4 mb-4 border-2 border-dashed border-spiritual-300 rounded-lg flex flex-wrap gap-2 bg-white bg-opacity-70 ${showIncorrectFeedback ? 'border-red-300 bg-red-50 bg-opacity-30' : ''}`}
+                  className={`min-h-24 p-4 mb-4 border-2 border-dashed rounded-lg flex flex-wrap gap-2 bg-gradient-to-br from-spiritual-50/50 to-white shadow-inner ${showIncorrectFeedback ? 'border-red-300 bg-gradient-to-br from-red-50/50 to-white' : 'border-spiritual-300'}`}
                   onDragOver={handleDragOver}
                   onDrop={(e) => handleDrop(e, arrangedWords.length, 'arranged')} // Drop in empty space adds to end
                 >
@@ -522,7 +522,7 @@ function WisdomWordsGame() {
                     <div
                       key={`arranged-${index}-${word}`} // Make key more robust
                       data-word-index={index} // For precise drop detection
-                      className="p-2 bg-spiritual-100 rounded cursor-move shadow-sm hover:shadow-md transition-shadow border border-spiritual-200 text-spiritual-800 touchable"
+                      className="p-2 bg-gradient-to-r from-spiritual-100 to-white rounded cursor-move shadow-sm hover:shadow-md transition-shadow border border-spiritual-200 text-spiritual-800 touchable"
                       draggable="true"
                       onDragStart={(e) => handleDragStart(e, index, 'arranged')}
                       onDragOver={handleDragOver} // Allow dropping onto other words
@@ -545,7 +545,7 @@ function WisdomWordsGame() {
                 {/* Jumbled words */}
                 <div
                   ref={jumbledAreaRef}
-                  className="p-4 border border-spiritual-200 rounded-lg flex flex-wrap gap-2 bg-white bg-opacity-70 min-h-[4rem]" // Ensure minimum height
+                  className="p-4 border border-spiritual-200 rounded-lg flex flex-wrap gap-2 bg-gradient-to-br from-spiritual-50/30 to-white min-h-[4rem] shadow-sm" // Ensure minimum height
                    onDragOver={handleDragOver}
                    onDrop={(e) => handleDrop(e, jumbledWords.length, 'jumbled')} // Drop only adds to end here
                 >
@@ -553,7 +553,7 @@ function WisdomWordsGame() {
                     <div
                       key={`jumbled-${index}-${word}`} // Make key more robust
                        data-word-index={index} // For potential future use
-                      className="p-2 bg-spiritual-50 rounded cursor-move shadow-sm hover:shadow-md transition-shadow border border-spiritual-100 text-spiritual-700 touchable"
+                      className="p-2 bg-gradient-to-r from-spiritual-50 to-white rounded cursor-move shadow-sm hover:shadow-md transition-shadow border border-spiritual-100 text-spiritual-700 touchable"
                       draggable="true"
                       onDragStart={(e) => handleDragStart(e, index, 'jumbled')}
                       onTouchStart={(e) => handleTouchStart(e, index, 'jumbled')}
@@ -580,7 +580,7 @@ function WisdomWordsGame() {
                 {jumbledWords.length === 0 && !gameComplete && gameActive && (
                   <div className="mt-4 text-center">
                     <button
-                      className="py-2 px-4 bg-spiritual-600 text-white rounded-md hover:bg-spiritual-700 transition-colors"
+                      className="py-2 px-4 bg-spiritual-600 text-white rounded-md hover:bg-spiritual-700 transition-colors shadow-md"
                       onClick={checkArrangement}
                     >
                       Check My Answer
@@ -596,7 +596,7 @@ function WisdomWordsGame() {
                 <h3 className="text-xl font-heading font-bold mb-2 text-spiritual-600">Best Times:</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {Object.entries(bestTimes).map(([key, time]) => (
-                    <div key={key} className="p-3 bg-spiritual-50 rounded border border-spiritual-200">
+                    <div key={key} className="p-3 bg-gradient-to-r from-spiritual-50 to-white rounded border border-spiritual-200 shadow-sm">
                       <div className="font-medium text-spiritual-700">{key.split('-')[0]} ({key.split('-')[1]})</div>
                       <div className="text-green-700">{time.toFixed(1)}s</div>
                     </div>

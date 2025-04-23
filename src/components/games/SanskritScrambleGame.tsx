@@ -61,6 +61,8 @@ function SanskritScrambleGame() {
   const [gameOver, setGameOver] = useState(false);
   const [totalWords] = useState(wordList.length);
   const [wordCompleted, setWordCompleted] = useState(false);
+  const [incorrectGuesses, setIncorrectGuesses] = useState(0);
+  const MAX_INCORRECT_GUESSES = 3;
 
   const inputRef = useRef(null); // For focusing the input
 
@@ -76,6 +78,7 @@ function SanskritScrambleGame() {
     }
 
     setWordCompleted(false);
+    setIncorrectGuesses(0);
 
     // Select and remove a random word from the available list
     const randomIndex = Math.floor(Math.random() * availableWords.length);
@@ -109,6 +112,7 @@ function SanskritScrambleGame() {
     setShowAnswer(false);
     setShowHint(false);
     setWordCompleted(false);
+    setIncorrectGuesses(0);
     setGameOver(false);
     // Initial word load will happen in useEffect based on availableWords changing
   }, []); // No dependencies needed as it resets state directly
@@ -144,12 +148,23 @@ function SanskritScrambleGame() {
       setShowHint(false); // Hide hint when showing answer
       setWordCompleted(true); // Mark word as completed to show continue/end options
     } else {
-      setMessage('Incorrect. Try again!');
+      // Increment incorrect guesses counter
+      const newIncorrectGuesses = incorrectGuesses + 1;
+      setIncorrectGuesses(newIncorrectGuesses);
+
+      if (newIncorrectGuesses >= MAX_INCORRECT_GUESSES) {
+        // After 3 incorrect guesses, show hint automatically
+        setShowHint(true);
+        setMessage(`That's ${MAX_INCORRECT_GUESSES} incorrect guesses. Here's a hint to help you!`);
+      } else {
+        setMessage(`Incorrect. Try again! (${newIncorrectGuesses}/${MAX_INCORRECT_GUESSES} guesses)`);
+      }
+
       setIsCorrect(false);
       setUserGuess(''); // Clear input on incorrect guess
       inputRef.current?.focus(); // Re-focus input
     }
-  }, [userGuess, currentWordData, showAnswer, gameOver, loadNextWord]);
+  }, [userGuess, currentWordData, showAnswer, gameOver, incorrectGuesses, MAX_INCORRECT_GUESSES]);
 
 
   const handleSkip = useCallback(() => {
@@ -199,31 +214,31 @@ function SanskritScrambleGame() {
 
   // --- Dynamically determine message class ---
   const messageClass = isCorrect === true
-    ? 'text-green-700 bg-green-100 border-green-300'
+    ? 'text-green-700 bg-gradient-to-r from-green-100 to-white border-green-300'
     : isCorrect === false
-    ? 'text-red-700 bg-red-100 border-red-300'
-    : 'text-gray-700 bg-gray-100 border-gray-300'; // Neutral or initial state
+    ? 'text-red-700 bg-gradient-to-r from-red-100 to-white border-red-300'
+    : 'text-gray-700 bg-gradient-to-r from-gray-100 to-white border-gray-300'; // Neutral or initial state
 
 
   // --- Render ---
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indian-cream to-white flex flex-col items-center p-4 sm:p-8 pt-12 sm:pt-16 text-center relative z-10">
+    <div className="min-h-screen bg-gradient-to-r from-indian-cream to-white flex flex-col items-center p-4 sm:p-8 pt-6 sm:pt-10 text-center relative z-10">
       <div className="container mx-auto px-4 py-4">
-        <div className="max-w-4xl mx-auto p-6 rounded-lg shadow-lg bg-white border border-indian-saffron/30 relative">
-          <h1 className="text-3xl font-heading font-bold text-center mb-6 text-spiritual-600">Sanskrit Word Scramble</h1>
-          <p className="text-lg text-center mb-6 text-gray-700">
+        <div className="max-w-4xl mx-auto p-6 rounded-lg shadow-lg border border-indian-saffron/30 relative bg-gradient-to-br from-spiritual-50/30 to-white">
+          <h1 className="text-2xl sm:text-3xl font-heading font-bold text-center mb-2 sm:mb-4 text-spiritual-600">Sanskrit Word Scramble</h1>
+          <p className="text-base sm:text-lg text-center mb-4 sm:mb-6 text-gray-700">
             Unscramble Sanskrit words and learn their meanings.
           </p>
 
           {gameOver ? (
             // --- Game Over Screen ---
             <div className="text-center py-8">
-              <p className={`text-xl font-semibold mb-6 p-4 rounded border ${messageClass}`}>
+              <p className={`text-xl font-semibold mb-6 p-4 rounded border shadow-sm ${messageClass}`}>
                 {message}
               </p>
               <button
                 onClick={resetGame}
-                className="px-8 py-3 bg-indian-saffron text-white rounded-lg font-semibold hover:bg-indian-saffron/80 transition-colors shadow"
+                className="px-8 py-3 bg-indian-saffron text-white rounded-lg font-semibold hover:bg-indian-saffron/80 transition-colors shadow-md"
               >
                 Play Again
               </button>
@@ -235,9 +250,9 @@ function SanskritScrambleGame() {
                 Score: {correctAnswers} correct / {wordsCompleted} completed
               </div>
 
-              <div className="mb-8 p-6 bg-spiritual-50 rounded-lg border border-spiritual-200 shadow-inner">
+              <div className="mb-4 sm:mb-6 p-4 sm:p-6 rounded-lg border border-spiritual-200 shadow-inner bg-gradient-to-br from-spiritual-100 to-white">
                 <p className="mb-3 text-sm text-spiritual-500 uppercase tracking-wider">Unscramble this word:</p>
-                <p className="text-4xl sm:text-5xl font-bold text-spiritual-700 tracking-[0.2em] sm:tracking-[0.3em] uppercase select-none mb-2">
+                <p className="text-3xl sm:text-4xl font-bold text-spiritual-700 tracking-[0.15em] sm:tracking-[0.2em] uppercase select-none mb-2">
                   {scrambledWord}
                 </p>
                 <p className="text-xs text-spiritual-500">({currentWordData.sanskrit.length} letters)</p>
@@ -263,14 +278,14 @@ function SanskritScrambleGame() {
                 <button
                   onClick={checkGuess}
                   disabled={!userGuess || showAnswer || wordCompleted}
-                  className="w-full sm:w-auto px-6 py-3 bg-indian-saffron text-white rounded-lg font-semibold hover:bg-indian-saffron/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow"
+                  className="w-full sm:w-auto px-6 py-3 bg-indian-saffron text-white rounded-lg font-semibold hover:bg-indian-saffron/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
                 >
                   Submit Guess
                 </button>
               </div>
 
               {message && (
-                <div className={`mt-4 mb-6 p-3 rounded border text-center ${messageClass}`}>
+                <div className={`mt-4 mb-6 p-3 rounded border text-center shadow-sm ${messageClass}`}>
                   {message}
                 </div>
               )}
@@ -280,14 +295,14 @@ function SanskritScrambleGame() {
                   <button
                     onClick={handleHint}
                     disabled={showHint || showAnswer}
-                    className="px-5 py-2 bg-spiritual-500 text-white text-sm rounded-lg font-semibold hover:bg-spiritual-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow"
+                    className="px-5 py-2 bg-spiritual-500 text-white text-sm rounded-lg font-semibold hover:bg-spiritual-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
                   >
                     Show Hint
                   </button>
                   <button
                     onClick={handleSkip}
                     disabled={showAnswer}
-                    className="px-5 py-2 bg-gray-500 text-white text-sm rounded-lg font-semibold hover:bg-gray-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow"
+                    className="px-5 py-2 bg-gray-500 text-white text-sm rounded-lg font-semibold hover:bg-gray-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
                   >
                     Skip / Show Answer
                   </button>
@@ -296,13 +311,13 @@ function SanskritScrambleGame() {
                 <div className="mt-6 flex flex-col sm:flex-row justify-center gap-3">
                   <button
                     onClick={handleContinue}
-                    className="px-6 py-3 bg-spiritual-600 text-white rounded-lg font-semibold hover:bg-spiritual-700 transition-colors shadow"
+                    className="px-6 py-3 bg-spiritual-600 text-white rounded-lg font-semibold hover:bg-spiritual-700 transition-colors shadow-md"
                   >
                     Try Another Word
                   </button>
                   <button
                     onClick={handleEndGame}
-                    className="px-6 py-3 bg-gray-600 text-white rounded-lg font-semibold hover:bg-gray-700 transition-colors shadow"
+                    className="px-6 py-3 bg-gray-600 text-white rounded-lg font-semibold hover:bg-gray-700 transition-colors shadow-md"
                   >
                     End Game
                   </button>
@@ -311,7 +326,7 @@ function SanskritScrambleGame() {
 
               {/* Hint display */}
               {showHint && !showAnswer && (
-                <div className="mt-4 p-3 bg-spiritual-50 border border-spiritual-200 rounded-lg text-spiritual-700">
+                <div className="mt-4 p-3 border border-spiritual-200 rounded-lg text-spiritual-700 bg-gradient-to-br from-spiritual-100/90 to-white">
                   <p className="font-semibold mb-1">Hint:</p>
                   <p>{currentWordData.meaning}</p>
                 </div>
