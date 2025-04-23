@@ -8,7 +8,7 @@ const TimelinePage = () => {
   const phases = [
     {
       title: "Phase 1: Land Acquisition",
-      period: "January 2022 - December 2022",
+      period: "December 2019",
       items: [
         "Formation of the Building Committee",
         "Site selection and evaluation",
@@ -19,7 +19,7 @@ const TimelinePage = () => {
     },
     {
       title: "Phase 2: Zoning, Acquisition of Authorizations",
-      period: "January 2023 - June 2023",
+      period: "June 2022",
       items: [
         "Zoning from previous farm land",
         "Environmental Impact Assessment (EIA) reports",
@@ -31,7 +31,7 @@ const TimelinePage = () => {
     },
     {
       title: "Phase 3: Planning and Design",
-      period: "July 2023 - December 2023",
+      period: "2019 - April 2025",
       items: [
         "Needs assessment and requirement gathering",
         "Architectural concept development",
@@ -43,9 +43,9 @@ const TimelinePage = () => {
     },
     {
       title: "Phase 4: Submission to Council for Approval",
-      period: "January 2024 - Present",
+      period: "April 2025",
       items: [
-        "Submission of building plans",
+        "Preparation for submission of building plans",
         "Council review process",
         "Addressing any council requirements",
         "Final approval from local authorities"
@@ -54,8 +54,8 @@ const TimelinePage = () => {
       isCurrent: true
     },
     {
-      title: "Phase 5: Construction",
-      period: "Projected: July 2024 - December 2025",
+      title: "Phase 5: Construction (9 months)",
+      period: "Projected to commence: As soon as approval is granted",
       items: [
         "Groundbreaking ceremony",
         "Foundation work",
@@ -80,7 +80,7 @@ const TimelinePage = () => {
               />
 
               <div className="prose prose-lg max-w-none mb-12">
-                <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg mb-8">
+                <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg mb-8 pop-shadow-card">
                   <h3 className="text-2xl font-heading font-semibold mb-4">Project Timeline</h3>
                   <p className="mb-6">
                     Our New Ashram Project is progressing through several carefully planned phases. Below is our current timeline, with updates on our progress.
@@ -88,8 +88,8 @@ const TimelinePage = () => {
 
                   <div className="space-y-12 mt-8">
                     {phases.map((phase, index) => (
-                      <div key={index} className="relative bg-gradient-to-br from-indian-cream to-white p-6 rounded-lg border border-indian-saffron/30 shadow-sm">
-                        <div className="absolute -left-3 top-6 w-6 h-6 flex items-center justify-center">
+                      <div key={index} className="relative bg-gradient-to-br from-indian-cream to-white p-6 rounded-lg border border-indian-saffron/30 shadow-sm pop-shadow-card">
+                        <div className="absolute left-1 top-6 w-6 h-6 flex items-center justify-center">
                           {phase.isCompleted ? (
                             <CheckCircle className="w-6 h-6 text-green-500" />
                           ) : phase.isCurrent ? (
@@ -98,28 +98,28 @@ const TimelinePage = () => {
                             <Circle className="w-6 h-6 text-gray-400" />
                           )}
                         </div>
-                        <div className={`mb-2 ${phase.isCompleted ? 'text-green-600' : phase.isCurrent ? 'text-blue-600' : 'text-gray-600'} font-semibold text-lg`}>
+                        <div className={`mb-2 ml-2 ${phase.isCompleted ? 'text-green-600' : phase.isCurrent ? 'text-blue-600' : 'text-gray-600'} font-semibold text-lg`}>
                           {phase.title}
                         </div>
-                        <div className="text-sm text-gray-500 mb-3">{phase.period}</div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div className="text-sm text-gray-500 mb-3 ml-2">{phase.period}</div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 ml-2">
                           {phase.items.map((item, idx) => (
                             <div key={idx} className="flex items-start gap-2">
-                              <span className="inline-block w-2 h-2 rounded-full bg-indian-saffron mt-2"></span>
+                              <span className="inline-block w-2 h-2 rounded-full bg-indian-saffron mt-2 ml-4"></span>
                               <span className="text-gray-700">{item}</span>
                             </div>
                           ))}
                         </div>
                         {phase.isCurrent && (
-                          <div className="mt-4 pt-4 border-t border-gray-200">
+                          <div className="mt-4 pt-4 border-t border-gray-200 ml-2">
                             <div className="flex items-center">
                               <div className="w-full bg-gray-200 rounded-full h-3">
                                 <div
                                   className="bg-blue-500 h-3 rounded-full"
-                                  style={{ width: '60%' }}
+                                  style={{ width: '90%' }}
                                 ></div>
                               </div>
-                              <span className="ml-2 text-sm text-gray-600">60% Complete</span>
+                              <span className="ml-2 text-sm text-gray-600">90% Complete</span>
                             </div>
                           </div>
                         )}
@@ -129,34 +129,24 @@ const TimelinePage = () => {
                 </div>
 
                 <h3 className="text-2xl font-heading font-semibold mt-12 mb-4">Current Progress</h3>
-                <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg mb-8">
+                <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg mb-8 pop-shadow-card">
                   <p className="mb-4">
-                    We are currently in <strong>Phase 4</strong> of our project, focused on obtaining council approval for our building plans. Recent developments include:
+                    We are currently in <strong>Phase 4</strong> of our project, focused on obtaining council approval for our building plans. We are 90% complete with this phase. Recent developments include:
                   </p>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <li className="bg-gradient-to-br from-indian-cream to-white p-3 rounded border border-indian-saffron/20">
-                      Submission of complete building plans to local authorities
+                    <li className="bg-gradient-to-br from-indian-cream to-white p-3 rounded border border-indian-saffron/20 pop-shadow-card">
+                      Preparation for submission of complete building plans to local authorities
                     </li>
-                    <li className="bg-gradient-to-br from-indian-cream to-white p-3 rounded border border-indian-saffron/20">
+                    <li className="bg-gradient-to-br from-indian-cream to-white p-3 rounded border border-indian-saffron/20 pop-shadow-card">
                       Engagement with council officials to address technical queries
                     </li>
-                    <li className="bg-gradient-to-br from-indian-cream to-white p-3 rounded border border-indian-saffron/20">
+                    <li className="bg-gradient-to-br from-indian-cream to-white p-3 rounded border border-indian-saffron/20 pop-shadow-card">
                       Preparation for construction tenders pending approval
                     </li>
-                    <li className="bg-gradient-to-br from-indian-cream to-white p-3 rounded border border-indian-saffron/20">
+                    <li className="bg-gradient-to-br from-indian-cream to-white p-3 rounded border border-indian-saffron/20 pop-shadow-card">
                       Continued fundraising efforts for the construction phase
                     </li>
                   </ul>
-                </div>
-
-                <div className="bg-gradient-to-r from-indian-cream to-white p-6 rounded-lg my-8 border border-indian-saffron/30">
-                  <h4 className="text-xl font-heading font-semibold mb-2">Progress Updates</h4>
-                  <p className="mb-4">
-                    We are committed to transparency throughout this project. Regular updates will be posted on this page, and major milestones will be shared in our newsletter and social media channels.
-                  </p>
-                  <p>
-                    If you would like to receive direct updates about the New Ashram Project, please sign up for our dedicated project newsletter.
-                  </p>
                 </div>
 
                 <div className="text-center mt-12">

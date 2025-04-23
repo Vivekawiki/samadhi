@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import ScrollToTop from '../shared/ScrollToTop';
-import { pageTransition } from '@/lib/animation';
+import { pageTransition } from '../../lib/animation';
 
 interface PageLayoutProps {
   children: React.ReactNode;

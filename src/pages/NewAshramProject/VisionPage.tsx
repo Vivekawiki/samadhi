@@ -36,7 +36,7 @@ const VisionPage = () => {
               />
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-12">
-                <div className="bg-gradient-to-br from-indian-cream to-white p-8 rounded-lg border border-indian-saffron">
+                <div className="bg-gradient-to-br from-indian-cream to-white p-8 rounded-lg border border-indian-saffron pop-shadow-card">
                   <h2 className="text-3xl font-heading font-semibold mb-6 text-indian-blue">Our Vision</h2>
                   <p className="text-gray-700 mb-6">
                     The vision for our new ashram is to create a spiritual sanctuary that embodies the ideals of Sri Ramakrishna,
@@ -46,7 +46,7 @@ const VisionPage = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
                     {features.map((feature, index) => (
-                      <div key={index} className="flex items-start p-4 rounded-md bg-gradient-to-br from-indian-cream to-white shadow-sm border border-indian-saffron/20">
+                      <div key={index} className="flex items-start p-4 rounded-md bg-gradient-to-br from-indian-cream to-white shadow-sm border border-indian-saffron/20 pop-shadow-card">
                         <div className="mr-4 mt-1">{feature.icon}</div>
                         <div>
                           <h3 className="font-semibold text-lg">{feature.title}</h3>
@@ -58,7 +58,7 @@ const VisionPage = () => {
                 </div>
 
                 <div className="space-y-8">
-                  <div className="bg-gradient-to-br from-indian-cream to-white p-8 rounded-lg border border-indian-saffron">
+                  <div className="bg-gradient-to-br from-indian-cream to-white p-8 rounded-lg border border-indian-saffron pop-shadow-card">
                     <h2 className="text-3xl font-heading font-semibold mb-6 text-indian-blue">Why It's Necessary</h2>
                     <p className="text-gray-700 mb-6">
                       For several years we have been operating from rented premises. This has severely restricted the scope of our spiritual and humanitarian activities. Currently, we have:
@@ -74,7 +74,7 @@ const VisionPage = () => {
                     </ul>
                   </div>
 
-                  <Card className="p-6 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron">
+                  <Card className="p-6 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron pop-shadow-card">
                     <h3 className="text-2xl font-heading font-semibold mb-4 flex items-center">
                       <Target className="mr-2 h-6 w-6 text-indian-saffron" />
                       A Centre for All
@@ -118,7 +118,7 @@ const VisionPage = () => {
                 </div>
               </div>
 
-              <div className="text-center mt-12 py-8 bg-gradient-to-br from-indian-cream to-white rounded-lg border border-indian-saffron">
+              <div className="text-center mt-12 py-8 bg-gradient-to-br from-indian-cream to-white rounded-lg border border-indian-saffron pop-shadow-card">
                 <p className="text-xl font-semibold mb-6">
                   Help us bring this vision to life
                 </p>

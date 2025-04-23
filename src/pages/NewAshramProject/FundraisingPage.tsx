@@ -23,7 +23,7 @@ const FundraisingPage = () => {
                 </p>
 
                 {/* Fundraising Progress */}
-                <div className="my-10 bg-gradient-to-r from-indian-cream to-white p-6 rounded-lg shadow-sm border border-indian-saffron/30">
+                <div className="my-10 bg-gradient-to-r from-indian-cream to-white p-6 rounded-lg shadow-sm border border-indian-saffron/30 pop-shadow-card">
                   <h3 className="text-2xl font-heading font-semibold mb-4">Fundraising Progress</h3>
                   <div className="mb-2 flex justify-between">
                     <span className="font-medium">Current: R10,000,000</span>
@@ -49,19 +49,41 @@ const FundraisingPage = () => {
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-                  <div className="p-6 border border-indian-saffron/30 rounded-lg shadow-sm bg-gradient-to-r from-indian-cream to-white">
-                    <h4 className="text-xl font-heading font-semibold mb-3">Online Donation</h4>
-                    <p className="mb-4">
-                      Make a secure online donation through our payment portal. All major credit cards accepted.
-                    </p>
-                    <Link to="/donate">
-                      <Button>
-                        Donate Online
-                      </Button>
-                    </Link>
+                  <div className="space-y-6">
+                    <div className="p-4 border border-indian-saffron/30 rounded-lg shadow-sm bg-gradient-to-r from-indian-cream to-white flex flex-col justify-between pop-shadow-card">
+                      <div>
+                        <h4 className="text-xl font-heading font-semibold mb-2">Online Donation</h4>
+                        <p className="mb-3">
+                          Make a secure online donation through our payment portal. All major credit cards accepted.
+                        </p>
+                      </div>
+                      <Link to="/donate" className="self-start">
+                        <Button>
+                          Donate Online
+                        </Button>
+                      </Link>
+                    </div>
+
+                    <div className="p-4 border border-indian-saffron/30 rounded-lg shadow-sm bg-gradient-to-r from-indian-cream to-white pop-shadow-card">
+                      <h4 className="text-xl font-heading font-semibold mb-2">Tax Benefits</h4>
+                      <p className="mb-3">
+                        The Ramakrishna Centre of South Africa is a registered non-profit organization. Certain local donations to the Centre may qualify for Section 18A taxation benefits from SARS.
+                      </p>
+                      <p className="text-sm">
+                        Please consult a tax advisor to understand your tax implications.
+                      </p>
+                    </div>
+
+                    <div className="p-4 border border-indian-saffron/30 rounded-lg shadow-sm bg-gradient-to-r from-indian-cream to-white pop-shadow-card">
+                      <h4 className="text-xl font-heading font-semibold mb-2">Inspiration</h4>
+                      <blockquote className="italic text-gray-700 border-l-4 border-spiritual-500 pl-4 py-2">
+                        "It is our privilege to be allowed to be charitable, for only so can we grow. The poor man suffers that we may be helped; let the giver kneel down and give thanks, let the receiver stand up and permit. See the Lord back of every being and give to Him."
+                      </blockquote>
+                      <p className="text-right text-sm mt-2 font-medium">— Swami Vivekananda</p>
+                    </div>
                   </div>
 
-                  <div className="p-6 border border-indian-saffron/30 rounded-lg shadow-sm bg-gradient-to-r from-indian-cream to-white">
+                  <div className="p-6 border border-indian-saffron/30 rounded-lg shadow-sm bg-gradient-to-r from-indian-cream to-white h-full pop-shadow-card">
                     <h4 className="text-xl font-heading font-semibold mb-3">Bank Transfer</h4>
                     <p className="mb-4">
                       You can make a direct deposit or EFT to our building fund account:
@@ -81,16 +103,6 @@ const FundraisingPage = () => {
                       <p className="font-medium">johannesburg@ramakrishna-phoenix.org.za</p>
                     </div>
                   </div>
-                </div>
-
-                <div className="bg-gradient-to-r from-indian-cream to-white p-6 rounded-lg my-8 border border-indian-saffron/30">
-                  <h4 className="text-xl font-heading font-semibold mb-2">Tax Benefits</h4>
-                  <p>
-                    The Ramakrishna Centre of South Africa is a registered non-profit organization. Certain local donations to the Centre may qualify for Section 18A taxation benefits from the South African Revenue Service.
-                  </p>
-                  <p className="mt-4">
-                    Please consult a tax advisor to understand your tax implications.
-                  </p>
                 </div>
 
                 <div className="text-center mt-12">
