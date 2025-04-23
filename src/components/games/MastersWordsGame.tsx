@@ -148,12 +148,12 @@ function MastersWordsGame() {
     // --- Render ---
     return (
         <div className="min-h-screen bg-gradient-to-br from-indian-cream to-white flex flex-col items-center p-4 sm:p-8 pt-12 sm:pt-16 text-center relative z-10">
-            <h1 className="text-3xl sm:text-4xl font-heading font-bold text-spiritual-600 mb-4 sm:mb-6">The Master's Words</h1>
+            <h1 className="text-3xl sm:text-4xl font-heading font-bold text-spiritual-600 mb-4 sm:mb-6">Spiritual Wordle</h1>
 
             {wordLength > 0 && ( // Only render instructions etc. once word is loaded
                 <>
                     <p className="text-base sm:text-lg text-gray-600 max-w-xl sm:max-w-2xl mb-4">
-                        Guess the {wordLength}-letter word inspired by Sri Ramakrishna's teachings. You have {MAX_ATTEMPTS} attempts!
+                        Guess the {wordLength}-letter spiritual word. You have {MAX_ATTEMPTS} attempts to find the hidden word!
                     </p>
                     <div className="bg-white p-4 rounded-lg shadow-md border border-indian-saffron/30 w-full max-w-md sm:max-w-2xl mb-6 sm:mb-8">
                         <h3 className="text-lg sm:text-xl font-heading font-semibold text-spiritual-600 mb-2">How to Play</h3>

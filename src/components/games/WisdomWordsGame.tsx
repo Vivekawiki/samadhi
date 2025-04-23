@@ -427,7 +427,7 @@ function WisdomWordsGame() {
       <div className="min-h-screen bg-gradient-to-br from-indian-cream to-white flex flex-col items-center p-4 sm:p-8 pt-12 sm:pt-16 text-center relative z-10">
         <div className="container mx-auto px-4 py-4">
           <div className="max-w-4xl mx-auto p-6 rounded-lg shadow-lg bg-white border border-indian-saffron/30 relative">
-            <h1 className="text-3xl font-heading font-bold text-center mb-6 text-spiritual-600">Wisdom Words</h1>
+            <h1 className="text-3xl font-heading font-bold text-center mb-6 text-spiritual-600">Wisdom Quotes</h1>
             <p className="text-lg text-center mb-6 text-gray-700">Rearrange the words to form wisdom sayings from great spiritual teachers.</p>
 
             {/* Game controls */}
