@@ -41,6 +41,46 @@ const WORD_LIST = [
     {
         word: 'bank',
         reference: 'Sri Ramakrishna Kathamrita, Part 5, Khand 9, Chapter 2'
+    },
+    {
+        word: 'comforter',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 27, Chapter 1'
+    },
+    {
+        word: 'company',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 2, Chapter 8'
+    },
+    {
+        word: 'cross',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 5, Chapter 2'
+    },
+    {
+        word: 'care',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 7, Chapter 6'
+    },
+    {
+        word: 'college',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 13, Chapter 5'
+    },
+    {
+        word: 'captain',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 13, Chapter 5'
+    },
+    {
+        word: 'cock',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand Parishist, Chapter 2'
+    },
+    {
+        word: 'cheque',
+        reference: 'Sri Ramakrishna Kathamrita, Part 5, Khand 9, Chapter 2'
+    },
+    {
+        word: 'coach',
+        reference: 'Sri Ramakrishna Kathamrita, Part 5, Khand 13, Chapter 1'
+    },
+    {
+        word: 'circus',
+        reference: 'Sri Ramakrishna Kathamrita, Part 5, Khand 2, Chapter 2'
     }
     // More words with references can be added here
 ];
