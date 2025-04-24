@@ -34,6 +34,7 @@ function GuessThePictureGame() {
   const [timeTaken, setTimeTaken] = useState(0);
   const [feedbackMessage, setFeedbackMessage] = useState('');
   const [imagePosition, setImagePosition] = useState({ x: '50%', y: '50%' });
+  const [useContainMode, setUseContainMode] = useState(false);
 
   // Refs for intervals to manage them correctly
   const timerIntervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -65,6 +66,7 @@ function GuessThePictureGame() {
     setTimeTaken(0);
     setFeedbackMessage('');
     setImagePosition({ x: '50%', y: '50%' });
+    setUseContainMode(false);
     setStartTime(Date.now()); // Set start time to trigger effects
   }, []);
 
@@ -198,18 +200,38 @@ function GuessThePictureGame() {
           <img
             src={currentImage.src}
             alt="Guess the Picture (Hidden)"
-            className="absolute inset-0 w-full h-full object-cover"
+            className={`absolute inset-0 w-full h-full ${useContainMode ? 'object-contain bg-white' : 'object-cover'}`}
             style={{ objectPosition: `${imagePosition.x} ${imagePosition.y}` }}
             onLoad={(e) => {
-              // Adjust image position based on its dimensions
+              // Adjust image position based on its dimensions and filename
               const img = e.target as HTMLImageElement;
               const imgRatio = img.naturalWidth / img.naturalHeight;
 
-              // For portrait images (taller than wide), focus more on the face area
-              if (imgRatio < 1) {
-                setImagePosition({ x: '50%', y: '35%' });
-              } else {
+              // Special handling for Sri Ramakrishna's image
+              if (currentImage.filename === 'Sri Ramakrishna') {
+                // Custom styling for Sri Ramakrishna to maintain height but reduce width
+                setUseContainMode(false); // Use cover mode
+                // Apply custom styling directly to the image element
+                img.style.objectFit = 'cover';
+                img.style.width = '80%'; // Reduce width to 80% of container
+                img.style.height = '100%'; // Maintain full height
+                img.style.left = '10%'; // Center the image horizontally
+                img.style.right = 'auto';
                 setImagePosition({ x: '50%', y: '50%' });
+              } else {
+                setUseContainMode(false);
+                // Reset custom styling
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.left = '0';
+                img.style.right = '0';
+
+                // For portrait images (taller than wide), focus more on the face area
+                if (imgRatio < 1) {
+                  setImagePosition({ x: '50%', y: '35%' });
+                } else {
+                  setImagePosition({ x: '50%', y: '50%' });
+                }
               }
             }}
           />
