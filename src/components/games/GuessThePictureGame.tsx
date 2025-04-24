@@ -33,6 +33,7 @@ function GuessThePictureGame() {
   const [startTime, setStartTime] = useState<number | null>(null);
   const [timeTaken, setTimeTaken] = useState(0);
   const [feedbackMessage, setFeedbackMessage] = useState('');
+  const [imagePosition, setImagePosition] = useState({ x: '50%', y: '50%' });
 
   // Refs for intervals to manage them correctly
   const timerIntervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -63,6 +64,7 @@ function GuessThePictureGame() {
     setGameOver(false);
     setTimeTaken(0);
     setFeedbackMessage('');
+    setImagePosition({ x: '50%', y: '50%' });
     setStartTime(Date.now()); // Set start time to trigger effects
   }, []);
 
@@ -197,7 +199,19 @@ function GuessThePictureGame() {
             src={currentImage.src}
             alt="Guess the Picture (Hidden)"
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: 'center' }}
+            style={{ objectPosition: `${imagePosition.x} ${imagePosition.y}` }}
+            onLoad={(e) => {
+              // Adjust image position based on its dimensions
+              const img = e.target as HTMLImageElement;
+              const imgRatio = img.naturalWidth / img.naturalHeight;
+
+              // For portrait images (taller than wide), focus more on the face area
+              if (imgRatio < 1) {
+                setImagePosition({ x: '50%', y: '35%' });
+              } else {
+                setImagePosition({ x: '50%', y: '50%' });
+              }
+            }}
           />
           {/* Overlay Grid */}
           <div className="absolute inset-0 grid grid-cols-10 grid-rows-10">
