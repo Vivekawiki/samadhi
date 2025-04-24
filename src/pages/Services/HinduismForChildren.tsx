@@ -46,7 +46,7 @@ const HinduismForChildren = () => {
                   <p className="text-gray-700 max-w-2xl mx-auto">
                     We are happy to announce that our new online learning platform will be launching soon!
                     This platform will provide interactive lessons, videos, and activities for children to
-                    learn about Hindu scriptures, stories, and values from the comfort of their homes.
+                    learn about Hinduism. 
                   </p>
                   <div className="mt-6 inline-block bg-indian-saffron/10 px-4 py-2 rounded-full text-indian-saffron font-medium">
                     Coming Soon
