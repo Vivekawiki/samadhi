@@ -1,7 +1,8 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import SectionHeader from '../../components/shared/SectionHeader';
+import AudioPlayer from '../../components/audio/AudioPlayer';
 
 const mantras = [
   {
@@ -34,6 +35,7 @@ const mantras = [
 ];
 
 const MantrasPage = () => {
+  const [audioErrors, setAudioErrors] = useState<Record<string, boolean>>({});
   return (
     <PageLayout title="Learning Mantras">
       <div className="container mx-auto px-4 py-12">
@@ -66,11 +68,8 @@ const MantrasPage = () => {
 
                   <div className="col-span-2">
                     <h3 className="text-lg font-medium mb-2">Audio Pronunciation</h3>
-                    <div className="bg-gray-50 rounded-md p-4 flex items-center justify-center h-24">
-                      <p className="text-gray-500 text-center">
-                        Audio player will be available soon.<br />
-                        <span className="text-sm">Please check back later for audio guides.</span>
-                      </p>
+                    <div className="rounded-md">
+                      <AudioPlayer src={mantra.audio} title={`${mantra.title} Pronunciation`} />
                     </div>
                   </div>
                 </div>
