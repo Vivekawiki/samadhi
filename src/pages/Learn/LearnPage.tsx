@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import PageLayout from '../../components/layout/PageLayout';
 import PageHeader from '../../components/shared/PageHeader';
 import SectionHeader from '../../components/shared/SectionHeader';
@@ -13,6 +14,13 @@ import SyncedAudioPlayer from '../../components/audio/SyncedAudioPlayer';
 import { omMantraSyllables, gayatriMantraSyllables, mahamrityunjayaMantraSyllables } from '../../data/mantraTimings';
 
 const LearnPage = () => {
+  // Add a development flag
+  const isDevelopment = false; // Set to true when working on the page
+
+  if (!isDevelopment) {
+    return <Navigate to="/learn/games" replace />;
+  }
+
   // Sample mantras for display
   const mantras = [
     {
@@ -225,3 +233,5 @@ const LearnPage = () => {
 };
 
 export default LearnPage;
+
+
