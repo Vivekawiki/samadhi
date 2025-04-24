@@ -17,7 +17,13 @@ const OurCentre = () => {
           <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg shadow-sm h-[96%]">
             <h3 className="text-2xl font-heading font-semibold mb-4">History</h3>
             <p>
-              The idea of starting a Ramakrishna Movement in Africa had germinated in the mind of Swami Vivekananda, the principal architect of the organisation, for in 1897 he wrote to his brother monk, Swami Shivananda Mahapurush: "Mr Setlur... writes to me to send somebody to Africa... No immediate results can be expected but in the long run it will prove more beneficial work for India than any yet attempted."
+              In 1897, Swami Vivekananda wrote to his brother monk, Swami Shivananda Mahapurush:<p></p> 
+              <p>
+              "Mr. Setlur of Girgaon, Bombay, whom you know very well from Madras writes to me to send somebody to Africa to look after the religious needs of the Indian emigrants in Africa... The work will not be congenial at present, I am afraid, but it is really the work for the perfect man... No immediate results can be expected, but in the long run it will prove a more beneficial work for India than any yet attempted. I wish you to try your luck in this."
+              </p> 
+              For various reasons, Swami Shivananda was unable to go. 
+
+              <p>In 1934, South Africa was blessed with the arrival of the first monk of the Ramakrishna Order, Swami Adyananda - a disciple of Holy Mother, Sri Sarada Devi.</p>
             </p>
           </div>
 
