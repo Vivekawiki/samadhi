@@ -68,7 +68,7 @@ const WORD_LIST = [
     },
     {
         word: 'cock',
-        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand Parishist, Chapter 2'
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Parishisht, Chapter 2'
     },
     {
         word: 'cheque',
@@ -81,6 +81,258 @@ const WORD_LIST = [
     {
         word: 'circus',
         reference: 'Sri Ramakrishna Kathamrita, Part 5, Khand 2, Chapter 2'
+    },
+    {
+        word: 'deputy',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 18, Chapter 4'
+    },
+    {
+        word: 'dispensary',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 2, Chapter 9'
+    },
+    {
+        word: 'doctor',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 13, Chapter 5'
+    },
+    {
+        word: 'damn',
+        reference: 'Sri Ramakrishna Kathamrita, Part 5, Parishisht, Chapter 1'
+    },
+    {
+        word: 'dilute',
+        reference: 'Sri Ramakrishna Kathamrita, Part 3, Khand 9, Chapter 6'
+    },
+    {
+        word: 'englishman',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 9, Chapter 3'
+    },
+    {
+        word: 'engineer',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 31, Chapter 1'
+    },
+    {
+        word: 'exhibition',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 11, Chapter 1'
+    },
+    {
+        word: 'fever',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 16, Chapter 2'
+    },
+    {
+        word: 'mixture',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 16, Chapter 2'
+    },
+    {
+        word: 'footpath',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 2, Chapter 3'
+    },
+    {
+        word: 'fit',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 12, Chapter 2'
+    },
+    {
+        word: 'babu',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 12, Chapter 2'
+    },
+    {
+        word: 'floor',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 16, Chapter 2'
+    },
+    {
+        word: 'gas',
+        reference: 'Sri Ramakrishna Kathamrita, Part 5, Khand 3, Chapter 3'
+    },
+    {
+        word: 'god',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 30, Chapter 2'
+    },
+    {
+        word: 'house',
+        reference: 'Sri Ramakrishna Kathamrita, Part 5, Khand 16, Chapter 3'
+    },
+    {
+        word: 'headmaster',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 10, Chapter 2'
+    },
+    {
+        word: 'hospital',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 14, Chapter 1'
+    },
+    {
+        word: 'honorary',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 22, Chapter 5'
+    },
+    {
+        word: 'jail',
+        reference: 'Sri Ramakrishna Kathamrita, Part 5, Khand 6, Chapter 3'
+    },
+    {
+        word: 'judge',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 16, Chapter 3'
+    },
+    {
+        word: 'sahib',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 16, Chapter 3'
+    },
+    {
+        word: 'lecture',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 15, Chapter 4'
+    },
+    {
+        word: 'like',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 1, Chapter 1'
+    },
+    {
+        word: 'monument',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 12, Chapter 4'
+    },
+    {
+        word: 'meeting',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 12, Chapter 3'
+    },
+    {
+        word: 'medical',
+        reference: 'Sri Ramakrishna Kathamrita, Part 3, Khand 8, Chapter 1'
+    },
+    {
+        word: 'magistrate',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 13, Chapter 5'
+    },
+    {
+        word: 'master',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 10, Chapter 2'
+    },
+    {
+        word: 'museum',
+        reference: 'Sri Ramakrishna Kathamrita, Part 5, Khand 14, Chapter 1'
+    },
+    {
+        word: 'notice',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 4, Chapter 5'
+    },
+    {
+        word: 'office',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 1, Chapter 2'
+    },
+    {
+        word: 'police',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 4, Chapter 5'
+    },
+    {
+        word: 'plate',
+        reference: 'Sri Ramakrishna Kathamrita, Part 3, Khand 20, Chapter 5'
+    },
+    {
+        word: 'philosophy',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 2, Chapter 1'
+    },
+    {
+        word: 'pension',
+        reference: 'Sri Ramakrishna Kathamrita, Part 2, Khand 3, Chapter 6'
+    },
+    {
+        word: 'photography',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 4, Chapter 7'
+    },
+    {
+        word: 'quinine',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 16, Chapter 2'
+    },
+    {
+        word: 'queen',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 22, Chapter 4'
+    },
+    {
+        word: 'registry',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 9, Chapter 3'
+    },
+    {
+        word: 'register',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 9, Chapter 3'
+    },
+    {
+        word: 'refine',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 12, Chapter 2'
+    },
+    {
+        word: 'school',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 12, Chapter 3'
+    },
+    {
+        word: 'screw',
+        reference: 'Sri Ramakrishna Kathamrita, Part 3, Khand 8, Chapter 1'
+    },
+    {
+        word: 'society',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 27, Chapter 1'
+    },
+    {
+        word: 'signboard',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 31, Chapter 1'
+    },
+    {
+        word: 'sergeant',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 4, Chapter 7'
+    },
+    {
+        word: 'stick',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 12, Chapter 2'
+    },
+    {
+        word: 'steamboat',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 12, Chapter 6'
+    },
+    {
+        word: 'science',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 13, Chapter 3'
+    },
+    {
+        word: 'theatre',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 13, Chapter 4'
+    },
+    {
+        word: 'thank',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 7, Chapter 5'
+    },
+    {
+        word: 'you',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 7, Chapter 5'
+    },
+    {
+        word: 'telegraph',
+        reference: 'Sri Ramakrishna Kathamrita, Part 5, Khand 19, Chapter 6'
+    },
+    {
+        word: 'train',
+        reference: 'Sri Ramakrishna Kathamrita, Part 5, Khand 21, Chapter 3'
+    },
+    {
+        word: 'tax',
+        reference: 'Sri Ramakrishna Kathamrita, Part 2, Khand 1, Chapter 1'
+    },
+    {
+        word: 'under',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 14, Chapter 1'
+    },
+    {
+        word: 'vakil',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 22, Chapter 5'
+    },
+    {
+        word: 'will',
+        reference: 'Sri Ramakrishna Kathamrita, Part 5, Khand 11, Chapter 2'
+    },
+    {
+        word: 'water',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 30, Chapter 2'
+    },
+    {
+        word: 'yea',
+        reference: 'Sri Ramakrishna Kathamrita, Part 4, Khand 7, Chapter 4'
+    },
+    {
+        word: 'zoo',
+        reference: 'Sri Ramakrishna Kathamrita, Part 1, Khand 1, Chapter 1'
     }
     // More words with references can be added here
 ];
@@ -235,7 +487,7 @@ function MastersWordsGame() {
         <div className="min-h-screen bg-gradient-to-r from-indian-cream to-white flex flex-col items-center p-4 sm:p-8 pt-6 sm:pt-8 text-center relative z-10">
             <div className="text-center mb-2">
                 <h1 className="text-3xl sm:text-4xl font-heading font-bold text-spiritual-600 mb-1">Spiritual Wordle</h1>
-                {wordLength > 0 && <p className="text-sm text-gray-600 mb-2">Guess the {wordLength}-letter spiritual word in {MAX_ATTEMPTS} attempts</p>}
+                {wordLength > 0 && <p className="text-sm text-gray-600 mb-2">Guess the {wordLength}-letter English word that Sri Ramakrishna used</p>}
 
                 {wordLength > 0 && (
                     <div className="flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-3 gap-y-1 text-xs text-gray-600 bg-gradient-to-r from-spiritual-50/30 to-white p-1.5 rounded-md shadow-sm max-w-md mx-auto">

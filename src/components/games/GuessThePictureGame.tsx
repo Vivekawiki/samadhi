@@ -6,20 +6,21 @@ const nameOptions = [
   { id: 1, name: 'Sri Ramakrishna' },
   { id: 2, name: 'Sri Sarada Devi' },
   { id: 3, name: 'Swami Vivekananda' },
-  { id: 4, name: 'Belur Math' },
-  { id: 5, name: 'Dakshineswar Temple' },
-  { id: 6, name: 'Cossipore Garden House' },
-  { id: 7, name: 'Centre Logo' },
-  { id: 8, name: 'Nutrition Programme' },
-  { id: 9, name: 'Food Distribution' },
-  { id: 10, name: 'Food Relief' }
+  { id: 11, name: 'Swami Brahmananda' },
+  { id: 12, name: 'Swami Shivananda' },
+  { id: 13, name: 'Swami Akhandananda' },
+  { id: 14, name: 'Swami Vijnanananda' }
 ];
 
-// Define image options with only the three pictures from /public/pics
+// Define image options with pictures from /public/pics
 const imageFiles = [
   { filename: 'Sri Ramakrishna', src: '/pics/Sri Ramakrishna.png', correctId: 1 },
   { filename: 'Sri Sarada Devi', src: '/pics/Sri Sarada Devi.png', correctId: 2 },
-  { filename: 'Swami Vivekananda', src: '/pics/Swami Vivekananda.png', correctId: 3 }
+  { filename: 'Swami Vivekananda', src: '/pics/Swami Vivekananda.png', correctId: 3 },
+  { filename: 'Swami Brahmananda', src: '/pics/Swami Brahmananda.png', correctId: 11 },
+  { filename: 'Swami Shivananda', src: '/pics/Swami Shivananda.png', correctId: 12 },
+  { filename: 'Swami Akhandananda', src: '/pics/Swami Akhandananda.png', correctId: 13 },
+  { filename: 'Swami Vijnanananda', src: '/pics/Swami Vijnanananda.png', correctId: 14 }
 ];
 
 function GuessThePictureGame() {
@@ -52,7 +53,7 @@ function GuessThePictureGame() {
     // Select a random image from the three available images
     const randomIndex = Math.floor(Math.random() * imageFiles.length);
     const selectedImage = imageFiles[randomIndex];
-    
+
     // Set the current image and its correct answer ID
     setCurrentImage(selectedImage);
     setCorrectAnswerId(selectedImage.correctId);
@@ -99,18 +100,18 @@ function GuessThePictureGame() {
             if (revealIntervalRef.current) clearInterval(revealIntervalRef.current);
             return currentSquares;
           }
-          
+
           // Find a new square that hasn't been revealed yet
           for (let attempts = 0; attempts < 100; attempts++) {
             const x = Math.floor(Math.random() * gridSize);
             const y = Math.floor(Math.random() * gridSize);
-            
+
             // Check if this square is already revealed
             if (!currentSquares.some(s => s.x === x && s.y === y)) {
               return [...currentSquares, { x, y }];
             }
           }
-          
+
           // If we couldn't find a new square after 100 attempts, just return the current squares
           return currentSquares;
         });
@@ -126,7 +127,7 @@ function GuessThePictureGame() {
   // Effect to start the game on component mount
   useEffect(() => {
     startGame();
-    
+
     // Cleanup on component unmount
     return () => {
       if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
@@ -153,7 +154,7 @@ function GuessThePictureGame() {
       setFeedbackMessage(
         `Correct! You identified "${correctOption?.name}" in ${currentTimeTaken} seconds!`
       );
-      
+
       // Reveal all remaining squares instantly on correct guess
       const allSquares = [];
       for (let y = 0; y < gridSize; y++) {
@@ -164,10 +165,10 @@ function GuessThePictureGame() {
       setRevealedSquares(allSquares);
     } else {
       setFeedbackMessage('Incorrect, try again!');
-      
+
       // Clear the incorrect feedback message after 2 seconds
       feedbackTimeoutRef.current = setTimeout(() => {
-        setFeedbackMessage(prevMessage => 
+        setFeedbackMessage(prevMessage =>
           prevMessage === 'Incorrect, try again!' ? '' : prevMessage
         );
       }, 2000);
@@ -181,7 +182,7 @@ function GuessThePictureGame() {
 
   // Render the component
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indian-cream to-white py-12 flex flex-col items-center p-8 text-center relative z-10">
+    <div className="min-h-screen bg-gradient-to-br from-indian-cream to-white py-8 sm:py-12 flex flex-col items-center p-4 sm:p-8 text-center relative z-10">
       <h1 className="text-3xl md:text-4xl font-heading font-bold text-indian-saffron mb-6">
         Guess the Picture
       </h1>
@@ -191,11 +192,12 @@ function GuessThePictureGame() {
       </p>
 
       {currentImage && (
-        <div className="relative w-64 h-64 md:w-96 md:h-96 mb-6 md:mb-8 border border-indian-saffron rounded-lg overflow-hidden pop-shadow-card">
+        <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 mb-6 md:mb-8 border border-indian-saffron rounded-lg overflow-hidden pop-shadow-card mx-auto">
           <img
             src={currentImage.src}
             alt="Guess the Picture (Hidden)"
             className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: 'center' }}
           />
           {/* Overlay Grid */}
           <div className="absolute inset-0 grid grid-cols-10 grid-rows-10">
@@ -232,17 +234,34 @@ function GuessThePictureGame() {
       )}
 
       {!gameOver && (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4 mb-8 md:mb-12 max-w-4xl w-full px-4">
-          {nameOptionsList.map((option) => (
-            <button
-              key={option.id}
-              onClick={() => handleGuess(option.id)}
-              disabled={gameOver}
-              className="bg-gradient-to-br from-indian-cream to-white text-indian-saffron px-3 py-2 md:px-4 md:py-2 rounded-lg font-semibold border border-indian-saffron hover:bg-indian-saffron/10 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed pop-shadow-card"
-            >
-              {option.name}
-            </button>
-          ))}
+        <div className="mb-8 md:mb-12 max-w-2xl mx-auto w-full px-2 sm:px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
+            {nameOptionsList.slice(0, 4).map((option) => (
+              <button
+                key={option.id}
+                onClick={() => handleGuess(option.id)}
+                disabled={gameOver}
+                className="bg-gradient-to-br from-indian-cream to-white text-indian-saffron px-2 py-2 md:px-4 md:py-2 rounded-lg font-semibold border border-indian-saffron hover:bg-indian-saffron/10 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed pop-shadow-card text-sm sm:text-base w-full"
+              >
+                {option.name}
+              </button>
+            ))}
+          </div>
+
+          {nameOptionsList.length > 4 && (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mt-2 md:mt-4">
+              {nameOptionsList.slice(4).map((option) => (
+                <button
+                  key={option.id}
+                  onClick={() => handleGuess(option.id)}
+                  disabled={gameOver}
+                  className="bg-gradient-to-br from-indian-cream to-white text-indian-saffron px-2 py-2 md:px-4 md:py-2 rounded-lg font-semibold border border-indian-saffron hover:bg-indian-saffron/10 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed pop-shadow-card text-sm sm:text-base w-full"
+                >
+                  {option.name}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       )}
 

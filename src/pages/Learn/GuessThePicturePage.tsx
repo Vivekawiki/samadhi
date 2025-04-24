@@ -4,7 +4,7 @@ import GuessThePictureGame from '../../components/games/GuessThePictureGame';
 
 const GuessThePicturePage = () => {
   return (
-    <PageLayout>
+    <PageLayout title="Guess the Picture Game">
       <GuessThePictureGame />
     </PageLayout>
   );
