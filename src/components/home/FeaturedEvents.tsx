@@ -16,7 +16,7 @@ const events = [
   },
   {
     title: 'Hinduism for Children Classes',
-    date: 'Every Saturday',
+    date: 'Every Sunday',
     time: '9:15 AM - 10:15 AM',
     location: 'Benvenuto Conference Centre',
     description: 'Weekly classes teaching Hinduism, Vedanta philosophy, and moral values to children through engaging activities and lessons.',

@@ -26,7 +26,7 @@ const Satsangs = () => {
                   </div>
 
                   <div className="bg-gradient-to-br from-indian-cream to-white p-6 rounded-lg border border-indian-saffron/30">
-                    <h4 className="font-bold text-xl mb-3">Shri Ramakrishna says:</h4>
+                    <h4 className="font-bold text-xl mb-3">Sri Ramakrishna says:</h4>
                     <p className="text-gray-700 italic border-l-4 border-indian-saffron/30 pl-4 py-2">
                       Japa means silently repeating God's name in solitude. When you chant His name with single-minded devotion you can see God's form and realize Him. Suppose there is a piece of timber sunk in the water of the Ganges and fastened with a chain to the bank. You proceed link by link, holding to the chain, and you dive into the water and follow the chain. Finally, you are able to reach the timber. In the same way, by repeating God's name you become absorbed in Him and finally realize Him.
                     </p>

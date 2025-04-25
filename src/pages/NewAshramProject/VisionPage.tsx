@@ -37,8 +37,8 @@ const VisionPage = () => {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-12">
                 <div className="bg-gradient-to-br from-indian-cream to-white p-8 rounded-lg border border-indian-saffron pop-shadow-card">
-                  <h2 className="text-3xl font-heading font-semibold mb-6 text-indian-blue">Our Vision</h2>
-                  <p className="text-gray-700 mb-6">
+                  <h2 className="text-3xl font-heading font-semibold mb-6 text-black">Our Vision</h2>
+                  <p className="text-black mb-6">
                     The vision for our new ashram is to create a spiritual sanctuary that embodies the ideals of Sri Ramakrishna,
                     Holy Mother Sri Sarada Devi, and Swami Vivekananda. This center will serve as a beacon of spiritual light,
                     offering a space for meditation, study, and service to the community.
@@ -59,8 +59,8 @@ const VisionPage = () => {
 
                 <div className="space-y-8">
                   <div className="bg-gradient-to-br from-indian-cream to-white p-8 rounded-lg border border-indian-saffron pop-shadow-card">
-                    <h2 className="text-3xl font-heading font-semibold mb-6 text-indian-blue">Why It's Necessary</h2>
-                    <p className="text-gray-700 mb-6">
+                    <h2 className="text-3xl font-heading font-semibold mb-6 text-black">Why It's Necessary</h2>
+                    <p className="text-black mb-6">
                       For several years we have been operating from rented premises. This has severely restricted the scope of our spiritual and humanitarian activities. Currently, we have:
                     </p>
 
@@ -68,7 +68,7 @@ const VisionPage = () => {
                       {challenges.map((challenge, index) => (
                         <li key={index} className="flex items-start">
                           <Check className="h-8 w-8 text-indian-saffron mr-2 mt-0.5" />
-                          <span>{challenge}</span>
+                          <span className="text-black">{challenge}</span>
                         </li>
                       ))}
                     </ul>
@@ -93,7 +93,7 @@ const VisionPage = () => {
                         <div className="flex-shrink-0">
                           <Check className="h-8 w-8 text-indian-saffron" />
                         </div>
-                        <span className="ml-3">A Swami Vivekananda Skills Development Centre – Conducting medical, skills-development, and value-based education programmes.</span>
+                        <span className="ml-3">A Swami Vivekananda Skills Development Centre – Conducting medical, skills-development, and value-based education programmes</span>
                       </li>
                       <li className="flex items-start">
                         <div className="flex-shrink-0">

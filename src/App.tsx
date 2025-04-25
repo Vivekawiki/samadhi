@@ -27,6 +27,7 @@ import SpecialFunctions from "./pages/Services/SpecialFunctions.tsx";
 
 import NutritionProgramme from "./pages/Services/NutritionProgramme";
 import FullSizeImage from "./pages/Services/FullSizeImage";
+import SeminarRegistration from "./pages/Services/SeminarRegistration";
 
 
 // Import New Ashram Project Section
@@ -93,6 +94,9 @@ const App = () => (
               <Route path="/services/nutrition-programme" element={<NutritionProgramme />} />
               <Route path="/services/nutrition-programme/image/:imageId" element={<FullSizeImage />} />
             </Route>
+
+            {/* Standalone Service Pages */}
+            <Route path="/services/seminar-registration" element={<SeminarRegistration />} />
 
             {/* New Ashram Project Section */}
             <Route path="/new-ashram-project" element={<NewAshramProjectPage />} />

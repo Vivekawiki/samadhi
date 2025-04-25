@@ -1,16 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import PageLayout from '../components/layout/PageLayout';
 import PageHeader from '../components/shared/PageHeader';
 import SectionHeader from '../components/shared/SectionHeader';
 import Button from '../components/shared/Button';
 import { Link } from 'react-router-dom';
-import { BookOpen, PenTool, MessageSquare, Lightbulb, Music } from 'lucide-react';
+import { BookOpen, PenTool, MessageSquare, Lightbulb, Music, Mail, Loader2 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { lessonsData } from '../data/lessonsData';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import AudioPlayer from '../components/audio/AudioPlayer';
 import SyncedAudioPlayer from '../components/audio/SyncedAudioPlayer';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useToast } from '@/components/ui/use-toast';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import {
   omMantraSyllables,
   gayatriMantraSyllables as originalGayatriSyllables,
@@ -86,7 +100,116 @@ const mahamrityunjayaMantraSyllables = [
   { text: "tat", startTime: 12.1, endTime: 13.0 }
 ];
 
+// Define the contact form schema with Zod
+const contactFormSchema = z.object({
+  firstName: z.string().min(2, { message: "First name must be at least 2 characters." }),
+  lastName: z.string().min(2, { message: "Last name must be at least 2 characters." }),
+  email: z.string().email({ message: "Please enter a valid email address." }),
+  phone: z.string().optional(),
+  subject: z.string().min(5, { message: "Subject must be at least 5 characters." }),
+  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+  honeypot: z.string().max(0, { message: "Bot detected" }), // Honeypot field should be empty
+});
+
+// Define the type for our form values
+type ContactFormValues = z.infer<typeof contactFormSchema>;
+
 const TestPage = () => {
+  // State for form submission
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionCount, setSubmissionCount] = useState(0);
+  const { toast } = useToast();
+
+  // Initialize form with react-hook-form and zod validation
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
+      honeypot: "",
+    },
+  });
+
+  // Handle form submission
+  const handleSubmit = async (values: ContactFormValues) => {
+    // Check for honeypot (if filled, it's likely a bot)
+    if (values.honeypot) {
+      console.log("Bot detected");
+      toast({
+        title: "Message sent",
+        description: "Thank you for your message. We'll get back to you soon.",
+      });
+      return;
+    }
+
+    // Rate limiting - prevent more than 3 submissions in a short period
+    if (submissionCount >= 3) {
+      toast({
+        title: "Too many attempts",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmissionCount(prev => prev + 1);
+
+    try {
+      // Prepare form data to send to the backend
+      const formData = {
+        ...values,
+      };
+
+      console.log('Form data to be sent:', formData);
+
+      // Use the Laravel API endpoint
+      const apiUrl = process.env.NODE_ENV === 'production'
+        ? '/api/contact'  // In production, use relative URL
+        : 'http://finalapi.test/api/contact'; // In development, use the full URL
+
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to send message');
+      }
+
+      // Get the response data
+      const responseData = await response.json().catch(() => ({}));
+
+      // Reset the form
+      form.reset();
+
+      toast({
+        title: "Message sent",
+        description: `Thank you for your message. We'll get back to you soon.`,
+      });
+
+      console.log('Form submission successful:', responseData);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error",
+        description: "There was an error sending your message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   // Sample mantras for display
   const mantras = [
     {
@@ -289,6 +412,148 @@ const TestPage = () => {
                   </Button>
                 </CardContent>
               </Card>
+            </div>
+          </div>
+
+          <div className="mt-24">
+            <SectionHeader
+              title="Contact Us"
+              subtitle="Get in touch with our team"
+            />
+
+            <div className="mt-8">
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg pop-shadow-card">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="firstName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>First Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Your first name" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="lastName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Last Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Your last name" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input type="email" placeholder="your.email@example.com" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Phone (optional)</FormLabel>
+                        <FormControl>
+                          <Input type="tel" placeholder="Your phone number" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="subject"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Subject</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Message subject" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Message</FormLabel>
+                        <FormControl>
+                          <Textarea
+                            placeholder="Your message here..."
+                            className="min-h-[120px]"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  {/* Honeypot field - hidden from users but bots will fill it out */}
+                  <div className="hidden" aria-hidden="true">
+                    <FormField
+                      control={form.control}
+                      name="honeypot"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Leave this empty</FormLabel>
+                          <FormControl>
+                            <Input
+                              tabIndex={-1}
+                              autoComplete="off"
+                              {...field}
+                            />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      className="bg-spiritual-500 hover:bg-spiritual-600 text-white py-2 px-4 rounded-md flex items-center justify-center"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        'Send Message'
+                      )}
+                    </button>
+                    <div className="mt-2 text-xs text-gray-500">
+                      This site is protected by spam detection and rate limiting.
+                    </div>
+                  </div>
+                </form>
+              </Form>
             </div>
           </div>
         </div>
