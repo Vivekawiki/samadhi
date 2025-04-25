@@ -60,6 +60,9 @@ import AdminDashboard from "./pages/Dashboard/AdminDashboard";
 // Import Donation pages
 import DonatePage from "./pages/Donate/DonatePage";
 
+// Import Test Page
+import TestPage from "./pages/TestPage";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -133,6 +136,9 @@ const App = () => (
 
             {/* Contact Page */}
             <Route path="/contact" element={<ContactPage />} />
+
+            {/* Test Page */}
+            <Route path="/test" element={<TestPage />} />
 
             {/* 404 Page */}
             <Route path="*" element={<NotFound />} />
