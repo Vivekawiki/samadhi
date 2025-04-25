@@ -486,7 +486,7 @@ function MastersWordsGame() {
     return (
         <div className="min-h-screen bg-gradient-to-r from-indian-cream to-white flex flex-col items-center p-4 sm:p-8 pt-6 sm:pt-8 text-center relative z-10">
             <div className="text-center mb-2">
-                <h1 className="text-3xl sm:text-4xl font-heading font-bold text-spiritual-600 mb-1">Spiritual Wordle</h1>
+                <h1 className="text-3xl sm:text-4xl font-heading font-bold text-spiritual-600 mb-1">Word Master</h1>
                 {wordLength > 0 && <p className="text-sm text-gray-600 mb-2">Guess the {wordLength}-letter English word that Sri Ramakrishna used</p>}
 
                 {wordLength > 0 && (
