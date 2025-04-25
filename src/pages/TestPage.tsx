@@ -11,7 +11,80 @@ import { lessonsData } from '../data/lessonsData';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import AudioPlayer from '../components/audio/AudioPlayer';
 import SyncedAudioPlayer from '../components/audio/SyncedAudioPlayer';
-import { omMantraSyllables, gayatriMantraSyllables, mahamrityunjayaMantraSyllables } from '../data/mantraTimings';
+import {
+  omMantraSyllables,
+  gayatriMantraSyllables as originalGayatriSyllables,
+  mahamrityunjayaMantraSyllables as originalMahamrityunjayaSyllables
+} from '../data/mantraTimings';
+
+// Create English transliteration syllables for mantras
+const gayatriMantraSyllables = [
+  { text: "Om ", startTime: 0, endTime: 1.5 },
+  { text: "Bhur ", startTime: 1.5, endTime: 2.0 },
+  { text: "Bhuvah ", startTime: 2.0, endTime: 2.5 },
+  { text: "Swah, ", startTime: 2.5, endTime: 3.0 },
+  { text: "Tat ", startTime: 3.0, endTime: 3.5 },
+  { text: "Sa", startTime: 3.5, endTime: 3.8 },
+  { text: "vi", startTime: 3.8, endTime: 4.1 },
+  { text: "tur ", startTime: 4.1, endTime: 4.4 },
+  { text: "Va", startTime: 4.4, endTime: 4.7 },
+  { text: "re", startTime: 4.7, endTime: 5.0 },
+  { text: "nyam, ", startTime: 5.0, endTime: 5.5 },
+  { text: "Bhar", startTime: 5.5, endTime: 5.8 },
+  { text: "go ", startTime: 5.8, endTime: 6.2 },
+  { text: "De", startTime: 6.2, endTime: 6.5 },
+  { text: "va", startTime: 6.5, endTime: 6.8 },
+  { text: "sya ", startTime: 6.8, endTime: 7.2 },
+  { text: "Dhi", startTime: 7.2, endTime: 7.5 },
+  { text: "ma", startTime: 7.5, endTime: 7.8 },
+  { text: "hi, ", startTime: 7.8, endTime: 8.2 },
+  { text: "Dhi", startTime: 8.2, endTime: 8.5 },
+  { text: "yo ", startTime: 8.5, endTime: 8.8 },
+  { text: "Yo ", startTime: 8.8, endTime: 9.1 },
+  { text: "Nah ", startTime: 9.1, endTime: 9.5 },
+  { text: "Pra", startTime: 9.5, endTime: 9.8 },
+  { text: "cho", startTime: 9.8, endTime: 10.1 },
+  { text: "da", startTime: 10.1, endTime: 10.4 },
+  { text: "yat", startTime: 10.4, endTime: 11.0 }
+];
+
+// Create English transliteration syllables for Mahamrityunjaya Mantra
+const mahamrityunjayaMantraSyllables = [
+  { text: "Om ", startTime: 0, endTime: 1.5 },
+  { text: "Try", startTime: 1.5, endTime: 2.0 },
+  { text: "am", startTime: 2.0, endTime: 2.3 },
+  { text: "ba", startTime: 2.3, endTime: 2.5 },
+  { text: "kam ", startTime: 2.5, endTime: 3.0 },
+  { text: "Ya", startTime: 3.0, endTime: 3.3 },
+  { text: "ja", startTime: 3.3, endTime: 3.6 },
+  { text: "ma", startTime: 3.6, endTime: 3.9 },
+  { text: "he ", startTime: 3.9, endTime: 4.2 },
+  { text: "Su", startTime: 4.2, endTime: 4.5 },
+  { text: "gan", startTime: 4.5, endTime: 4.8 },
+  { text: "dhim ", startTime: 4.8, endTime: 5.2 },
+  { text: "Pu", startTime: 5.2, endTime: 5.5 },
+  { text: "shti", startTime: 5.5, endTime: 5.8 },
+  { text: "var", startTime: 5.8, endTime: 6.1 },
+  { text: "dha", startTime: 6.1, endTime: 6.4 },
+  { text: "nam ", startTime: 6.4, endTime: 7.0 },
+  { text: "Ur", startTime: 7.0, endTime: 7.3 },
+  { text: "va", startTime: 7.3, endTime: 7.6 },
+  { text: "ru", startTime: 7.6, endTime: 7.9 },
+  { text: "ka", startTime: 7.9, endTime: 8.2 },
+  { text: "mi", startTime: 8.2, endTime: 8.5 },
+  { text: "va ", startTime: 8.5, endTime: 8.8 },
+  { text: "Ban", startTime: 8.8, endTime: 9.1 },
+  { text: "dha", startTime: 9.1, endTime: 9.4 },
+  { text: "nan ", startTime: 9.4, endTime: 10.0 },
+  { text: "Mri", startTime: 10.0, endTime: 10.3 },
+  { text: "tyor", startTime: 10.3, endTime: 10.6 },
+  { text: "mu", startTime: 10.6, endTime: 10.9 },
+  { text: "kshi", startTime: 10.9, endTime: 11.2 },
+  { text: "ya ", startTime: 11.2, endTime: 11.5 },
+  { text: "Ma", startTime: 11.5, endTime: 11.8 },
+  { text: "mri", startTime: 11.8, endTime: 12.1 },
+  { text: "tat", startTime: 12.1, endTime: 13.0 }
+];
 
 const TestPage = () => {
   // Sample mantras for display
@@ -28,14 +101,14 @@ const TestPage = () => {
       title: 'Gayatri Mantra',
       description: 'A highly revered mantra from Rigveda dedicated to Savitr, the sun deity',
       audio: '/audio/gayatri.mp3',
-      text: 'ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात्'
+      text: 'Om Bhur Bhuvah Swah, Tat Savitur Varenyam, Bhargo Devasya Dhimahi, Dhiyo Yo Nah Prachodayat'
     },
     {
       id: 'mahamrityunjaya',
       title: 'Mahamrityunjaya Mantra',
       description: 'A healing mantra dedicated to Lord Shiva that rejuvenates and bestows immortality',
       audio: '/audio/mahamrityunjaya.mp3',
-      text: 'ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम् उर्वारुकमिव बन्धनान् मृत्योर्मुक्षीय मामृतात्'
+      text: 'Om Tryambakam Yajamahe Sugandhim Pushtivardhanam Urvarukamiva Bandhanan Mrityormukshiya Mamritat'
     },
   ];
   return (

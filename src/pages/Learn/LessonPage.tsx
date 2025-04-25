@@ -9,44 +9,44 @@ import LessonQuiz from '../../components/learn/LessonQuiz';
 
 const LessonPage = () => {
   const { topicId, lessonId } = useParams<{ topicId: string; lessonId: string }>();
-  
+
   // Find the current topic and lesson
   const topic = lessonsData.find(t => t.topicId === topicId);
   const lesson = topic?.lessons.find(l => l.id === lessonId);
-  
+
   // Find next lesson
   const findNextLesson = () => {
     if (!topic || !lesson) return null;
-    
+
     const currentIndex = topic.lessons.findIndex(l => l.id === lessonId);
     const nextLesson = topic.lessons[currentIndex + 1];
-    
+
     if (nextLesson) {
       return {
         topicId,
         lesson: nextLesson
       };
     }
-    
+
     // If no next lesson in current topic, find first lesson in next topic
     const topicIndex = lessonsData.findIndex(t => t.topicId === topicId);
     const nextTopic = lessonsData[topicIndex + 1];
-    
+
     if (nextTopic && nextTopic.lessons.length > 0) {
       return {
         topicId: nextTopic.topicId,
         lesson: nextTopic.lessons[0]
       };
     }
-    
+
     return null;
   };
-  
+
   const nextLesson = findNextLesson();
 
   if (!topic || !lesson) {
     return (
-      <NotFoundMessage 
+      <NotFoundMessage
         title="Lesson Not Found"
         message="The lesson you're looking for doesn't exist."
         backTo="/learn"
@@ -64,12 +64,12 @@ const LessonPage = () => {
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Learning Centre
             </Link>
-            
+
             <div className="text-center mb-8">
               <h1 className="text-3xl md:text-4xl font-heading font-bold">{lesson.title}</h1>
               <p className="text-muted-foreground mt-2">Topic: {topic.topicName}</p>
             </div>
-            
+
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               {/* Left Column - Video and Cards (stacked) */}
               <div className="lg:col-span-4 space-y-6">
@@ -95,7 +95,7 @@ const LessonPage = () => {
                     </div>
                   </CardContent>
                 </Card>
-                
+
                 {/* Next Lesson Card */}
                 <Card className="bg-gradient-to-br from-indian-cream to-white border border-indian-saffron/30">
                   <CardHeader>
@@ -103,7 +103,7 @@ const LessonPage = () => {
                   </CardHeader>
                   <CardContent>
                     {nextLesson ? (
-                      <Link 
+                      <Link
                         to={`/learn/lessons/${nextLesson.topicId}/${nextLesson.lesson.id}`}
                         className="group block p-4 border rounded-md hover:bg-secondary transition-colors"
                       >
@@ -118,7 +118,7 @@ const LessonPage = () => {
                     )}
                   </CardContent>
                 </Card>
-                
+
                 {/* Related Content Card */}
                 <Card className="bg-gradient-to-br from-indian-cream to-white border border-indian-saffron/30">
                   <CardHeader>
@@ -127,22 +127,22 @@ const LessonPage = () => {
                   <CardContent className="space-y-4">
                     <div className="text-sm">
                       <div className="font-medium">Main Topic</div>
-                      <Link 
-                        to={`/learn/topics/${topicId}`} 
+                      <Link
+                        to={`/learn/topics/${topicId}`}
                         className="text-spiritual-500 hover:text-spiritual-600"
                       >
                         {topic.topicName} - Overview
                       </Link>
                     </div>
-                    
+
                     {lesson.resources && lesson.resources.length > 0 ? (
                       <div className="space-y-2">
                         <div className="font-medium text-sm">Additional Reading</div>
                         <ul className="space-y-1">
                           {lesson.resources.map((resource, index) => (
                             <li key={index}>
-                              <a 
-                                href={resource.url} 
+                              <a
+                                href={resource.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-spiritual-500 hover:text-spiritual-600 text-sm"
@@ -164,8 +164,8 @@ const LessonPage = () => {
                   <CardHeader>
                     <CardTitle className="text-xl">Lesson Content</CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <div className="prose max-w-none">
+                  <CardContent className="relative">
+                    <div className="prose max-w-none max-h-[600px] overflow-y-auto pr-4 custom-scrollbar">
                       {lesson.content ? (
                         <div dangerouslySetInnerHTML={{ __html: lesson.content }} />
                       ) : (

@@ -5,24 +5,36 @@ import { Card, CardContent } from '@/components/ui/card';
 const Vedanta = () => {
   const corePrinciples = [
     {
-      title: "Divinity of the Soul",
-      description: "Vedanta teaches that the true nature of every being is divine (Atman), which is identical with the universal consciousness (Brahman)."
+      title: "Oneness of Reality (Brahman)",
+      description: "The ultimate reality is one, indivisible, pure existence-consciousness-bliss called Brahman."
+    },
+    {
+      title: "Divinity of the Soul (Atman)",
+      description: "Every individual soul is inherently divine, eternal, and potentially perfect."
+    },
+    {
+      title: "Identity of Atman and Brahman",
+      description: "The individual soul (Atman) is, in its essential nature, identical with the ultimate reality (Brahman)."
     },
     {
       title: "Unity of Existence",
-      description: "All existence is an expression of one ultimate reality. The apparent diversity is a manifestation of the same underlying truth."
+      description: "All beings and the entire universe are interconnected manifestations of that one underlying reality."
     },
     {
-      title: "Karma and Rebirth",
-      description: "Our actions (karma) create impressions that influence our future experiences, potentially across multiple lifetimes."
+      title: "Harmony of Religions",
+      description: "Different religions are valid paths leading diverse individuals towards the same ultimate truth or God-realization."
     },
     {
-      title: "Four Paths to Realization",
-      description: "Vedanta recognizes four main spiritual paths - Jnana Yoga (path of knowledge), Bhakti Yoga (path of devotion), Karma Yoga (path of selfless action), and Raja Yoga (path of meditation)."
+      title: "Goal of Life is Liberation (Moksha)",
+      description: "The primary purpose of human life is to realize and manifest this inherent divinity, achieving freedom (Moksha)."
     },
     {
-      title: "Liberation (Moksha)",
-      description: "The ultimate goal of life is to realize one's true nature and attain liberation from the cycle of birth and death."
+      title: "Paths to Realization (Yogas)",
+      description: "This can be achieved through one or more of the following paths: selfless work (Karma Yoga), devotion (Bhakti Yoga), psychic control (Raja Yoga), or discrimination (Jnana Yoga)."
+    },
+    {
+      title: "Service as Worship (Practical Vedanta)",
+      description: "Serving humanity, seeing the divine within all beings, is a practical means of worship and realizing the Self."
     }
   ];
 
@@ -65,12 +77,12 @@ const Vedanta = () => {
 
         <h3 className="text-2xl font-heading font-semibold mb-6">Core Principles of Vedanta</h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {corePrinciples.map((principle, index) => (
             <Card key={index} className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 h-full">
               <CardContent className="p-6">
-                <h4 className="text-xl font-heading font-semibold mb-3">{principle.title}</h4>
-                <p className="text-gray-700">{principle.description}</p>
+                <h4 className="text-xl font-heading font-semibold mb-3 text-center">{principle.title}</h4>
+                <p className="text-gray-700 text-justify">{principle.description}</p>
               </CardContent>
             </Card>
           ))}
