@@ -70,7 +70,7 @@ const SeminarRegistration = () => {
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-indian-cream to-white">
       <ScrollToTop />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-4 sm:py-6">
         <div className="mb-3">
           <Link
             to="/services/special-functions"
@@ -89,12 +89,12 @@ const SeminarRegistration = () => {
               </div>
             )}
 
-            <div className={`${isLoading ? 'hidden' : 'block'} w-full flex justify-center items-center relative`}>
+            <div className={`${isLoading ? 'hidden' : 'block'} w-full flex justify-center items-center relative px-8 sm:px-16 md:px-24 lg:px-32`}>
               {/* Previous Button - Left Side */}
               <button
                 onClick={handlePrevPage}
                 disabled={currentPage === 1}
-                className={`absolute left-[28%] z-5 flex items-center justify-center w-10 h-10 rounded-full bg-white/80 shadow-md ${
+                className={`absolute left-0 z-5 flex items-center justify-center w-10 h-10 rounded-full bg-white/80 shadow-md ${
                   currentPage === 1
                     ? 'text-gray-400 cursor-not-allowed opacity-50'
                     : 'text-indian-saffron hover:bg-indian-saffron/10 hover:scale-110 transition-transform'
@@ -104,7 +104,7 @@ const SeminarRegistration = () => {
               </button>
 
               {/* Image Container */}
-              <div className="w-[36.5%] overflow-hidden rounded-md transition-all duration-300 hover:scale-[1.01]">
+              <div className="w-full sm:w-[75%] md:w-[50%] lg:w-[44%] overflow-hidden rounded-md transition-all duration-300 hover:scale-[1.01]">
                 {currentPage === 1 ? (
                   <a
                     href="https://forms.gle/E1x1zG2DUBqBsRXy9"
@@ -137,7 +137,7 @@ const SeminarRegistration = () => {
               <button
                 onClick={handleNextPage}
                 disabled={currentPage === totalPages}
-                className={`absolute right-[28%] z-5 flex items-center justify-center w-10 h-10 rounded-full bg-white/80 shadow-md ${
+                className={`absolute right-0 z-5 flex items-center justify-center w-10 h-10 rounded-full bg-white/80 shadow-md ${
                   currentPage === totalPages
                     ? 'text-gray-400 cursor-not-allowed opacity-50'
                     : 'text-indian-saffron hover:bg-indian-saffron/10 hover:scale-110 transition-transform'
