@@ -17,11 +17,11 @@ const OurCentre = () => {
           <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg shadow-sm h-[96%]">
             <h3 className="text-2xl font-heading font-semibold mb-4">History</h3>
             <p>
-              In 1897, Swami Vivekananda wrote to his brother monk, Swami Shivananda Mahapurush:<p></p> 
+              In 1897, Swami Vivekananda wrote to his brother monk, Swami Shivananda Mahapurush:<p></p>
               <p>
               "Mr. Setlur of Girgaon, Bombay, whom you know very well from Madras writes to me to send somebody to Africa to look after the religious needs of the Indian emigrants in Africa... The work will not be congenial at present, I am afraid, but it is really the work for the perfect man... No immediate results can be expected, but in the long run it will prove a more beneficial work for India than any yet attempted. I wish you to try your luck in this."
-              </p> 
-              For various reasons, Swami Shivananda was unable to go. 
+              </p>
+              For various reasons, Swami Shivananda was unable to go.
 
               <p>In 1934, South Africa was blessed with the arrival of the first monk of the Ramakrishna Order, Swami Adyananda - a disciple of Holy Mother, Sri Sarada Devi.</p>
             </p>
@@ -86,7 +86,7 @@ const OurCentre = () => {
                   className="w-48 h-48 object-contain mb-6"
                 />
               </div>
-              <p className="text-gray-700">
+              <p className="text-black">
                 The emblem of the Ramakrishna Mission is a profound symbol of harmony. Swami Vivekananda, the creator of this symbol, sums up its significance: "The wavy waters in the picture are symbolic of Karma (selfless actions), the lotus of Bhakti (devotion to God) and the rising sun of Jnana (Knowledge of God). The encircling serpent is indicative of Yoga (meditative practices to realize God) and awakened Kundalini Shakti while the swan in the picture stands for Paramatman (the Supreme Reality). Therefore, the ideal of the picture is that by the union of Karma, Jnana, Bhakti and Yoga the vision of the Paramatman is obtained."
               </p>
             </CardContent>
@@ -96,12 +96,12 @@ const OurCentre = () => {
             <CardContent className="p-6">
               <h4 className="text-xl font-heading font-semibold mb-2">Our Motto</h4>
               <div className="p-6 bg-white/70 rounded-lg mb-4 border border-indian-saffron/20">
-                <blockquote className="text-xl text-center text-gray-700">
+                <blockquote className="text-xl text-center text-black">
                   <div className="font-semibold mb-2">Atmano Mokshartam Jagat Hitaya Cha</div>
                   <div className="italic">"For one's own salvation and for the welfare of the world"</div>
                 </blockquote>
               </div>
-              <p className="text-gray-700">
+              <p className="text-black">
                 This motto, inspired by Swami Vivekananda, encapsulates our dual commitment to individual spiritual growth and selfless service to humanity.
               </p>
             </CardContent>
