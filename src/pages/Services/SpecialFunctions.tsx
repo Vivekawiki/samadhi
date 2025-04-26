@@ -1,4 +1,6 @@
 
+import { Link } from 'react-router-dom';
+
 const SpecialFunctions = () => {
   return (
       <div className="w-full bg-white">
@@ -14,7 +16,9 @@ const SpecialFunctions = () => {
               </div>
 
               <div className="mt-12 bg-gradient-to-br from-indian-cream to-white rounded-lg p-6 shadow-sm border border-indian-saffron/20">
-                <h3 className="text-2xl font-heading font-semibold mb-6">Upcoming Programmes</h3>
+                <h3 className="text-2xl font-heading font-semibold mb-6">
+                  Upcoming Programmes <span className="text-base font-normal ml-2">(If you would like to get involved, please <Link to="/contact" className="text-indian-saffron hover:underline">contact us</Link>.)</span>
+                </h3>
 
                 {/* Desktop view - table */}
                 <div className="hidden md:block overflow-x-auto">

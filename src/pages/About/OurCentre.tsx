@@ -16,14 +16,14 @@ const OurCentre = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 p-6 rounded-lg shadow-sm h-[96%]">
             <h3 className="text-2xl font-heading font-semibold mb-4">History</h3>
-            <p>
+            <p className="text-black">
               In 1897, Swami Vivekananda wrote to his brother monk, Swami Shivananda Mahapurush:<p></p>
-              <p>
+              <p className="text-black">
               "Mr. Setlur of Girgaon, Bombay, whom you know very well from Madras writes to me to send somebody to Africa to look after the religious needs of the Indian emigrants in Africa... The work will not be congenial at present, I am afraid, but it is really the work for the perfect man... No immediate results can be expected, but in the long run it will prove a more beneficial work for India than any yet attempted. I wish you to try your luck in this."
               </p>
               For various reasons, Swami Shivananda was unable to go.
 
-              <p>In 1934, South Africa was blessed with the arrival of the first monk of the Ramakrishna Order, Swami Adyananda - a disciple of Holy Mother, Sri Sarada Devi.</p>
+              <p className="text-black">In 1934, South Africa was blessed with the arrival of the first monk of the Ramakrishna Order, Swami Adyananda - a disciple of Holy Mother, Sri Sarada Devi.</p>
             </p>
           </div>
 
@@ -39,11 +39,11 @@ const OurCentre = () => {
         <Card className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 mb-12">
           <CardContent className="p-6">
             <h3 className="text-2xl font-heading font-semibold mb-4">About the Centre</h3>
-            <p className="mb-4">
+            <p className="mb-4 text-black">
               The Ramakrishna Centre of South Africa was founded in 1942 by Swami Nischalananda.
               The Johannesburg Centre which started in 1954 is a registered Public Benefit Organisation and Non-Profit Organisation (PBO No.: 930050436 NPO No.: 161-189 NPO) that has been engaged in various forms of humanitarian and social service activities in South Africa for more than seventy-five years.
             </p>
-            <p>
+            <p className="text-black">
               The Ramakrishna Centre has been actively spreading the universal message of peace and harmony. It continues to contribute to the upliftment of disadvantaged communities through many of its outreach programmes, which include medical services, nutritional aid, skills development, women empowerment, youth resource development, educational services, support to HIV/AIDS hospices and the distribution of value-based literature.
             </p>
           </CardContent>
@@ -52,24 +52,24 @@ const OurCentre = () => {
         <Card className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 mb-12">
           <CardContent className="p-6">
             <h3 className="text-2xl font-heading font-semibold mb-4">Our Mission</h3>
-            <p>
+            <p className="text-black">
               The mission of the Ramakrishna Centre of South Africa, Johannesburg, is to propagate the universal teachings of Vedanta as exemplified in the lives of Sri Ramakrishna, Holy Mother Sri Sarada Devi, and Swami Vivekananda, and to promote:
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
               <div className="bg-white/50 p-4 rounded border border-indian-saffron/20">
-                <p className="font-medium">Dissemination of Vedanta Philosophy</p>
+                <p className="font-medium text-black">Dissemination of Vedanta Philosophy</p>
               </div>
               <div className="bg-white/50 p-4 rounded border border-indian-saffron/20">
-                <p className="font-medium">Outreach work under the dictum 'service to man is worship of God'</p>
+                <p className="font-medium text-black">Outreach work under the dictum 'service to man is worship of God'</p>
               </div>
               <div className="bg-white/50 p-4 rounded border border-indian-saffron/20">
-                <p className="font-medium">Character building based on spiritual values</p>
+                <p className="font-medium text-black">Character building based on spiritual values</p>
               </div>
               <div className="bg-white/50 p-4 rounded border border-indian-saffron/20">
-                <p className="font-medium">Educational and cultural activities that foster spiritual growth</p>
+                <p className="font-medium text-black">Educational and cultural activities that foster spiritual growth</p>
               </div>
               <div className="bg-white/50 p-4 rounded border border-indian-saffron/20">
-                <p className="font-medium">Community welfare through various humanitarian services</p>
+                <p className="font-medium text-black">Community welfare through various humanitarian services</p>
               </div>
             </div>
           </CardContent>
