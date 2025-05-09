@@ -169,14 +169,13 @@ const ContactPage = () => {
       </div>
 
       <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
             {/* Contact Information */}
-            <div className="animate-fade-in">
+            <div className="animate-fade-in mx-auto">
               <SectionHeader
                 title="Get in Touch"
                 subtitle="We'd love to hear from you. Contact us with any questions or enquiries."
-                alignment="left"
+                alignment="center"
               />
 
               <div className="space-y-5 mt-8 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-5 rounded-lg pop-shadow-card">
@@ -257,170 +256,6 @@ const ContactPage = () => {
                   </div>
                 </div>
               </div>
-
-              <div className="mt-12">
-                <h3 className="text-lg font-medium text-gray-900 mb-4">Connect With Us</h3>
-                <div className="flex space-x-4">
-                  <a href="https://web.facebook.com/The-Ramakrishna-Centre-of-South-Africa-Johannesburg-102465158298869" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-spiritual-500 transition-colors">
-                    <span className="sr-only">Facebook</span>
-                    <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-                    </svg>
-                  </a>
-
-                  <a href="https://www.youtube.com/channel/UCmFHx4USh_Vvx6L4jNwMGnA/playlists?view_as=subscriber" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-spiritual-500 transition-colors">
-                    <span className="sr-only">YouTube</span>
-                    <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path fillRule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clipRule="evenodd" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Contact Form */}
-            <div className="animate-fade-in">
-              <SectionHeader
-                title="Send a Message"
-                subtitle="Fill out the form below and we'll get back to you as soon as possible."
-                alignment="left"
-              />
-
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(handleSubmit)} className="mt-8 space-y-6 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg pop-shadow-card">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <FormField
-                      control={form.control}
-                      name="firstName"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>First Name</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Your first name" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="lastName"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Last Name</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Your last name" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email</FormLabel>
-                        <FormControl>
-                          <Input type="email" placeholder="your.email@example.com" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Phone (optional)</FormLabel>
-                        <FormControl>
-                          <Input type="tel" placeholder="Your phone number" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="subject"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Subject</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Message subject" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Message</FormLabel>
-                        <FormControl>
-                          <Textarea
-                            placeholder="Your message here..."
-                            className="min-h-[120px]"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  {/* Honeypot field - hidden from users but bots will fill it out */}
-                  <div className="hidden" aria-hidden="true">
-                    <FormField
-                      control={form.control}
-                      name="honeypot"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Leave this empty</FormLabel>
-                          <FormControl>
-                            <Input
-                              tabIndex={-1}
-                              autoComplete="off"
-                              {...field}
-                            />
-                          </FormControl>
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-
-                  <div className="pt-2">
-                    <Button
-                      type="submit"
-                      className="bg-spiritual-500 hover:bg-spiritual-600"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                          Sending...
-                        </>
-                      ) : (
-                        'Send Message'
-                      )}
-                    </Button>
-                    <div className="mt-2 text-xs text-gray-500">
-                      This site is protected by reCAPTCHA and the Google
-                      <a href="https://policies.google.com/privacy" className="text-spiritual-500 hover:underline"> Privacy Policy</a> and
-                      <a href="https://policies.google.com/terms" className="text-spiritual-500 hover:underline"> Terms of Service</a> apply.
-                    </div>
-                  </div>
-                </form>
-              </Form>
-            </div>
 
             {/* Map */}
             <div className="col-span-1 lg:col-span-2 mt-16">
