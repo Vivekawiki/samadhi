@@ -131,14 +131,17 @@ const DonatePage = () => {
               </div>
             </div>
 
-            <Card className="p-6 shadow-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron pop-shadow-card">
+            <Card className="p-6 shadow-lg bg-transparent border border-indian-saffron pop-shadow-card">
               <h2 className="text-2xl font-heading font-semibold mb-4 flex items-center">
                 <Heart className="mr-2 text-red-500" />
                 Make a Donation
               </h2>
+              <p className="text-sm text-gray-600 mb-4">
+                This donation system will launch on 28th May 2025.
+              </p>
 
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(handleDonate)} className="space-y-4">
+                <form onSubmit={form.handleSubmit(handleDonate)} className="space-y-4 opacity-50">
                   <div className="grid grid-cols-2 gap-4">
                     <FormField
                       control={form.control}
@@ -147,7 +150,7 @@ const DonatePage = () => {
                         <FormItem>
                           <FormLabel>First Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your first name" {...field} />
+                            <Input placeholder="Your first name" {...field} disabled />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -161,7 +164,7 @@ const DonatePage = () => {
                         <FormItem>
                           <FormLabel>Last Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your last name" {...field} />
+                            <Input placeholder="Your last name" {...field} disabled />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -176,7 +179,7 @@ const DonatePage = () => {
                       <FormItem>
                         <FormLabel>Email Address</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="your.email@example.com" {...field} />
+                          <Input type="email" placeholder="your.email@example.com" {...field} disabled />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -190,7 +193,7 @@ const DonatePage = () => {
                       <FormItem>
                         <FormLabel>Mobile Number</FormLabel>
                         <FormControl>
-                          <Input type="tel" placeholder="Your mobile number" {...field} />
+                          <Input type="tel" placeholder="Your mobile number" {...field} disabled />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -203,7 +206,7 @@ const DonatePage = () => {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Purpose of Donation</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select onValueChange={field.onChange} defaultValue={field.value} disabled>
                           <FormControl>
                             <SelectTrigger>
                               <SelectValue placeholder="Select purpose" />
@@ -237,6 +240,7 @@ const DonatePage = () => {
                                   ? 'bg-spiritual-100 border-spiritual-500 text-spiritual-700'
                                   : 'border-gray-300 hover:bg-gray-50'
                               }`}
+                              disabled
                             >
                               R{preset}
                             </button>
@@ -253,6 +257,7 @@ const DonatePage = () => {
                             value={value}
                             onChange={(e) => onChange(Number(e.target.value))}
                             className="pl-8"
+                            disabled
                           />
                         </div>
                         <FormMessage />
@@ -262,7 +267,7 @@ const DonatePage = () => {
 
                   <Button
                     type="submit"
-                    disabled={isProcessing}
+                    disabled
                     className="w-full bg-spiritual-600 hover:bg-spiritual-700 text-white py-3 flex items-center justify-center space-x-2"
                   >
                     <CreditCard className="h-5 w-5" />
