@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Seminar Registration - Ramakrishna Centre of South Africa</title>
+  <link rel="icon" href="/lovable-uploads/icon.png" type="image/png" />
+  <link rel="shortcut icon" href="/lovable-uploads/icon.png" type="image/png" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -253,11 +255,7 @@
     </a>
 
     <div class="card">
-      <div id="loader" class="loader">
-        <div class="spinner"></div>
-      </div>
-
-      <div id="content" class="hidden">
+      <div id="content">
         <div class="image-container">
           <button id="prevButton" class="nav-button prev-button" disabled>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -287,8 +285,6 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const loader = document.getElementById('loader');
-      const content = document.getElementById('content');
       const seminarImage = document.getElementById('seminarImage');
       const imageLink = document.getElementById('imageLink');
       const prevButton = document.getElementById('prevButton');
@@ -297,12 +293,6 @@
 
       let currentPage = 1;
       const totalPages = 2;
-
-      // Hide loader immediately and show content
-      setTimeout(function() {
-        loader.classList.add('hidden');
-        content.classList.remove('hidden');
-      }, 300); // Short timeout to ensure DOM is ready
 
       // Preload images
       function preloadImages() {
