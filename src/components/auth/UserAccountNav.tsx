@@ -16,19 +16,16 @@ import { User, LogOut, Settings, ShieldCheck } from 'lucide-react';
 
 const UserAccountNav = () => {
   const { user, profile, signOut, isAdmin } = useAuth();
-  
+
   if (!user) {
-    return (
-      <Button variant="outline" size="sm" asChild className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10">
-        <Link to="/login">Sign In</Link>
-      </Button>
-    );
+    // Temporarily removed sign-in button
+    return null;
   }
-  
+
   const initials = profile?.first_name && profile?.last_name
     ? `${profile.first_name[0]}${profile.last_name[0]}`
     : user.email?.substring(0, 2).toUpperCase() || 'U';
-    
+
   const fullName = profile?.first_name && profile?.last_name
     ? `${profile.first_name} ${profile.last_name}`
     : user.email || 'User';
@@ -56,7 +53,7 @@ const UserAccountNav = () => {
             <span>Profile</span>
           </Link>
         </DropdownMenuItem>
-        
+
         {isAdmin && (
           <DropdownMenuItem asChild>
             <Link to="/admin" className="cursor-pointer flex w-full items-center">
@@ -65,7 +62,7 @@ const UserAccountNav = () => {
             </Link>
           </DropdownMenuItem>
         )}
-        
+
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => signOut()} className="cursor-pointer">
           <LogOut className="mr-2 h-4 w-4 text-indian-saffron" />

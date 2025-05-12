@@ -98,9 +98,9 @@ const DonatePage = () => {
       <div className="w-full bg-gradient-to-br from-indian-cream to-white py-12 -mt-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative h-[400px] w-full mb-8 rounded-lg overflow-hidden">
-            <img 
-              src="/pics/belurmath.jpg" 
-              alt="Belur Math" 
+            <img
+              src="/pics/belurmath.jpg"
+              alt="Belur Math"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -137,7 +137,7 @@ const DonatePage = () => {
                 Make a Donation
               </h2>
               <p className="text-sm text-gray-600 mb-4">
-                This donation system will launch on 28th May 2025.
+                This donation system will launch soon.
               </p>
 
               <Form {...form}>

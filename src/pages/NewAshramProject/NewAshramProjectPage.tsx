@@ -31,21 +31,21 @@ where devotees can find God in themselves and around them.
               <Link to="/new-ashram-project/vision" className="block">
                 <div className="h-full p-6 rounded-lg pop-shadow-card transition-all duration-300 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron">
                   <h3 className="text-xl font-heading font-semibold mb-3">Project Vision</h3>
-                  <p className="text-gray-600">Learn about our vision for the new ashram and why it's necessary</p>
+                  <p className="text-gray-600">Learn about our vision for the new ashram and why it's necessary.</p>
                 </div>
               </Link>
 
               <Link to="/new-ashram-project/timeline" className="block">
                 <div className="h-full p-6 rounded-lg pop-shadow-card transition-all duration-300 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron">
                   <h3 className="text-xl font-heading font-semibold mb-3">Timeline & Progress</h3>
-                  <p className="text-gray-600">Follow our progress and see what we've accomplished so far</p>
+                  <p className="text-gray-600">Follow our progress and see what we've accomplished so far.</p>
                 </div>
               </Link>
 
               <Link to="/new-ashram-project/fundraising" className="block">
                 <div className="h-full p-6 rounded-lg pop-shadow-card transition-all duration-300 bg-gradient-to-br from-indian-cream to-white border border-indian-saffron">
                   <h3 className="text-xl font-heading font-semibold mb-3">Fundraising</h3>
-                  <p className="text-gray-600">Learn how you can contribute to this important initiative</p>
+                  <p className="text-gray-600">Learn how you can contribute to this important initiative.</p>
                 </div>
               </Link>
             </div>
@@ -53,7 +53,7 @@ where devotees can find God in themselves and around them.
             <div className="bg-gradient-to-br from-spiritual-50 to-white border border-spiritual-200 p-8 rounded-lg my-8 text-center pop-shadow-card">
               <h3 className="text-2xl font-heading font-semibold mb-4">Support Our Vision</h3>
               <p className="mb-6">
-                We invite you to be part of this sacred journey. Your support, no matter how big or small, will help us create a space where spiritual seekers can find peace, guidance, and community for generations to come.
+                We invite you to be part of this sacred journey. Your support (either in cash or goods/services), no matter how big or small, will help us create a space where spiritual seekers can find peace, guidance, and community for generations to come.
               </p>
               <Button href="/new-ashram-project/fundraising" size="lg">
                 Donate Now

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Satsangs = () => {
   return (
@@ -10,7 +11,7 @@ const Satsangs = () => {
             <div className="inline-block p-6 rounded-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01] text-center w-full">
               <h1 className="text-3xl font-heading font-bold mb-4 text-black">Satsangs</h1>
                 <p className="text-gray-700">
-                  Join our regular spiritual gatherings which include the chanting of prayers, meditation, and a discourse on Vedantic Philosophy and Principles
+                  Join our regular spiritual gatherings which include the chanting of prayers, meditation, and a discourse on Vedantic Philosophy and Principles. The Sub-Centre also celebrate all major hindu festivals. For details on upcoming special functions, please <Link to="/services/special-functions" className="text-indian-saffron hover:underline">click here</Link>.
                 </p>
               </div>
 
