@@ -8,7 +8,7 @@ import { BookOpen, Heart, Users, Baby, Star } from 'lucide-react';
 const services = [
   {
     title: "Spiritual Gatherings",
-    description: "Join our regular spiritual gatherings which include the chanting of prayers, meditation, and a discourse on Vedantic Philosophy and Principles. The Sub-Centre also celebrate all major hindu festivals.",
+    description: "Join our regular spiritual gatherings which include the chanting of prayers, meditation, and a discourse on Vedantic Philosophy and Principles. The Sub-Centre also celebrates all major hindu festivals.",
     icon: <Users className="w-12 h-12 text-indian-saffron" />,
     link: "/services/satsangs"
   },

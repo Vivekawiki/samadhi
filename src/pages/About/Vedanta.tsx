@@ -55,14 +55,14 @@ const Vedanta = () => {
             </p>
             <h4 className="text-lg font-heading font-semibold mb-2">This Ideology Has Three Characteristics:</h4>
             <ol className="list-decimal pl-5 mb-4 space-y-1">
-              <li>It is modern in the sense that the ancient principles of Vedanta are expressed in the current context</li>
-              <li>It is universal, that is, it is meant for the whole of humanity</li>
-              <li>It is practical in the sense that its principles can be applied to solve the problems of day-to-day life</li>
+              <li>It is modern in the sense that the ancient principles of Vedanta are expressed in the current context.</li>
+              <li>It is universal, that is, it is meant for the whole of humanity.</li>
+              <li>It is practical in the sense that its principles can be applied to solve the problems of day-to-day life.</li>
             </ol>
             <h4 className="text-lg font-heading font-semibold mb-2">The Two Main Principles of Vedanta Philosophy Are:</h4>
             <ol className="list-decimal pl-5 space-y-1">
-              <li>God-realisation is the ultimate goal of life</li>
-              <li>Each soul is potentially divine</li>
+              <li>God-realisation is the ultimate goal of life.</li>
+              <li>Each soul is potentially divine.</li>
             </ol>
           </div>
 
@@ -110,19 +110,19 @@ const Vedanta = () => {
               <ul className="space-y-2 ml-0 pl-0">
                 <li className="flex items-start">
                   <span className="inline-block w-2 h-2 rounded-full bg-indian-saffron mt-2 mr-3 flex-shrink-0"></span>
-                  <span>Seeing the Divine in every being and serving humanity as an expression of worship</span>
+                  <span>Seeing the Divine in every being and serving humanity as an expression of worship.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="inline-block w-2 h-2 rounded-full bg-indian-saffron mt-2 mr-3 flex-shrink-0"></span>
-                  <span>Strengthening character and moral values based on spiritual understanding</span>
+                  <span>Strengthening character and moral values based on spiritual understanding.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="inline-block w-2 h-2 rounded-full bg-indian-saffron mt-2 mr-3 flex-shrink-0"></span>
-                  <span>Working for one's own spiritual growth while contributing to the welfare of society</span>
+                  <span>Working for one's own spiritual growth while contributing to the welfare of society.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="inline-block w-2 h-2 rounded-full bg-indian-saffron mt-2 mr-3 flex-shrink-0"></span>
-                  <span>Harmonizing reason and faith, ancient wisdom and modern knowledge</span>
+                  <span>Harmonizing reason and faith, ancient wisdom and modern knowledge.</span>
                 </li>
               </ul>
             </CardContent>
