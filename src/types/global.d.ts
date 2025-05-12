@@ -1,8 +1,6 @@
 // Global type declarations
 
+// reCAPTCHA type definition removed as online form submission is disabled
 interface Window {
-  grecaptcha?: {
-    ready: (callback: () => void) => void;
-    execute: (siteKey: string, options: { action: string }) => Promise<string>;
-  };
+  // Add any global window extensions here if needed
 }

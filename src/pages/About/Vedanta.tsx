@@ -34,7 +34,7 @@ const Vedanta = () => {
     },
     {
       title: "Service as Worship (Practical Vedanta)",
-      description: "Serving humanity, seeing the divine within all beings, is a practical means of worship and realizing the Self."
+      description: "Serving humanity, seeing the divine within all beings, is a practical means of worship and realizing God."
     }
   ];
 
@@ -79,7 +79,10 @@ const Vedanta = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {corePrinciples.map((principle, index) => (
-            <Card key={index} className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 h-full">
+            <Card key={index} className="bg-gradient-to-r from-indian-cream to-white border border-indian-saffron/30 h-full relative">
+              <div className="absolute top-2 left-2 w-6 h-6 rounded-full bg-indian-saffron text-white flex items-center justify-center font-bold">
+                {index + 1}
+              </div>
               <CardContent className="p-6">
                 <h4 className="text-xl font-heading font-semibold mb-3 text-center">{principle.title}</h4>
                 <p className="text-gray-700 text-justify">{principle.description}</p>

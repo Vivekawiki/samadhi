@@ -31,32 +31,13 @@ const contactFormSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
-// reCAPTCHA site key - in a real app, this would be in an environment variable
-const RECAPTCHA_SITE_KEY = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'; // This is Google's test key
+// reCAPTCHA removed as online form submission is disabled
 
 const ContactPage = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionCount, setSubmissionCount] = useState(0);
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-
-  // Load reCAPTCHA script
-  useEffect(() => {
-    // Check if the script is already loaded
-    if (window.grecaptcha) return;
-
-    // Add reCAPTCHA script
-    const script = document.createElement('script');
-    script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
-    script.async = true;
-    script.defer = true;
-    document.head.appendChild(script);
-
-    return () => {
-      // Clean up script when component unmounts
-      document.head.removeChild(script);
-    };
-  }, []);
+  // reCAPTCHA script loading removed as online form submission is disabled
 
   // Initialize form with react-hook-form and zod validation
   const form = useForm<ContactFormValues>({
@@ -98,24 +79,11 @@ const ContactPage = () => {
     setSubmissionCount(prev => prev + 1);
 
     try {
-      // Execute reCAPTCHA
-      let token = '';
-      if (window.grecaptcha) {
-        try {
-          await new Promise<void>((resolve) => {
-            window.grecaptcha?.ready(() => resolve());
-          });
-          token = await window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'contact_form_submit' });
-        } catch (recaptchaError) {
-          console.error('reCAPTCHA error:', recaptchaError);
-          // Continue without reCAPTCHA if there's an error
-        }
-      }
+      // reCAPTCHA execution removed as online form submission is disabled
 
       // Prepare form data to send to the backend
       const formData = {
         ...values,
-        recaptchaToken: token,
       };
 
       console.log('Form data to be sent:', formData);
