@@ -3,23 +3,96 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 // --- Data (kept outside component for clarity) ---
 
 const quotesDB = {
-  "Sri Ramakrishna": [
-    "Truth is one; only it is called by different names.",
-    "The winds of grace are always blowing, but you have to raise the sail.",
-    "As many faiths, so many paths.",
-    "Different people call on God by different names, but it is one and the same God."
+  "SRI RAMAKRISHNA": [
+    "You see many stars at night in the sky but find them not when the sun rises; can you say that there are no stars in the heaven of day? So, O man, because you behold not God in the days of your ignorance, say not that there is no God.",
+    "God is formless and God is with form too, and He is that which transcends both form and formlessness. He alone can say what else He is.",
+    "He is born to no purpose who, having the rare privilege of being born a man, is unable to realize God in this life.",
+    "God is in all men, but all men are not in God, that is the reason why they suffer.",
+    "You will see God if your love for Him is as strong as the attachment of the worldly-minded person for things of the world.",
+    "The darkness of centuries is dispersed as soon as a single light is brought into the room. The accumulated ignorance and misdoings of innumerable births vanish at one glance of the gracious eyes of God.",
+    "Pray to Him in any way you will. He is sure to hear you, for He hears even the footfall of an ant.",
+    "Man is born in this world to realize God, it is not good to forget that and divert the mind to other things.",
+    "There are pearls in the sea; but you must dive again and again, until you find them. So God is in the world, but you will have to persevere to see Him.",
+    "It is easy to talk religion but difficult to practice it.",
+    "The sun is many times bigger than the earth but distance makes it look like a very small disc. So the Lord is infinitely great, but being too far away from Him we fail to comprehend His real greatness.",
+    "Egoism is like a cloud that keeps God hidden from our sight. If by the mercy of the Guru egoism vanishes, God is seen in His full glory.",
+    "Knowledge leads to unity and ignorance to diversity.",
+    "As a lamp cannot burn without oil, so a man cannot live without God.",
+    "The magnetic needle points always to the north, hence the sailing-vessel does not lose her course. So long as the heart of man is directed towards God, he cannot be lost in the ocean of worldliness.",
+    "He alone enters the kingdom of heaven who is not a thief of his own thoughts. In other words, guilelessness and simple faith are the roads to that kingdom.",
+    "Rain-water will never stand still on high ground, but will run down to the lowest level; even so the mercy of God remains in the hearts of the lowly, but drains off from those of the vain and proud.",
+    "The tree laden with fruit always bends low. So if you wish to be great, be lowly and meek.",
+    "There is no quality higher than forbearance, which all should cultivate. A black smith's anvil remains immovable under the countless blows of his heavy hammer, so should everyone with a firm determination endure all that is said or done by others.",
+    "He who has faith has all, and he who lacks faith lacks all.",
+    "A truly religious man should think that other religions also are paths leading to truth. We should always maintain an attitude of respect towards other religions.",
+    "Remain always strong and steadfast in your own faith, but eschew all bigotry and intolerance.",
+    "That knowledge which purifies the intellect is the true knowledge, everything else is non-knowledge.",
+    "As many faiths, so many paths."
   ],
-  "Sri Sarada Devi": [
-    "If you want peace, do not find fault with others.",
-    "The mind is everything. It is in the mind alone that one feels pure and impure.",
-    "Learn to make the whole world your own. No one is a stranger, my child.",
-    "As you think, so you become."
+  "THE HOLY MOTHER": [
+    "Everything depends upon one's mind. Nothing can be achieved without purity of mind.",
+    "The less you become attached to the world, the more you will enjoy peace of mind.",
+    "Many turn toward God as a result of much suffering in life. But one whose mind is offered like a flower to the Lord right from childhood is indeed blessed.",
+    "If you do not pray to God, what is that to Him? It is only your misfortune.",
+    "When a man sees defects in others, his own mind first gets polluted. What does he gain by finding faults in others? He only hurts himself by that.",
+    "Many are known to do great work under the stress of some strong emotion. But a man's true nature is known by the manner in which he does his insignificant daily tasks.",
+    "Ordinary human love results in misery. Love for God brings blessedness.",
+    "Can you call him a man who is devoid of compassion? He is a veritable beast.",
+    "Past sins are counteracted by meditation, japa, and spiritual thought.",
+    "The mantra purifies the body. Man becomes pure by repeating the mantra of God.",
+    "One suffers as a result of one's own actions. So, instead of blaming others for such sufferings, one should pray to the Lord and depending entirely on His grace, try to bear them patiently and with forbearance under all circumstances.",
+    "Forbearance is a great virtue; there's no other like it.",
+    "There is no treasure equal to contentment and no virtue equal to fortitude.",
+    "If you do a good act, it cancels the effects of your evil deeds. If one prays, takes the Name of God and thinks of Him, the effects of evil are cancelled.",
+    "He who thinks always of the Lord, which way can evil come to him?",
+    "One who makes a habit of prayer will easily overcome all difficulties and remain calm and unruffled in the midst of the trials of life.",
+    "God is one's very own. It is the eternal relationship. He is everyone's own. One realizes God in proportion to the intensity of one's feeling for God.",
+    "The happiness of the world is transitory. The less you become attached to the world, the more you enjoy peace of mind.",
+    "It is the nature of water to flow downwards, but the sun's rays lift it up towards the sky. Likewise it is the very nature of the mind to go to lower things, to objects of enjoyment, but the grace of God can make the mind go towards higher objects.",
+    "The mind is everything. It is in the mind alone that one feels pure and impure. A man, first of all, must make his own mind guilty and then alone he can see another man's guilt. Does anything ever happen to another if you enumerate his faults? It only injures you.",
+    "One should always recollect God and pray to Him for right understanding.",
+    "As wind removes the cloud, so the Name of God destroys the cloud of worldliness.",
+    "I tell you one thing-if you want peace, do not find fault with others. Rather see your own faults. Learn to make the world your own. No one is a stranger, my child; the whole world is your own.",
+    "One must live carefully. Every action produces its results. It is not good to use harsh words towards others or be responsible for their suffering."
   ],
-  "Swami Vivekananda": [
+  "SWAMI VIVEKANANDA": [
+    "Education is the manifestation of the perfection already in man.",
+    "The training by which the current and expression of will are brought under control and become fruitful is called education.",
+    "We want that education by which character is formed, strength of mind is increased, the intellect is expanded, and by which one can stand on one's own feet.",
+    "What we want are western science coupled with Vedanta, brahmacharya as the guiding motto, and also sraddha and faith in one's own self.",
+    "I call him a traitor who, having been educated, nursed in luxury by the heart's blood of the downtrodden millions of toiling poor, never even takes a thought for them.",
+    "The very essence of education is concentration of mind.",
+    "We are what our thoughts have made us; so take care of what you think.",
+    "Pleasure is not the goal of man, but knowledge.",
+    "Character has to be established through a thousand stumbles.",
+    "Stand up, be bold, be strong. Take the whole responsibility on your own shoulders, and know that you are the creator of your own destiny.",
+    "Faith, faith, faith in ourselves, faith, faith in God-this is the secret of greatness.",
+    "All power is within you; you can do anything and everything. Believe in that, do not believe that you are weak. …. Stand up and express the divinity within you.",
+    "Everything can be sacrificed for truth, but truth cannot be sacrificed for anything.",
+    "Unselfishness is more paying, only people have not the patience to practice it.",
+    "The only definition that can be given of morality is this: That which is selfish is immoral, and that which is unselfish is moral.",
+    "This is the great fact: strength is life, weakness is death.",
+    "Religion is not in books, nor in theories, nor in dogmas, nor in talking, not even in reasoning. It is being and becoming.",
+    "Religion is the manifestation of the divinity already in man.",
+    "The secret of religion lies not in theories but in practice. To be good and to do good- that is the whole of religion.",
+    "Each soul is potentially divine. The goal is to manifest this divinity within by controlling nature, external and internal.",
+    "Purity, patience and perseverance are the three essentials to success and above all-Love.",
+    "This life is short, the vanities of the world are transient, but they alone live who live for others, the rest are more dead than alive.",
+    "If a man with an ideal makes a thousand mistakes, I am sure that the man without an ideal makes fifty thousand. Therefore it is better to have an ideal.",
+    "Whatever you think, that you will be. If you think yourselves weak, weak you will be; if you think yourselves strong, strong you will be.",
+    "This world is the great gymnasium where we come to make ourselves strong.",
+    "Whatever others think or do, lower not your standard of purity, morality and love of God.",
+    "Neither money pays, nor name nor fame, nor learning; it is character that can cleave through adamantine walls of difficulties. Bear this in mind.",
+    "What I want is muscles of iron and nerves of steel, inside which dwells a mind of the same material as that of which the thunderbolt is made. Strength, manhood, Kshatra Virya + Brahma Teja – this I want.",
+    "Holiness is the greatest power. Everything else quails before it.",
+    "I want iron wills and hearts that do not know how to quake.",
+    "First build up your physique. Then only you can get control over the mind.",
+    "The only test of good things is that they make us strong.",
+    "This I lay down as the first essential in all I teach: anything that brings spiritual, mental, or physical weakness, touch it not with the toes of your feet.",
+    "The national ideals of India are RENUNCIATION and SERVICE. Intensify her in those channels, and the rest will take care of itself.",
     "Arise, awake, and stop not till the goal is reached.",
-    "We are what our thoughts have made us.",
-    "All power is within you; you can do anything and everything.",
-    "The greatest religion is to be true to your own nature."
+    "India will be raised, not with the power of the flesh, but with the power of the spirit.",
+    "One of the greatest lessons I have learnt in my life is to pay as much attention to the means of work as to its end."
   ]
 };
 
@@ -28,6 +101,21 @@ const difficultyLevels = [
   { name: "Medium", scrambleMethod: "phrases", timerBonus: 1.0 },
   { name: "Hard", scrambleMethod: "complex", timerBonus: 0.5 }
 ];
+
+// Filter quotes by word count for different difficulty levels
+const filterQuotesByDifficulty = (quotes, difficulty) => {
+  return quotes.filter(quote => {
+    const wordCount = quote.split(/\s+/).length;
+
+    if (difficulty === "Easy") {
+      return wordCount <= 20;
+    } else if (difficulty === "Medium") {
+      return wordCount > 20 && wordCount <= 30;
+    } else { // Hard
+      return wordCount > 30;
+    }
+  });
+};
 
 // --- React Component ---
 
@@ -115,8 +203,14 @@ function WisdomWordsGame() {
     clearFeedbackTimeout();
     setShowIncorrectFeedback(false);
 
-    const quotes = quotesDB[currentAuthor];
-    const selectedQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    const allQuotes = quotesDB[currentAuthor];
+    // Filter quotes based on difficulty level
+    const filteredQuotes = filterQuotesByDifficulty(allQuotes, difficulty.name);
+
+    // If no quotes match the difficulty criteria, use all quotes
+    const quotesToUse = filteredQuotes.length > 0 ? filteredQuotes : allQuotes;
+
+    const selectedQuote = quotesToUse[Math.floor(Math.random() * quotesToUse.length)];
 
     setOriginalQuote(selectedQuote);
     setJumbledWords(scrambleQuote(selectedQuote, difficulty.scrambleMethod));
@@ -459,10 +553,18 @@ function WisdomWordsGame() {
                   }}
                   disabled={gameActive}
                 >
-                  {difficultyLevels.map(level => (
-                    <option key={level.name} value={level.name}>{level.name}</option>
-                  ))}
+                  {difficultyLevels.map(level => {
+                    const quoteCount = filterQuotesByDifficulty(quotesDB[currentAuthor], level.name).length;
+                    return (
+                      <option key={level.name} value={level.name}>
+                        {level.name} ({quoteCount} quotes)
+                      </option>
+                    );
+                  })}
                 </select>
+                <div className="text-xs text-gray-500 mt-1">
+                  Easy: up to 20 words | Medium: 21-30 words | Hard: 31+ words
+                </div>
               </div>
 
               <div className="flex items-end w-full sm:w-auto">
