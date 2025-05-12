@@ -1,9 +1,13 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /index.html [L]
-</IfModule>
+# Enable rewriting
+RewriteEngine On
+
+# If the request is for a real directory or file, serve it directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# If the request is for the seminar registration page, serve the index.html from that directory
+RewriteRule ^services/seminar-registration/?$ /services/seminar-registration/index.html [L]
+
+# For all other routes that don't exist as files or directories, serve the main index.html
+RewriteRule ^ /index.html [L]

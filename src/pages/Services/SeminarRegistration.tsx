@@ -43,7 +43,29 @@ const SeminarRegistration = () => {
     const preloadImages = () => {
       for (let i = 1; i <= totalPages; i++) {
         const img = new Image();
+        // Try to load from the main pics directory
         img.src = `/pics/seminar_website_${i}.jpg`;
+
+        // Set up error handling to try alternative paths if the main one fails
+        img.onerror = () => {
+          console.log(`Failed to load from main path, trying alternative for image ${i}`);
+          const altImg = new Image();
+          // Try the local directory as fallback
+          altImg.src = `/services/seminar-registration/seminar_website_${i}.jpg`;
+          altImg.onload = () => {
+            if (i === currentPage) {
+              setIsLoading(false);
+            }
+          };
+          // If both fail, just hide the loader anyway
+          altImg.onerror = () => {
+            console.error(`Could not load image ${i} from any path`);
+            if (i === currentPage) {
+              setIsLoading(false);
+            }
+          };
+        };
+
         img.onload = () => {
           if (i === currentPage) {
             setIsLoading(false);
@@ -118,6 +140,12 @@ const SeminarRegistration = () => {
                       width="100%"
                       height="auto"
                       className="max-w-full h-auto border-2 border-indian-saffron/30 rounded-md transition-all duration-300 hover:border-indian-saffron shadow-sm hover:shadow-md"
+                      onError={(e) => {
+                        // If main path fails, try the alternative path
+                        const target = e.target as HTMLImageElement;
+                        console.log('Image load error, trying alternative path');
+                        target.src = `/services/seminar-registration/seminar_website_${currentPage}.jpg`;
+                      }}
                     />
                   </a>
                 ) : (
@@ -128,6 +156,12 @@ const SeminarRegistration = () => {
                       width="100%"
                       height="auto"
                       className="max-w-full h-auto border-2 border-indian-saffron/30 rounded-md transition-all duration-300 shadow-sm"
+                      onError={(e) => {
+                        // If main path fails, try the alternative path
+                        const target = e.target as HTMLImageElement;
+                        console.log('Image load error, trying alternative path');
+                        target.src = `/services/seminar-registration/seminar_website_${currentPage}.jpg`;
+                      }}
                     />
                   </div>
                 )}
