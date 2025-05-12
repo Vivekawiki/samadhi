@@ -6,6 +6,11 @@ const NutritionProgramme = () => {
   // All nutrition programme images
   const nutritionImages = [
     {
+      id: 'april2025',
+      title: 'April Distribution',
+      path: '/images/nutrition/april2025.jpg'
+    },
+    {
       id: 'march2025',
       title: 'March Distribution',
       path: '/images/nutrition/march2025.jpg'
@@ -95,10 +100,10 @@ const NutritionProgramme = () => {
   return (
       <div className="min-h-screen w-full bg-gradient-to-br from-indian-cream to-white">
         <div className="w-full">
-          {/* Replaced py-12 with pb-12 */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+          {/* Restored some padding */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 pt-2">
             <div className="max-w-4xl mx-auto overflow-visible">
-              <div className="inline-block p-6 rounded-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01] text-center w-full mb-8">
+              <div className="inline-block p-6 rounded-lg bg-gradient-to-br from-indian-cream to-white border border-indian-saffron shadow-lg transform transition-all duration-500 hover:shadow-xl hover:scale-[1.01] text-center w-full mb-4">
                 <h1 className="text-3xl font-heading font-bold mb-4 text-black flex items-center justify-center gap-2">
                   <Heart className="w-8 h-8 text-indian-saffron" />
                   Nutrition Programme and Community Outreach
@@ -110,7 +115,7 @@ const NutritionProgramme = () => {
                 </p>
               </div>
 
-              <div className="my-12 bg-gradient-to-br from-indian-cream to-white rounded-lg p-6 shadow-sm border border-indian-saffron/20 max-w-full lg:max-w-[115%] mx-auto overflow-visible md:overflow-visible" style={{ width: '115%', marginLeft: '-7.5%', marginRight: '-7.5%' }}>
+              <div className="mt-2 mb-12 bg-gradient-to-br from-indian-cream to-white rounded-lg p-6 shadow-sm border border-indian-saffron/20 max-w-full lg:max-w-[115%] mx-auto overflow-visible md:overflow-visible" style={{ width: '115%', marginLeft: '-7.5%', marginRight: '-7.5%' }}>
                 <h3 className="text-2xl font-heading font-semibold mb-6 text-center">Nutrition Programme Activities</h3>
 
                 {/* Desktop Carousel - Hidden on mobile */}

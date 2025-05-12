@@ -29,22 +29,22 @@ const ServicesPage = () => {
         </div>
       </div>
 
-      <div className="w-full bg-gradient-to-br from-indian-cream to-white py-8 -mt-4">
+      <div className="w-full bg-gradient-to-br from-indian-cream to-white py-4 -mt-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Services Navigation */}
-          <div className="flex justify-center">
+          <div className="flex justify-center mb-0">
             <div className="p-0.5 rounded-lg sm:rounded-full bg-gradient-to-r from-indian-saffron/40 to-indian-saffron/20 w-full sm:w-auto">
-              <nav className="flex flex-col sm:inline-flex sm:items-center sm:flex-row overflow-x-auto scrollbar-none w-full sm:max-w-fit mx-auto px-4 sm:px-6 py-3 bg-white/90 rounded-lg sm:rounded-full">
+              <nav className="flex flex-col sm:inline-flex sm:items-center sm:flex-row overflow-x-auto scrollbar-none w-full sm:max-w-fit mx-auto px-4 sm:px-6 py-2 bg-white/90 rounded-lg sm:rounded-full">
                 {servicesLinks.map((link, index) => (
                   <React.Fragment key={link.name}>
                     {index > 0 && index < servicesLinks.length && <span className="hidden sm:inline-block mx-2 text-gray-400 font-light">|</span>}
                     <Link
                       to={link.path}
-                      className={`tab-nav-link text-md px-1 py-2 sm:py-0 ${link.name.length > 15 ? 'long-item' : ''} ${
+                      className={`tab-nav-link text-md px-1 py-1 sm:py-0 ${link.name.length > 15 ? 'long-item' : ''} ${
                         location.pathname === link.path
                           ? 'active text-spiritual-500'
                           : 'text-gray-500'
-                      } ${index > 0 ? 'mt-2 sm:mt-0' : ''}`}
+                      } ${index > 0 ? 'mt-1 sm:mt-0' : ''}`}
                     >
                       {link.name}
                     </Link>
@@ -103,7 +103,7 @@ const ServicesPage = () => {
               </div>
             </div>
           ) : (
-            <div className="mt-8">
+            <div className="mt-4">
               <Outlet />
             </div>
           )}

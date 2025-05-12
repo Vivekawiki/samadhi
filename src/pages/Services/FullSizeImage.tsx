@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
-import PageLayout from '../../components/layout/PageLayout';
+import ImageViewLayout from '../../components/layout/ImageViewLayout';
 
 const FullSizeImage = () => {
   const { imageId } = useParams();
@@ -9,6 +9,11 @@ const FullSizeImage = () => {
 
   // Map of image IDs to their paths and titles for nutrition programme
   const nutritionImages = [
+    {
+      id: 'april2025',
+      path: '/images/nutrition/april2025.jpg',
+      title: 'April Distribution'
+    },
     {
       id: 'march2025',
       path: '/images/nutrition/march2025.jpg',
@@ -102,10 +107,10 @@ const FullSizeImage = () => {
 
   if (!currentImage) {
     return (
-      <PageLayout className="pt-32">
+      <ImageViewLayout className="pt-20">
         <div className="min-h-screen w-full bg-gradient-to-br from-indian-cream to-white">
           <div className="w-full">
-            <div className="container mx-auto px-4 py-16 text-center">
+            <div className="container mx-auto px-4 py-4 text-center">
               <h1 className="text-2xl font-heading font-semibold mb-4">Image Not Found</h1>
               <p className="mb-8">The requested image could not be found.</p>
               <button
@@ -117,16 +122,16 @@ const FullSizeImage = () => {
             </div>
           </div>
         </div>
-      </PageLayout>
+      </ImageViewLayout>
     );
   }
 
   return (
-    <PageLayout className="pt-32">
+    <ImageViewLayout className="pt-20">
       <div className="min-h-screen w-full bg-gradient-to-br from-indian-cream to-white">
         <div className="w-full">
-          <div className="container mx-auto px-4 py-8">
-            <div className="flex justify-between items-center mb-6">
+          <div className="container mx-auto px-4 py-4">
+            <div className="flex justify-between items-center mb-2">
               <h1 className="text-2xl font-heading font-semibold">{currentImage.title}</h1>
               <button
                 onClick={handleClose}
@@ -188,7 +193,7 @@ const FullSizeImage = () => {
           </div>
         </div>
       </div>
-    </PageLayout>
+    </ImageViewLayout>
   );
 };
 

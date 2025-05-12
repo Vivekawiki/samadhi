@@ -9,6 +9,15 @@ import './carousel.css';
 // Nutrition programme activities data with real images
 const activities = [
   {
+    id: 'april2025',
+    title: 'April Nutrition Programme',
+    date: 'April 12, 2025',
+    location: 'Lenasia',
+    description: 'Monthly food distribution serving 250 families in need.',
+    image: '/images/nutrition/april2025.jpg',
+    link: '/services/nutrition-programme/image/april2025',
+  },
+  {
     id: 'march2025',
     title: 'March Nutrition Programme',
     date: 'March 29, 2025',
