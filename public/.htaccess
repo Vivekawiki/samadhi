@@ -1,13 +1,13 @@
 # Enable rewriting
 RewriteEngine On
 
-# If the request is for a real directory or file, serve it directly
+# Special rule for seminar registration page
+RewriteRule ^services/seminar-registration/?$ /services/seminar-registration/index.html [L]
+
+# If the request is for a real file or directory, serve it directly
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
-
-# If the request is for the seminar registration page, serve the index.html from that directory
-RewriteRule ^services/seminar-registration/?$ /services/seminar-registration/index.html [L]
 
 # For all other routes that don't exist as files or directories, serve the main index.html
 RewriteRule ^ /index.html [L]
