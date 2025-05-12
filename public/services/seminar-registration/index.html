@@ -15,6 +15,89 @@
       flex-direction: column;
       align-items: center;
     }
+
+    /* Header styles */
+    .site-header {
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(230, 126, 34, 0.3);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .site-logo {
+      height: 50px;
+      transition: transform 0.3s;
+    }
+
+    .site-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-link {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: #e67e22;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #e67e22;
+      transition: width 0.3s;
+    }
+
+    .nav-link:hover::after {
+      width: 80%;
+    }
+
+    /* Add padding to body to account for fixed header */
+    body {
+      padding-top: 70px;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none; /* Hide navigation links on mobile */
+      }
+
+      .header-container {
+        justify-content: center; /* Center the logo on mobile */
+      }
+
+      .site-logo {
+        height: 40px; /* Slightly smaller logo on mobile */
+      }
+    }
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -142,6 +225,24 @@
   </script>
 </head>
 <body>
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="/">
+        <img src="/lovable-uploads/2e549f27-8429-4042-95be-36194a9d309c.png" alt="Ramakrishna Centre Logo" class="site-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about" class="nav-link">About</a>
+        <a href="/services" class="nav-link">Services</a>
+        <a href="/new-ashram-project" class="nav-link">New Ashram Project</a>
+        <a href="/learn" class="nav-link">Learn</a>
+        <a href="/donate" class="nav-link">Donate</a>
+        <a href="/contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
   <div class="container">
     <a href="/services/special-functions" class="back-link">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
