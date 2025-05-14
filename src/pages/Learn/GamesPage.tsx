@@ -4,6 +4,7 @@ import SectionHeader from '../../components/shared/SectionHeader';
 import Button from '../../components/shared/Button';
 import { Card, CardContent } from '../../components/ui/card';
 import { Gamepad2, Brain, Puzzle, Trophy, Image, Quote, AlignJustify } from 'lucide-react';
+import ScrambleText from '../../components/animations/ScrambleText';
 
 const GamesPage = () => {
   return (
@@ -31,7 +32,7 @@ const GamesPage = () => {
                   <div className="flex items-center justify-center w-12 h-12 bg-spiritual-100 rounded-full mb-4">
                     <Trophy className="w-6 h-6 text-spiritual-500" />
                   </div>
-                  <h3 className="text-xl font-heading font-semibold mb-3">Sanskrit Word Scramble</h3>
+                  <h3 className="text-xl font-heading font-semibold mb-3">Sanskrit Word <ScrambleText text="SCRAMBLE" className="text-indian-saffron font-bold" /></h3>
                   <p className="text-gray-600 mb-4">
                     Unscramble Sanskrit words and learn their meanings in this vocabulary-building game.
                     A fun way to become familiar with important terms in Hindu philosophy.

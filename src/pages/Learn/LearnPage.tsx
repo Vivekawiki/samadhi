@@ -14,10 +14,15 @@ import SyncedAudioPlayer from '../../components/audio/SyncedAudioPlayer';
 import { omMantraSyllables, gayatriMantraSyllables, mahamrityunjayaMantraSyllables } from '../../data/mantraTimings';
 
 const LearnPage = () => {
-  // Add a development flag
-  const isDevelopment = false; // Set to true when working on the page
+  // Check if we're in a local development environment
+  const isLocalDevelopment = () => {
+    // Check if running on localhost or 127.0.0.1
+    const hostname = window.location.hostname;
+    return hostname === 'localhost' || hostname === '127.0.0.1' || hostname.includes('.local');
+  };
 
-  if (!isDevelopment) {
+  // Only redirect to games in production, not in local development
+  if (!isLocalDevelopment()) {
     return <Navigate to="/learn/games" replace />;
   }
 
