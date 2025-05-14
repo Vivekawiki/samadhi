@@ -33,7 +33,7 @@ const GamesPage = () => {
                     <Trophy className="w-6 h-6 text-spiritual-500" />
                   </div>
                   <h3 className="text-xl font-heading font-semibold mb-3">Sanskrit Word <ScrambleText text="SCRAMBLE" className="text-indian-saffron font-bold" /></h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-600 mb-4 text-justify">
                     Unscramble Sanskrit words and learn their meanings in this vocabulary-building game.
                     A fun way to become familiar with important terms in Hindu philosophy.
                   </p>
@@ -50,7 +50,7 @@ const GamesPage = () => {
                     <Image className="w-6 h-6 text-spiritual-500" />
                   </div>
                   <h3 className="text-xl font-heading font-semibold mb-3">Guess the Picture</h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-600 mb-4 text-justify">
                     Test your visual recognition skills as images are slowly revealed. Identify spiritual figures and symbols as quickly as you can.
                   </p>
                   <Button href="/learn/games/guess-picture" variant="outline" size="sm">
@@ -65,7 +65,7 @@ const GamesPage = () => {
                     <AlignJustify className="w-6 h-6 text-spiritual-500" />
                   </div>
                   <h3 className="text-xl font-heading font-semibold mb-3">Word Master</h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-600 mb-4 text-justify">
                     A Wordle-like game where players guess English words spoken by Sri Ramakrishna - from the original Bengali - Sri Sri Ramakrishna Kathamrita.
                   </p>
                   <Button href="/learn/games/wordle" variant="outline" size="sm">
@@ -80,8 +80,8 @@ const GamesPage = () => {
                     <Quote className="w-6 h-6 text-spiritual-500" />
                   </div>
                   <h3 className="text-xl font-heading font-semibold mb-3">Wisdom Quotes</h3>
-                  <p className="text-gray-600 mb-4">
-                    Rearrange scrambled words to form wisdom sayings from Sri Ramakrishna, Sri Sarada Devi, and Swami Vivekananda. Test your skills at different difficulty levels.
+                  <p className="text-gray-600 mb-4 text-justify">
+                    Rearrange scrambled sentences to form real quotations from Sri Ramakrishna, Sri Sarada Devi, and Swami Vivekananda. Test your skills at different difficulty levels.
                   </p>
                   <Button href="/learn/games/quotes" variant="outline" size="sm">
                     Play Game
