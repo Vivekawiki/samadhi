@@ -32,7 +32,7 @@ const SeminarToast = () => {
             <Calendar className="h-5 w-5 sm:h-6 sm:w-6 text-indian-saffron" />
           </div>
           <div>
-            <h3 className="font-semibold text-spiritual-700 text-sm sm:text-base pr-4">Upcoming Seminar (18th May)</h3>
+            <h3 className="font-semibold text-spiritual-700 text-sm sm:text-base pr-4">Attend our Upcoming Seminar (18th May)</h3>
             <p className="text-xs sm:text-sm text-gray-600 mt-1 line-clamp-2 sm:line-clamp-none">
               Sri Ramakrishna's Organisational Wisdom and the Early History of the Ramakrishna Movement in South Africa (1897-1965)
             </p>
