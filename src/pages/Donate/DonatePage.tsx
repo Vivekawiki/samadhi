@@ -129,9 +129,33 @@ const DonatePage = () => {
               <div className="p-4 bg-gradient-to-br from-spiritual-50 to-white border-l-4 border-spiritual-500 rounded pop-shadow-card">
                 <p className="italic">"It is a privilege to serve mankind, for this is the worship of God. God is here, in all these human souls. He is the soul of man." <span className="whitespace-nowrap">- Swami Vivekananda</span></p>
               </div>
+
+              <div className="p-5 border border-indian-saffron/30 rounded-lg shadow-sm bg-gradient-to-r from-indian-cream to-white pop-shadow-card">
+                <h4 className="text-xl font-heading font-semibold mb-3">Bank Transfer</h4>
+                <p className="mb-3 text-sm">
+                  You can make a direct deposit or EFT to our building fund account:
+                </p>
+                <div className="bg-gradient-to-br from-indian-cream to-white p-4 rounded-lg text-sm border border-indian-saffron/20">
+                  <div className="grid grid-cols-2 gap-2">
+                    <p><strong>Acc Name:</strong> The Ramakrishna Centre of SA, JHB</p>
+                    <p><strong>Acc Type:</strong> Business Account</p>
+                    <p><strong>Bank:</strong> First National Bank</p>
+                    <p><strong>Branch Code:</strong> 200607</p>
+                    <p><strong>Branch:</strong> 4 Merchant Place 390</p>
+                    <p><strong>Acc Number:</strong> 62858238035</p>
+                    <p><strong>Swift Code:</strong> FIRNZAJJ</p>
+                    <p><strong>Reference:</strong> Your name</p>
+                  </div>
+                </div>
+                <div className="mt-3 text-sm bg-gradient-to-br from-indian-cream to-white p-3 rounded-lg border border-indian-saffron/20">
+                  <p><strong>Note:</strong> Please email proof of deposit to: <span className="font-medium">johannesburg@ramakrishna-phoenix.org.za</span></p>
+                </div>
+              </div>
+
             </div>
 
-            <Card className="p-6 shadow-lg bg-transparent border border-indian-saffron pop-shadow-card">
+            <div className="space-y-6">
+              <Card className="p-6 shadow-lg bg-transparent border border-indian-saffron pop-shadow-card">
               <h2 className="text-2xl font-heading font-semibold mb-4 flex items-center">
                 <Heart className="mr-2 text-red-500" />
                 Make a Donation
@@ -282,6 +306,17 @@ const DonatePage = () => {
                 The Ramakrishna Centre is a registered Non-Profit Organization.
               </p>
             </Card>
+
+            <div className="p-5 border border-indian-saffron/30 rounded-lg shadow-sm bg-gradient-to-r from-indian-cream to-white pop-shadow-card mt-6">
+              <h4 className="text-xl font-heading font-semibold mb-3">Tax Benefits</h4>
+              <p className="mb-3">
+                The Ramakrishna Centre of South Africa is a registered non-profit organization. Certain local donations to the Centre may qualify for Section 18A taxation benefits from SARS.
+              </p>
+              <p className="text-sm">
+                Please consult a tax advisor to understand your tax implications.
+              </p>
+            </div>
+            </div>
           </div>
         </div>
       </div>

@@ -65,7 +65,7 @@ const FundraisingPage = () => {
                     15.7% of overall goal reached. Thank you to all our donors!
                   </p>
                   <p className="text-xs text-gray-500 text-center mt-2">
-                    *Note: These are approximate values and may vary slightly. The R25M sub-goal represents the amount needed to complete Phase 1 of the project. We have currently raised 37.6% of the funds needed for Phase 1.
+                    *Note: These are approximate values and may vary slightly. The R25M sub-goal represents the amount needed to complete Phase 1 of the project. We have currently raised 37.6% of the funds needed for Phase 1. The funding goals are preliminary estimates. More accurate estimates will be provided once the QS costing proposals are finalized.
                   </p>
                   <div className="mt-3 p-3 bg-spiritual-50 rounded-md border border-indian-saffron/20">
                     <p className="font-medium text-indian-saffron mb-2 text-center">Phase 1 includes:</p>
