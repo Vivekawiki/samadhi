@@ -116,7 +116,7 @@ export const lessonsData: LessonGroup[] = [
         id: 'karma-principle',
         title: 'The Principle of Karma',
         description: 'Understand the law of cause and effect in Hindu philosophy',
-        videoUrl: 'https://www.youtube.com/embed/Upc42sImAJM',
+        videoUrl: 'https://www.youtube.com/embed/yJMqULiDtOM?si=2AgJOdBvcEIUMI5b',
         content: `
           <h2>The Law of Karma</h2>
           <p>Karma, literally meaning "action," is a fundamental concept in Hindu philosophy that describes the principle of cause and effect. According to this law, every action (karma) generates a force of energy that returns to us in kind—good or bad, immediately or at some point in the future.</p>

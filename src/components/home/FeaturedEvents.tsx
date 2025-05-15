@@ -6,6 +6,15 @@ import Button from '../shared/Button';
 // Sample events data
 const events = [
   {
+    title: 'Seminar',
+    date: 'Sunday, 18th May',
+    time: '10 AM - 12 PM',
+    location: 'South African Military Museum',
+    description: 'Seminar on Sri Ramakrishna\'s Organisational Wisdom and the Early History of the Ramakrishna Movement in South Africa (1897-1965).',
+    image: 'https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: '/services/seminar-registration',
+  },
+  {
     title: 'Sunday Satsang',
     date: 'Every Sunday',
     time: '9:00 AM - 10:30 AM',
@@ -22,15 +31,6 @@ const events = [
     description: 'Weekly classes teaching Hinduism, Vedanta philosophy, and moral values to children through engaging activities and lessons.',
     image: 'https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: '/services/hinduism-for-children',
-  },
-  {
-    title: 'Upcoming Seminar',
-    date: 'Sunday, 18th May',
-    time: '10 AM - 12 PM',
-    location: 'Benvenuto Conference Centre',
-    description: 'Seminar on Sri Ramakrishna\'s Organisational Wisdom and the Early History of the Ramakrishna Movement in South Africa (1897-1965).',
-    image: 'https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: '/services/special-functions',
   },
 ];
 
@@ -60,7 +60,7 @@ const FeaturedEvents = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button href="/services" variant="outline" className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10">
+          <Button href="/services/special-functions" variant="outline" className="border-indian-saffron text-indian-saffron hover:bg-indian-saffron/10">
             View All Events
           </Button>
         </div>

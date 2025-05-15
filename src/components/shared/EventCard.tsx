@@ -44,7 +44,7 @@ const EventCard = ({
           </div>
           {location && (
             <div className="inline-flex items-center justify-center text-gray-600 mb-2">
-              <MapPin className="h-5 w-5 mr-2 flex-shrink-0 text-indian-saffron" />
+              <MapPin className="h-5 w-5 mr-2 flex-shrink-0 text-indian-saffron" style={{ marginTop: '-2px' }} />
               <span className="text-gray-700">{location}</span>
             </div>
           )}

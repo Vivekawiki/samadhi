@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 
 // --- Constants (Static Data) ---
+// Difficulty levels
+const DIFFICULTY_LEVELS = [
+    { name: 'Easy', description: '3-4 letter words', minLength: 3, maxLength: 4 },
+    { name: 'Medium', description: '5-6 letter words', minLength: 5, maxLength: 6 },
+    { name: 'Difficult', description: '7+ letter words', minLength: 7, maxLength: 100 }
+];
 const WORD_LIST = [
     {
         word: 'acting',
@@ -387,15 +393,31 @@ function MastersWordsGame() {
     const [currentGuess, setCurrentGuess] = useState('');
     const [attempt, setAttempt] = useState(0);
     const [gameOver, setGameOver] = useState(false);
+    const [gameActive, setGameActive] = useState(false);
     const [message, setMessage] = useState('');
     const [showReference, setShowReference] = useState(false);
+    const [difficulty, setDifficulty] = useState(DIFFICULTY_LEVELS[0]); // Default to Easy
     // Pre-calculate styles for performance? Memoize if grid rendering becomes slow.
     // const [letterStylesGrid, setLetterStylesGrid] = useState(() => Array(MAX_ATTEMPTS).fill([]));
 
+    // Filter words based on difficulty
+    const filteredWordList = useMemo(() => {
+        return WORD_LIST.filter(wordObj => {
+            const wordLength = wordObj.word.length;
+            return wordLength >= difficulty.minLength && wordLength <= difficulty.maxLength;
+        });
+    }, [difficulty]);
+
     // --- Initialize Game ---
     const initializeGame = useCallback(() => {
-        const randomIndex = Math.floor(Math.random() * WORD_LIST.length);
-        const selectedWordObj = WORD_LIST[randomIndex];
+        // Check if there are words available for the selected difficulty
+        if (filteredWordList.length === 0) {
+            setMessage(`No words available for ${difficulty.name} difficulty. Try another level.`);
+            return;
+        }
+
+        const randomIndex = Math.floor(Math.random() * filteredWordList.length);
+        const selectedWordObj = filteredWordList[randomIndex];
         const newWord = selectedWordObj.word.toLowerCase();
         setTargetWord(newWord);
         setCurrentReference(selectedWordObj.reference);
@@ -404,16 +426,15 @@ function MastersWordsGame() {
         setCurrentGuess('');
         setAttempt(0);
         setGameOver(false);
+        setGameActive(true);
         setMessage('');
         setShowReference(false);
         // setLetterStylesGrid(Array(MAX_ATTEMPTS).fill([])); // Reset styles
         console.log('Game initialized/reset - New Target Word:', newWord);
-    }, []); // Empty dependency array means this function itself doesn't change
+    }, [filteredWordList, difficulty]); // Dependencies include filteredWordList and difficulty
 
-    // Run initializeGame once on component mount
-    useEffect(() => {
-        initializeGame();
-    }, [initializeGame]); // Depend on initializeGame
+    // We'll no longer auto-initialize the game on mount
+    // Instead, we'll wait for the user to select a difficulty and click "Start Game"
 
 
     // --- Computed Styles (Memoized) ---
@@ -462,10 +483,12 @@ function MastersWordsGame() {
         // Check for win/loss
         if (guess === targetWord) {
             setGameOver(true);
+            setGameActive(false);
             setMessage("Congratulations! You've found the Master's word!");
             setShowReference(true); // Show reference on win
         } else if (newAttempt === MAX_ATTEMPTS) {
             setGameOver(true);
+            setGameActive(false);
             setMessage(`Game Over! The word was "${targetWord.toUpperCase()}".`);
             setShowReference(true); // Show reference on loss
         } else {
@@ -474,7 +497,7 @@ function MastersWordsGame() {
 
         setCurrentGuess(''); // Clear input field
 
-    }, [currentGuess, wordLength, gameOver, attempt, guesses, targetWord, currentReference]); // Dependencies for useCallback
+    }, [currentGuess, wordLength, gameOver, gameActive, attempt, guesses, targetWord, currentReference]); // Dependencies for useCallback
 
     const handleKeyDown = (event: React.KeyboardEvent) => {
         if (event.key === 'Enter') {
@@ -485,21 +508,56 @@ function MastersWordsGame() {
     // --- Render ---
     return (
         <div className="min-h-screen bg-gradient-to-r from-indian-cream to-white flex flex-col items-center p-4 sm:p-8 pt-6 sm:pt-8 text-center relative z-10">
-            <div className="text-center mb-2">
-                <h1 className="text-3xl sm:text-4xl font-heading font-bold text-spiritual-600 mb-1">Word Master</h1>
-                {wordLength > 0 && <p className="text-sm text-gray-600 mb-2">Guess the {wordLength}-letter English word that Sri Ramakrishna used</p>}
+            <div className="text-center mb-4">
+                <h1 className="text-3xl sm:text-4xl font-heading font-bold text-spiritual-600 mb-2">Word Master</h1>
+                <p className="text-sm text-gray-600 mb-2">
+                    {wordLength > 0
+                        ? `Guess the ${wordLength}-letter English word that Sri Ramakrishna used`
+                        : 'A Wordle-like game where you guess English words spoken by Sri Ramakrishna'}
+                </p>
+            </div>
 
-                {wordLength > 0 && (
-                    <div className="flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-3 gap-y-1 text-xs text-gray-600 bg-gradient-to-r from-spiritual-50/30 to-white p-1.5 rounded-md shadow-sm max-w-md mx-auto">
+            {/* Difficulty Selection Tabs - Only shown before game starts */}
+            {!gameActive && !gameOver && (
+                <div className="mb-4 max-w-md">
+                    <div className="flex justify-center mb-2">
+                        {DIFFICULTY_LEVELS.map((level) => (
+                            <button
+                                key={level.name}
+                                onClick={() => setDifficulty(level)}
+                                className={`px-4 py-2 text-sm font-medium transition-colors duration-200 border-b-2
+                                    ${difficulty.name === level.name
+                                        ? 'border-spiritual-600 text-spiritual-700 bg-spiritual-50'
+                                        : 'border-transparent text-gray-500 hover:text-spiritual-600 hover:border-spiritual-300'}`}
+                            >
+                                {level.name}
+                            </button>
+                        ))}
+                    </div>
+
+                    <div className="text-xs text-gray-600 mb-3 flex justify-center items-center gap-2">
+                        <span>{difficulty.description}</span>
+                        <span className="bg-spiritual-50 px-2 py-0.5 rounded-full">
+                            {difficulty.name === 'Easy' ? '18' : difficulty.name === 'Medium' ? '29' : '34'} words
+                        </span>
+                        <button
+                            onClick={initializeGame}
+                            className="ml-2 bg-indian-saffron text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-indian-saffron/80 transition-colors duration-200 shadow-sm"
+                        >
+                            Start Game
+                        </button>
+                    </div>
+                </div>
+            )}
+
+            {wordLength > 0 ? (
+                <>
+                    {/* Game instructions */}
+                    <div className="flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-3 gap-y-1 text-xs text-gray-600 bg-gradient-to-r from-spiritual-50/30 to-white p-1.5 rounded-md shadow-sm max-w-md mx-auto mb-4">
                         <span className="inline-flex items-center"><span className="inline-block w-3 h-3 bg-green-500 mr-1 border border-green-600 rounded"></span> = Right spot</span>
                         <span className="inline-flex items-center"><span className="inline-block w-3 h-3 bg-yellow-500 mr-1 border border-yellow-600 rounded"></span> = Wrong spot</span>
                         <span className="inline-flex items-center"><span className="inline-block w-3 h-3 bg-gray-300 mr-1 border border-gray-400 rounded"></span> = Not in word</span>
                     </div>
-                )}
-            </div>
-
-            {wordLength > 0 && ( // Only render instructions etc. once word is loaded
-                <>
 
                     {/* Guess Grid */}
                     <div className="mb-4 sm:mb-6">
@@ -561,35 +619,62 @@ function MastersWordsGame() {
                     )}
 
                     {/* Control Buttons */}
-                    <div className="space-x-3 mt-2">
+                    <div className="mt-4">
                         {gameOver && !showReference && (
                             <button
                                 onClick={() => setShowReference(true)}
-                                className="bg-spiritual-500 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-spiritual-600 transition-colors duration-300 shadow-md"
+                                className="bg-spiritual-500 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-spiritual-600 transition-colors duration-300 shadow-md mb-4"
                             >
                                 Show Reference
                             </button>
                         )}
-                         {gameOver && (
-                            <button
-                                onClick={initializeGame} // Use initializeGame for reset
-                                className="bg-indian-saffron text-white px-5 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-indian-saffron/80 transition-colors duration-300 shadow-md"
+
+                        {gameOver && (
+                            <div className="mb-6 max-w-md">
+                                <div className="flex justify-center mb-2">
+                                    {DIFFICULTY_LEVELS.map((level) => (
+                                        <button
+                                            key={level.name}
+                                            onClick={() => setDifficulty(level)}
+                                            className={`px-4 py-2 text-sm font-medium transition-colors duration-200 border-b-2
+                                                ${difficulty.name === level.name
+                                                    ? 'border-spiritual-600 text-spiritual-700 bg-spiritual-50'
+                                                    : 'border-transparent text-gray-500 hover:text-spiritual-600 hover:border-spiritual-300'}`}
+                                        >
+                                            {level.name}
+                                        </button>
+                                    ))}
+                                </div>
+
+                                <div className="text-xs text-gray-600 mb-3 flex justify-center items-center gap-2">
+                                    <span>{difficulty.description}</span>
+                                    <span className="bg-spiritual-50 px-2 py-0.5 rounded-full">
+                                        {difficulty.name === 'Easy' ? '18' : difficulty.name === 'Medium' ? '29' : '34'} words
+                                    </span>
+                                    <button
+                                        onClick={initializeGame}
+                                        className="ml-2 bg-indian-saffron text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-indian-saffron/80 transition-colors duration-200 shadow-sm"
+                                    >
+                                        New Game
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+
+                        <div className="mt-2">
+                            <a
+                                href="/learn/games" // Correct path to games page
+                                className="bg-gray-600 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-300 shadow-md"
                             >
-                                Play Again
-                            </button>
-                         )}
-                        {/* Replace NuxtLink with a standard anchor or React Router Link if applicable */}
-                        <a
-                            href="/learn/games" // Correct path to games page
-                            className="bg-gray-600 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-300 shadow-md"
-                        >
-                            Back to Games
-                        </a>
+                                Back to Games
+                            </a>
+                        </div>
                     </div>
                 </>
-            )}
-            {wordLength === 0 && (
-                <p className="text-lg text-gray-600">Loading game...</p> // Loading indicator
+            ) : (
+                <div className="text-center p-6 bg-white rounded-lg shadow-sm">
+                    <p className="text-gray-600">Select a difficulty level and click "Start Game" to begin</p>
+                </div>
             )}
         </div>
     );
