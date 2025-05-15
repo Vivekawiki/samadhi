@@ -1,4 +1,8 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, ReactNode } from 'react';
+
+interface WisdomWordsGameProps {
+  socialShareButtons?: ReactNode;
+}
 
 // --- Data (kept outside component for clarity) ---
 
@@ -119,7 +123,7 @@ const filterQuotesByDifficulty = (quotes, difficulty) => {
 
 // --- React Component ---
 
-function WisdomWordsGame() {
+function WisdomWordsGame({ socialShareButtons }: WisdomWordsGameProps) {
   // --- State ---
   const [difficulty, setDifficulty] = useState(difficultyLevels[0]);
   const [currentAuthor, setCurrentAuthor] = useState(Object.keys(quotesDB)[0]);
@@ -521,8 +525,15 @@ function WisdomWordsGame() {
       <div className="min-h-screen bg-gradient-to-r from-indian-cream to-white flex flex-col items-center p-4 sm:p-8 pt-6 sm:pt-10 text-center relative z-10">
         <div className="container mx-auto px-4 py-4">
           <div className="max-w-4xl mx-auto p-6 rounded-lg shadow-lg border border-indian-saffron/30 relative bg-gradient-to-br from-spiritual-50/30 to-white">
-            <h1 className="text-2xl sm:text-3xl font-heading font-bold text-center mb-2 sm:mb-4 text-spiritual-600">Wisdom Quotes</h1>
-            <p className="text-base sm:text-lg text-center mb-4 sm:mb-6 text-gray-700">Rearrange the words to form wisdom sayings from great spiritual teachers.</p>
+            <div className="w-full mb-2 sm:mb-4 px-2">
+              <h1 className="text-2xl sm:text-3xl font-heading font-bold text-spiritual-600 mb-1 text-center">Wisdom Quotes</h1>
+              <p className="text-xs sm:text-base text-gray-700 text-center mb-3 max-w-xl md:max-w-2xl mx-auto">Rearrange the words to form wisdom sayings from great spiritual teachers.</p>
+              {socialShareButtons && (
+                <div className="flex justify-center mt-3 mb-1">
+                  {socialShareButtons}
+                </div>
+              )}
+            </div>
 
             {/* Game controls */}
             <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">

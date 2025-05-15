@@ -1,4 +1,8 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, ReactNode } from 'react';
+
+interface MastersWordsGameProps {
+    socialShareButtons?: ReactNode;
+}
 
 // --- Constants (Static Data) ---
 // Difficulty levels
@@ -384,7 +388,7 @@ const getLetterStyle = (guess: string, targetWord: string, attemptMade: boolean)
 
 
 // --- React Component ---
-function MastersWordsGame() {
+function MastersWordsGame({ socialShareButtons }: MastersWordsGameProps) {
     // --- State ---
     const [targetWord, setTargetWord] = useState('');
     const [currentReference, setCurrentReference] = useState('');
@@ -508,13 +512,18 @@ function MastersWordsGame() {
     // --- Render ---
     return (
         <div className="min-h-screen bg-gradient-to-r from-indian-cream to-white flex flex-col items-center p-4 sm:p-8 pt-6 sm:pt-8 text-center relative z-10">
-            <div className="text-center mb-4">
-                <h1 className="text-3xl sm:text-4xl font-heading font-bold text-spiritual-600 mb-2">Word Master</h1>
-                <p className="text-sm text-gray-600 mb-2">
+            <div className="w-full max-w-4xl mx-auto mb-4 px-2">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-spiritual-600 mb-2 text-center">Word Master</h1>
+                <p className="text-xs sm:text-sm text-gray-600 mb-3 text-center max-w-xl md:max-w-2xl mx-auto">
                     {wordLength > 0
                         ? `Guess the ${wordLength}-letter English word that Sri Ramakrishna used`
                         : 'A Wordle-like game where you guess English words spoken by Sri Ramakrishna'}
                 </p>
+                {socialShareButtons && (
+                    <div className="flex justify-center mt-3 mb-1">
+                        {socialShareButtons}
+                    </div>
+                )}
             </div>
 
             {/* Difficulty Selection Tabs - Only shown before game starts */}

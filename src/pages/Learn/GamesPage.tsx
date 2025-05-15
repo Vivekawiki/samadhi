@@ -8,9 +8,9 @@ import ScrambleText from '../../components/animations/ScrambleText';
 
 const GamesPage = () => {
   return (
-    <PageLayout>
+    <PageLayout className="no-top-padding">
       <div className="w-full bg-gradient-to-br from-indian-cream to-white">
-        <div className="container mx-auto px-4 py-12">
+        <div className="container mx-auto px-4 py-8">
           <div className="max-w-4xl mx-auto">
             <div className="bg-gradient-to-br from-indian-cream to-white border border-indian-saffron p-6 rounded-lg mb-6 pop-shadow-card">
               <h2 className="text-2xl font-heading font-semibold mb-4">Learning Through Play</h2>

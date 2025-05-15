@@ -1,5 +1,9 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+
+interface GuessThePictureGameProps {
+  socialShareButtons?: ReactNode;
+}
 
 // Define all name options for guessing
 const nameOptions = [
@@ -23,7 +27,7 @@ const imageFiles = [
   { filename: 'Swami Vijnanananda', src: '/pics/Swami Vijnanananda.png', correctId: 14 }
 ];
 
-function GuessThePictureGame() {
+function GuessThePictureGame({ socialShareButtons }: GuessThePictureGameProps) {
   // State hooks for the game
   const [nameOptionsList] = useState(nameOptions); // All possible name options for guessing
   const [currentImage, setCurrentImage] = useState(imageFiles[0]); // Default to first image, will be randomized in startGame
@@ -187,13 +191,20 @@ function GuessThePictureGame() {
   // Render the component
   return (
     <div className="min-h-screen bg-gradient-to-br from-indian-cream to-white py-8 sm:py-12 flex flex-col items-center p-4 sm:p-8 text-center relative z-10">
-      <h1 className="text-3xl md:text-4xl font-heading font-bold text-indian-saffron mb-6">
-        Guess the Picture
-      </h1>
-      <p className="text-base md:text-lg text-gray-600 max-w-xl md:max-w-2xl mb-4">
-        Identify the spiritual image as it reveals itself every second. How
-        quickly can you guess?
-      </p>
+      <div className="w-full max-w-4xl mx-auto mb-4 px-2">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-indian-saffron mb-2 text-center">
+          Guess the Picture
+        </h1>
+        <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-xl md:max-w-2xl mx-auto text-center mb-3">
+          Identify the spiritual image as it reveals itself every second. How
+          quickly can you guess?
+        </p>
+        {socialShareButtons && (
+          <div className="flex justify-center mt-3 mb-1">
+            {socialShareButtons}
+          </div>
+        )}
+      </div>
 
       {currentImage && (
         <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 mb-6 md:mb-8 border border-indian-saffron rounded-lg overflow-hidden pop-shadow-card mx-auto">

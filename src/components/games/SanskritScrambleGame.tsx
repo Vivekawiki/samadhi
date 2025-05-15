@@ -1,4 +1,8 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, ReactNode } from 'react';
+
+interface SanskritScrambleGameProps {
+  socialShareButtons?: ReactNode;
+}
 
 // --- Word Data ---
 // Add more words as needed!
@@ -46,7 +50,7 @@ const shuffleString = (str) => {
 };
 
 // --- React Component ---
-function SanskritScrambleGame() {
+function SanskritScrambleGame({ socialShareButtons }: SanskritScrambleGameProps) {
   // --- State ---
   const [availableWords, setAvailableWords] = useState([]);
   const [currentWordData, setCurrentWordData] = useState(null); // { sanskrit: '...', meaning: '...' }
@@ -225,10 +229,17 @@ function SanskritScrambleGame() {
     <div className="min-h-screen bg-gradient-to-r from-indian-cream to-white flex flex-col items-center p-4 sm:p-8 pt-6 sm:pt-10 text-center relative z-10">
       <div className="container mx-auto px-4 py-4">
         <div className="max-w-4xl mx-auto p-6 rounded-lg shadow-lg border border-indian-saffron/30 relative bg-gradient-to-br from-spiritual-50/30 to-white">
-          <h1 className="text-2xl sm:text-3xl font-heading font-bold text-center mb-2 sm:mb-4 text-spiritual-600">Sanskrit Word Scramble</h1>
-          <p className="text-base sm:text-lg text-center mb-4 sm:mb-6 text-gray-700">
-            Unscramble Sanskrit words and learn their meanings.
-          </p>
+          <div className="w-full mb-2 sm:mb-4 px-2">
+            <h1 className="text-2xl sm:text-3xl font-heading font-bold text-spiritual-600 mb-1 text-center">Sanskrit Word Scramble</h1>
+            <p className="text-xs sm:text-base text-gray-700 text-center mb-3 max-w-xl md:max-w-2xl mx-auto">
+              Unscramble Sanskrit words and learn their meanings.
+            </p>
+            {socialShareButtons && (
+              <div className="flex justify-center mt-3 mb-1">
+                {socialShareButtons}
+              </div>
+            )}
+          </div>
 
           {gameOver ? (
             // --- Game Over Screen ---

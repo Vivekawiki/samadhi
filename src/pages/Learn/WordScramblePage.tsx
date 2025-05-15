@@ -2,12 +2,21 @@ import React from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import SanskritScrambleGame from '../../components/games/SanskritScrambleGame';
 import SeminarToast from '../../components/shared/SeminarToast';
+import SocialShareButtons from '../../components/shared/SocialShareButtons';
 
 const WordScramblePage = () => {
   return (
-    <PageLayout>
+    <PageLayout className="no-top-padding">
       <SeminarToast />
-      <SanskritScrambleGame />
+      <SanskritScrambleGame
+        socialShareButtons={
+          <SocialShareButtons
+            title="Play the Sanskrit Word Scramble Game - Ramakrishna Centre, Johannesburg"
+            description="Unscramble Sanskrit words and learn their meanings in this vocabulary-building game. A fun way to become familiar with important terms in Hindu philosophy."
+            path="/learn/games/word-scramble"
+          />
+        }
+      />
     </PageLayout>
   );
 };
