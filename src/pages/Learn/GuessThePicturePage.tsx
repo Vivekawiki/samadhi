@@ -1,13 +1,11 @@
 import React from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import GuessThePictureGame from '../../components/games/GuessThePictureGame';
-import SeminarToast from '../../components/shared/SeminarToast';
 import SocialShareButtons from '../../components/shared/SocialShareButtons';
 
 const GuessThePicturePage = () => {
   return (
     <PageLayout title="Guess the Picture Game" className="no-top-padding">
-      <SeminarToast />
       <GuessThePictureGame
         socialShareButtons={
           <SocialShareButtons

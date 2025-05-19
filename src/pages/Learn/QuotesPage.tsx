@@ -1,13 +1,11 @@
 import React from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import WisdomWordsGame from '../../components/games/WisdomWordsGame';
-import SeminarToast from '../../components/shared/SeminarToast';
 import SocialShareButtons from '../../components/shared/SocialShareButtons';
 
 const QuotesPage = () => {
   return (
     <PageLayout className="no-top-padding">
-      <SeminarToast />
       <WisdomWordsGame
         socialShareButtons={
           <SocialShareButtons
