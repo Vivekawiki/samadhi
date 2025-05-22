@@ -144,42 +144,7 @@ const GalleryImageView = () => {
           </div>
         </div>
 
-        {/* Image info footer */}
-        <div className="bg-gradient-to-r-indian-cream-to-white border-t border-indian-saffron/30 p-4 md:p-6 text-gray-600">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between">
-            <div className="mb-4 md:mb-0">
-              <h1 className="text-xl md:text-2xl font-heading font-bold">{currentImage.title}</h1>
-              {currentImage.description && (
-                <p className="mt-1">{currentImage.description}</p>
-              )}
-              {currentImage.date && (
-                <p className="text-sm mt-1">
-                  {new Date(currentImage.date).toLocaleDateString()}
-                </p>
-              )}
-            </div>
-            <div className="flex space-x-2">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleShare}
-                className="flex items-center"
-              >
-                <Share size={16} className="mr-1" />
-                Share
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleDownload}
-                className="flex items-center"
-              >
-                <Download size={16} className="mr-1" />
-                Download
-              </Button>
-            </div>
-          </div>
-        </div>
+
 
         {/* Footer */}
         <Footer />
