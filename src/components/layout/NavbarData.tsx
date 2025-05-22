@@ -37,6 +37,7 @@ export const navigation: NavItem[] = [
       { name: 'Games', href: '/learn/games' },
     ]
   },
+  { name: 'Gallery', href: '/gallery' },
   { name: 'Donate', href: '/donate' },
   { name: 'Contact', href: '/contact' },
 ];

@@ -58,6 +58,10 @@ import StudentDashboard from "./pages/Dashboard/StudentDashboard";
 import TeacherDashboard from "./pages/Dashboard/TeacherDashboard";
 import AdminDashboard from "./pages/Dashboard/AdminDashboard";
 
+// Import Gallery pages
+import GalleryPage from "./pages/Gallery/GalleryPage";
+import GalleryImageView from "./pages/Gallery/GalleryImageView";
+
 // Import Donation pages
 import DonatePage from "./pages/Donate/DonatePage";
 
@@ -137,6 +141,10 @@ const App = () => (
             {/* Donation Routes */}
             <Route path="/donate" element={<DonatePage />} />
             <Route path="/donate/thank-you" element={<ThankYouPage />} />
+
+            {/* Gallery Section */}
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/gallery/image/:imageId" element={<GalleryImageView />} />
 
             {/* Contact Page */}
             <Route path="/contact" element={<ContactPage />} />

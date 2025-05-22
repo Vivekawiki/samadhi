@@ -97,6 +97,10 @@ export default {
 					vermilion: '#E34234',
 				}
 			},
+			backgroundImage: {
+				'gradient-to-r-indian-cream-to-white': 'linear-gradient(to right, #FFF5E1, #FFFFFF)', // indian-cream to white
+				'gradient-to-b-indian-cream-to-white': 'linear-gradient(to bottom, #FFF5E1, #FFFFFF)', // indian-cream to white
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
